@@ -1,0 +1,48 @@
+﻿<div ng-controller="ItemSuggestionAccessoriesController" class="">
+    <div class="col-md-12"><h2 class="page-heading">Link Item with Suggestion Items & Accessories</h2></div>
+
+    <div class="panel">
+        <div class="col-md-12">
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="sec">
+                        <p><strong>Related</strong></p>
+                        <div class="input-sec">
+                            <div class="input-sec">
+                                <select class="form-control" ng-model="PassingYear">
+                                    <option ng-selected="0==0">Select Passing Year</option>
+                                    <option ng-repeat="year in years">{{year}}</option>
+                                </select>
+                                <small> Passing Year</small>
+                            </div>
+                          
+                            <small>Enter Category Name</small>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+
+            <div class="pull-right">
+                <a class="red-btn" ng-click="SaveCategory()">{{btntextCategory}}</a>
+                <a class="red-btn" ng-click="ClearCategoryFields()">Cancel</a>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="panel">
+        <div class="col-md-12">
+            <div id="CategoryGrid" kendo-grid="gridCategory" options="CategorygridOptions" k-rebind="CategoryGridRebind" k-on-change="onChangeCategoryGrid({ selected: selected },data,dataItem,angularDataItem)" k-selectable="true" class="link-hover k-grid k-widget">
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+</div>

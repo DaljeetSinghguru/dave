@@ -107,6 +107,16 @@
             </div>
             <div class="col-md-3">
                 <div class="sec">
+                    <p><strong>VAT (%)</strong><span style="color:red">*</span></p>
+                    <div class="input-sec">
+                        <input type="text" placeholder="VAT (%)" class="form-control" ng-model="Item.Vat">
+                        <!--<span ng-show="ItemVatval==true" style="color:red">Please Write Name.</span>-->
+                        <small>VAT (%)</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="sec">
                     <p><strong>Stock In Hand</strong><span style="color:red">*</span></p>
                     <div class="input-sec">
                         <input type="text" placeholder="Stock in Hand" class="form-control" ng-model="Item.Stockinhand">
@@ -161,6 +171,26 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-4">
+                <div class="sec">
+                    <p><strong>Search Keyword</strong></p>
+                    <div class="input-sec">
+                        <input class="form-control" type="text" ng-model="SubCategory.SearchKeyword" placeholder="Search Keyword" />
+
+                        <small>Search Keyword</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="sec">
+                    <p><strong>Meta Description</strong></p>
+                    <div class="input-sec">
+                        <input class="form-control" type="text" ng-model="SubCategory.MetaDescription" placeholder="Meta Description" />
+
+                        <small>Enter Meta Description</small>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-12">
                 <div class="sec">
                     <p><strong>Description</strong><span style="color:red">*</span></p>
@@ -171,6 +201,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
         <input type="button" value="{{btntextCategory}}" class="red-btn" ng-click="SaveItemDetail()" />
 

@@ -25,6 +25,7 @@
         dataAsFormData.append("Price", Price);
         dataAsFormData.append("Title", Title);
         dataAsFormData.append("Stockinhand", Stockinhand);
+        dataAsFormData.append("VAT", VAT);
         return $http({
             url: this.baseURl + 'Item/InsertItemData',
             method: "POST",
@@ -50,6 +51,7 @@
         dataAsFormData.append("Title", Title);
         dataAsFormData.append("Stockinhand", Stockinhand);
         dataAsFormData.append("ItemId", ItemId);
+        dataAsFormData.append("VAT", VAT);
         return $http({
             url: this.baseURl + 'Item/UpdateItemData',
             method: "POST",

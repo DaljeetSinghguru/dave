@@ -237,7 +237,7 @@
                         $scope.Item.Name,
                         $scope.Item.Category.Id,
                         $scope.Item.Brand.Id,
-                        $scope.Item.SubCategory.Id, $scope.Item.Description, $scope.Item.ItemStockCode, $scope.Item.Price, $scope.Item.Title, $scope.Item.Stockinhand
+                        $scope.Item.SubCategory.Id, $scope.Item.Description, $scope.Item.ItemStockCode, $scope.Item.Price, $scope.Item.Title, $scope.Item.Stockinhand, $scope.Item.Vat
                     ).success(function (data, status, headers, config) {
                         $scope.RefreshItemGrid();
                         $scope.SubCategory = {};
@@ -248,7 +248,7 @@
                         $scope.Item.Name,
                         $scope.Item.Category.Id,
                         $scope.Item.Brand.Id,
-                        $scope.Item.SubCategory.Id, $scope.Item.Description, $scope.Item.ItemStockCode, $scope.Item.Price, $scope.Item.Title, $scope.Item.Stockinhand, $scope.Item.ItemId
+                        $scope.Item.SubCategory.Id, $scope.Item.Description, $scope.Item.ItemStockCode, $scope.Item.Price, $scope.Item.Title, $scope.Item.Stockinhand, $scope.Item.ItemId, $scope.Item.Vat
                     ).success(function (data, status, headers, config) {
                         $scope.RefreshItemGrid();
                         $scope.SubCategory = {};
