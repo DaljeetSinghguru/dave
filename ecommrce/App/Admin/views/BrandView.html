@@ -1,0 +1,74 @@
+﻿<style type="text/css">
+    .input-group-btn {
+        font-size: 12px;
+    }
+
+    #lbl_custm_End {
+        margin-top: 1px;
+    }
+
+    .slider.round {
+        margin-top: 9px;
+    }
+
+    .slider {
+        min-height: 19px;
+    }
+
+    .TopAdvancedFilters {
+        padding-bottom: 10px !important;
+    }
+</style>
+
+<div ng-controller="BrandController" class="">
+    <div class="col-md-12"><h2 class="page-heading">Brand</h2></div>
+
+
+ 
+
+    <div id="dv_OfferLetter" class="ctm_Personal">
+        <!--ng-hide="false"-->
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="sec">
+                    <p><strong>file Name</strong></p>
+                    <div class="input-sec">
+                        <input type="text" placeholder="file Name" class="form-control" ng-model="Brand.Name">
+                        <small>file Name</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 ">
+                <div class="sec">
+                    <p><strong>Upload file Image</strong></p>
+                    <div class="input-sec">
+
+                        <div style="margin:10px; text-align:center; font-size:18px; ">{{FileNameUpload}}</div>
+                        <div class="upload-img">
+                            <label class="custom-file-upload cutmCls-Manager cutmCls-Counselor cutmCls-Admission">
+                                <input type='file' ng-model-instant onchange="angular.element(this).scope().imageUpload(event)" />
+                                Choose Image
+                            </label>
+
+                            <span ng-show="OLV_ShowFileNameUploadData==true" style="color:red">Please Upload Brand Image.</span>
+                        </div>
+                        <!-- <span ng-show="PlsUploadOfferLetter==true" style="color:red">Please Upload Offer Letter.</span>-->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <input type="button" value="Save" class="red-btn" ng-click="SavebrandDetail()" />
+
+    </div>
+
+    <div kendo-grid="grid"
+         id="KendoGrid"
+         class="link-hover"
+         k-options="GridOptions" k-rebind="screenResolution1" k-on-change="onChange({ selected: selected },data,dataItem,angularDataItem)" k-selectable="true"></div>
+
+
+</div>

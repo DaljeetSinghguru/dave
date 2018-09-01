@@ -1,0 +1,161 @@
+﻿.top-profile {
+    display: none;
+}
+@media only screen and (max-width:980px) {
+    .top-profile {
+        display: block;
+    }
+    .tag-line {
+        display: none;
+    }
+    .bottom-profile-pic {
+        display:none;
+    } .logo-slims {
+        display: none;
+    }
+    .log-out-btn {
+        margin-right: 50px;
+        margin-top: 13px;
+    }
+
+    .search-pad {
+        padding-right: 15px !important;
+    }
+    .page-header.navbar .top-menu {
+        border: 1px solid #ccc;
+        width: 20%;
+        float: right;
+        padding: 0;
+        margin: 0;
+        background: none;
+        position: inherit;
+        background: #fff;
+        height: 30px;
+        margin: 5px;
+    }
+    .show-res {
+        display: none;
+    }
+    .buttons-aper {
+        width: 100%;
+        position: relative;
+    }
+
+}    
+@media only screen and (max-width:990px) {
+     
+     
+      
+        .visa {
+            width: 95%;
+        }
+
+        .tag-line {
+            display: none;
+        }
+
+        .logo-slims {
+            display: none;
+        }
+
+        .log-out-btn {
+            margin-right: 50px;
+            margin-top: 13px;
+        }
+
+        .search-pad {
+            padding-right: 15px !important;
+        }
+
+    .page-header.navbar .top-menu .navbar-nav {
+        margin:0;
+    } .page-header.navbar .top-menu {
+        border: 1px solid #ccc;
+        width: 35px;
+        background: none;
+        position: relative;
+        height: 32px;
+        margin: 5px;
+        right:0;
+        margin-top: 53px;
+    }
+
+        .show-res {
+            display: none;
+        }
+
+        .page-header.navbar .top-menu .navbar-nav > li.dropdown-user .dropdown-toggle {
+            padding: 5px 0;
+        }
+
+        .page-header.navbar .top-menu .navbar-nav > li.dropdown .dropdown-menu {
+            margin-top: -10px;
+        }
+
+        .TopAdvancedFilters {
+            width: 100%;
+            position: absolute;
+        }
+
+        .my-table {
+            overflow-x: auto !important;
+        }
+
+        .inbox {
+            margin-bottom: 10px;
+        }
+
+        .step {
+            width: 1200px;
+        }
+
+        .line {
+            position: inherit;
+            float: none;
+            margin-left: 58%;
+            width: 100%;
+        }
+
+        .sec {
+            width: 100%;
+        }
+
+        .dv_EnqForm .pull-right {
+            float: none !important;
+        }
+
+        .input-sec {
+            min-height: inherit;
+        }
+
+        .modal-open .modal {
+            z-index: 99999999 !important;
+            position: absolute;
+        }
+
+        .modal-dialog {
+            z-index: 99999999 !important;
+        }
+
+        .buttons-aper {
+            width: 100%;
+            position: relative;
+        }
+    }
+
+    @media only screen and (max-width:480px) {
+        h4 {
+            font-size: 13px;
+        }
+        .page-header.navbar .top-menu {
+            border: 1px solid #ccc;
+            width: 35px;
+            float: right;
+            padding: 0;
+            margin: 0;
+            background: none;
+            position: inherit;
+            height: 27px;
+            margin: 5px;
+        }
+    }

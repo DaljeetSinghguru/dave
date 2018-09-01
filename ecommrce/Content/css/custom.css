@@ -1,0 +1,142 @@
+﻿@charset "utf-8";
+/* CSS Document */
+.top{border-bottom:1px solid #dddddd;padding:10px 0;}
+.top a{color:#666; padding:0 10px;}
+.top a:hover{text-decoration:none;}
+.logo{padding:5px 0;}
+.banner {
+    /*background: url(../images/banner.jpg) no-repeat center;*/
+    background: url('../../ItemImage/banner.jpg') no-repeat center;
+    background-size: cover;
+    min-height: 336px;
+    height: 100%;
+}
+.navbar{text-transform:uppercase; padding:0 !important;}
+a{ -o-transition:.3s;
+  -ms-transition:.3s;
+  -moz-transition:.3s;
+  -webkit-transition:.3s;
+  transition:.3s;}
+.navbar li a:hover{background:#cd152f; color:#fff !important; }
+.nav-link{margin:0 5px;}
+.section{padding:20px 0;}
+.filter h5{background:#cd152f; color:#fff; padding:10px; margin:0;}
+.filter ul{margin:0 0 20px 0; padding:0; list-style:none; background:#f3f3f3;}
+.filter li a{padding:7px; display:block; border-bottom:1px solid #c1c1c1;}
+.filter li span{float:right;}
+.filter li:last-child a{border:none;}
+.filter a{color:#333;}
+.filter li a:hover{background:#000; color:#fff; text-decoration:none;}
+.product{text-align:center; text-transform:uppercase;}
+.product h5{padding:5px 0 0 0; font-size:18px; font-weight:bold;}
+.product h4{border-top:1px dotted #cccccc; font-size:18px; border-bottom:1px dotted #cccccc; padding:5px 0; color:#cd152f;}
+.product h4 del{color:#7c7c7c;}
+.product h6{margin-bottom:30px;}
+.product h6 a{background:url(../images/cart.jpg) no-repeat left; padding:0 0 0 30px; color:#000000;}
+.product h6 a:hover{color:#cd152f;}
+.benifit{background:#f4f4f4; padding:20px 0; font-family:Georgia; font-size:16px;}
+.box{border-radius:5px; padding:20px 20px 20px 20px; background:#cd152f; overflow:hidden;}
+.box h2{color:#fff; font-weight:bold;}
+.box p{color:#fff;}
+.box a{border-radius:5px; padding:7px 10px; float:right; background:#000; color:#fff;}
+.box a:hover{color:#ccc; text-decoration:none;}
+.book1{position:relative; float:left;}
+.news{background:#df3300; padding:20px 20px 10px 20px; border-radius:5px;}
+.news h4{color:#fff; text-align:center; text-transform:uppercase;}
+.news p{color:#fff; text-align:center;}
+.news a{background:#fff; margin:10px auto; width:105px; padding:5px 10px; text-align:center; border-radius:5px; color:#333333; font-weight:bold; text-transform:uppercase; display:block;}
+.news a:hover{background:#5a1500; color:#fff; text-decoration:none;}
+h1{border-bottom:3px solid #cd152f; text-align:left; font-size:28px !important; font-weight:bold; float:left;}
+.gray{background:#f6f6f6; padding:20px 0;}
+footer{background:#222222; padding:10px 0 20px 0; color:#c6c6c6;}
+.fot-menu{text-transform:uppercase; padding-bottom:10px;}
+.fot-menu a{color:#c6c6c6; padding:0 5px;}
+.fot-menu a:hover{color:#fff; text-decoration:none;}
+.border-top-bot{border-top:1px solid #393939; border-bottom:1px solid #393939; padding:20px 0; font-size:14px;}
+.border-top-bot .col-lg-3{border-right:1px solid #999; padding-left:40px;}
+.border-top-bot .col-lg-3:last-child{border-right:none;}
+.border-top-bot h6{color:#fff; text-transform:uppercase; }
+.border-top-bot a{color:#999999; display:block; padding:5px 0; font-size:14px;}
+.border-top-bot a:hover{color:#fff; text-decoration:none;}
+.border-top-bot strong{color:#ccc;}
+.copyright{color:#999999; font-size:13px; padding-top:20px;}
+.copyright span{font-size:11px; }
+/*inner page css start here*/
+.banner-inner{background:#cd152f; color:#fff; font-size:45px; padding:30px 0; font-weight:900;}
+.cart-added{border:1px solid #868686; padding:10px; font-size:16px; font-weight:900; width:100%; color:#868686;}
+.cart-added a{float:right; text-transform:uppercase; color:#333;}
+.cart-added a:hover{color:#cd152f;}
+.book-detail{border:1px solid #ccc; padding:30px 20px; text-align:center;}
+.sale{position:absolute; right:0; top:-20px; background:#333; border-radius:50px; height:50px; width:50px; color:#fff; padding:10px;}
+.book-discription h3{ color:#cd152f;}
+.book-discription h3 del{color:#acacac;}
+.book-discription a{background:#cd152f; color:#fff; padding:6px 15px; margin-left:10px; float:left;}
+.book-discription a:hover{color:#fff; text-decoration:none; background:#333;}
+.book-discription p {float:left; clear:both;}
+.book-discription p span{color:#cd152f; }
+.book-discription ul{float:left; clear:both; list-style:none; margin:0; padding:0;}
+.book-discription ul li{display:inline;}
+.tabs-cus h3{text-transform:uppercase; font-size:20px; margin-top:20px;}
+.tabs-cus li a{ padding:10px 20px; background:#eee; text-decoration:none; border-right:1px solid #ccc; display:block;}
+.tabs-cus li a{color:#333;  }
+.tabs-cus li .active{background:#cd152f; color:#fff; }
+input[type="submit"]{background:#cd152f; color:#fff; width:200px;}
+.login{padding:50px 0;}
+.login .form{border-right:1px solid #ccc; padding-top:20px; padding-bottom:20px;}
+.login .form:last-child{border:none;}
+.login ul{ margin:0 0 20px 0; padding:0;}
+.login li{list-style:none; padding:5px; margin:5px;}
+@media only screen and (max-width:767px) {
+	.navbar li a:hover{background:none; color:#333 !important;}
+	.benifit .col-lg-4{padding:20px;}
+	.box{margin-bottom:20px;}
+	.book1{float:inherit; text-align:center; margin-bottom:20px;}
+	.border-top-bot .col-lg-3{padding-left:20px; margin-bottom:20px;}
+	.news{margin-bottom:20px;}
+	.border-top-bot .col-lg-3{border-right:none;}
+	.banner{background-size:100%; height:100%; min-height:100px;}
+}
+
+
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    left:290px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}

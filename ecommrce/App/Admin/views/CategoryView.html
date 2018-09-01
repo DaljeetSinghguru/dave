@@ -1,0 +1,88 @@
+﻿<style type="text/css">
+    .input-group-btn {
+        font-size: 12px;
+    }
+
+    #lbl_custm_End {
+        margin-top: 1px;
+    }
+
+    .slider.round {
+        margin-top: 9px;
+    }
+
+    .slider {
+        min-height: 19px;
+    }
+
+    .TopAdvancedFilters {
+        padding-bottom: 10px !important;
+    }
+</style>
+
+<div ng-controller="CategoryController" class="">
+    <div class="col-md-12"><h2 class="page-heading">Category</h2></div>
+
+    <div class="panel">
+        <div class="col-md-12">
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="sec">
+                        <p><strong>Category Name</strong></p>
+                        <div class="input-sec">
+                            <input class="form-control" type="text" ng-model="Category.CategoryDescription1" placeholder="Category Name" ng-change="ClearValMsgCategoryDescription1()" />
+                            <span ng-show="CategoryDescription1==true" class="errorctmMsg">Please enter Category name.</span>
+                            <small>Enter Category Name</small>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="col-md-4">
+                    <div class="sec">
+                        <p><strong>Sequence</strong></p>
+                        <div class="input-sec">
+                            <input class="form-control" type="text" numbers-only limit-to="10" placeholder="Sequence No" ng-model="Category.SequenceNo1" />
+                            <small>Enter Sequence No</small>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-md-4">
+                    <div class="sec">
+                        <p><strong>Active</strong></p>
+                        <div class="input-sec">
+                            <label class="switch" ng-click="showIsTuchstoneStudent()">
+                                <input type="checkbox" ng-model="Category.Active1">
+                                <span class="slider round"></span>
+                            </label>
+                            <small>Active/ Inactive</small>
+                        </div>
+                    </div>
+
+
+                </div>-->
+            </div>
+
+            <div class="pull-right">
+                <a class="red-btn" ng-click="SaveCategory()">{{btntextCategory}}</a>
+                <a class="red-btn" ng-click="ClearCategoryFields()">Cancel</a>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="panel">
+        <div class="col-md-12">
+            <div id="CategoryGrid" kendo-grid="gridCategory" options="CategorygridOptions" k-rebind="CategoryGridRebind" k-on-change="onChangeCategoryGrid({ selected: selected },data,dataItem,angularDataItem)" k-selectable="true" class="link-hover k-grid k-widget">
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+</div>

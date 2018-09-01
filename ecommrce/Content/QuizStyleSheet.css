@@ -1,0 +1,161 @@
+﻿   #training-quiz #three-views > div {
+        display: none;
+    }
+
+    #training-quiz #three-views .active {
+        display: inline !important;
+    }
+
+    #training-quiz h2 {
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    #three-steps span {
+        font-size: 11px;
+        font-weight: bold;
+        color: #999;
+    }
+
+    #three-steps p {
+        font-size: 16px;
+    }
+
+    .edit-date a {
+        font-size: 11px;
+        font-weight: normal;
+        text-decoration: none;
+        color: #15c;
+        cursor: pointer;
+    }
+
+    .fa-square-o, .fa-check-square-o {
+        margin-right: 10px;
+    }
+
+    .list-group-item {
+        cursor: pointer;
+    }
+
+    .check-box-selected {
+        color: rgb(255, 255, 255);
+        background-color: rgb(66, 139, 202);
+    }
+
+    .max-textbox-width {
+        max-width: 73%;
+    }
+
+    #quiz-answers i {
+        font-size: 1.25em;
+        margin-top: 7px;
+        margin-left: 5%;
+        cursor: pointer;
+    }
+
+    #quiz-answers .col-xs-3 {
+        padding-left: 0px;
+    }
+
+    #quiz-answers .fa-star:hover {
+        color: #FFD700;
+    }
+
+    .correct-answer {
+        color: #FFD700;
+    }
+
+    #quiz-answers .fa-times:hover {
+        color: #C9302C;
+    }
+
+    .nav-justified > li {
+        display: table-cell;
+        float: left;
+    }
+
+    .continue-button {
+        margin-left: 10px;
+    }
+
+    .tabs-below > .nav-tabs,
+    .tabs-right > .nav-tabs,
+    .tabs-left > .nav-tabs {
+        border-bottom: 0;
+    }
+
+
+    .tab-content > .tab-pane,
+    .pill-content > .pill-pane {
+        display: none;
+    }
+
+    .tab-content > .active,
+    .pill-content > .active {
+        display: block;
+    }
+
+    .tabs-below > .nav-tabs,
+    .tabs-right > .nav-tabs,
+    .tabs-left > .nav-tabs {
+        border-bottom: 0;
+    }
+
+        .tabs-left > .nav-tabs > li,
+        .tabs-right > .nav-tabs > li {
+            float: none;
+        }
+
+            .tabs-left > .nav-tabs > li > a,
+            .tabs-right > .nav-tabs > li > a {
+                min-width: 74px;
+                margin-right: 0;
+                margin-bottom: 3px;
+            }
+
+    .tabs-left > .nav-tabs {
+        float: left;
+        margin-right: 19px;
+        border-right: 1px solid #ddd;
+    }
+
+        .tabs-left > .nav-tabs > li > a {
+            margin-right: -1px;
+            -webkit-border-radius: 4px 0 0 4px;
+            -moz-border-radius: 4px 0 0 4px;
+            border-radius: 4px 0 0 4px;
+        }
+
+            .tabs-left > .nav-tabs > li > a:hover,
+            .tabs-left > .nav-tabs > li > a:focus {
+                border-color: #eeeeee #dddddd #eeeeee #eeeeee;
+            }
+
+        .tabs-left > .nav-tabs .active > a,
+        .tabs-left > .nav-tabs .active > a:hover,
+        .tabs-left > .nav-tabs .active > a:focus {
+            border-color: #ddd transparent #ddd #ddd;
+            *border-right-color: #ffffff;
+        }
+
+    .previewButtons .btn {
+        height: 34px;
+        margin-bottom: 10px;
+    }
+
+    .changeOrder {
+        cursor: pointer;
+    }
+
+    .btn-group {
+        margin-bottom: 20px;
+    }
+
+    .big-button {
+        width: 68px;
+        margin-left: 10px !important;
+    } 
+
+     
+ 
+  

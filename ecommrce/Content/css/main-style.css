@@ -1,0 +1,49 @@
+﻿.controllers-nav {
+    //width: 500px;
+}
+
+.controllers-nav .buttons-aper {
+    margin-left: 20px;
+}
+
+.controllers-nav .buttons-aper i {
+    padding: 7px 29px;
+    background-color: #EDE8E4;
+}
+
+.controllers-nav .buttons-aper i:hover,
+.controllers-nav .buttons-aper i:focus,
+.controllers-nav .buttons-aper i:active {
+    background-color: #EDE8E4;
+    border-color: #ccc;
+}
+
+
+.controllers-nav .buttons-aper .btn {
+    border-radius: 2px;
+}
+
+.check-button {
+       width: 30px;
+       padding: 4px 23px;
+       background-color: #EDE8E4;
+       border-radius: 2px;
+}
+
+.check-button:hover,
+.check-button:focus,
+.check-button:active {
+       background-color: #EDE8E4;
+       border-color: #ccc;
+}
+
+.check-button .caret {
+    margin-left: 20px;
+}
+
+.check-b {
+    position: absolute;
+    top: 5px;
+    z-index: 1050;
+    left: 15px;
+}

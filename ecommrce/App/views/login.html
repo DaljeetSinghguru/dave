@@ -1,0 +1,91 @@
+﻿<div id="wrap" class="animsition" style="animation-duration: 1.5s; opacity: 1;">
+    <div class="" ng-controller="ShopmainController">
+        <div class="top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-right">
+                        <a href="" ng-click="DisplayLoginPage()" ng-show="UserIsLogIn==false">Login</a>
+                        <a href="" ng-show="UserIsLogIn==true">Welcome {{UserName}}</a>
+                        <a href="" ng-click="LogOutPage()" ng-show="UserIsLogIn==true">(Logout)</a> | <a href="#">Create An Account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="navbar  navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="#">
+                            <div class="logo">
+                                <img style="width:150px;height:100px " src="../../ItemImage/uk_tool_centre_logo.jpg" alt="uk_tool logo">
+                            </div>
+                        </a>
+                        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <div class="container">
+                            <div class="header_top">
+                                <div class="header_top_left">
+                                    <div class="box_11" ng-click="ShowCart()" ng-show="getTotalCount() > 0">
+                                        <i class="icon-shopping-cart" />
+                                        <b>{{getTotalCount()}}</b> items, <b>{{getTotalPrice() | currency}}</b>
+                                        <span ng-show="getTotalCount() > 0">
+                                            <br />
+                                            this item is in the cart
+                                        </span>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="header_top_right">
+                                    <div class="lang_list">
+                                    </div>
+
+                                    <!-- start search-->
+                                    <div class="search-box">
+                                        <div id="sb-search" class="sb-search">
+                                            <form>
+                                                <input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+                                                <!--<input class="sb-search-submit" type="submit" value="">-->
+                                                <span class="sb-icon-search"></span>
+                                                <span><i class="phone">9988225604</i></span>|
+                                                <span><i class="">Mon - Fri 7:30 Am - 6:00 Pm</i></span>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                    <!----search-scripts---->
+                                    <script src="Scripts/classie1.js"></script>
+                                    <script src="Scripts/uisearch.js"></script>
+                                    <script>
+                                        new UISearch(document.getElementById('sb-search'));
+                                    </script>
+                                    <!----//search-scripts---->
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item active"><a class="nav-link" href="" ng-click="OpenHomePage()">Home <span class="sr-only">(current)</span></a> </li>
+                                <li class="nav-item"><a class="nav-link" href="" ng-click="OpenDetailPage()">Shop Hear</a> </li>
+                                <li class="nav-item"><a class="nav-link" href="#">Contact Us</a> </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="dropdown" ng-repeat="data in AllCategory">
+            <button class="dropbtn">{{data.Description}}</button>
+            <div class="dropdown-content">
+                <a href="#" ng-repeat="data1 in data.ChildFields">{{data1.Description}}</a>
+                <!--<a href="#">Link 2</a>
+                <a href="#">Link 3</a>-->
+            </div>
+        </div>
+
+ 
+    </div>
+</div>

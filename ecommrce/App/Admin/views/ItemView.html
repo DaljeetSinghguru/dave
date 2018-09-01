@@ -1,0 +1,185 @@
+﻿<div ng-controller="ItemController" class="">
+    <h4><strong>Item Creation and View</strong></h4>
+    <div id="dv_OfferLetter" class="ctm_Personal">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="sec">
+                    <p><strong>Brand Name</strong><span style="color:red">*</span></p>
+                    <div class="input-sec">
+                        <select class="form-control" kendo-combo-box style="width: 100%;height:32px; "
+                                k-ng-model="Item.Brand"
+                                ng-model="BrandId"
+                                k-placeholder="'Select Brand'"
+                                k-data-text-field="'Name'"
+                                k-data-value-field="'Id'"
+                                k-auto-bind="false"
+                                k-filter="'contains'"
+                                k-options="BrandOptions"
+                                name="'Description'"
+                                k-data-source="brandList"
+                                required></select>
+                        <span ng-show="ItemBrandval==true" style="color:red">Please select Brand.</span>
+                        <small>file Name</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="sec">
+                    <p><strong>Select category Name</strong><span style="color:red">*</span></p>
+                    <div class="input-sec">
+                        <select class="form-control" kendo-combo-box style="width: 100%;height:32px; "
+                                k-ng-model="Item.Category"
+                                ng-model="CategoryId"
+                                k-placeholder="'Select Category'"
+                                k-data-text-field="'Name'"
+                                k-data-value-field="'Id'"
+                                k-auto-bind="false"
+                                k-filter="'contains'"
+                                k-options="CategoryOptions"
+                                name="'Description'"
+                                k-data-source="CategoryList"
+                                required></select>
+                        <span ng-show="ItemCategoryval==true" style="color:red">Please select Category.</span>
+                        <small>file Name</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="sec">
+                    <p><strong>Select Sub category Name</strong><span style="color:red">*</span></p>
+                    <div class="input-sec">
+                        <select class="form-control" kendo-combo-box style="width: 100%;height:32px; "
+                                k-ng-model="Item.SubCategory"
+                                ng-model="SubCategoryId"
+                                k-placeholder="'Select SubCategory'"
+                                k-data-text-field="'Name'"
+                                k-data-value-field="'Id'"
+                                k-auto-bind="false"
+                                k-filter="'contains'"
+                                k-options="SubCategoryOptions"
+                                name="'Description'"
+                                k-data-source="SubCategoryList"
+                                required></select>
+                        <span ng-show="ItemSubCategoryval==true" style="color:red">Please select SubCategory.</span>
+                        <small>Sub Category</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="sec">
+                    <p><strong>Name</strong><span style="color:red">*</span></p>
+                    <div class="input-sec">
+                        <input type="text" placeholder="file Name" class="form-control" ng-model="Item.Name">
+                        <span ng-show="ItemNameval==true" style="color:red">Please Write Name.</span>
+                        <small>Name</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="sec">
+                    <p><strong>Title</strong><span style="color:red">*</span></p>
+                    <div class="input-sec">
+                        <input type="text" placeholder="Title" class="form-control" ng-model="Item.Title">
+                        <span ng-show="ItemTitleval==true" style="color:red">Please Write Title.</span>
+                        <small>Title</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="sec">
+                    <p><strong>Item Stock Code</strong><span style="color:red">*</span></p>
+                    <div class="input-sec">
+                        <input type="text" placeholder="Item Stock Code" class="form-control" ng-model="Item.ItemStockCode">
+                        <span ng-show="ItemItemStockCodeval==true" style="color:red">Please Write Item Stock Code.</span>
+                        <small>Item Stock Code</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="sec">
+                    <p><strong>Price</strong><span style="color:red">*</span></p>
+                    <div class="input-sec">
+                        <input type="text" placeholder="Price" class="form-control" ng-model="Item.Price">
+                        <span ng-show="ItemPriceval==true" style="color:red">Please Write Price of Item.</span>
+                        <small>Price</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="sec">
+                    <p><strong>Stock In Hand</strong><span style="color:red">*</span></p>
+                    <div class="input-sec">
+                        <input type="text" placeholder="Stock in Hand" class="form-control" ng-model="Item.Stockinhand">
+
+                        <span ng-show="ItemStockinhandval==true" style="color:red">Please Write Stock In Hand.</span>
+                        <small>Stock in hand</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 ">
+                <div class="sec">
+                    <p><strong>Upload Item Main Image</strong><span style="color:red">*</span></p>
+                    <div class="input-sec">
+                        <div style="margin:10px; text-align:center; font-size:18px; ">{{FileNameUpload}}</div>
+                        <div class="upload-img">
+                            <label class="custom-file-upload cutmCls-Manager cutmCls-Counselor cutmCls-Admission">
+                                <input type='file' ng-model-instant onchange="angular.element(this).scope().imagemainUpload(event)" />
+                                Choose Image
+                            </label>
+                        </div>
+                        <span ng-show="FileOfferletterUploadval==true" style="color:red">Please Upload Offer Letter.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 ">
+                <div class="sec">
+                    <p><strong>Upload Item Image 1</strong><span style="color:red">*</span></p>
+                    <div class="input-sec">
+                        <div style="margin:10px; text-align:center; font-size:18px; ">{{FileNameUpload1}}</div>
+                        <div class="upload-img">
+                            <label class="custom-file-upload cutmCls-Manager cutmCls-Counselor cutmCls-Admission">
+                                <input type='file' ng-model-instant onchange="angular.element(this).scope().imagemainUpload1(event)" />
+                                Choose Image
+                            </label>
+                            <span ng-show="FileOfferletterUploadval1==true" style="color:red">Please Upload Item Image.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 ">
+                <div class="sec">
+                    <p><strong>Upload Item Image 2</strong><span style="color:red">*</span></p>
+                    <div class="input-sec">
+                        <div style="margin:10px; text-align:center; font-size:18px; ">{{FileNameUpload2}}</div>
+                        <div class="upload-img">
+                            <label class="custom-file-upload cutmCls-Manager cutmCls-Counselor cutmCls-Admission">
+                                <input type='file' ng-model-instant onchange="angular.element(this).scope().imagemainUpload2(event)" />
+                                Choose Image
+                            </label>
+                            <span ng-show="FileOfferletterUploadval2==true" style="color:red">Please Upload Item Image.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="sec">
+                    <p><strong>Description</strong><span style="color:red">*</span></p>
+                    <div class="input-sec">
+                        <textarea type="text" placeholder="Description" class="form-control" ng-model="Item.Description"></textarea>
+                        <span ng-show="ItemDescriptionval==true" style="color:red">Please Write Description.</span>
+                        <small>Description</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="button" value="{{btntextCategory}}" class="red-btn" ng-click="SaveItemDetail()" />
+
+    </div>
+
+    <div kendo-grid="grid"
+         id="KendoGrid"
+         class="link-hover"
+         k-options="GridOptionsItem" k-rebind="screenResolution1" k-on-change="onChangeGrid({ selected: selected },data,dataItem,angularDataItem)" k-selectable="true"></div>
+
+</div>
+

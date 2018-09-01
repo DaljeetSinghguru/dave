@@ -1,0 +1,110 @@
+﻿<style type="text/css">
+    .input-group-btn {
+        font-size: 12px;
+    }
+
+    #lbl_custm_End {
+        margin-top: 1px;
+    }
+
+    .slider.round {
+        margin-top: 9px;
+    }
+
+    .slider {
+        min-height: 19px;
+    }
+
+    .TopAdvancedFilters {
+        padding-bottom: 10px !important;
+    }
+</style>
+
+<div ng-controller="SubCategoryController" class="">
+    <div class="col-md-12"><h2 class="page-heading">SubCategory</h2></div>
+
+    <div class="panel">
+        <div class="col-md-12">
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="sec">
+                        <p><strong>Category Name</strong></p>
+                        <div class="input-sec">
+                            <select class="form-control" kendo-combo-box style="width: 100%; height:34px;"
+                                    k-ng-model="SubCategory.Category"
+                                    ng-model="Category"
+                                    k-placeholder="'Select Category'"
+                                    k-data-text-field="'Name'"
+                                    k-data-value-field="'Id'"
+                                    k-auto-bind="false"
+                                    k-filter="'contains'"
+                                    k-options="CategoryOptions"
+                                    name="'Category'"
+                                    ng-change="ClearValMsgCategoryDescription()"
+                                    k-data-source="Categorydata"
+                                    required></select>
+                            <span ng-show="SubCategoryCategory==true" class="errorctmMsg">Please select Category.</span>
+                            <small>Enter Category Name</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="sec">
+                        <p><strong>SubCategory Name</strong></p>
+                        <div class="input-sec">
+                            <input class="form-control" type="text" ng-model="SubCategory.SubCategoryDescription1" placeholder="SubCategory Name" ng-change="ClearValMsgSubCategoryDescription1()" />
+                            <span ng-show="SubCategoryDescription1==true" class="errorctmMsg">Please enter SubCategory name.</span>
+                            <small>Enter SubCategory Name</small>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="col-md-4">
+                    <div class="sec">
+                        <p><strong>Sequence</strong></p>
+                        <div class="input-sec">
+                            <input class="form-control" type="text" numbers-only limit-to="10" placeholder="Sequence No" ng-model="SubCategory.SequenceNo1" />
+                            <small>Enter Sequence No</small>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-md-4">
+                    <div class="sec">
+                        <p><strong>Active</strong></p>
+                        <div class="input-sec">
+                            <label class="switch" ng-click="showIsTuchstoneStudent()">
+                                <input type="checkbox" ng-model="SubCategory.Active1">
+                                <span class="slider round"></span>
+                            </label>
+                            <small>Active/ Inactive</small>
+                        </div>
+                    </div>
+
+
+                </div>-->
+            </div>
+
+            <div class="pull-right">
+                <a class="red-btn" ng-click="SaveSubCategory()">{{btntextSubCategory}}</a>
+                <a class="red-btn" ng-click="ClearSubCategoryFields()">Cancel</a>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="panel">
+        <div class="col-md-12">
+            <div id="SubCategoryGrid" kendo-grid="gridSubCategory" options="SubCategorygridOptions" k-rebind="SubCategoryGridRebind" k-on-change="onChangeSubCategoryGrid({ selected: selected },data,dataItem,angularDataItem)" k-selectable="true" class="link-hover k-grid k-widget">
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+</div>
