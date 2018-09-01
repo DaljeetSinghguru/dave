@@ -1,8 +1,9 @@
-﻿app.controller('ShopmainController', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 
-            function ($scope, $window, $location, $modal,  $rootScope, $http) {
+﻿app.controller('ShopmainController', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService',
+    function ($scope, $window, $location, $modal, $rootScope, $http, ViewVariablesService) {
   
-        $scope.Url = "http://api.davemuslayah.com/api/";
+       // $scope.Url = "http://localhost:50675/api/";
 
+        $scope.Url = ViewVariablesService.GetBaseAddress();
 
         /////////////
         //display home page 

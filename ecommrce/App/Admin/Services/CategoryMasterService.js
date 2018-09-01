@@ -1,8 +1,8 @@
-﻿app.service('CategoryMasterService', ['$http',  function ($http) {
+﻿app.service('CategoryMasterService', ['$http', 'ViewVariablesService', function ($http, ViewVariablesService) {
 
 
 
-    this.baseURl = "http://api.davemuslayah.com/api/";
+    this.baseURl = ViewVariablesService.GetBaseAddress();
 
 
     this.GetCategory = function () {

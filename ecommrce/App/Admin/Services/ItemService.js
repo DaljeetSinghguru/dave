@@ -1,8 +1,8 @@
-﻿app.service('ItemService', ['$http', function ($http) {
+﻿app.service('ItemService', ['$http', 'ViewVariablesService', function ($http, ViewVariablesService) {
 
 
-
-    this.baseURl = "http://api.davemuslayah.com/api/";
+    this.baseURl = ViewVariablesService.GetBaseAddress();
+    
 
 
     this.InsertItemData = function (FileOfferletterUpload,

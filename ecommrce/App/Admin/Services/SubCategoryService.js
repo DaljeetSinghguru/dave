@@ -1,9 +1,7 @@
-﻿app.service('SubCategoryService', ['$http',  function ($http) {
+﻿app.service('SubCategoryService', ['$http', 'ViewVariablesService', function ($http, ViewVariablesService) {
 
 
-    this.baseURl = "http://api.davemuslayah.com/api/";
-
-
+    this.baseURl = ViewVariablesService.GetBaseAddress();
     this.getData = function () {
         return $http({ method: 'GET', url: this.baseURl + 'Subcategory/GetData' });
     }

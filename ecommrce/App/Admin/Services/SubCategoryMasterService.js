@@ -1,10 +1,8 @@
-﻿app.service('SubCategoryMasterService', ['$http', function ($http) {
+﻿app.service('SubCategoryMasterService', ['$http', 'ViewVariablesService', function ($http, ViewVariablesService) {
 
 
 
-    this.baseURl = "http://api.davemuslayah.com/api/";
-
-
+    this.baseURl = ViewVariablesService.GetBaseAddress();
     this.GetSubCategory = function () {
         return $http({ method: 'POST', url: this.baseURl + 'SubCategory/SubCategory_Find?Active=True' });
     }
