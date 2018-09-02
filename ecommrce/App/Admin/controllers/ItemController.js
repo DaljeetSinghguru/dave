@@ -88,6 +88,8 @@
 
         $scope.CategoryOptions = {
             change: function (e) {
+                $scope.SubCategoryList = [];
+                $scope.Item.SubCategory = { "Name": "", "Id": ""};
                 $scope.BindSubCategory(e.sender._old);
             },
             select: function () {
@@ -163,18 +165,88 @@
             if ($scope.btntextCategory == "Update") {
                 ItemService.UpdateImageFile3($scope.FileOfferletterUpload2, $scope.Item.ItemId).success(function (data, status, headers, config) {
                     if (data.length > 0) {
-                        toaster.pop('success', "Success", "Offer letter is successfully uploaded");
+                        //toaster.pop('success', "Success", "Offer letter is successfully uploaded");
                     }
                 })
             }
         }
 
+
+        /////////////////////////////////////////////////////////////////////////////FILE NAME UPOAD 2
+        $scope.FileNameUpload3 = "";
+        $scope.imagemainUpload3 = function (event) {
+            $scope.PlsUploadOfferLetter3 = false;
+            var files3 = event.target.files; //FileList object
+            $scope.FileOfferletterUpload3 = event.target.files;
+            for (var i = 0; i < files3.length; i++) {
+                var file3 = files3[i];
+                var reader = new FileReader();
+                reader.onload = $scope.imageIsLoaded;
+                reader.readAsDataURL(file3);
+            }
+
+            $scope.FileNameUpload3 = files3[0].name;
+            $scope.$apply();
+            if ($scope.btntextCategory == "Update") {
+                ItemService.UpdateImageFile4($scope.FileOfferletterUpload3, $scope.Item.ItemId).success(function (data, status, headers, config) {
+                    if (data.length > 0) {
+                        //toaster.pop('success', "Success", "Offer letter is successfully uploaded");
+                    }
+                })
+            }
+        }
+        /////////////////////////////////////////////////////////////////////////////FILE NAME UPOAD 2
+        $scope.FileNameUpload4 = "";
+        $scope.imagemainUpload4 = function (event) {
+            $scope.PlsUploadOfferLetter4 = false;
+            var files4 = event.target.files; //FileList object
+            $scope.FileOfferletterUpload4 = event.target.files;
+            for (var i = 0; i < files4.length; i++) {
+                var file4 = files4[i];
+                var reader = new FileReader();
+                reader.onload = $scope.imageIsLoaded;
+                reader.readAsDataURL(file4);
+            }
+
+            $scope.FileNameUpload4 = files4[0].name;
+            $scope.$apply();
+            if ($scope.btntextCategory == "Update") {
+                ItemService.UpdateImageFile5($scope.FileOfferletterUpload4, $scope.Item.ItemId).success(function (data, status, headers, config) {
+                    if (data.length > 0) {
+                        //toaster.pop('success', "Success", "Offer letter is successfully uploaded");
+                    }
+                })
+            }
+        }
+        /////////////////////////////////////////////////////////////////////////////FILE NAME UPOAD 2
+        $scope.FileNameUpload5 = "";
+        $scope.imagemainUpload5 = function (event) {
+            $scope.PlsUploadOfferLetter5 = false;
+            var files5 = event.target.files; //FileList object
+            $scope.FileOfferletterUpload5 = event.target.files;
+            for (var i = 0; i < files5.length; i++) {
+                var file5 = files5[i];
+                var reader = new FileReader();
+                reader.onload = $scope.imageIsLoaded;
+                reader.readAsDataURL(file5);
+            }
+
+            $scope.FileNameUpload5 = files5[0].name;
+            $scope.$apply();
+            if ($scope.btntextCategory == "Update") {
+                ItemService.UpdateImageFile6($scope.FileOfferletterUpload5, $scope.Item.ItemId).success(function (data, status, headers, config) {
+                    if (data.length > 0) {
+                        //toaster.pop('success', "Success", "Offer letter is successfully uploaded");
+                    }
+                })
+            }
+        }
         ///////////////////////................................////////////////////////////.......................................////////////////////.
         ///////////////////////................................////////////////////////////.......................................////////////////////.
         ///////////////////////................................////////////////////////////.......................................////////////////////.
         $scope.btntextCategory = "Save";
         $scope.SaveItemDetail = function () {
-            
+            debugger
 
             var chkValFields = 0;
             if ($scope.Item.Description == "" || $scope.Item.Description == undefined) {
@@ -217,16 +289,23 @@
 
 
             if ($scope.FileOfferletterUpload == "" || $scope.FileOfferletterUpload == undefined) {
-                $scope.FileOfferletterUploadval = true;
-                chkValFields = 1;
+                if ($scope.btntextCategory == "Save") {
+                    $scope.FileOfferletterUploadval = true;
+                    chkValFields = 1;
+                }
+                
             }
             if ($scope.FileOfferletterUpload1 == "" || $scope.FileOfferletterUpload1 == undefined) {
-                $scope.FileOfferletterUploadval1 = true;
-                chkValFields = 1;
+                if ($scope.btntextCategory == "Save") {
+                    $scope.FileOfferletterUploadval1 = true;
+                    chkValFields = 1;
+                }
             }
             if ($scope.FileOfferletterUpload2 == "" || $scope.FileOfferletterUpload2 == undefined) {
-                $scope.FileOfferletterUploadval2 = true;
-                chkValFields = 1;
+                if ($scope.btntextCategory == "Save") {
+                    $scope.FileOfferletterUploadval2 = true;
+                    chkValFields = 1;
+                }
             }
             if (chkValFields == 0) {
 
@@ -234,13 +313,20 @@
                     ItemService.InsertItemData($scope.FileOfferletterUpload,
                         $scope.FileOfferletterUpload1,
                         $scope.FileOfferletterUpload2,
+                        $scope.FileOfferletterUpload3,
+                        $scope.FileOfferletterUpload4,
+                        $scope.FileOfferletterUpload5,
                         $scope.Item.Name,
                         $scope.Item.Category.Id,
                         $scope.Item.Brand.Id,
-                        $scope.Item.SubCategory.Id, $scope.Item.Description, $scope.Item.ItemStockCode, $scope.Item.Price, $scope.Item.Title, $scope.Item.Stockinhand, $scope.Item.Vat
+                        $scope.Item.SubCategory.Id, $scope.Item.Description, $scope.Item.ItemStockCode, $scope.Item.Price, $scope.Item.Title, $scope.Item.Stockinhand, $scope.Item.Vat, $scope.Item.SearchKeyword,
+                        $scope.Item.MetaDescription, $scope.Item.Active1
                     ).success(function (data, status, headers, config) {
                         $scope.RefreshItemGrid();
-                        $scope.SubCategory = {};
+                        $scope.FileNameUpload = "";
+                        $scope.FileNameUpload1 = "";
+                        $scope.FileNameUpload2 = "";
+                        $scope.Item = {};
                     })
                 }
                 if ($scope.btntextCategory == "Update") {
@@ -248,10 +334,15 @@
                         $scope.Item.Name,
                         $scope.Item.Category.Id,
                         $scope.Item.Brand.Id,
-                        $scope.Item.SubCategory.Id, $scope.Item.Description, $scope.Item.ItemStockCode, $scope.Item.Price, $scope.Item.Title, $scope.Item.Stockinhand, $scope.Item.ItemId, $scope.Item.Vat
+                        $scope.Item.SubCategory.Id, $scope.Item.Description, $scope.Item.ItemStockCode, $scope.Item.Price, $scope.Item.Title, $scope.Item.Stockinhand, $scope.Item.ItemId, $scope.Item.Vat, $scope.Item.SearchKeyword,
+                        $scope.Item.MetaDescription, $scope.Item.Active1
                     ).success(function (data, status, headers, config) {
                         $scope.RefreshItemGrid();
-                        $scope.SubCategory = {};
+
+                        $scope.FileNameUpload = "";
+                        $scope.FileNameUpload1 = "";
+                        $scope.FileNameUpload2 = "";
+                        $scope.Item = {};
                     })
                 }
             }
@@ -298,8 +389,8 @@
             ]
         };
         $scope.onChangeGrid = function (selected, data, dataIteam, angularDataItem) {
-            
 
+            debugger
             $scope.Item.Description = data.Description;
             $scope.FileNameUpload2 = data.ItemImage2;
             $scope.FileNameUpload1 = data.ItemImage1;
@@ -309,11 +400,19 @@
             $scope.Item.ItemStockCode = data.ItemStockCode;
             $scope.Item.Title = data.Title;
             $scope.Item.Name = data.Name;
+           
+            $scope.Item.SearchKeyword = data.SearchKeyword;
+            $scope.Item.MetaDescription = data.MetaDescription;
+            $scope.Item.Vat = data.Vat;
             $scope.Item.SubCategory = { "Name": data.SubCategoryName, "Id": data.SubCategoryId };
             $scope.Item.Category = { "Name": data.CategoryName, "Id": data.CategoryId };
             $scope.Item.Brand = { "Name": data.BrandName, "Id": data.BrandId };
             $scope.Item.ItemId = data.ItemId;
             $scope.btntextCategory = "Update";
+
+            if (data.Active == "True") { $scope.Item.Active1 = true; } else {
+                $scope.Item.Active1 = false;
+            }
         }
 
 

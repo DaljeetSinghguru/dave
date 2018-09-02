@@ -26,3 +26,13 @@ F:\01092018\ecommrce\dave\ecommrce\obj\Debug\ecommrce.csprojResolveAssemblyRefer
 F:\01092018\ecommrce\dave\ecommrce\obj\Debug\ecommrce.csproj.CoreCompileInputs.cache
 F:\01092018\ecommrce\dave\ecommrce\obj\Debug\ecommrce.dll
 F:\01092018\ecommrce\dave\ecommrce\obj\Debug\ecommrce.pdb
+D:\01092018evening\dave\ecommrce\bin\ecommrce.dll.config
+D:\01092018evening\dave\ecommrce\bin\ecommrce.dll
+D:\01092018evening\dave\ecommrce\bin\ecommrce.pdb
+D:\01092018evening\dave\ecommrce\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\01092018evening\dave\ecommrce\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\01092018evening\dave\ecommrce\obj\Debug\ecommrce.csprojAssemblyReference.cache
+D:\01092018evening\dave\ecommrce\obj\Debug\ecommrce.csproj.CoreCompileInputs.cache
+D:\01092018evening\dave\ecommrce\obj\Debug\ecommrce.csproj.CopyComplete
+D:\01092018evening\dave\ecommrce\obj\Debug\ecommrce.dll
+D:\01092018evening\dave\ecommrce\obj\Debug\ecommrce.pdb
