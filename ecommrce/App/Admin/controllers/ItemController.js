@@ -246,7 +246,7 @@
         ///////////////////////................................////////////////////////////.......................................////////////////////.
         $scope.btntextCategory = "Save";
         $scope.SaveItemDetail = function () {
-            debugger
+             
 
             var chkValFields = 0;
             if ($scope.Item.Description == "" || $scope.Item.Description == undefined) {
@@ -392,7 +392,7 @@
         };
         $scope.onChangeGrid = function (selected, data, dataIteam, angularDataItem) {
 
-            debugger
+             
             $scope.Item.Description = data.Description;
             $scope.FileNameUpload2 = data.ItemImage2;
             $scope.FileNameUpload1 = data.ItemImage1;
@@ -516,27 +516,25 @@
 
        // $scope.selectedIds = [];
         $scope.Linkaccessories = function () {
-            debugger
-            $scope.Item.ItemStockCode;
-            $scope.Item.selectedAccessories;
-            $scope.Item.ItemStockCode;
-            var SelectedAccesories = JSON.stringify($scope.Item.selectedAccessories);
+             
+           
+           
+            var SelectedAccesories = $scope.Item.selectedAccessories.join(' : ');
 
             ItemService.InsertItemselectedAccessories($scope.Item.ItemStockCode, SelectedAccesories)
                 .success(function (dataBrands, statusdataBrands, headersdataBrands, configdataBrands) {
-                    debugger
+                     
                 })
             
         }
 
         $scope.LinkRelatedItems = function () {
-            $scope.Item.ItemStockCode;
-            var SelectedAccesories=  JSON.stringify($scope.Item.SelectedRelatedItems);
+           
 
-
-            ItemService.InsertItemSelectedRelatedItems($scope.Item.ItemStockCode, SelectedAccesories)
+            var SelectedRelatedItems = $scope.Item.SelectedRelatedItems.join(' : ')
+            ItemService.InsertItemSelectedRelatedItems($scope.Item.ItemStockCode, SelectedRelatedItems)
                 .success(function (dataBrands, statusdataBrands, headersdataBrands, configdataBrands) {
-                    debugger
+                     
                 })
         }
     }]);

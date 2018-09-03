@@ -156,8 +156,9 @@
         return $http({ method: 'GET', url: this.baseURl + 'Item/GetAllItemStockCode' });
     }
 
-    this.InsertItemSelectedRelatedItems = function (Object) {
-        return $http({ method: 'POST', url: this.baseURl + 'Item/InsertItemSelectedRelatedItems', data: Object });
+   
+    this.InsertItemSelectedRelatedItems = function (a, b) {
+        return $http({ method: 'POST', url: this.baseURl + 'Item/InsertItemSelectedRelatedItems?ItemStockCode=' + a + '&SelectedRelatedItems=' + b + '', });
     }
     this.InsertItemselectedAccessories = function (a,b) {
         return $http({ method: 'POST', url: this.baseURl + 'Item/InsertItemselectedAccessories?ItemStockCode=' + a +'&SelectedAccesories='+b+'', });
