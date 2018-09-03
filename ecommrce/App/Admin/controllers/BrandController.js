@@ -22,7 +22,7 @@
 
         $scope.SavebrandDetail = function () {
             
-            brandService.InsertBrandData($scope.FileOfferletterUpload, $scope.Brand.Name).success(function (data, status, headers, config) {
+            brandService.InsertBrandData($scope.FileOfferletterUpload, $scope.Brand.Name, $scope.Brand.SearchKeyword1, $scope.Brand.MetaDescription1, $scope.Brand.Active1).success(function (data, status, headers, config) {
                    $scope.RefreshBrandGrid();
                         $scope.Brand = {};
                         $scope.FileNameUpload="";
@@ -60,8 +60,12 @@
             columns: [
                 { field: "BrandId", title: "#", width: "40px", },
                 { field: "BrandName", title: "Name", width: "150px", },
-                //{ field: "Filename", title: "File Name", width: "150px", },
-                { field: "ImageUrl", title: "Image Url", width: "100px" }
+                { field: "Filename", title: "File Name", width: "150px", },
+                { field: "SearchKeyword", title: "SearchKeyword", width: "100px" },
+                { field: "MetaDescription", title: "MetaDescription", width: "100px" },
+                { field: "Active", title: "Active", width: "100px" },
+
+
             ]
         };
 
@@ -127,6 +131,7 @@
                 $scope.Brand.SequenceNo = $scope.Brand.SequenceNo1;
                 $scope.Brand.Active = $scope.Brand.Active1;
                 if ($scope.Brand.BrandId) { $scope.Brand.BrandId = $scope.Brand.BrandId; }
+                debugger
                 brandService.InsertBrand($scope.Brand).success(function (data, status, headers, config) {
                     $scope.BrandDescription1 = false;
                         $scope.RefreshBrandGrid();

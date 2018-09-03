@@ -86,7 +86,9 @@
                 { field: "RowId", title: "#", width: "50px" },
                 { field: "Category", title: "Category Name", width: "150px" },
                 { field: "SubCategoryName", title: "Sub Category Name", width: "150px" },
-               // { field: "Active", title: "Active", width: "150px" },
+                { field: "SearchKeyword", title: "Search Keyword", width: "150px" },
+                { field: "MetaDescription", title: "Meta Description", width: "150px" },
+                { field: "Active", title: "Active", width: "150px" },
                 
             ]
         };
@@ -106,11 +108,12 @@
             //if (chkValFields == 1) {
             //    toaster.pop('warning', "warning", "Please re-check the input data and fill correctly");
             //}
-
+            
             if (chkValFields == 0) {
                 $scope.SubCategory.SubCategoryDescription = $scope.SubCategory.SubCategoryDescription1;
-              //  $scope.SubCategory.SequenceNo = $scope.SubCategory.SequenceNo1;
-              //  $scope.SubCategory.Active = $scope.SubCategory.Active1;
+                $scope.SubCategory.SearchKeyword = $scope.SubCategory.SearchKeyword1;
+                $scope.SubCategory.MetaDescription = $scope.SubCategory.MetaDescription1;
+                $scope.SubCategory.Active = $scope.SubCategory.Active1;
                 if ($scope.SubCategory.Category) { $scope.SubCategory.Category = $scope.SubCategory.Category.Id; }
 
 
@@ -120,13 +123,14 @@
                         $scope.RefreshSubCategoryGrid();
                         $scope.SubCategory = {};
                  
-                });}
+                });
+            }
             if($scope.btntextSubCategory == "Update"){
            SubCategoryMasterService.UpdateSubCategory($scope.SubCategory).success(function (data, status, headers, config) {
                     $scope.SubCategoryDescription1 = false;
                         $scope.RefreshSubCategoryGrid();
                         $scope.SubCategory = {};
- $scope.btntextSubCategory = "Save";
+                        $scope.btntextSubCategory = "Save";
                  
                 });
 }
@@ -134,14 +138,17 @@
         }
         //Fill Data into Controll while click on Grid for Update
         $scope.onChangeSubCategoryGrid = function (selected, data, dataIteam, angularDataItem) {
-
-
+            debugger
             $scope.SubCategoryDescription1 = false;
             $scope.SubCategory.SubCategoryDescription1 = data.SubCategoryName;
-            //$scope.SubCategory.SequenceNo1 = data.SequenceNo;
-           // $scope.SubCategory.Active1 = data.Active;
+            $scope.SubCategory.SearchKeyword1 = data.SearchKeyword;
+            $scope.SubCategory.MetaDescription1 = data.MetaDescription;
+            if (data.Active == "True") {
+                $scope.SubCategory.Active1 = true;
+            }
+            else { $scope.SubCategory.Active1 = false; }
             $scope.SubCategory.SubCategoryId = data.SubCategoryId;
-          $scope.SubCategory.CategoryId = data.CategoryId;
+            $scope.SubCategory.CategoryId = data.CategoryId;
             $scope.SubCategory.Category = { "Name":data.Category, "Id": data.CategoryId };
             $scope.btntextSubCategory = "Update";
         }

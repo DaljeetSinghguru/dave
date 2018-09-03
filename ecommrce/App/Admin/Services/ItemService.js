@@ -11,11 +11,14 @@
         Name,
         CategoryId,
         BrandId,
-        SubCategoryId, Description, ItemStockCode, Price, Title, Stockinhand) {
+        SubCategoryId, Description, ItemStockCode, Price, Title, Stockinhand, Vat,SearchKeyword,MetaDescription,Active) {
         var dataAsFormData = new FormData();
         dataAsFormData.append("Image", FileOfferletterUpload[0]);
         dataAsFormData.append("Image1", FileOfferletterUpload1[0]);
         dataAsFormData.append("Image2", FileOfferletterUpload2[0]);
+        dataAsFormData.append("Image3", FileOfferletterUpload3[0]);
+        dataAsFormData.append("Image4", FileOfferletterUpload4[0]);
+        dataAsFormData.append("Image5", FileOfferletterUpload5[0]);
         dataAsFormData.append("ItemName", Name);
         dataAsFormData.append("CategoryId", CategoryId);
         dataAsFormData.append("BrandId", BrandId);
@@ -25,7 +28,10 @@
         dataAsFormData.append("Price", Price);
         dataAsFormData.append("Title", Title);
         dataAsFormData.append("Stockinhand", Stockinhand);
-        dataAsFormData.append("VAT", VAT);
+        dataAsFormData.append("VAT", Vat);
+        dataAsFormData.append("SearchKeyword", SearchKeyword);
+        dataAsFormData.append("MetaDescription", MetaDescription);
+        dataAsFormData.append("Active", Active);
         return $http({
             url: this.baseURl + 'Item/InsertItemData',
             method: "POST",
@@ -38,7 +44,7 @@
         Name,
         CategoryId,
         BrandId,
-        SubCategoryId, Description, ItemStockCode, Price, Title, Stockinhand, ItemId) {
+        SubCategoryId, Description, ItemStockCode, Price, Title, Stockinhand, ItemId, VAT,SearchKeyword,MetaDescription,Active) {
         var dataAsFormData = new FormData();
 
         dataAsFormData.append("ItemName", Name);
@@ -52,6 +58,9 @@
         dataAsFormData.append("Stockinhand", Stockinhand);
         dataAsFormData.append("ItemId", ItemId);
         dataAsFormData.append("VAT", VAT);
+        dataAsFormData.append("SearchKeyword", SearchKeyword);
+        dataAsFormData.append("MetaDescription", MetaDescription);
+        dataAsFormData.append("Active", Active);
         return $http({
             url: this.baseURl + 'Item/UpdateItemData',
             method: "POST",

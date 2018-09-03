@@ -54,7 +54,9 @@
             columns: [
                 { field: "RowId", title: "#", width: "50px" },
                 { field: "CategoryName", title: "Name", width: "150px" },
-               // { field: "Active", title: "Active", width: "150px" },
+                { field: "MetaDescription", title: "MetaDescription", width: "150px" },
+                { field: "SearchKeyword", title: "SearchKeyword", width: "150px" },
+                { field: "Active", title: "Active", width: "150px" },
                // { field: "SequenceNo", title: "Sequence", width: "150px" }
             ]
         };
@@ -74,8 +76,10 @@
 
             if (chkValFields == 0) {
                 $scope.Category.CategoryName = $scope.Category.CategoryDescription1;
-                //$scope.Category.SequenceNo = $scope.Category.SequenceNo1;
-                //$scope.Category.Active = $scope.Category.Active1;
+                $scope.Category.SearchKeyword = $scope.Category.SearchKeyword1;
+                $scope.Category.MetaDescription = $scope.Category.MetaDescription1;
+                $scope.Category.SequenceNo = $scope.Category.SequenceNo1;
+                $scope.Category.Active = $scope.Category.Active1;
                
 if( $scope.btntextCategory=="Save")
 {
@@ -100,8 +104,14 @@ $scope.btntextCategory="Save"
         $scope.onChangeCategoryGrid = function (selected, data, dataIteam, angularDataItem) {
             $scope.CategoryDescription1 = false;
             $scope.Category.CategoryDescription1 = data.CategoryName;
-            //$scope.Category.SequenceNo1 = data.SequenceNo;
-            //$scope.Category.Active1 = data.Active;
+            debugger
+            $scope.Category.SearchKeyword1 = data.SearchKeyword;
+            $scope.Category.MetaDescription1 = data.MetaDescription;
+            if (data.Active == "True") {
+                $scope.Category.Active1 = true;
+            }
+            else { $scope.Category.Active1 = false; }
+            
             $scope.Category.CategoryId = data.CategoryId;
             $scope.btntextCategory = "Update";
         }
