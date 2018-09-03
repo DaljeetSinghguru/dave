@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\Admin\controllers\BrandController.js" />
+    <Content Include="App\Admin\controllers\ItemSuggestionAccessoriesController.js" />
     <Content Include="App\Admin\controllers\ItemController.js" />
     <Content Include="App\Admin\Services\BrandMasterService.js" />
     <Content Include="App\Admin\Services\brandService.js" />
@@ -74,6 +75,7 @@
     <Content Include="App\Admin\Services\SubCategoryMasterService.js" />
     <Content Include="App\Admin\Services\SubCategoryService.js" />
     <Content Include="App\Admin\views\BrandView.html" />
+    <Content Include="App\Admin\views\ItemSuggestionAccessoriesView.html" />
     <Content Include="App\Admin\views\ItemView.html" />
     <Content Include="App\controllers\CheckLoginController.js" />
     <Content Include="App\main.js" />
