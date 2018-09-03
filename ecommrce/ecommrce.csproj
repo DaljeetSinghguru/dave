@@ -74,9 +74,11 @@
     <Content Include="App\Admin\Services\ItemService.js" />
     <Content Include="App\Admin\Services\SubCategoryMasterService.js" />
     <Content Include="App\Admin\Services\SubCategoryService.js" />
+    <Content Include="App\Admin\views\AddRelatedItemView.html" />
     <Content Include="App\Admin\views\BrandView.html" />
     <Content Include="App\Admin\views\ItemSuggestionAccessoriesView.html" />
     <Content Include="App\Admin\views\ItemView.html" />
+    <Content Include="App\Admin\views\UploadItemImageView.html" />
     <Content Include="App\controllers\CheckLoginController.js" />
     <Content Include="App\main.js" />
     <Content Include="App\views\LoginView.html" />
