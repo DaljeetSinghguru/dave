@@ -1,0 +1,61 @@
+﻿
+<style type="text/css">
+    .modal-dialog {
+        margin-top: 10%;
+    }
+
+    .modal-backdrop.in {
+        opacity: 10;
+    }
+
+    label {
+        margin-top: 7px;
+        margin-bottom: 0;
+        padding: 0;
+    }
+
+    .requiredspan {
+        color: #ff0000;
+    }
+</style>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="CancelImageUploadModal()">&times;</button>
+        <h4 class="modal-title">link Items and Accessries With Selected Item</h4>
+    </div>
+    <form ng-submit="DownloadDocuments()" name="forms.frmArea" novalidate="" class="supSupplier" enter-tab>
+        <div class="modal-body">
+            <div style="text-align:right;">
+                Fields marked<span style="color:red">*</span>are required <div class="tooltip1"><i class="fa fa-info"></i><span class="tooltiptext">dummy text for priting</span></div>
+            </div>
+
+            <div id="dv_TaskForm" class="ctm_Personal">
+                <!--ng-hide="false"-->
+                <div class="row">
+
+
+                    Selected Item: Title :{{Item.Title}} Stock Code : {{Item.ItemStockCode}}
+
+                    Select From list to link with Accessories
+                    
+
+                    <select kendo-multi-select="multiselectAccessories" k-options="brandMultiselectOptions" k-rebind="selectedIds" stop-event k-ng-model="Item.selectedAccessories"></select>
+                    
+                    
+                    Select From list to link with Related Items
+                    <select kendo-multi-select="multiselectRelatedItems" k-options="brandMultiselectOptions" stop-event k-ng-model="Item.SelectedRelatedItems"></select>
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="modal-footer forforms">
+            <button type="button" class="blue-btn" ng-click="Linkaccessories()">Link Accessories </button>
+            <button type="button" class="blue-btn" ng-click="LinkRelatedItems()">Link Related Items</button>
+            <button type="button" class="red-btn" ng-click="CancelImageUploadModal()">Cancel </button>
+        </div>
+    </form>
+</div>

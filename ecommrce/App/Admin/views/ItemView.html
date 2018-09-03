@@ -1,5 +1,7 @@
 ﻿<div ng-controller="ItemController" class="">
     <h4><strong>Item Creation and View</strong></h4>
+    <input type="text" placeholder="Search Item by Item Stock Code" class="form-control" ng-model="filterText">
+    <input type="button" value="Search Stock Code" class="red-btn" ng-click="filterGrid()" />
     <div id="dv_OfferLetter" class="ctm_Personal">
         <div class="row">
             <div class="col-md-3">
@@ -126,7 +128,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 ">
+            <!--<div class="col-md-3 ">
                 <div class="sec">
                     <p><strong>Upload Item Main Image</strong><span style="color:red">*</span></p>
                     <div class="input-sec">
@@ -181,7 +183,6 @@
                                 <input type='file' ng-model-instant onchange="angular.element(this).scope().imagemainUpload3(event)" />
                                 Choose Image
                             </label>
-               <!--             <span ng-show="FileOfferletterUploadval3==true" style="color:red">Please Upload Item Image.</span>-->
                         </div>
                     </div>
                 </div>
@@ -196,7 +197,6 @@
                                 <input type='file' ng-model-instant onchange="angular.element(this).scope().imagemainUpload4(event)" />
                                 Choose Image
                             </label>
-                            <!--<span ng-show="FileOfferletterUploadval2==true" style="color:red">Please Upload Item Image.</span>-->
                         </div>
                     </div>
                 </div>
@@ -215,7 +215,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <div class="col-md-3">
                 <div class="sec">
                     <p><strong>Search Keyword</strong></p>
@@ -262,7 +262,10 @@
 
         </div>
         <input type="button" value="{{btntextCategory}}" class="red-btn" ng-click="SaveItemDetail()" />
-
+        <div ng-show="SaveItemDone==true">
+            <input type="button" value="Upload Images" class="red-btn" ng-click="UploadImages()" />
+            <input type="button" value="Related Items" class="red-btn" ng-click="RelatedImages()" />
+        </div>
     </div>
 
     <div kendo-grid="grid"

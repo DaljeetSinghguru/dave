@@ -5,20 +5,21 @@
     
 
 
-    this.InsertItemData = function (FileOfferletterUpload,
-        FileOfferletterUpload1,
-        FileOfferletterUpload2,
+    this.InsertItemData = function (
+        //FileOfferletterUpload,
+        //FileOfferletterUpload1,
+        //FileOfferletterUpload2,
         Name,
         CategoryId,
         BrandId,
         SubCategoryId, Description, ItemStockCode, Price, Title, Stockinhand, Vat,SearchKeyword,MetaDescription,Active) {
         var dataAsFormData = new FormData();
-        dataAsFormData.append("Image", FileOfferletterUpload[0]);
-        dataAsFormData.append("Image1", FileOfferletterUpload1[0]);
-        dataAsFormData.append("Image2", FileOfferletterUpload2[0]);
-        dataAsFormData.append("Image3", FileOfferletterUpload3[0]);
-        dataAsFormData.append("Image4", FileOfferletterUpload4[0]);
-        dataAsFormData.append("Image5", FileOfferletterUpload5[0]);
+        //dataAsFormData.append("Image", FileOfferletterUpload[0]);
+        //dataAsFormData.append("Image1", FileOfferletterUpload1[0]);
+        //dataAsFormData.append("Image2", FileOfferletterUpload2[0]);
+        //dataAsFormData.append("Image3", FileOfferletterUpload3[0]);
+        //dataAsFormData.append("Image4", FileOfferletterUpload4[0]);
+        //dataAsFormData.append("Image5", FileOfferletterUpload5[0]);
         dataAsFormData.append("ItemName", Name);
         dataAsFormData.append("CategoryId", CategoryId);
         dataAsFormData.append("BrandId", BrandId);
@@ -111,5 +112,55 @@
             transformRequest: angular.identity,
             headers: { 'Content-Type': undefined }
         });
+    }
+    this.UpdateImageFile4 = function (FileOfferletterUpload, ItemId) {
+        var dataAsFormData = new FormData();
+        dataAsFormData.append("Image", FileOfferletterUpload[0]);
+        dataAsFormData.append("ItemId", ItemId);
+        return $http({
+            url: this.baseURl + 'Item/UpdateImageFile4',
+            method: "POST",
+            data: dataAsFormData,
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined }
+        });
+    }
+    this.UpdateImageFile5 = function (FileOfferletterUpload, ItemId) {
+        var dataAsFormData = new FormData();
+        dataAsFormData.append("Image", FileOfferletterUpload[0]);
+        dataAsFormData.append("ItemId", ItemId);
+        return $http({
+            url: this.baseURl + 'Item/UpdateImageFile5',
+            method: "POST",
+            data: dataAsFormData,
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined }
+        });
+    }
+
+    this.UpdateImageFile6 = function (FileOfferletterUpload, ItemId) {
+        var dataAsFormData = new FormData();
+        dataAsFormData.append("Image", FileOfferletterUpload[0]);
+        dataAsFormData.append("ItemId", ItemId);
+        return $http({
+            url: this.baseURl + 'Item/UpdateImageFile6',
+            method: "POST",
+            data: dataAsFormData,
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined }
+        });
+    }
+
+
+    this.GetAllItemStockCode = function () {
+        return $http({ method: 'GET', url: this.baseURl + 'Item/GetAllItemStockCode' });
+    }
+
+   
+    this.InsertItemSelectedRelatedItems = function (a, b) {
+        return $http({ method: 'POST', url: this.baseURl + 'Item/InsertItemSelectedRelatedItems?ItemStockCode=' + a + '&SelectedRelatedItems=' + b + '', });
+    }
+    this.InsertItemselectedAccessories = function (a,b) {
+        return $http({ method: 'POST', url: this.baseURl + 'Item/InsertItemselectedAccessories?ItemStockCode=' + a +'&SelectedAccesories='+b+'', });
     }
 }])

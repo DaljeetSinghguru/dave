@@ -1,9 +1,9 @@
-﻿app.controller('ItemController', ['$scope', '$http', '$location', 'ItemService', 'brandService', 'SubCategoryService', 'CategoryMasterService',
-    function ($scope, $http, $location, ItemService, brandService, SubCategoryService, CategoryMasterService) {
+﻿app.controller('ItemController', ['$scope', '$http','$modal', '$location', 'ItemService', 'brandService', 'SubCategoryService', 'CategoryMasterService',
+    function ($scope, $http, $modal, $location, ItemService, brandService, SubCategoryService, CategoryMasterService) {
         
 
 
-
+        $scope.SaveItemDone = false;
         $scope.brandList = [];
         $scope.Item = {};
         $scope.Bindbrand = function () {
@@ -115,7 +115,7 @@
             if ($scope.btntextCategory == "Update") {
                 ItemService.UpdateImageFile1($scope.FileOfferletterUpload, $scope.Item.ItemId).success(function (data, status, headers, config) {
                     if (data.length > 0) {
-                        toaster.pop('success', "Success", "Offer letter is successfully uploaded");
+                        //toaster.pop('success', "Success", "Offer letter is successfully uploaded");
                     }
                 })
             }
@@ -141,7 +141,7 @@
             if ($scope.btntextCategory == "Update") {
                 ItemService.UpdateImageFile2($scope.FileOfferletterUpload1, $scope.Item.ItemId).success(function (data, status, headers, config) {
                     if (data.length > 0) {
-                        toaster.pop('success', "Success", "Offer letter is successfully uploaded");
+                        //toaster.pop('success', "Success", "Offer letter is successfully uploaded");
                     }
                 })
             }
@@ -246,7 +246,7 @@
         ///////////////////////................................////////////////////////////.......................................////////////////////.
         $scope.btntextCategory = "Save";
         $scope.SaveItemDetail = function () {
-            debugger
+             
 
             var chkValFields = 0;
             if ($scope.Item.Description == "" || $scope.Item.Description == undefined) {
@@ -288,34 +288,35 @@
 
 
 
-            if ($scope.FileOfferletterUpload == "" || $scope.FileOfferletterUpload == undefined) {
-                if ($scope.btntextCategory == "Save") {
-                    $scope.FileOfferletterUploadval = true;
-                    chkValFields = 1;
-                }
+            //if ($scope.FileOfferletterUpload == "" || $scope.FileOfferletterUpload == undefined) {
+            //    if ($scope.btntextCategory == "Save") {
+            //        $scope.FileOfferletterUploadval = true;
+            //        chkValFields = 1;
+            //    }
                 
-            }
-            if ($scope.FileOfferletterUpload1 == "" || $scope.FileOfferletterUpload1 == undefined) {
-                if ($scope.btntextCategory == "Save") {
-                    $scope.FileOfferletterUploadval1 = true;
-                    chkValFields = 1;
-                }
-            }
-            if ($scope.FileOfferletterUpload2 == "" || $scope.FileOfferletterUpload2 == undefined) {
-                if ($scope.btntextCategory == "Save") {
-                    $scope.FileOfferletterUploadval2 = true;
-                    chkValFields = 1;
-                }
-            }
+            //}
+            //if ($scope.FileOfferletterUpload1 == "" || $scope.FileOfferletterUpload1 == undefined) {
+            //    if ($scope.btntextCategory == "Save") {
+            //        $scope.FileOfferletterUploadval1 = true;
+            //        chkValFields = 1;
+            //    }
+            //}
+            //if ($scope.FileOfferletterUpload2 == "" || $scope.FileOfferletterUpload2 == undefined) {
+            //    if ($scope.btntextCategory == "Save") {
+            //        $scope.FileOfferletterUploadval2 = true;
+            //        chkValFields = 1;
+            //    }
+            //}
             if (chkValFields == 0) {
 
                 if ($scope.btntextCategory == "Save") {
-                    ItemService.InsertItemData($scope.FileOfferletterUpload,
-                        $scope.FileOfferletterUpload1,
-                        $scope.FileOfferletterUpload2,
-                        $scope.FileOfferletterUpload3,
-                        $scope.FileOfferletterUpload4,
-                        $scope.FileOfferletterUpload5,
+                    ItemService.InsertItemData(
+                        //$scope.FileOfferletterUpload,
+                        //$scope.FileOfferletterUpload1,
+                        //$scope.FileOfferletterUpload2,
+                        //$scope.FileOfferletterUpload3,
+                        //$scope.FileOfferletterUpload4,
+                        //$scope.FileOfferletterUpload5,
                         $scope.Item.Name,
                         $scope.Item.Category.Id,
                         $scope.Item.Brand.Id,
@@ -376,7 +377,8 @@
             sortable: true,
             pageable: true,
             columns: [
-                { field: "ItemId", title: "ItemId", width: "40px", },
+                { field: "RowId", title: "#", width: "40px", },
+              //  { field: "ItemId", title: "ItemId", width: "40px", },
                 { field: "Name", title: "Item Name", width: "150px", },
                 { field: "Title", title: "Title", width: "150px", },
                 { field: "BrandName", title: "Brand", width: "100px" },
@@ -390,11 +392,14 @@
         };
         $scope.onChangeGrid = function (selected, data, dataIteam, angularDataItem) {
 
-            debugger
+             
             $scope.Item.Description = data.Description;
             $scope.FileNameUpload2 = data.ItemImage2;
             $scope.FileNameUpload1 = data.ItemImage1;
             $scope.FileNameUpload = data.ItemMainImage;
+            $scope.FileNameUpload3 = data.ItemImage3;
+            $scope.FileNameUpload4 = data.ItemImage4;
+            $scope.FileNameUpload5 = data.ItemImage5;
             $scope.Item.Stockinhand = data.StockInHand;
             $scope.Item.Price = data.Price;
             $scope.Item.ItemStockCode = data.ItemStockCode;
@@ -413,6 +418,7 @@
             if (data.Active == "True") { $scope.Item.Active1 = true; } else {
                 $scope.Item.Active1 = false;
             }
+            $scope.SaveItemDone = true;
         }
 
 
@@ -427,6 +433,109 @@
                     }
                 },
             });
+        }
+
+
+        ////////////////////////UploadImages
+
+
+        $scope.UploadImages = function () {
+           
+            //$scope.btnSaveText = "Download Offer Documents";
+            $scope.Title = "Upload Images";
+
+            $scope.modalInstanceImageUpload = $modal.open({
+                scope: $scope,
+                templateUrl: 'App/Admin/views/UploadItemImageView.html',
+                size: "lg",
+
+            });
+        }
+
+        
+        $scope.CancelImageUploadModal = function () {
+            if ($scope.modalInstanceImageUpload) {
+                $scope.modalInstanceImageUpload.dismiss('cancel');
+            }
+        }
+
+        $scope.filterGrid = function () {
+
+            var grid = $scope.grid;
+            if ($scope.filterText != "") {
+                grid.dataSource.query({
+                    page: 1,
+                    pageSize: 100,
+                    filter: {
+                        logic: "or",
+                        filters: [
+                            { field: "ItemStockCode", operator: "contains", value: $scope.filterText }
+                        ]
+                    }
+                });
+            }
+            else {
+                grid.dataSource.query({
+                    page: 1,
+                    pageSize: 10,
+                });
+            }
+        };
+
+        $scope.RelatedImages = function () {
+            $scope.Title = "Upload Images";
+
+            $scope.modalInstanceImageUpload = $modal.open({
+                scope: $scope,
+                templateUrl: 'App/Admin/views/AddRelatedItemView.html',
+                size: "lg",
+
+            });
+        }
+
+
+
+
+        /////////////////////////////////////////
+        ItemService.GetAllItemStockCode()
+            .success(function (dataBrands, statusdataBrands, headersdataBrands, configdataBrands) {
+                $scope.brandMultiselectOptions = {
+                    placeholder: "Select Brands...",
+                    dataTextField: "ItemStockCode",
+                    dataValueField: "ItemStockCode",
+                    valuePrimitive: true,
+                    autoBind: false,
+                    dataSource: {
+                        data: dataBrands
+                    },
+                    //change: onChange,
+                    //select: onSelect,
+                    //close: onClose,
+                }
+            });
+
+       // $scope.selectedIds = [];
+        $scope.Linkaccessories = function () {
+             
+           
+           
+            var SelectedAccesories = $scope.Item.selectedAccessories.join(' : ');
+
+            ItemService.InsertItemselectedAccessories($scope.Item.ItemStockCode, SelectedAccesories)
+                .success(function (dataBrands, statusdataBrands, headersdataBrands, configdataBrands) {
+                     
+                })
+            
+        }
+
+        $scope.LinkRelatedItems = function () {
+           
+
+            var SelectedRelatedItems = $scope.Item.SelectedRelatedItems.join(' : ')
+            ItemService.InsertItemSelectedRelatedItems($scope.Item.ItemStockCode, SelectedRelatedItems)
+                .success(function (dataBrands, statusdataBrands, headersdataBrands, configdataBrands) {
+                     
+                })
         }
     }]);
 
