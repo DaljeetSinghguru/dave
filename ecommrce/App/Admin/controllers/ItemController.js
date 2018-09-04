@@ -328,6 +328,7 @@
                         $scope.FileNameUpload1 = "";
                         $scope.FileNameUpload2 = "";
                         $scope.Item = {};
+                        alert("Item inserted successfully Done.");
                     })
                 }
                 if ($scope.btntextCategory == "Update") {
@@ -344,6 +345,7 @@
                         $scope.FileNameUpload1 = "";
                         $scope.FileNameUpload2 = "";
                         $scope.Item = {};
+                        alert("Item Update successfully Done.");
                     })
                 }
             }
@@ -392,7 +394,7 @@
         };
         $scope.onChangeGrid = function (selected, data, dataIteam, angularDataItem) {
 
-             
+            
             $scope.Item.Description = data.Description;
             $scope.FileNameUpload2 = data.ItemImage2;
             $scope.FileNameUpload1 = data.ItemImage1;
@@ -523,7 +525,7 @@
 
             ItemService.InsertItemselectedAccessories($scope.Item.ItemStockCode, SelectedAccesories)
                 .success(function (dataBrands, statusdataBrands, headersdataBrands, configdataBrands) {
-                     
+                    alert("Item Link with Selected Accessories Done.");
                 })
             
         }
@@ -534,8 +536,10 @@
             var SelectedRelatedItems = $scope.Item.SelectedRelatedItems.join(' : ')
             ItemService.InsertItemSelectedRelatedItems($scope.Item.ItemStockCode, SelectedRelatedItems)
                 .success(function (dataBrands, statusdataBrands, headersdataBrands, configdataBrands) {
-                     
+                    alert("Item Link with Selected Related Item Done.");
                 })
         }
+
+        $scope.disabled = false;
     }]);
 

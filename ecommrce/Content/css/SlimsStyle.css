@@ -1272,3 +1272,10 @@ input.cmn-toggle-round + label::before, input.cmn-toggle-round + label::after {
     color: red;
     margin-left: 1px;
 }
+.ta-editor {
+    min-height: 300px;
+    height: auto;
+    overflow: auto;
+    font-family: inherit;
+    font-size: 100%;
+}
