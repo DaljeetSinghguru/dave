@@ -1,6 +1,54 @@
 ﻿app.controller('CategoryController', ['$scope', '$http', 'CategoryMasterService', '$anchorScroll', 
     function ($scope, $http, CategoryMasterService, $anchorScroll) {
-        
+
+
+
+        $scope.treeData = new kendo.data.HierarchicalDataSource({
+            data: [
+                { text: "Item 1", Value: "1" },
+                {
+                    text: "Item 2", Value: "2", items: [
+                        { text: "SubItem 2.1", Value: "3" },
+                        { text: "SubItem 2.2", Value: "4" }
+                    ]
+                },
+                { text: "Item 3", Value: "5" }
+            ]
+        });
+
+        $scope.click = function (dataItem) {
+            alert(dataItem.Value);
+        };
+
+        function makeItem() {
+            var txt = kendo.toString(new Date(), "HH:mm:ss");
+            var value = "20";
+            return { text: txt, Value: value };
+        };
+
+        $scope.addAfter = function (item) {
+            var array = item.parent();
+            var index = array.indexOf(item);
+            var newItem = makeItem();
+            array.splice(index + 1, 0, newItem);
+        };
+
+        $scope.addBelow = function () {
+            debugger
+            // can't get this to work by just modifying the data source
+            // therefore we're using tree.append instead.
+            var newItem = makeItem();
+            $scope.tree.append(newItem, $scope.tree.select());
+        };
+
+        $scope.remove = function (item) {
+            var array = item.parent();
+            var index = array.indexOf(item);
+            array.splice(index, 1);
+
+            $scope.selectedItem = undefined;
+        };
+
         $anchorScroll();
         $('input').keypress(function (event) {
             if (event.keyCode == 13) {

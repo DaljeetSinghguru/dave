@@ -23,6 +23,27 @@
 <div ng-controller="CategoryController" class="">
     <div class="col-md-12"><h2 class="page-heading">Category</h2></div>
 
+    <div class="box-col">
+        <h4>TreeView</h4>
+        <div kendo-tree-view="tree"
+             k-data-source="treeData"
+             k-on-change="selectedItem = dataItem">
+            <span k-template>
+                {{dataItem.text}} <button class='k-button' ng-click='click(dataItem)'>Select</button>
+            </span>
+        </div>
+    </div>
+    <div class="box-col" ng-show="selectedItem">
+        <h4>Selected: {{selectedItem.text}}</h4>
+        <button class="k-button" ng-click="addAfter(selectedItem)">Add item below</button>
+        <button class="k-button" ng-click="addBelow(selectedItem)">Add child item</button>
+        <button class="k-button" ng-click="remove(selectedItem)">Delete</button>
+    </div>
+
+
+
+
+
     <div class="panel">
         <div class="col-md-12">
 
