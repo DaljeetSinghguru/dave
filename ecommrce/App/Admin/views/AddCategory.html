@@ -1,0 +1,63 @@
+﻿
+<style type="text/css">
+    .modal-dialog {
+        margin-top: 10%;
+    }
+
+    .modal-backdrop.in {
+        opacity: 10;
+    }
+
+    label {
+        margin-top: 7px;
+        margin-bottom: 0;
+        padding: 0;
+    }
+
+    .requiredspan {
+        color: #ff0000;
+    }
+</style>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="CancelModal()">&times;</button>
+        <h4 class="modal-title">Link Related Items and Accessories With Selected Item</h4>
+    </div>
+    <form ng-submit="DownloadDocuments()" name="forms.frmArea" novalidate="" class="supSupplier" enter-tab>
+        <div class="modal-body">
+            <div style="text-align:right;">
+                Fields marked<span style="color:red">*</span>are required <div class="tooltip1"><i class="fa fa-info"></i><span class="tooltiptext">dummy text for priting</span></div>
+            </div>
+
+            <div id="dv_TaskForm" class="ctm_Personal">
+                <!--ng-hide="false"-->
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="sec">
+                            <p><strong>Category Name</strong></p>
+                            <div class="input-sec">
+                                <input class="form-control" type="text" ng-model="Category.CategoryName" placeholder="Category Name" ng-change="ClearValMsgCategoryDescription1()" />
+                                <span ng-show="CategoryDescription1==true" class="errorctmMsg">Please enter Category name.</span>
+                                <small>Enter Category Name</small>
+                            </div>
+                        </div>
+                    </div>
+               
+
+                  
+
+               
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="modal-footer forforms">
+            <button type="button" class="blue-btn" ng-click="SaveCategoryModal()">Save Category</button>
+            <button type="button" class="red-btn" ng-click="CancelModal()">Cancel </button>
+        </div>
+    </form>
+</div>

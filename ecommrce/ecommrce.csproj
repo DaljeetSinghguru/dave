@@ -74,6 +74,8 @@
     <Content Include="App\Admin\Services\ItemService.js" />
     <Content Include="App\Admin\Services\SubCategoryMasterService.js" />
     <Content Include="App\Admin\Services\SubCategoryService.js" />
+    <Content Include="App\Admin\views\AddLinkCategoryWithItemView.html" />
+    <Content Include="App\Admin\views\AddCategory.html" />
     <Content Include="App\Admin\views\AddRelatedItemView.html" />
     <Content Include="App\Admin\views\BrandView.html" />
     <Content Include="App\Admin\views\ItemSuggestionAccessoriesView.html" />

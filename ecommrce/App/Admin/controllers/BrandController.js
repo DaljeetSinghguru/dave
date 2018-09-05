@@ -1,7 +1,7 @@
 ﻿app.controller('BrandController', ['$scope', '$http', 'brandService', '$anchorScroll', 
     function ($scope, $http, brandService , $anchorScroll) {
         
-
+        
         $scope.FileNameUpload = "";
         $scope.imageUpload = function (event) {
             $scope.PlsUploadOfferLetter = false;
@@ -16,17 +16,39 @@
 
             $scope.FileNameUpload = files[0].name;
             $scope.$apply();
+            if ($scope.btntextBrand == "Update") {
+                brandService.UpdateBrandFile($scope.FileOfferletterUpload, $scope.Brand.BrandId).success(function (data, status, headers, config) {
+                    if (data.length > 0) {
+                        //toaster.pop('success', "Success", "Offer letter is successfully uploaded");
+                        $scope.RefreshBrandGrid();
+                        $scope.Brand = {};
+                        $scope.FileNameUpload="";
+                        $scope.btntextBrand = "Save";
+                    }
+                })
+            }
 
         }
 
 
         $scope.SavebrandDetail = function () {
-            
+
+            if($scope.btntextBrand=="Save"){
             brandService.InsertBrandData($scope.FileOfferletterUpload, $scope.Brand.Name, $scope.Brand.SearchKeyword1, $scope.Brand.MetaDescription1, $scope.Brand.Active1).success(function (data, status, headers, config) {
                    $scope.RefreshBrandGrid();
                         $scope.Brand = {};
                         $scope.FileNameUpload="";
             })
+}
+
+            if($scope.btntextBrand=="Update"){
+            brandService.UpdateBrandData($scope.Brand).success(function (data, status, headers, config) {
+                   $scope.RefreshBrandGrid();
+                        $scope.Brand = {};
+                        $scope.FileNameUpload="";
+                        $scope.btntextBrand = "Save";
+            })
+}
 
 
         }
@@ -60,7 +82,7 @@
             columns: [
                 { field: "BrandId", title: "#", width: "40px", },
                 { field: "BrandName", title: "Name", width: "150px", },
-                { field: "Filename", title: "File Name", width: "150px", },
+              //  { field: "Filename", title: "File Name", width: "150px", },
                 { field: "SearchKeyword", title: "SearchKeyword", width: "100px" },
                 { field: "MetaDescription", title: "MetaDescription", width: "100px" },
                 { field: "Active", title: "Active", width: "100px" },
@@ -131,7 +153,7 @@
                 $scope.Brand.SequenceNo = $scope.Brand.SequenceNo1;
                 $scope.Brand.Active = $scope.Brand.Active1;
                 if ($scope.Brand.BrandId) { $scope.Brand.BrandId = $scope.Brand.BrandId; }
-                debugger
+                
                 brandService.InsertBrand($scope.Brand).success(function (data, status, headers, config) {
                     $scope.BrandDescription1 = false;
                         $scope.RefreshBrandGrid();
@@ -143,10 +165,16 @@
         //Fill Data into Controll while click on Grid for Update
         $scope.onChange = function (selected, data, dataIteam, angularDataItem) {
             debugger
+            $scope.Brand.Name=data.BrandName;
+            $scope.Brand.SearchKeyword1=data.SearchKeyword;
+            $scope.Brand.MetaDescription1=data.MetaDescription;
+            $scope.Brand.BrandId=data.BrandId;
+            if (data.Active == "True") {
+                $scope.Brand.Active1 = true;
+            }
+            else { $scope.Brand.Active1 = false; }
+            $scope.FileNameUpload=data.filename;
             $scope.BrandDescription1 = false;
-            $scope.Brand.Name = data.BrandDescription;
-         
-            $scope.Brand.BrandId = data.BrandId;
             $scope.btntextBrand = "Update";
         }
         ///REFRESH GRID 

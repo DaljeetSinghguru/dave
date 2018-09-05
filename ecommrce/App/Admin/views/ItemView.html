@@ -32,7 +32,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <!--<div class="col-md-3">
                 <div class="sec">
                     <p><strong>Select category Name</strong></p>
                     <div class="input-sec">
@@ -52,8 +52,8 @@
                         <small>file Name</small>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3">
+            </div>-->
+            <!--<div class="col-md-3">
                 <div class="sec">
                     <p><strong>Select Sub category Name</strong></p>
                     <div class="input-sec">
@@ -73,7 +73,7 @@
                         <small>Sub Category</small>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <div class="col-md-3">
                 <div class="sec">
                     <p><strong>Name</strong></p>
@@ -135,94 +135,7 @@
                     </div>
                 </div>
             </div>
-            <!--<div class="col-md-3 ">
-            <div class="sec">
-                <p><strong>Upload Item Main Image</strong></p>
-                <div class="input-sec">
-                    <div style="margin:10px; text-align:center; font-size:18px; ">{{FileNameUpload}}</div>
-                    <div class="upload-img">
-                        <label class="custom-file-upload cutmCls-Manager cutmCls-Counselor cutmCls-Admission">
-                            <input type='file' ng-model-instant onchange="angular.element(this).scope().imagemainUpload(event)" />
-                            Choose Image
-                        </label>
-                    </div>
-                    <span ng-show="FileOfferletterUploadval==true" style="color:red">Please Upload Offer Letter.</span>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 ">
-            <div class="sec">
-                <p><strong>Upload Item Image 1</strong></p>
-                <div class="input-sec">
-                    <div style="margin:10px; text-align:center; font-size:18px; ">{{FileNameUpload1}}</div>
-                    <div class="upload-img">
-                        <label class="custom-file-upload cutmCls-Manager cutmCls-Counselor cutmCls-Admission">
-                            <input type='file' ng-model-instant onchange="angular.element(this).scope().imagemainUpload1(event)" />
-                            Choose Image
-                        </label>
-                        <span ng-show="FileOfferletterUploadval1==true" style="color:red">Please Upload Item Image.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 ">
-            <div class="sec">
-                <p><strong>Upload Item Image 2</strong></p>
-                <div class="input-sec">
-                    <div style="margin:10px; text-align:center; font-size:18px; ">{{FileNameUpload2}}</div>
-                    <div class="upload-img">
-                        <label class="custom-file-upload cutmCls-Manager cutmCls-Counselor cutmCls-Admission">
-                            <input type='file' ng-model-instant onchange="angular.element(this).scope().imagemainUpload2(event)" />
-                            Choose Image
-                        </label>
-                        <span ng-show="FileOfferletterUploadval2==true" style="color:red">Please Upload Item Image.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 ">
-            <div class="sec">
-                <p><strong>Upload Item Image 3</strong></p>
-                <div class="input-sec">
-                    <div style="margin:10px; text-align:center; font-size:18px; ">{{FileNameUpload3}}</div>
-                    <div class="upload-img">
-                        <label class="custom-file-upload cutmCls-Manager cutmCls-Counselor cutmCls-Admission">
-                            <input type='file' ng-model-instant onchange="angular.element(this).scope().imagemainUpload3(event)" />
-                            Choose Image
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 ">
-            <div class="sec">
-                <p><strong>Upload Item Image 4</strong></p>
-                <div class="input-sec">
-                    <div style="margin:10px; text-align:center; font-size:18px; ">{{FileNameUpload4}}</div>
-                    <div class="upload-img">
-                        <label class="custom-file-upload cutmCls-Manager cutmCls-Counselor cutmCls-Admission">
-                            <input type='file' ng-model-instant onchange="angular.element(this).scope().imagemainUpload4(event)" />
-                            Choose Image
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 ">
-            <div class="sec">
-                <p><strong>Upload Item Image 5</strong></p>
-                <div class="input-sec">
-                    <div style="margin:10px; text-align:center; font-size:18px; ">{{FileNameUpload5}}</div>
-                    <div class="upload-img">
-                        <label class="custom-file-upload cutmCls-Manager cutmCls-Counselor cutmCls-Admission">
-                            <input type='file' ng-model-instant onchange="angular.element(this).scope().imagemainUpload5(event)" />
-                            Choose Image
-                        </label>
-                        <span ng-show="FileOfferletterUploadval2==true" style="color:red">Please Upload Item Image.</span>
-                    </div>
-                </div>
-            </div>
-        </div>-->
+          
             <div class="col-md-3">
                 <div class="sec">
                     <p><strong>Search Keyword</strong></p>
@@ -282,8 +195,8 @@
        
         <div class="">
             <input type="button" value="{{btntextCategory}}" class="red-btn" ng-click="SaveItemDetail()" />
-       
-           
+
+            <input ng-show="SaveItemDone==true" type="button" value="Link Category With Item" class="blue-btn" ng-click="LinkCategoryWithItem()" />
             <input ng-show="SaveItemDone==true" type="button" value="Upload Images" class="red-btn" ng-click="UploadImages()" />
             <input ng-show="SaveItemDone==true" type="button" value="Related Items" class="red-btn" ng-click="RelatedImages()" />
         </div>
