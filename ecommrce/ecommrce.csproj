@@ -371,6 +371,9 @@
     <Content Include="Scripts\Crypto-js.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Scripts\textAngular-rangy.min.js" />
+    <Content Include="Scripts\textAngular-sanitize.min.js" />
+    <Content Include="Scripts\textAngular.min.js" />
     <Content Include="Scripts\version.json" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.min.css.map" />

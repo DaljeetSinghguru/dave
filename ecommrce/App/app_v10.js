@@ -1,7 +1,7 @@
 ﻿
 var app = angular.module('webApp', [
     'ngRoute', 'ui.bootstrap',
-    'kendo.directives',
+    'kendo.directives','textAngular',
 ]).run(['$rootScope', function ($rootScope, $routeChangeStart) {
     
     $rootScope.$on('$routeChangeStart', function (event, next, current) {

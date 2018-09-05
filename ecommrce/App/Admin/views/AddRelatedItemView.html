@@ -22,7 +22,7 @@
 <div class="modal-content">
     <div class="modal-header">
         <button type="button" class="close" ng-click="CancelImageUploadModal()">&times;</button>
-        <h4 class="modal-title">link Items and Accessries With Selected Item</h4>
+        <h4 class="modal-title">Link Related Items and Accessories With Selected Item</h4>
     </div>
     <form ng-submit="DownloadDocuments()" name="forms.frmArea" novalidate="" class="supSupplier" enter-tab>
         <div class="modal-body">
@@ -33,18 +33,43 @@
             <div id="dv_TaskForm" class="ctm_Personal">
                 <!--ng-hide="false"-->
                 <div class="row">
+                    <div class="col-md-6">
+                        <div class="sec">
+                            <p><strong>Selected Item: Title</strong></p>
+                            <div class="input-sec">
+                                {{Item.Title}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="sec">
+                            <p><strong>Selected Item: Stock Code</strong></p>
+                            <div class="input-sec">
+                                {{Item.ItemStockCode}}
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="col-md-12">
+                        <div class="sec">
+                            <p><strong>Select From list to link with Accessories</strong></p>
+                            <div class="input-sec">
+                                <select kendo-multi-select="multiselectAccessories" k-options="brandMultiselectOptions" k-rebind="selectedIds" stop-event k-ng-model="Item.selectedAccessories"></select>
 
-                    Selected Item: Title :{{Item.Title}} Stock Code : {{Item.ItemStockCode}}
+                            </div>
+                        </div>
+                    </div>
 
-                    Select From list to link with Accessories
-                    
+                    <div class="col-md-12">
+                        <div class="sec">
+                            <p><strong>Select From list to link with Related Items</strong></p>
+                            <div class="input-sec">
 
-                    <select kendo-multi-select="multiselectAccessories" k-options="brandMultiselectOptions" k-rebind="selectedIds" stop-event k-ng-model="Item.selectedAccessories"></select>
-                    
-                    
-                    Select From list to link with Related Items
-                    <select kendo-multi-select="multiselectRelatedItems" k-options="brandMultiselectOptions" stop-event k-ng-model="Item.SelectedRelatedItems"></select>
+                                <select kendo-multi-select="multiselectRelatedItems" k-options="brandMultiselectOptions" stop-event k-ng-model="Item.SelectedRelatedItems"></select>
+
+                            </div>
+                        </div>
+                    </div>
 
 
                 </div>
