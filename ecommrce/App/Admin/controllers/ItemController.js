@@ -449,7 +449,7 @@
                 $scope.modalInstanceImageUpload.dismiss('cancel');
             }
                         $scope.RefreshItemGrid();
-
+                        $scope.btntextCategory = "Save";
                         $scope.FileNameUpload = "";
                         $scope.FileNameUpload1 = "";
                         $scope.FileNameUpload2 = "";
@@ -521,6 +521,7 @@
             ItemService.InsertItemselectedAccessories($scope.Item.ItemStockCode, SelectedAccesories)
                 .success(function (dataBrands, statusdataBrands, headersdataBrands, configdataBrands) {
                     alert("Item Link with Selected Accessories Done.");
+                    $scope.btntextCategory = "Save";
                 })
             
         }
@@ -532,6 +533,7 @@
             ItemService.InsertItemSelectedRelatedItems($scope.Item.ItemStockCode, SelectedRelatedItems)
                 .success(function (dataBrands, statusdataBrands, headersdataBrands, configdataBrands) {
                     alert("Item Link with Selected Related Item Done.");
+                    $scope.btntextCategory = "Save";
                 })
         }
 
@@ -566,6 +568,7 @@
                 if ($scope.modalLinkCategoryWithItem) {
                     $scope.modalLinkCategoryWithItem.dismiss('cancel');
                 }
+                $scope.btntextCategory = "Save";
                 alert("Item Link with Category Done.");
             })
         }
@@ -575,7 +578,7 @@
                 $scope.modalLinkCategoryWithItem.dismiss('cancel');
             }
                         $scope.RefreshItemGrid();
-
+                        $scope.btntextCategory = "Save";
                         $scope.FileNameUpload = "";
                         $scope.FileNameUpload1 = "";
                         $scope.FileNameUpload2 = "";

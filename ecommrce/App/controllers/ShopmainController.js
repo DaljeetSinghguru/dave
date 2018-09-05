@@ -415,6 +415,7 @@
 
             //open admin panel
            // window.location.replace('app_v10.html#/LandingPageVisa');
+            $scope.Login = {};
             $scope.LoginError = "";
             $scope.btnSaveText = "Submit";
             $scope.Title = "Choose Extension";
@@ -602,10 +603,7 @@
                         error(function (data, status, headers, config) {
                         });
         }
+                
 
-
-                $scope.login = function () {
-                    
-                    window.location.replace('app_v10.html#/LandingPageVisa');
-                }
+               
     }]);
