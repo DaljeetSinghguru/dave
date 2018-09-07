@@ -92,7 +92,7 @@
 
         $scope.SaveCategoryModal = function () {
             
-            CategoryMasterService.SaveCategory($scope.Category.CategoryName, $scope.IsParentMenuId).success(function (data, status, headers, config) {
+            CategoryMasterService.SaveCategory($scope.FileOfferletterUpload, $scope.Category.CategoryName, $scope.IsParentMenuId, $scope.Category.Active1).success(function (data, status, headers, config) {
                 
                 if (data != "") {
                     CategoryMasterService.GetCategorywithSubcategoryData().success(function (data, status, headers, config) {
@@ -116,6 +116,26 @@
             if ($scope.modalInstanceaddAfter) {
                 $scope.modalInstanceaddAfter.dismiss('cancel');
             }
+        }
+
+
+        $scope.FileNameUpload = "";
+        $scope.imagemainUpload = function (event) {
+            $scope.PlsUploadOfferLetter = false;
+            var files = event.target.files; //FileList object
+            $scope.FileOfferletterUpload = event.target.files;
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                var reader = new FileReader();
+                reader.onload = $scope.imageIsLoaded;
+                reader.readAsDataURL(file);
+            }
+
+            $scope.FileNameUpload = files[0].name;
+            $scope.$apply();
+
+
+
         }
 
 
@@ -146,39 +166,40 @@
 //            $scope.CategoryDescription1 = false;
 //        }
 
-//        //Get Coutry Data into Grid
-//        $scope.CategorygridOptions = {
-//            dataSource: {
-//                transport: {
-//                    read: function (e) {
+        //Get Coutry Data into Grid
+        $scope.CategorygridOptions = {
+            dataSource: {
+                transport: {
+                    read: function (e) {
                         
-//                        CategoryMasterService.GetCategoryGridData().success(function (data, status, headers, config) {
+                        CategoryMasterService.GetCategoryGridData().success(function (data, status, headers, config) {
                             
-//                            if (data != "") {
-//                                //$scope.data = JSON.parse(data);
-//                                e.success(data);
-//                                $scope.dataReset =data;
-//                            }
+                            if (data != "") {
+                                //$scope.data = JSON.parse(data);
+                                e.success(data);
+                                $scope.dataReset =data;
+                            }
 
-//                        });
-//                    }
-//                },
-//                pageSize: 10,
-//                //serverPaging: true,
-//                // serverSorting: true
-//            },
-//            sortable: true,
-//            pageable: true,
-//            selectable: "row",
-//            columns: [
-//                { field: "RowId", title: "#", width: "50px" },
-//                { field: "CategoryName", title: "Name", width: "150px" },
-//                { field: "MetaDescription", title: "MetaDescription", width: "150px" },
-//                { field: "SearchKeyword", title: "SearchKeyword", width: "150px" },
-//                { field: "Active", title: "Active", width: "150px" },
-//               // { field: "SequenceNo", title: "Sequence", width: "150px" }
-//            ]
-//        };
+                        });
+                    }
+                },
+                pageSize: 10,
+                //serverPaging: true,
+                // serverSorting: true
+            },
+            sortable: true,
+            pageable: true,
+            selectable: "row",
+            columns: [
+                { field: "RowId", title: "#", width: "50px" },
+                { field: "CategoryName", title: "Name", width: "150px" },
+                { field: "Value", title: "ParentCategoryId", width: "150px" },
+               // { field: "MetaDescription", title: "MetaDescription", width: "150px" },
+               // { field: "SearchKeyword", title: "SearchKeyword", width: "150px" },
+                //{ field: "Active", title: "Active", width: "150px" },
+               // { field: "SequenceNo", title: "Sequence", width: "150px" }
+            ]
+        };
 
 //        //Save/Update Data Into Grid 
 //        $scope.SaveCategory = function () {

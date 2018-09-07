@@ -448,12 +448,13 @@
             if ($scope.modalInstanceImageUpload) {
                 $scope.modalInstanceImageUpload.dismiss('cancel');
             }
-                        $scope.RefreshItemGrid();
-                        $scope.btntextCategory = "Save";
-                        $scope.FileNameUpload = "";
-                        $scope.FileNameUpload1 = "";
-                        $scope.FileNameUpload2 = "";
-                        $scope.Item = {};
+            $scope.RefreshItemGrid();
+            $scope.SaveItemDone = false;
+            $scope.btntextCategory = "Save";
+            $scope.FileNameUpload = "";
+            $scope.FileNameUpload1 = "";
+            $scope.FileNameUpload2 = "";
+            $scope.Item = {};
         }
 
         $scope.filterGrid = function () {
@@ -521,7 +522,7 @@
             ItemService.InsertItemselectedAccessories($scope.Item.ItemStockCode, SelectedAccesories)
                 .success(function (dataBrands, statusdataBrands, headersdataBrands, configdataBrands) {
                     alert("Item Link with Selected Accessories Done.");
-                    $scope.btntextCategory = "Save";
+                    //$scope.btntextCategory = "Save";
                 })
             
         }
@@ -533,7 +534,7 @@
             ItemService.InsertItemSelectedRelatedItems($scope.Item.ItemStockCode, SelectedRelatedItems)
                 .success(function (dataBrands, statusdataBrands, headersdataBrands, configdataBrands) {
                     alert("Item Link with Selected Related Item Done.");
-                    $scope.btntextCategory = "Save";
+                    //$scope.btntextCategory = "Save";
                 })
         }
 
@@ -568,8 +569,10 @@
                 if ($scope.modalLinkCategoryWithItem) {
                     $scope.modalLinkCategoryWithItem.dismiss('cancel');
                 }
+                $scope.SaveItemDone = false;
                 $scope.btntextCategory = "Save";
                 alert("Item Link with Category Done.");
+                
             })
         }
 
@@ -583,7 +586,10 @@
                         $scope.FileNameUpload1 = "";
                         $scope.FileNameUpload2 = "";
                         $scope.Item = {};
+                        $scope.SaveItemDone = false;
         }
+
+        
 
     }]);
 

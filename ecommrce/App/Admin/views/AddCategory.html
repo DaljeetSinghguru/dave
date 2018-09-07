@@ -43,11 +43,39 @@
                             </div>
                         </div>
                     </div>
-               
 
-                  
+                    <div class="col-md-3">
+                        <div class="sec">
+                            <p><strong>Image</strong></p>
+                            <div class="input-sec">
+                                <div style="margin:10px; text-align:center; font-size:9px; ">{{FileNameUpload}}</div>
+                                <div class="upload-img">
+                                    <label class="custom-file-upload cutmCls-Manager cutmCls-Counselor cutmCls-Admission">
+                                        <input type='file' ng-model-instant onchange="angular.element(this).scope().imagemainUpload(event)" />
+                                        Choose Image
+                                    </label>
+                                </div>
+                                <small>Image</small>
+                            </div>
+                        </div>
+                    </div>
 
-               
+                    <div class="col-md-3">
+                        <div class="sec">
+                            <p><strong>Show Category on Frontpage as Special Offer</strong></p>
+                            
+                               
+                                <div class="input-sec">
+                                    <label class="switch" ng-click="showIsTuchstoneStudent()">
+                                        <input type="checkbox" ng-model="Category.Active1">
+                                        <span class="slider round"></span>
+                                    </label>
+                                    <small>Active/ Inactive</small>
+                                </div>
+                           
+                        </div>
+                    </div>
+
 
 
                 </div>

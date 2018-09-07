@@ -38,12 +38,12 @@
                                     <div class="lang_list">
                                     </div>
 
-                                   
+
                                     <div class="search-box">
                                         <div id="sb-search" class="sb-search">
                                             <form>
                                                 <input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
-                                               
+
                                                 <span class="sb-icon-search"></span>
                                                 <span><i class="phone">9988225604</i></span>|
                                                 <span><i class="">Mon - Fri 7:30 Am - 6:00 Pm</i></span>
@@ -51,13 +51,13 @@
                                         </div>
                                     </div>
 
-                                  
+
                                     <script src="Scripts/classie1.js"></script>
                                     <script src="Scripts/uisearch.js"></script>
                                     <script>
                                         new UISearch(document.getElementById('sb-search'));
                                     </script>
-                                   
+
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="clearfix"></div>
@@ -75,16 +75,316 @@
             </div>
 
         </div>-->
-
-
         <!--<div class="dropdown" ng-repeat="data in AllCategory">
-            <button class="dropbtn">{{data.Description}}</button>
+            <button class="dropbtn">{{data.text}}</button>
             <div class="dropdown-content">
-                <a href="#" ng-repeat="data1 in data.ChildFields">{{data1.Description}}</a>
-               
+                <a href="#" ng-repeat="data1 in data.items">{{data1.text}}</a>
+
             </div>
         </div>-->
 
- 
+        <div class="header">
+            <div class="gray-bar">
+                <div class="container">
+                   
+                    <div class="logo"><img src="../../Content/images/logo.jpg" alt="logo"></div>
+                    <div class="search">
+                        <input type="text" placeholder="What are you searching for ?">
+                        <input type="submit" name="submit" value="Search">
+                    </div>
+                    <div class="checkout"> <a href="#" class="cart-icon">(0) IETMS</a> <a href="#">VIEW BASKET</a> <a href="#" class="active">CHECKOUT</a> </div>
+                </div>
+            </div>
+            <div class="menu">
+                <div class="container">
+                    <!--<div class="xs-menu-cont">
+                        <a id="menutoggle"><i class="fa fa-align-justify"></i> </a>
+                        <nav class="xs-menu displaynone">
+                            <ul>
+                                <li class="active"> <a href="#">POWER TOOLS</a> </li>
+                                <li> <a href="#">POWER TOOL ACCESSORIES</a> </li>
+                                <li> <a href="#">HAND TOOLS</a> </li>
+                                <li> <a href="#">STORAGE & SECURITY</a> </li>
+                                <li> <a href="#">FIXINGS</a> </li>
+                                <li> <a href="#">AUTOMOTIVE</a> </li>
+                                <li> <a href="#">DECORATING</a> </li>
+                                <li> <a href="#">SAFETY</a> </li>
+                                <li> <a href="#">CLEARANCE</a> </li>
+                            </ul>
+                        </nav>
+                    </div>-->
+                    <nav class="menu">
+                        <ul>
+                            <li class="active"> <a href="#">Home</a> </li>
+                            <li class="drop-down {{data.Value}}" ng-repeat="data in AllCategory">
+                                <a href="#">{{data.text}}</a>
+                                <div class="mega-menu {{data.Value}}">
+
+                                    <div class="mm-3column" ng-repeat="level2 in GetSubMenu(data,data.Value)">
+                                        <span class="categories-list">
+                                            <ul>
+                                                <span>{{level2.text}}</span>
+                                                <li ng-repeat="level3 in GetSuperSubMenu(level2,level2.Value)">{{level3.text}}</li>
+                                                <!--<li><a class="mm-view-more" href="#">View more →</a></li>-->
+                                            </ul>
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!--<ul class="sub-menu">
+                                <li class="nav-item" ng-repeat="level2 in GetSubMenu(toplevel,toplevel.MenuId)">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="fa fa-book"></i>
+                                        <span class="title">{{level2.Description}}</span>
+                                        <span class="arrow open"></span>
+                                    </a>
+
+                                    <ul class="sub-menu">
+                                        <li class="nav-item" ng-repeat="level3 in GetSuperSubMenu(level2,level2.MenuId)">
+                                            <a href="app_v10.html#/{{level3.Program}}" class="nav-link ">
+                                                <i class="fa fa-pencil-square-o"></i>
+                                                <span class="title">{{level3.Description}}</span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                            </ul>-->
+
+
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="feature"></div>
+        <div class="slider"> <img src="../../Content/images/slider.jpg" alt="home page slider"> </div>
     </div>
+    <!--header end here-->
+    <!--middle start here-->
+    <div class="middle">
+        <div class="container">
+            <h1><span>Tools</span> & Equipment </h1>
+            <div class="product">
+                <ul>
+                    <li>
+                        <div class="tag">Makita Gardening Equipment</div>
+                        <img src="../../Content/images/v2-home-page_08.jpg" alt="img1">
+                        <div class="info">Some Text Goes Here</div>
+                    </li>
+                    <li>
+                        <div class="tag">Tag Name Here</div>
+                        <img src="../../Content/images/v2-home-page_10.jpg" alt="img1">
+                        <div class="info">Some Text Goes Here</div>
+                    </li>
+                    <li>
+                        <div class="tag">Tag Name Here</div>
+                        <img src="../../Content/images/v2-home-page_12.jpg" alt="img1">
+                        <div class="info">Some Text Goes Here</div>
+                    </li>
+                    <li>
+                        <div class="tag">Tag Name Here</div>
+                        <img src="../../Content/images/v2-home-page_08.jpg" alt="img1">
+                        <div class="info">Some Text Goes Here</div>
+                    </li>
+                    <li>
+                        <div class="tag">Tag Name Here</div>
+                        <img src="../../Content/images/v2-home-page_08.jpg" alt="img1">
+                        <div class="info">Some Text Goes Here</div>
+                    </li>
+                    <li>
+                        <div class="tag">Tag Name Here</div>
+                        <img src="../../Content/images/v2-home-page_08.jpg" alt="img1">
+                        <div class="info">Some Text Goes Here</div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <h1><span>Home </span> Supplies </h1>
+                <div class="product">
+                    <ul>
+                        <li>
+                            <div class="tag">Tag Name Here</div>
+                            <img src="../../Content/images/v2-home-page_18.jpg" alt="img1">
+                            <div class="info">Some Text Goes Here</div>
+                        </li>
+                        <li>
+                            <div class="tag">Tag Name Here</div>
+                            <img src="../../Content/images/v2-home-page_20.jpg" alt="img1">
+                            <div class="info">Some Text Goes Here</div>
+                        </li>
+                        <li>
+                            <div class="tag">Tag Name Here</div>
+                            <img src="../../Content/images/v2-home-page_22.jpg" alt="img1">
+                            <div class="info">Some Text Goes Here</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h1><span>Fashion</span> & Style </h1>
+            <div class="product">
+                <ul>
+                    <li>
+                        <div class="tag">Tag Name Here</div>
+                        <img src="../../Content/images/v2-home-page_26.jpg" alt="img1">
+                        <div class="info">Some Text Goes Here</div>
+                    </li>
+                    <li>
+                        <div class="tag">Tag Name Here</div>
+                        <img src="../../Content/images/v2-home-page_27.jpg" alt="img1">
+                        <div class="info">Some Text Goes Here</div>
+                    </li>
+                    <li>
+                        <div class="tag">Tag Name Here</div>
+                        <img src="../../Content/images/v2-home-page_29.jpg" alt="img1">
+                        <div class="info">Some Text Goes Here</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <h1><span>Heading</span>  Here </h1>
+                <div class="product">
+                    <ul>
+                        <li>
+
+                            <img src="../../Content/images/v2-home-page_35.jpg" alt="img1">
+                            <div class="etc">DESIGN & DECORATING IDEAS</div>
+                        </li>
+                        <li>
+
+                            <img src="../../Content/images/v2-home-page_37.jpg" alt="img1">
+                            <div class="etc">Bosch power tool range</div>
+                        </li>
+                        <li>
+
+                            <img src="../../Content/images/v2-home-page_39.jpg" alt="img1">
+                            <div class="etc">Work Wear Essintial</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h1><span>What Client</span> Says </h1>
+            <div class="testi">
+                <ul>
+                    <li>
+                        <div class="quote"><img src="../../Content/images/v2-home-page_45.jpg"></div><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printttting and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                        <div class="client-img"><img src="../../Content/images/v2-home-page_49.jpg"></div>  <div class="red">
+                            <div class="star"><img src="../../Content/images/star.jpg"></div><div class="client">Vikas Kumar</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="quote"><img src="../../Content/images/v2-home-page_45.jpg"></div><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printttting and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                        <div class="client-img"><img src="../../Content/images/v2-home-page_49.jpg"></div>  <div class="red">
+                            <div class="star"><img src="../../Content/images/star.jpg"></div><div class="client">Vikas Kumar</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="quote"><img src="../../Content/images/v2-home-page_45.jpg"></div><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printttting and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                        <div class="client-img"><img src="../../Content/images/v2-home-page_49.jpg"></div>  <div class="red">
+                            <div class="star"><img src="../../Content/images/star.jpg"></div><div class="client">Vikas Kumar</div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!--middle end here-->
+    <!--signup  start here-->
+    <!--<div class="news">
+        <div class="container">
+
+            Newsletter Sign UP <input type="text" placeholder="Enter your Email Address"> <input type="submit" value="Subscribe"> <ul class="social">
+                <li><img src="../../Content/images/v2-home-page_53.jpg"></li>
+                <li><img src="../../Content/images/v2-home-page_55.jpg"></li>
+                <li><img src="../../Content/images/v2-home-page_57.jpg"></li>
+                <li><img src="../../Content/images/v2-home-page_60.jpg"></li>
+                <li><img src="../../Content/images/v2-home-page_62.jpg"></li>
+            </ul>
+        </div>
+    </div>-->
+    <!--signup end here-->
+    <!--<div class="google-map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3429.238606705874!2d76.78438671449089!3d30.739798492344484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fed0ba229a719%3A0x67ab63254863eb0b!2sTouchstone+Educationals!5e0!3m2!1sen!2sin!4v1536262825966" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe></div>-->
+    <!--footer start here-->
+    <div class="footer">
+        <div class="container">
+            <ul>
+                <li>
+                    <h3>LINKS</h3><a href="#">T's & C's</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Warranty</a>
+                    <a href="#">Delivery</a>
+                    <a href="#">Returns</a>
+                </li>
+
+
+
+
+
+
+                <li>
+                    <h3>Important Links</h3>
+                    <a href="#">FAQ</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Delivery Info</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Careers</a>
+
+
+                </li>
+                <li>
+                    <h3>Help</h3><a href="#">T's & C's</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Size</a>
+                    <a href="#">Help</a>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <h3>LOCATION</h3><p>
+                        Opening time:
+                        7:30 Am - 6:00 Pm Monday - Friday
+                        8:00 Am - 1:00 Pm Saturday
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        Copyright © 2018 Vikas KumarDesigner.com
+    </div>
+
 </div>
+
+
+<script type="text/javascript">
+    
+    $(document).load(function () {
+        debugger
+				//responsive menu toggle
+				$("#menutoggle").click(function() {
+					$('.xs-menu').toggleClass('displaynone');
+
+					});
+				//add active class on menu
+
+			//drop down menu
+               
+            
+               
+			});
+    
+
+</script>
+
