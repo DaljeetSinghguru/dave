@@ -1,32 +1,31 @@
-﻿app.controller('CheckLoginController', ['$scope', '$location', '$modal', '$http',
-    function ($scope, $location, $modal, $http) {
+﻿app.controller('CheckLoginController', ['$scope', '$location', '$modal', '$http','ViewVariablesService',
+    function ($scope, $location, $modal, $http, ViewVariablesService) {
         
 
+       
 
+        $scope.Url = ViewVariablesService.GetBaseAddress();
 
-
-
-        $scope.GOTODestinationPage = function () {
+        $scope.login = function () {
+            debugger
+            //$scope.Login.UserName;
+            //$scope.Login.Password;
             
-            window.location.replace('app_v10.html#/LandingPageVisa');
-            $scope.Userlogin = {};
-            $scope.Userlogin.Name = $scope.sName;
-            $scope.Userlogin.Password = $scope.sUserPassword;
-            //$http({ method: 'POST', url: $scope.Url + 'Login/checkLogin/', data: $scope.Userlogin }).
-            //    success(function (data, status, headers, config) {
-            //        
-            //        if (data == "login successfully") {
-            //            window.location.replace('app_v10.html#/LandingPageVisa');
-            //        }
-            //        else {
-            //            alert("User Name and password is incorrect");
-            //        }
+            $http({ method: 'POST', url: $scope.Url + 'Login/checkLogin/', data: $scope.Login }).
+                success(function (data, status, headers, config) {
+                    
+                    if (data == "login successfully") {
+                        window.location.replace('app_v10.html#/LandingPageVisa');
+                    }
+                    else {
+                        alert("User Name and password is incorrect");
+                    }
                     
 
 
-            //    }).
-            //    error(function (data, status, headers, config) {
-            //    });
+                }).
+                error(function (data, status, headers, config) {
+                });
         }
         $scope.cancel = function () {
             //

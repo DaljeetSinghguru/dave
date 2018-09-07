@@ -5,71 +5,42 @@
     
 
 
-    this.InsertItemData = function (
-        //FileOfferletterUpload,
-        //FileOfferletterUpload1,
-        //FileOfferletterUpload2,
-        Name,
-        CategoryId,
-        BrandId,
-        SubCategoryId, Description, ItemStockCode, Price, Title, Stockinhand, Vat,SearchKeyword,MetaDescription,Active) {
-        var dataAsFormData = new FormData();
-        //dataAsFormData.append("Image", FileOfferletterUpload[0]);
-        //dataAsFormData.append("Image1", FileOfferletterUpload1[0]);
-        //dataAsFormData.append("Image2", FileOfferletterUpload2[0]);
-        //dataAsFormData.append("Image3", FileOfferletterUpload3[0]);
-        //dataAsFormData.append("Image4", FileOfferletterUpload4[0]);
-        //dataAsFormData.append("Image5", FileOfferletterUpload5[0]);
-        dataAsFormData.append("ItemName", Name);
-        dataAsFormData.append("CategoryId", CategoryId);
-        dataAsFormData.append("BrandId", BrandId);
-        dataAsFormData.append("SubCategoryId", SubCategoryId);
-        dataAsFormData.append("Description", Description);
-        dataAsFormData.append("ItemStockCode", ItemStockCode);
-        dataAsFormData.append("Price", Price);
-        dataAsFormData.append("Title", Title);
-        dataAsFormData.append("Stockinhand", Stockinhand);
-        dataAsFormData.append("VAT", Vat);
-        dataAsFormData.append("SearchKeyword", SearchKeyword);
-        dataAsFormData.append("MetaDescription", MetaDescription);
-        dataAsFormData.append("Active", Active);
-        return $http({
-            url: this.baseURl + 'Item/InsertItemData',
-            method: "POST",
-            data: dataAsFormData,
-            transformRequest: angular.identity,
-            headers: { 'Content-Type': undefined }
-        });
+    this.InsertItemData = function (Object) {
+        return $http({ method: 'POST', url: this.baseURl + 'Item/InsertItemData', data: Object });
+     }
+    this.UpdateItemData = function (Object) {
+        return $http({ method: 'POST', url: this.baseURl + 'Item/UpdateItemData', data: Object });
     }
-    this.UpdateItemData = function (
-        Name,
-        CategoryId,
-        BrandId,
-        SubCategoryId, Description, ItemStockCode, Price, Title, Stockinhand, ItemId, VAT,SearchKeyword,MetaDescription,Active) {
-        var dataAsFormData = new FormData();
+    //this.UpdateItemData = function (
+    //    Name,
+    //    //CategoryId,
+    //    BrandId,
+    //    //SubCategoryId, 
+    //    Description, ItemStockCode, Price, Title, Stockinhand, ItemId, VAT, SearchKeyword, MetaDescription, Active) {
+    //    var dataAsFormData = new FormData();
 
-        dataAsFormData.append("ItemName", Name);
-        dataAsFormData.append("CategoryId", CategoryId);
-        dataAsFormData.append("BrandId", BrandId);
-        dataAsFormData.append("SubCategoryId", SubCategoryId);
-        dataAsFormData.append("Description", Description);
-        dataAsFormData.append("ItemStockCode", ItemStockCode);
-        dataAsFormData.append("Price", Price);
-        dataAsFormData.append("Title", Title);
-        dataAsFormData.append("Stockinhand", Stockinhand);
-        dataAsFormData.append("ItemId", ItemId);
-        dataAsFormData.append("VAT", VAT);
-        dataAsFormData.append("SearchKeyword", SearchKeyword);
-        dataAsFormData.append("MetaDescription", MetaDescription);
-        dataAsFormData.append("Active", Active);
-        return $http({
-            url: this.baseURl + 'Item/UpdateItemData',
-            method: "POST",
-            data: dataAsFormData,
-            transformRequest: angular.identity,
-            headers: { 'Content-Type': undefined }
-        });
-    }
+    //    dataAsFormData.append("ItemName", Name);
+    //    //dataAsFormData.append("CategoryId", CategoryId);
+    //    dataAsFormData.append("BrandId", BrandId);
+    //    //dataAsFormData.append("SubCategoryId", SubCategoryId);
+    //    dataAsFormData.append("Description", Description);
+    //    dataAsFormData.append("ItemStockCode", ItemStockCode);
+    //    dataAsFormData.append("Price", Price);
+    //    dataAsFormData.append("Title", Title);
+    //    dataAsFormData.append("Stockinhand", Stockinhand);
+    //    dataAsFormData.append("ItemId", ItemId);
+    //    dataAsFormData.append("VAT", VAT);
+    //    dataAsFormData.append("SearchKeyword", SearchKeyword);
+    //    dataAsFormData.append("MetaDescription", MetaDescription);
+    //    dataAsFormData.append("Active", Active);
+    //    return $http({
+    //        url: this.baseURl + 'Item/UpdateItemData',
+    //        method: "POST",
+    //        data: dataAsFormData,
+    //        transformRequest: angular.identity,
+    //        headers: { 'Content-Type': undefined }
+    //    });
+    //}
     this.getData = function () {
         return $http({ method: 'GET', url: this.baseURl + 'Item/GetData' });
     }
@@ -162,5 +133,9 @@
     }
     this.InsertItemselectedAccessories = function (a,b) {
         return $http({ method: 'POST', url: this.baseURl + 'Item/InsertItemselectedAccessories?ItemStockCode=' + a +'&SelectedAccesories='+b+'', });
+    }
+
+    this.LinkCategorywithSelectedItems = function (a,b) {
+        return $http({ method: 'POST', url: this.baseURl + 'Item/LinkCategorywithSelectedItem?ItemStockCode=' + a +'&CategoryId='+b+'', });
     }
 }])

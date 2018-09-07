@@ -1,6 +1,10 @@
 ﻿app.controller('ShopmainController', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService',
     function ($scope, $window, $location, $modal, $rootScope, $http, ViewVariablesService) {
   
+
+
+
+
        // $scope.Url = "http://localhost:50675/api/";
 
         $scope.Url = ViewVariablesService.GetBaseAddress();
@@ -54,13 +58,17 @@
 
         ///Get data for top 8 item show on home page
         $http({
-            method: 'GET', url: $scope.Url + 'Menu/get'
+            method: 'GET', url: $scope.Url + 'CategoryMaster/GetMenu'
         }).
             success(function (data, status, headers, config) {
-
+debugger
                 
-                $scope.AllCategory =  JSON.parse(data)
+                $scope.AllCategory =  data
                 //$scope.AllCategory1 = data;
+setTimeout(function(){
+ $scope.Mousehoveroncat($scope.AllCategory);
+},1000);               
+
             }).
             error(function (data, status, headers, config) {
             });
@@ -415,6 +423,7 @@
 
             //open admin panel
            // window.location.replace('app_v10.html#/LandingPageVisa');
+            $scope.Login = {};
             $scope.LoginError = "";
             $scope.btnSaveText = "Submit";
             $scope.Title = "Choose Extension";
@@ -602,10 +611,62 @@
                         error(function (data, status, headers, config) {
                         });
         }
+                
+       $scope.GetSubMenu = function (toplevel, menuId) {
+            debugger
 
-
-                $scope.login = function () {
-                    
-                    window.location.replace('app_v10.html#/LandingPageVisa');
+            return toplevel.items.filter(function (obj) {
+                if (obj.ParentMenuId == menuId) {
+                    return true;
                 }
+                return false;
+            });
+
+        }
+
+       $scope.GetSuperSubMenu = function (supersublevel, menuId) {
+           debugger
+           return supersublevel.items.filter(function (obj) {
+                if (obj.ParentMenuId == menuId) {
+                    return true;
+                }
+                return false;
+            });
+        }   
+
+
+            $scope.Mousehoveroncat=function(data){
+            debugger
+
+                    $(" .25").hover(function () {
+                    debugger
+						$('.25').addClass('display-on');
+					});
+                        $(" .29").hover(function () {
+                    debugger
+						$('.29').addClass('display-on');
+					});
+                    $(" .42").hover(function () {
+                    debugger
+						$('.42').addClass('display-on');
+					});
+                    $(" .45").hover(function () {
+                    debugger
+						$('.45').addClass('display-on');
+					});
+                    $(" .50").hover(function () {
+                    debugger
+						$('.50').addClass('display-on');
+					});
+                    $(" .54").hover(function () {
+                    debugger
+						$('.54').addClass('display-on');
+					});
+                    $(".drop-down").mouseleave(function () {
+                    debugger
+						$('.mega-menu').removeClass('display-on');
+					});
+ 
+            }
+
     }]);

@@ -21,8 +21,8 @@
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <div class="modal-content">
     <div class="modal-header">
-        <button type="button" class="close" ng-click="CancelImageUploadModal()">&times;</button>
-        <h4 class="modal-title">Link Related Items and Accessories With Selected Item</h4>
+        <button type="button" class="close" ng-click="closemodalLinkCategoryWithItem()">&times;</button>
+        <h4 class="modal-title">Link Category With Item</h4>
     </div>
     <form ng-submit="DownloadDocuments()" name="forms.frmArea" novalidate="" class="supSupplier" enter-tab>
         <div class="modal-body">
@@ -36,37 +36,32 @@
                     <div class="col-md-6">
                         <div class="sec">
                             <p><strong>Selected Item: Title</strong></p>
-                            <div class="input-sec">
-                                {{Item.Title}}
+                            <div class="input-sec" ><b>
+    {{Item.Title}}
+</b>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="sec">
                             <p><strong>Selected Item: Stock Code</strong></p>
-                            <div class="input-sec">
-                                {{Item.ItemStockCode}}
-                            </div>
+                            <div class="input-sec"><b>
+    {{Item.ItemStockCode}}
+</b>
+</div>
                         </div>
                     </div>
-
                     <div class="col-md-12">
                         <div class="sec">
-                            <p><strong>Select From list to link with Accessories</strong></p>
-                            <div class="input-sec">
-                                <select kendo-multi-select="multiselectAccessories" k-options="brandMultiselectOptions" k-rebind="selectedIds" stop-event k-ng-model="Item.selectedAccessories"></select>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-12">
-                        <div class="sec">
-                            <p><strong>Select From list to link with Related Items</strong></p>
-                            <div class="input-sec">
-
-                                <select kendo-multi-select="multiselectRelatedItems" k-options="brandMultiselectOptions" stop-event k-ng-model="Item.SelectedRelatedItems"></select>
-
+                            <div class="box-col" style="padding-left:200px;">
+                                <h4></h4>
+                                <div kendo-tree-view="tree"
+                                     k-data-source="treeData"
+                                     k-on-change="selectedItem = dataItem">
+                                    <span k-template>
+                                        {{dataItem.text}} <button class='k-button' ng-click='LinkCategorywithSelectedItem(dataItem)'>Link Category with Selected Item</button>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -78,9 +73,8 @@
         </div>
 
         <div class="modal-footer forforms">
-            <button type="button" class="blue-btn" ng-click="Linkaccessories()">Link Accessories </button>
-            <button type="button" class="blue-btn" ng-click="LinkRelatedItems()">Link Related Items</button>
-            <button type="button" class="red-btn" ng-click="CancelImageUploadModal()">Save & Close </button>
+            <!--<button type="button" class="blue-btn" ng-click="SaveCategoryModal()">Save Category</button>-->
+            <button type="button" class="red-btn" ng-click="closemodalLinkCategoryWithItem()">Close </button>
         </div>
     </form>
 </div>

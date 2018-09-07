@@ -35,66 +35,66 @@
         /////////////////////////////////////////////////////////////////////////////////////
 
 
-        $scope.SubCategoryList = [];
+        //$scope.SubCategoryList = [];
 
-        $scope.BindSubCategory = function (ID) {
-            $scope.SubCategorydata = [];
-            SubCategoryService.getSubCategoryData(ID).success(function (results) {
-                if (results != "") {
-                    $scope.SubCategoryList = [];
-                    $scope.SubCategorydata = results;
-                    for (var i = 0; i < $scope.SubCategorydata.length; i++) {
-                        $scope.SubCategoryList.push({ "Name": $scope.SubCategorydata[i].SubCategoryName, "Id": $scope.SubCategorydata[i].SubCategoryId });//    
-                    }
-                }
-                else { }
-            }).error(function (data, status, headers, config) {
+        //$scope.BindSubCategory = function (ID) {
+        //    $scope.SubCategorydata = [];
+        //    SubCategoryService.getSubCategoryData(ID).success(function (results) {
+        //        if (results != "") {
+        //            $scope.SubCategoryList = [];
+        //            $scope.SubCategorydata = results;
+        //            for (var i = 0; i < $scope.SubCategorydata.length; i++) {
+        //                $scope.SubCategoryList.push({ "Name": $scope.SubCategorydata[i].SubCategoryName, "Id": $scope.SubCategorydata[i].SubCategoryId });//    
+        //            }
+        //        }
+        //        else { }
+        //    }).error(function (data, status, headers, config) {
 
-            });
-        }
+        //    });
+        //}
 
 
 
-        $scope.SubCategoryOptions = {
-            change: function (e) {
-            },
-            select: function () {
-            }
-        }
+        //$scope.SubCategoryOptions = {
+        //    change: function (e) {
+        //    },
+        //    select: function () {
+        //    }
+        //}
 
         /////////////////////////////////////////////////////////////////////////////////////
 
 
-        $scope.CategoryList = [];
+        //$scope.CategoryList = [];
 
-        $scope.BindCategory = function () {
-            $scope.Categorydata = [];
-            CategoryMasterService.GetCategory().success(function (results) {
-                if (results != "") {
+        //$scope.BindCategory = function () {
+        //    $scope.Categorydata = [];
+        //    CategoryMasterService.GetCategory().success(function (results) {
+        //        if (results != "") {
                     
-                    $scope.CategoryList = [];
-                    $scope.Categorydata = results;
-                    for (var i = 0; i < $scope.Categorydata.length; i++) {
-                        $scope.CategoryList.push({ "Name": $scope.Categorydata[i].CategoryName, "Id": $scope.Categorydata[i].CategoryId });//    
-                    }
-                }
-                else { }
-            }).error(function (data, status, headers, config) {
+        //            $scope.CategoryList = [];
+        //            $scope.Categorydata = results;
+        //            for (var i = 0; i < $scope.Categorydata.length; i++) {
+        //                $scope.CategoryList.push({ "Name": $scope.Categorydata[i].CategoryName, "Id": $scope.Categorydata[i].CategoryId });//    
+        //            }
+        //        }
+        //        else { }
+        //    }).error(function (data, status, headers, config) {
 
-            });
-        }
+        //    });
+        //}
 
-        $scope.BindCategory();
+       // $scope.BindCategory();
 
-        $scope.CategoryOptions = {
-            change: function (e) {
-                $scope.SubCategoryList = [];
-                $scope.Item.SubCategory = { "Name": "", "Id": ""};
-                $scope.BindSubCategory(e.sender._old);
-            },
-            select: function () {
-            }
-        }
+        //$scope.CategoryOptions = {
+        //    change: function (e) {
+        //        $scope.SubCategoryList = [];
+        //        $scope.Item.SubCategory = { "Name": "", "Id": ""};
+        //        $scope.BindSubCategory(e.sender._old);
+        //    },
+        //    select: function () {
+        //    }
+        //}
 
 
         $scope.FileNameUpload = "";
@@ -236,6 +236,7 @@
             if ($scope.btntextCategory == "Update") {
                 ItemService.UpdateImageFile6($scope.FileOfferletterUpload5, $scope.Item.ItemId).success(function (data, status, headers, config) {
                     if (data.length > 0) {
+
                         //toaster.pop('success', "Success", "Offer letter is successfully uploaded");
                     }
                 })
@@ -246,7 +247,7 @@
         ///////////////////////................................////////////////////////////.......................................////////////////////.
         $scope.btntextCategory = "Save";
         $scope.SaveItemDetail = function () {
-             
+            debugger
 
             var chkValFields = 0;
             if ($scope.Item.Description == "" || $scope.Item.Description == undefined) {
@@ -273,21 +274,26 @@
                 $scope.ItemNameval = true;
                 chkValFields = 1;
             }
-            if ($scope.Item.SubCategory == "" || $scope.Item.SubCategory == undefined) {
-                $scope.ItemSubCategoryval = true;
-                chkValFields = 1;
-            }
-            if ($scope.Item.Category == "" || $scope.Item.Category == undefined) {
-                $scope.ItemCategoryval = true;
-                chkValFields = 1;
-            }
+            //if ($scope.Item.SubCategory == "" || $scope.Item.SubCategory == undefined) {
+            //    $scope.ItemSubCategoryval = true;
+            //    chkValFields = 1;
+            //}
+            //if ($scope.Item.Category == "" || $scope.Item.Category == undefined) {
+            //    $scope.ItemCategoryval = true;
+            //    chkValFields = 1;
+            //}
             if ($scope.Item.Brand == "" || $scope.Item.Brand == undefined) {
                 $scope.ItemBrandval = true;
                 chkValFields = 1;
             }
 
-
-
+            if ($scope.Item.Brand != "" || $scope.Item.Brand != undefined) {
+                if ($scope.Item.Brand) {
+                    $scope.Item.BrandId = $scope.Item.Brand.Id;
+                }
+                
+            }
+            $scope.Item.Active = $scope.Item.Active1;
             //if ($scope.FileOfferletterUpload == "" || $scope.FileOfferletterUpload == undefined) {
             //    if ($scope.btntextCategory == "Save") {
             //        $scope.FileOfferletterUploadval = true;
@@ -307,22 +313,11 @@
             //        chkValFields = 1;
             //    }
             //}
-            if (chkValFields == 0) {
 
+            if (chkValFields == 0) {
+               
                 if ($scope.btntextCategory == "Save") {
-                    ItemService.InsertItemData(
-                        //$scope.FileOfferletterUpload,
-                        //$scope.FileOfferletterUpload1,
-                        //$scope.FileOfferletterUpload2,
-                        //$scope.FileOfferletterUpload3,
-                        //$scope.FileOfferletterUpload4,
-                        //$scope.FileOfferletterUpload5,
-                        $scope.Item.Name,
-                        $scope.Item.Category.Id,
-                        $scope.Item.Brand.Id,
-                        $scope.Item.SubCategory.Id, $scope.Item.Description, $scope.Item.ItemStockCode, $scope.Item.Price, $scope.Item.Title, $scope.Item.Stockinhand, $scope.Item.Vat, $scope.Item.SearchKeyword,
-                        $scope.Item.MetaDescription, $scope.Item.Active1
-                    ).success(function (data, status, headers, config) {
+                    ItemService.InsertItemData($scope.Item).success(function (data, status, headers, config) {
                         $scope.RefreshItemGrid();
                         $scope.FileNameUpload = "";
                         $scope.FileNameUpload1 = "";
@@ -332,13 +327,7 @@
                     })
                 }
                 if ($scope.btntextCategory == "Update") {
-                    ItemService.UpdateItemData(
-                        $scope.Item.Name,
-                        $scope.Item.Category.Id,
-                        $scope.Item.Brand.Id,
-                        $scope.Item.SubCategory.Id, $scope.Item.Description, $scope.Item.ItemStockCode, $scope.Item.Price, $scope.Item.Title, $scope.Item.Stockinhand, $scope.Item.ItemId, $scope.Item.Vat, $scope.Item.SearchKeyword,
-                        $scope.Item.MetaDescription, $scope.Item.Active1
-                    ).success(function (data, status, headers, config) {
+                    ItemService.UpdateItemData($scope.Item).success(function (data, status, headers, config) {
                         $scope.RefreshItemGrid();
 
                         $scope.FileNameUpload = "";
@@ -384,11 +373,11 @@
                 { field: "Name", title: "Item Name", width: "150px", },
                 { field: "Title", title: "Title", width: "150px", },
                 { field: "BrandName", title: "Brand", width: "100px" },
-                { field: "CategoryName", title: "Category", width: "100px" },
-                { field: "SubCategoryName", title: "SubCategoryName", width: "100px" },
+                //{ field: "CategoryName", title: "Category", width: "100px" },
+               // { field: "SubCategoryName", title: "SubCategoryName", width: "100px" },
                 { field: "Price", title: "Price", width: "100px" },
                 { field: "ItemStockCode", title: "ItemStockCode", width: "100px" },
-                { field: "Description", title: "Description", width: "100px" },
+                //{ field: "Description", title: "Description", width: "100px" },
                 { field: "StockInHand", title: "StockInHand", width: "100px" }
             ]
         };
@@ -459,6 +448,13 @@
             if ($scope.modalInstanceImageUpload) {
                 $scope.modalInstanceImageUpload.dismiss('cancel');
             }
+            $scope.RefreshItemGrid();
+            $scope.SaveItemDone = false;
+            $scope.btntextCategory = "Save";
+            $scope.FileNameUpload = "";
+            $scope.FileNameUpload1 = "";
+            $scope.FileNameUpload2 = "";
+            $scope.Item = {};
         }
 
         $scope.filterGrid = function () {
@@ -502,7 +498,7 @@
         ItemService.GetAllItemStockCode()
             .success(function (dataBrands, statusdataBrands, headersdataBrands, configdataBrands) {
                 $scope.brandMultiselectOptions = {
-                    placeholder: "Select Brands...",
+                    placeholder: "Select Item Stock Code...",
                     dataTextField: "ItemStockCode",
                     dataValueField: "ItemStockCode",
                     valuePrimitive: true,
@@ -526,6 +522,7 @@
             ItemService.InsertItemselectedAccessories($scope.Item.ItemStockCode, SelectedAccesories)
                 .success(function (dataBrands, statusdataBrands, headersdataBrands, configdataBrands) {
                     alert("Item Link with Selected Accessories Done.");
+                    //$scope.btntextCategory = "Save";
                 })
             
         }
@@ -537,9 +534,62 @@
             ItemService.InsertItemSelectedRelatedItems($scope.Item.ItemStockCode, SelectedRelatedItems)
                 .success(function (dataBrands, statusdataBrands, headersdataBrands, configdataBrands) {
                     alert("Item Link with Selected Related Item Done.");
+                    //$scope.btntextCategory = "Save";
                 })
         }
 
         $scope.disabled = false;
+
+        CategoryMasterService.GetCategorywithSubcategoryData().success(function (data, status, headers, config) {
+
+            if (data != "") {
+                $scope.dataTreeView = data;
+                $scope.treeData = new kendo.data.HierarchicalDataSource({
+                    data: $scope.dataTreeView,
+
+                });
+            }
+        });
+
+        $scope.LinkCategoryWithItem = function () {
+            $scope.Title = "Link Category With Item";
+
+            $scope.modalLinkCategoryWithItem = $modal.open({
+                scope: $scope,
+                templateUrl: 'App/Admin/views/AddLinkCategoryWithItemView.html',
+                size: "lg",
+
+            });
+        }
+
+        $scope.LinkCategorywithSelectedItem = function (data) {
+            debugger
+           
+            ItemService.LinkCategorywithSelectedItems($scope.Item.ItemStockCode, data.Value).success(function (data, status, headers, config) {
+                if ($scope.modalLinkCategoryWithItem) {
+                    $scope.modalLinkCategoryWithItem.dismiss('cancel');
+                }
+                $scope.SaveItemDone = false;
+                $scope.btntextCategory = "Save";
+                alert("Item Link with Category Done.");
+                
+            })
+        }
+
+        $scope.closemodalLinkCategoryWithItem = function () {
+            if ($scope.modalLinkCategoryWithItem) {
+                $scope.modalLinkCategoryWithItem.dismiss('cancel');
+            }
+                        $scope.RefreshItemGrid();
+                        $scope.btntextCategory = "Save";
+                        $scope.FileNameUpload = "";
+                        $scope.FileNameUpload1 = "";
+                        $scope.FileNameUpload2 = "";
+                        $scope.Item = {};
+                        $scope.SaveItemDone = false;
+        }
+
+        
+
     }]);
 

@@ -24,4 +24,20 @@
         return $http({ method: 'GET', url: this.baseURl + 'Brand/GetBrand_Find?Active=&ss=1' });
     }
 
+    this.UpdateBrandData = function (Object) {
+        return $http({ method: 'POST', url: this.baseURl + 'Brand/Brand_Update', data: Object });
+    }
+
+ this.UpdateBrandFile = function (image, Id ) {
+        var dataAsFormData = new FormData();
+        dataAsFormData.append("Image", image[0]);
+        dataAsFormData.append("Id", Id);
+        return $http({
+            url: this.baseURl + 'Brand/UpdateBrandFileData',
+            method: "POST",
+            data: dataAsFormData,
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined }
+        });
+    }
 }])
