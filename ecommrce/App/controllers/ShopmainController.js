@@ -8,6 +8,28 @@
        // $scope.Url = "http://localhost:50675/api/";
 
         $scope.Url = ViewVariablesService.GetBaseAddress();
+        $scope.WebsiteDomain = ViewVariablesService.GetWebsiteDomain();
+
+
+        
+        $scope.Country =  [
+            { text: "United Kingdom", value: "Pound sterling" },
+            { text: "Spain", value: "euro (EUR)" },
+            { text: "Romania", value: "Romanian leu (RON)" },
+            { text: "Poland", value: "Polish ztoty (PLN)" },
+            { text: "Denmark", value: "Danish krone (DKK)" },
+            { text: "Bulgaria", value: "Bulgarian lev (BGN)" },
+        ];
+        $scope.Country = [
+            { text: "United Kingdom", value: "1" },
+            { text: "Spain", value: "2" },
+            { text: "Romania", value: "3" },
+            { text: "Poland", value: "4" },
+            { text: "Denmark", value: "5" },
+            { text: "Bulgaria", value: "6" },
+        ];
+
+     
 
         /////////////
         //display home page 
@@ -46,14 +68,7 @@
             $scope.ThankYouPage = false;
         }
         ///Get data for top 8 item show on home page
-        $http({
-            method: 'GET', url: $scope.Url + 'ShopPortalListing/get'
-        }).
-            success(function (data, status, headers, config) {
-                $scope.top8response = data;
-            }).
-            error(function (data, status, headers, config) {
-            });
+      
 
 
         ///Get data for top 8 item show on home page
@@ -61,7 +76,7 @@
             method: 'GET', url: $scope.Url + 'CategoryMaster/GetMenu'
         }).
             success(function (data, status, headers, config) {
-debugger
+
                 
                 $scope.AllCategory =  data
                 //$scope.AllCategory1 = data;
@@ -613,7 +628,7 @@ setTimeout(function(){
         }
                 
        $scope.GetSubMenu = function (toplevel, menuId) {
-            debugger
+            
 
             return toplevel.items.filter(function (obj) {
                 if (obj.ParentMenuId == menuId) {
@@ -625,7 +640,7 @@ setTimeout(function(){
         }
 
        $scope.GetSuperSubMenu = function (supersublevel, menuId) {
-           debugger
+           
            return supersublevel.items.filter(function (obj) {
                 if (obj.ParentMenuId == menuId) {
                     return true;
@@ -636,37 +651,47 @@ setTimeout(function(){
 
 
             $scope.Mousehoveroncat=function(data){
-            debugger
+            
 
                     $(" .25").hover(function () {
-                    debugger
+                    
 						$('.25').addClass('display-on');
 					});
                         $(" .29").hover(function () {
-                    debugger
+                    
 						$('.29').addClass('display-on');
 					});
                     $(" .42").hover(function () {
-                    debugger
+                    
 						$('.42').addClass('display-on');
 					});
                     $(" .45").hover(function () {
-                    debugger
+                    
 						$('.45').addClass('display-on');
 					});
                     $(" .50").hover(function () {
-                    debugger
+                    
 						$('.50').addClass('display-on');
 					});
                     $(" .54").hover(function () {
-                    debugger
+                    
 						$('.54').addClass('display-on');
 					});
                     $(".drop-down").mouseleave(function () {
-                    debugger
+                    
 						$('.mega-menu').removeClass('display-on');
 					});
  
             }
+            
 
+            $http({
+                method: 'GET', url: $scope.Url + 'Category/Category_Get'
+            }).
+                success(function (data, status, headers, config) {
+                    debugger
+                    $scope.topProductshowonfront = data;
+                }).
+                error(function (data, status, headers, config) {
+                });
     }]);
