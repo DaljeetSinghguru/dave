@@ -1,7 +1,10 @@
-﻿app.controller('ShopmainController', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService',
-    function ($scope, $window, $location, $modal, $rootScope, $http, ViewVariablesService) {
-  
-
+﻿app.controller('ShopmainController', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService','$translate',
+    function ($scope, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate) {
+        debugger
+        $scope.changeLanguage = function (lang) {
+            debugger
+            $translate.use(lang);
+        }
 
 
 
@@ -13,21 +16,11 @@
 
         
         $scope.Country =  [
-            { text: "United Kingdom", value: "Pound sterling" },
-            { text: "Spain", value: "euro (EUR)" },
-            { text: "Romania", value: "Romanian leu (RON)" },
-            { text: "Poland", value: "Polish ztoty (PLN)" },
-            { text: "Denmark", value: "Danish krone (DKK)" },
-            { text: "Bulgaria", value: "Bulgarian lev (BGN)" },
+            { text: "English", value: "1" },
+            { text: "French", value: "2" },
+            { text: "German", value: "3" }
         ];
-        $scope.Country = [
-            { text: "United Kingdom", value: "1" },
-            { text: "Spain", value: "2" },
-            { text: "Romania", value: "3" },
-            { text: "Poland", value: "4" },
-            { text: "Denmark", value: "5" },
-            { text: "Bulgaria", value: "6" },
-        ];
+        
 
      
 
@@ -639,8 +632,8 @@ setTimeout(function(){
 
         }
 
-       $scope.GetSuperSubMenu = function (supersublevel, menuId) {
-           
+        $scope.GetSuperSubMenu = function (supersublevel, menuId) {
+            debugger
            return supersublevel.items.filter(function (obj) {
                 if (obj.ParentMenuId == menuId) {
                     return true;
@@ -649,7 +642,15 @@ setTimeout(function(){
             });
         }   
 
-
+        $scope.GetSuperSuperSubMenu = function (suppersupersublevel, menuId1) {
+            debugger
+            return suppersupersublevel.items.filter(function (obj) {
+                if (obj.ParentMenuId == menuId1) {
+                    return true;
+                }
+                return false;
+            });
+        }
             $scope.Mousehoveroncat=function(data){
             
 
@@ -685,9 +686,9 @@ setTimeout(function(){
             }
             
 
-            $http({
+                $http({
                 method: 'GET', url: $scope.Url + 'Category/Category_Get'
-            }).
+                }).
                 success(function (data, status, headers, config) {
                     debugger
                     $scope.topProductshowonfront = data;

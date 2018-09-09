@@ -1,7 +1,7 @@
 ﻿var app = angular.module('loginApp', [
     'ngRoute',
     'ui.bootstrap',
-
+    'pascalprecht.translate'
 ]);
 
 //app.config(['$httpProvider', function ($httpProvider) {
@@ -9,7 +9,25 @@
 //    $httpProvider.interceptors.push('httpInterceptor');
 
 //}]);
+app.config(["$translateProvider", function ($translateProvider) {
 
+    var en_translations = {
+        "language": "Select Your Country",
+        "Welcome": "english"
+    }
+
+    var sp_translations = {
+        "language": "Selecciona tu pais",
+        "Welcome": "spenish"
+    }
+
+    $translateProvider.translations('en', en_translations);
+
+    $translateProvider.translations('sp', sp_translations);
+
+    $translateProvider.preferredLanguage('en');
+
+}]);
 app.config(['$routeProvider',  function ($routeProvider) {
     
    // $httpProvider.interceptors.push('httpInterceptor');
@@ -61,4 +79,4 @@ app.config(['$routeProvider',  function ($routeProvider) {
     //}
 
     //});
-    
+

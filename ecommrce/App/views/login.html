@@ -8,14 +8,30 @@
                         <a href="" ng-show="UserIsLogIn==true">Welcome {{UserName}}</a>
 
 
+                        <div>
+                            <button ng-click="changeLanguage('en')">English</button>
+                            <button ng-click="changeLanguage('fr')">French</button>
+                            <button ng-click="changeLanguage('gr')">German</button>
 
-                        <select class="form-control" ng-model="Country" k-ng-model="CountryObj">
-                            <option ng-selected="0==0">Select Your Country</option>
-                            <option ng-repeat="data in Country">{{data.text}}  {{$index}}</option>
-                        </select>
-                        <select id="customers"
+                        </div>
+
+                        <h2>{{'language' | translate}}</h2>
+
+                        Hello!!!
+
+                        <p>{{'greeting' | translate}}</p>
+
+
+                        <!--<select class="form-control" ng-model="Country" k-ng-model="CountryObj">
+                            <option ng-selected="0==0">{{'language' | translate}}</option>
+                            <option  ng-repeat="data in Country">{{data.text | translate}}  {{$index}}</option>
+                        </select>-->
+                        <!--<select id="customers"
                                 kendo-drop-down-list style="width: 100%"
-                                k-options="customOptions"></select>
+                                k-options="customOptions"></select>-->
+
+
+
                         <!--<a href="" ng-click="LogOutPage()" ng-show="UserIsLogIn==true">(Logout)</a> | <a href="#">Create An Account</a>-->
                     </div>
                 </div>
@@ -126,16 +142,25 @@
                     <nav class="menu">
                         <ul>
                             <li class="active"> <a href="#">Home</a> </li>
-                            <li class="drop-down {{data.Value}}" ng-repeat="data in AllCategory">
-                                <a href="#">{{data.text}}</a>
-                                <div class="mega-menu {{data.Value}}">
+                            <li class="drop-down {{data.Value| translate}}" ng-repeat="data in AllCategory">
+                                <a href="#">{{data.text| translate}}</a>
+                                <div class="mega-menu {{data.Value| translate}}">
 
                                     <div class="mm-3column" ng-repeat="level2 in GetSubMenu(data,data.Value)">
                                         <span class="categories-list">
                                             <ul>
-                                                <span>{{level2.text}}</span>
-                                                <li ng-repeat="level3 in GetSuperSubMenu(level2,level2.Value)">{{level3.text}}</li>
-                                                <!--<li><a class="mm-view-more" href="#">View more →</a></li>-->
+                                                <span>{{level2.text| translate}}</span>
+                                                <li ng-repeat="level3 in GetSuperSubMenu(level2,level2.Value)">
+                                                    {{level3.text| translate}}
+                                                    <div class="mm-3column" ng-repeat="level4 in GetSuperSuperSubMenu(level3,level3.Value)">
+                                                      
+                                                            <ul>
+                                                                <span></span>
+                                                                <li>{{level4.text| translate}}</li>
+
+                                                            </ul>
+                                                    </div>
+                                                </li>
                                             </ul>
                                         </span>
                                     </div>
@@ -170,7 +195,7 @@
             </div>
         </div>
         <div class="feature"></div>
-        <!--<div class="slider"> <img src="../../Content/images/slider.jpg" alt="home page slider"> </div>-->
+        <div class="slider"> <img src="../../Content/images/slider.jpg" alt="home page slider"> </div>
         <!--header end here-->
         <!--middle start here-->
         <div class="middle">
@@ -179,7 +204,7 @@
                 <div class="product">
                     <ul>
                         <li ng-repeat="data11 in topProductshowonfront">
-                            <div class="tag">{{data11.CategoryName}}</div>
+                            <div class="tag">{{data11.CategoryName| translate}}</div>
                             <img src="{{WebsiteDomain}}/images/{{data11.filename}}.jpg" alt="img1">
                             <div class="info">Some Text Goes Here</div>
                         </li>
@@ -218,7 +243,7 @@
                     <div class="product">
                         <ul>
                             <li ng-repeat="data11 in topProductshowonfront">
-                                <div class="tag">{{data11.CategoryName}}</div>
+                                <div class="tag">{{data11.CategoryName| translate}}</div>
                                 <img src="{{WebsiteDomain}}/images/{{data11.filename}}.jpg" alt="img1">
                                 <div class="info">Some Text Goes Here</div>
                             </li>
@@ -246,7 +271,7 @@
                 <div class="product">
                     <ul>
                         <li ng-repeat="data11 in topProductshowonfront">
-                            <div class="tag">{{data11.CategoryName}}</div>
+                            <div class="tag">{{data11.CategoryName| translate}}</div>
                             <img src="{{WebsiteDomain}}/images/{{data11.filename}}.jpg" alt="img1">
                             <div class="info">Some Text Goes Here</div>
                         </li>
