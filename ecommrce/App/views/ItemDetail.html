@@ -1,4 +1,11 @@
-﻿<div class="" ng-controller="ItemDetailController">
+﻿<style>
+    ul {
+        padding: 1px 10px 1px 20px;
+        list-style-type: square;
+    }
+</style>
+
+<div class="" ng-controller="ItemDetailController">
     <div class="middle inner">
         <div class="container">
             <div class="category">
@@ -41,7 +48,7 @@
                 <a href="#">Circular Saws Cordless</a>
             </div>
             <div class="product-display">
-                <h3>Makita 3 Piece 10.8V Li-ion  </h3>
+                <h3>{{SingleItemDataInDetail.Title}}  </h3>
                 <div class="product-single">
                     <img src="images/product-single.jpg" alt="single img">
                     <h2>
@@ -59,12 +66,9 @@
                 <div class="discription">
                     <div class="clear"></div>
                     <h2>Product Discription</h2>
-                    <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br></p>-->
-                    <!--<div text-angular="text-angular" name="htmlcontent" ng-model="Description" ta-disabled='disabled'></div>-->
+                
+                    <div ng-bind-html="Description"></div>
 
-                    <p ng-bind-html="Description"></p>
-                        
-                   
                     <div class="clear"></div>
                 </div>
                 <div class="similar">

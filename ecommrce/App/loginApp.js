@@ -1,7 +1,7 @@
 ﻿var app = angular.module('loginApp', [
     'ngRoute',
     'ui.bootstrap',
-    'pascalprecht.translate', 
+    'pascalprecht.translate', 'ngSanitize'
 ]);
 
 //app.config(['$httpProvider', function ($httpProvider) {
@@ -88,3 +88,4 @@ app.config(['$routeProvider',  function ($routeProvider) {
 
     //});
 
+app.filter('unsafe', function ($sce) { return $sce.trustAsHtml; });
