@@ -1,8 +1,8 @@
 ﻿app.controller('ShopmainController', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService','$translate',
     function ($scope, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate) {
-        debugger
+        
         $scope.changeLanguage = function (lang) {
-            debugger
+            
             $translate.use(lang);
         }
 
@@ -633,7 +633,7 @@ setTimeout(function(){
         }
 
         $scope.GetSuperSubMenu = function (supersublevel, menuId) {
-            debugger
+            
            return supersublevel.items.filter(function (obj) {
                 if (obj.ParentMenuId == menuId) {
                     return true;
@@ -643,7 +643,7 @@ setTimeout(function(){
         }   
 
         $scope.GetSuperSuperSubMenu = function (suppersupersublevel, menuId1) {
-            debugger
+            
             return suppersupersublevel.items.filter(function (obj) {
                 if (obj.ParentMenuId == menuId1) {
                     return true;
@@ -690,9 +690,28 @@ setTimeout(function(){
                 method: 'GET', url: $scope.Url + 'Category/Category_Get'
                 }).
                 success(function (data, status, headers, config) {
-                    debugger
+                    
                     $scope.topProductshowonfront = data;
                 }).
                 error(function (data, status, headers, config) {
+            });
+
+
+        $scope.ShowSecondItemDetailPage = false;
+        $scope.ShowFirstFrontPage = true;
+        $scope.categoryClick = function (CategoryId) {
+            debugger
+            $http({
+                method: 'GET', url: $scope.Url + 'Category/GetItemByCategoryId?CategoryId='+CategoryId+''
+            }).
+                success(function (data, status, headers, config) {
+                    debugger
+                    $scope.ShowSecondItemDetailPage = true;
+                    $scope.ShowFirstFrontPage = false;
+                    $scope.ItemDetailDataCategoryWise = data;
+                }).
+                error(function (data, status, headers, config) {
                 });
+
+        }
     }]);
