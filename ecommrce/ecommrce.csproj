@@ -82,7 +82,12 @@
     <Content Include="App\Admin\views\ItemView.html" />
     <Content Include="App\Admin\views\UploadItemImageView.html" />
     <Content Include="App\controllers\CheckLoginController.js" />
+    <Content Include="App\controllers\ItemDetailController.js" />
+    <Content Include="App\controllers\ItemListController.js" />
     <Content Include="App\main.js" />
+    <Content Include="App\views\Default.html" />
+    <Content Include="App\views\ItemDetail.html" />
+    <Content Include="App\views\ItemList.html" />
     <Content Include="App\views\LoginView.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -421,7 +426,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\app_v10.js" />
-    <Content Include="App\controllers\ShopDetailController.js" />
+    <Content Include="App\controllers\DefaultController.js" />
     <Content Include="App\controllers\ShopmainController.js" />
     <Content Include="App\controllers\loginController.js" />
     <Content Include="App\controllers\mainController2.js" />

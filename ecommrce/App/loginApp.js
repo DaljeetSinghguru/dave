@@ -1,7 +1,7 @@
 ﻿var app = angular.module('loginApp', [
     'ngRoute',
     'ui.bootstrap',
-    'pascalprecht.translate'
+    'pascalprecht.translate', 
 ]);
 
 //app.config(['$httpProvider', function ($httpProvider) {
@@ -33,11 +33,19 @@ app.config(['$routeProvider',  function ($routeProvider) {
    // $httpProvider.interceptors.push('httpInterceptor');
 
     $routeProvider
-        .when('/login', {
-            templateUrl: 'app/views/login.html',
+        
+        .when('/Default', {
+            templateUrl: 'app/views/Default.html',
+            contrller: 'DefaultController'
+        })
+        .when('/ItemList', {
+            templateUrl: 'app/views/ItemList.html',
             contrller: 'loginController'
         })
-
+        .when('/ItemDetail', {
+            templateUrl: 'app/views/ItemDetail.html',
+            contrller: 'ItemDetailController'
+        })
         .when('/signup', {
             templateUrl: 'app/views/signup.html',
             contrller: 'signupController'
@@ -57,7 +65,7 @@ app.config(['$routeProvider',  function ($routeProvider) {
             contrller: 'ChangePasswordController',
         })
         .otherwise({
-            redirectTo: '/login'
+            redirectTo: '/Default'
         });
 
 

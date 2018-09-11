@@ -1,5 +1,5 @@
-﻿app.controller('ShopmainController', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService','$translate',
-    function ($scope, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate) {
+﻿app.controller('ShopmainController', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate','$location',
+    function ($scope, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location) {
         
         $scope.changeLanguage = function (lang) {
             
@@ -71,7 +71,9 @@
             success(function (data, status, headers, config) {
 
                 
-                $scope.AllCategory =  data
+                $scope.AllCategory = data
+                ViewVariablesService.SetDataofMenu($scope.AllCategory);
+
                 //$scope.AllCategory1 = data;
 setTimeout(function(){
  $scope.Mousehoveroncat($scope.AllCategory);
@@ -692,13 +694,13 @@ setTimeout(function(){
                 success(function (data, status, headers, config) {
                     
                     $scope.topProductshowonfront = data;
+               
                 }).
                 error(function (data, status, headers, config) {
             });
 
 
-        $scope.ShowSecondItemDetailPage = false;
-        $scope.ShowFirstFrontPage = true;
+       
         $scope.categoryClick = function (CategoryId) {
             debugger
             $http({
@@ -706,9 +708,10 @@ setTimeout(function(){
             }).
                 success(function (data, status, headers, config) {
                     debugger
-                    $scope.ShowSecondItemDetailPage = true;
-                    $scope.ShowFirstFrontPage = false;
+                   
                     $scope.ItemDetailDataCategoryWise = data;
+                    ViewVariablesService.SetDatasendToItemListPage($scope.ItemDetailDataCategoryWise);
+                    $location.path('ItemList');
                 }).
                 error(function (data, status, headers, config) {
                 });
