@@ -1,82 +1,92 @@
 ﻿app.controller('ItemListController', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location',
     function ($scope, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location) {
         debugger;
+
+        $scope.Url = ViewVariablesService.GetBaseAddress();
+        $scope.WebsiteDomain = ViewVariablesService.GetWebsiteDomain();
+        $scope.ShowCategoryLevel2list = false;
+        $scope.ShowCategoryLevel1list = false;
         $scope.ItemListDetails = ViewVariablesService.GetDatasendToItemListPage();
+        //if ($scope.ItemListDetails == {} || $scope.ItemListDetails == undefined) {
+        //    $scope.ShowCategorylist = true;
+        //}
+        //else {
+        //    $scope.ShowCategorylist = false;
+        //}
+        $scope.ItemListPageCategory = ViewVariablesService.GetDatasendToItemListPageCategory();
+        //if ($scope.ItemListPageCategory == {} || $scope.ItemListPageCategory == undefined) {
+        //    $scope.ShowCategoryLevel2list = true;
+        //}
+        //else {
+        //    $scope.ShowCategoryLevel2list = false;
+        //}
+        $scope.ItemListPageCategoryLevel2 = ViewVariablesService.GetDatasendToItemListPageCategoryLevel2();
+        //if ($scope.ItemListPageCategoryLevel2 == {} || $scope.ItemListPageCategoryLevel2 == undefined) {
+        //    $scope.ShowCategoryLevel1list = true;
+        //}
+        //else {
+        //    $scope.ShowCategoryLevel1list = false;
+        //}
+        $scope.ItemListPageCategoryLevel1 = ViewVariablesService.GetDatasendToItemListPageLevel1();
         $scope.topProductshowonfront = ViewVariablesService.GetDataofMenu();
-        
-        //$scope.GetSubMenu = function (toplevel, menuId) {
 
 
-        //    return toplevel.items.filter(function (obj) {
-        //        if (obj.ParentMenuId == menuId) {
-        //            return true;
-        //        }
-        //        return false;
-        //    });
+        ///show hide box of category and item
 
-        //}
-
-        //$scope.GetSuperSubMenu = function (supersublevel, menuId) {
-
-        //    return supersublevel.items.filter(function (obj) {
-        //        if (obj.ParentMenuId == menuId) {
-        //            return true;
-        //        }
-        //        return false;
-        //    });
-        //}
-
-        //$scope.GetSuperSuperSubMenu = function (suppersupersublevel, menuId1) {
-
-        //    return suppersupersublevel.items.filter(function (obj) {
-        //        if (obj.ParentMenuId == menuId1) {
-        //            return true;
-        //        }
-        //        return false;
-        //    });
-        //}
-
-        //$scope.Mousehoveroncat = function (data) {
+        if ($scope.ItemListPageCategoryLevel1.filename != undefined || $scope.ItemListPageCategoryLevel1.filename == null)
+        {
+            $scope.ShowCategoryLevel1list = true;
+        }
 
 
-        //    $(" .25").hover(function () {
 
-        //        $('.25').addClass('display-on');
-        //    });
-        //    $(" .29").hover(function () {
 
-        //        $('.29').addClass('display-on');
-        //    });
-        //    $(" .42").hover(function () {
+        $scope.ShowItemDetail = function (ItemData) {
 
-        //        $('.42').addClass('display-on');
-        //    });
-        //    $(" .45").hover(function () {
+            $scope.SingleItemData = ItemData;
 
-        //        $('.45').addClass('display-on');
-        //    });
-        //    $(" .50").hover(function () {
+            ViewVariablesService.SetSingleItemData($scope.SingleItemData);
+            $location.path('ItemDetail');
+        }
 
-        //        $('.50').addClass('display-on');
-        //    });
-        //    $(" .54").hover(function () {
+        $scope.ShowItemDetailCategory = function (data) {
+            debugger
 
-        //        $('.54').addClass('display-on');
-        //    });
-        //    $(".drop-down").mouseleave(function () {
+            //call API FOR GET ITESM
+            $scope.CategoryId = data.Value;
+            $http({
+                method: 'GET', url: $scope.Url + 'Category/GetItemByCategoryId?CategoryId=' + $scope.CategoryId + ''
+            }).
+                success(function (data, status, headers, config) {
+                    debugger
 
-        //        $('.mega-menu').removeClass('display-on');
-        //    });
+                    $scope.ItemListDetails = data;
+                    ViewVariablesService.SetDatasendToItemListPage(data);
+                    $scope.ShowCategoryLevel2list = false;
+                    $scope.ShowCategoryLevel1list = false;
+                    $scope.ShowCategorylist = false;
+                }).
+                error(function (data, status, headers, config) {
+                });
 
-        //}
 
-$scope.ShowItemDetail=function(ItemData){
+           
+        }
+        $scope.ShowCategoryLevel3 = function (data) {
+            $scope.ItemListPageCategory = data;
+            ViewVariablesService.SetDatasendToItemListPageCategory(data);
+            $scope.ShowCategoryLevel2list = false;
+            $scope.ShowCategoryLevel1list = false;
+            $scope.ShowCategorylist = true;
+        }
+        $scope.ShowCategoryLevel1 = function (data) {
+            $scope.ItemListPageCategoryLevel2 = data;
+            ViewVariablesService.SetDatasendToItemListPageCategoryLevel2(data);
+            $scope.ShowCategoryLevel2list = true;
+            $scope.ShowCategoryLevel1list = false;
+            //$scope.ShowCategorylist = false;
 
-$scope.SingleItemData=ItemData;
-
- ViewVariablesService.SetSingleItemData($scope.SingleItemData);
-  $location.path('ItemDetail');
-}
+        }
 
 
 

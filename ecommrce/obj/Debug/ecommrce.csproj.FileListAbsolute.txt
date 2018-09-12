@@ -35,3 +35,4 @@ F:\01092018\ecommrce\dave\ecommrce\bin\Microsoft.CodeDom.Providers.DotNetCompile
 F:\01092018\ecommrce\dave\ecommrce\obj\Debug\ecommrce.csproj.CoreCompileInputs.cache
 F:\01092018\ecommrce\dave\ecommrce\obj\Debug\ecommrce.dll
 F:\01092018\ecommrce\dave\ecommrce\obj\Debug\ecommrce.pdb
+F:\01092018\ecommrce\dave\ecommrce\obj\Debug\ecommrce.csprojResolveAssemblyReference.cache

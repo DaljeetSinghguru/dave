@@ -28,7 +28,7 @@
         return this.DataofMenu;
     }
 
- var SingleItemData = {};
+    var SingleItemData = {};
     this.SetSingleItemData = function (data) {
         debugger
         this.SingleItemData = data;
@@ -36,4 +36,31 @@
     this.GetSingleItemData = function (data) {
         return this.SingleItemData;
     }
+    
+    var DatasendToItemListPageCategory = {};
+    this.SetDatasendToItemListPageCategory = function (data) {
+        debugger
+        this.DatasendToItemListPageCategory = data;
+    }
+    this.GetDatasendToItemListPageCategory = function (data) {
+        return this.DatasendToItemListPageCategory;
+    }
+    
+    var DatasendToItemListPageCategoryLevel2 = {};
+    this.SetDatasendToItemListPageCategoryLevel2 = function (data) {
+        debugger
+        this.DatasendToItemListPageCategoryLevel2 = data;
+    }
+    this.GetDatasendToItemListPageCategoryLevel2 = function (data) {
+        return this.DatasendToItemListPageCategoryLevel2;
+    }
+    var DatasendToItemListPageLevel1 = {};
+    this.SetDatasendToItemListPageLevel1 = function (data) {
+        debugger
+        this.DatasendToItemListPageLevel1 = data;
+    }
+    this.GetDatasendToItemListPageLevel1 = function (data) {
+        return this.DatasendToItemListPageLevel1;
+    }
+    
 }]);

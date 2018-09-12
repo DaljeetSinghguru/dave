@@ -1,5 +1,5 @@
-﻿app.controller('appmainController2', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location',
-    function ($scope, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location) {
+﻿app.controller('appmainController2', ['$scope','$route', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location',
+    function ($scope, $route, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location) {
 
         $scope.changeLanguage = function (lang) {
 
@@ -703,52 +703,48 @@
 
         $scope.categoryClickLevel1 = function (CategoryId) {
             debugger
-            $http({
-                method: 'GET', url: $scope.Url + 'Category/GetItemByCategoryId?CategoryId=' + CategoryId + ''
-            }).
-                success(function (data, status, headers, config) {
-                    debugger
 
-                    $scope.ItemDetailDataCategoryWiselevel1 = data;
-                    ViewVariablesService.SetDatasendToItemListPage($scope.ItemDetailDataCategoryWiselevel1);
-                    $location.path('ItemList');
-                }).
-                error(function (data, status, headers, config) {
-                });
+            $scope.ItemDetailDataCategoryWiselevel1 = CategoryId;
+            ViewVariablesService.SetDatasendToItemListPageLevel1($scope.ItemDetailDataCategoryWiselevel1);
+            if ($location.path() == '/ItemList') {
+                $route.reload();
+            } else {
+                $location.path('ItemList');
+            }
+            //$location.path('ItemList');
+
 
         }
-        $scope.categoryClicklevel2 = function (CategoryId) {
+        $scope.categoryClicklevel2 = function (CategoryLevel2) {
             debugger
-            $http({
-                method: 'GET', url: $scope.Url + 'Category/GetItemByCategoryId?CategoryId=' + CategoryId + ''
-            }).
-                success(function (data, status, headers, config) {
-                    debugger
 
-                    $scope.ItemDetailDataCategoryWiselevel2 = data;
-                    ViewVariablesService.SetDatasendToItemListPage($scope.ItemDetailDataCategoryWiselevel2);
-                    $location.path('ItemList');
-                }).
-                error(function (data, status, headers, config) {
-                });
+
+            $scope.ItemDetailDataCategoryWiselevel2 = CategoryLevel2;
+            ViewVariablesService.SetDatasendToItemListPageCategoryLevel2($scope.ItemDetailDataCategoryWiselevel2);
+            if ($location.path() == '/ItemList') {
+                $route.reload();
+            } else {
+                $location.path('ItemList');
+            }
+
 
         }
-        $scope.categoryClicklevel3 = function (CategoryId) {
+        $scope.categoryClicklevel3 = function (CategoryData) {
             debugger
-            $http({
-                method: 'GET', url: $scope.Url + 'Category/GetItemByCategoryId?CategoryId=' + CategoryId + ''
-            }).
-                success(function (data, status, headers, config) {
-                    debugger
 
-                    $scope.ItemDetailDataCategoryWiselevel3 = data;
-                    if ($scope.ItemDetailDataCategoryWiselevel4 == undefined) {
-                        ViewVariablesService.SetDatasendToItemListPage($scope.ItemDetailDataCategoryWiselevel3);
-                        $location.path('ItemList');
-                    }
-                }).
-                error(function (data, status, headers, config) {
-                });
+
+            $scope.ItemDetailDataCategoryWiselevel3 = CategoryData;
+            if ($scope.ItemDetailDataCategoryWiselevel4 == undefined) {
+
+                ViewVariablesService.SetDatasendToItemListPageCategory($scope.ItemDetailDataCategoryWiselevel3);
+                if ($location.path() == '/ItemList') {
+                    $route.reload();
+                } else {
+                    $location.path('ItemList');
+                }
+            }
+
+
 
         }
         $scope.categoryClicklevel4 = function (CategoryId) {
@@ -762,7 +758,12 @@
                     $scope.ItemDetailDataCategoryWiselevel4 = data;
                     if ($scope.ItemDetailDataCategoryWiselevel3 == undefined || $scope.ItemDetailDataCategoryWiselevel3.length == 0) {
                         ViewVariablesService.SetDatasendToItemListPage($scope.ItemDetailDataCategoryWiselevel4);
-                        $location.path('ItemList');
+
+                        if ($location.path() == '/ItemList') {
+                            $route.reload();
+                        } else {
+                            $location.path('ItemList');
+                        }
                     }
                 }).
                 error(function (data, status, headers, config) {

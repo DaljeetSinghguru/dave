@@ -35,7 +35,7 @@
         </div>
     </div>
     <div ng-controller="appmainController2" ng-cloak>
-        <div class="top">
+        <!--<div class="top">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-right">
@@ -57,18 +57,10 @@
                         <p>{{'greeting' | translate}}</p>
 
 
-                        <!--<select class="form-control" ng-model="Country" k-ng-model="CountryObj">
-                            <option ng-selected="0==0">{{'language' | translate}}</option>
-                            <option  ng-repeat="data in Country">{{data.text | translate}}  {{$index}}</option>
-                        </select>-->
-                        <!--<select id="customers"
-                        kendo-drop-down-list style="width: 100%"
-                        k-options="customOptions"></select>-->
-                        <!--<a href="" ng-click="LogOutPage()" ng-show="UserIsLogIn==true">(Logout)</a> | <a href="#">Create An Account</a>-->
-                    </div>
+                       </div>
                 </div>
             </div>
-        </div>
+        </div>-->
         <!--<div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -160,14 +152,14 @@
                         <ul>
                             <li class="active"> <a href="#">Home</a> </li>
                             <li class="drop-down {{data.Value| translate}}" ng-repeat="data in AllCategory">
-                                <a href="#" ng-click="categoryClickLevel1(data.Value)">{{data.text| translate}}</a>
+                                <a  ng-click="categoryClickLevel1(data)">{{data.text| translate}}</a>
                                 <div class="mega-menu {{data.Value| translate}}">
 
                                     <div class="mm-3column" ng-repeat="level2 in GetSubMenu(data,data.Value)">
                                         <span class="categories-list">
                                             <ul>
-                                                <span ng-click="categoryClicklevel2(level2.Value)">{{level2.text| translate}}</span>
-                                                <li ng-click="categoryClicklevel3(level3.Value)" ng-repeat="level3 in GetSuperSubMenu(level2,level2.Value)">
+                                                <span ng-click="categoryClicklevel2(level2)">{{level2.text| translate}}</span>
+                                                <li ng-click="categoryClicklevel3(level3)" ng-repeat="level3 in GetSuperSubMenu(level2,level2.Value)">
                                                     {{level3.text| translate}}
                                                     <div class="mm-3column" ng-repeat="level4 in GetSuperSuperSubMenu(level3,level3.Value)">
 
