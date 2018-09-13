@@ -84,8 +84,11 @@
     <Content Include="App\controllers\CheckLoginController.js" />
     <Content Include="App\controllers\ItemDetailController.js" />
     <Content Include="App\controllers\ItemListController.js" />
+    <Content Include="App\controllers\MyCartController.js" />
+    <Content Include="App\controllers\ShopLoginController.js" />
     <Content Include="App\main.js" />
     <Content Include="App\views\Default.html" />
+    <Content Include="App\views\MyCart.html" />
     <Content Include="App\views\ItemDetail.html" />
     <Content Include="App\views\ItemList.html" />
     <Content Include="App\views\LoginView.html" />
