@@ -6,7 +6,7 @@
             $translate.use(lang);
         }
 
-
+        var myPassword = "MAKV123456789312";
 
         // $scope.Url = "http://localhost:50675/api/";
 
@@ -36,7 +36,7 @@
 
         ///////////////////////////////
         $scope.items = [];
-        $scope.cartName = "touchStone";
+        $scope.cartName = "DAVE";
         $scope.detailpageData = {};
         $scope.DeliveryCharges = "50";
         $scope.UserIsLogIn = false;
@@ -82,31 +82,7 @@
             }).
             error(function (data, status, headers, config) {
             });
-        ////Get Data for hotsale top4 product
-        //$http({ method: 'GET', url: $scope.Url + 'HomeShopHotSaleListing' }).
-        //    success(function (data, status, headers, config) {
-        //        $scope.HotsaleResponse = data;
-        //    }).
-        //    error(function (data, status, headers, config) {
-        //    });
-
-        //$http({ method: 'GET', url: $scope.Url + 'ShopPortalListing?Country=India' }).
-        //    success(function (data, status, headers, config) {
-        //        $scope.CountrySymbol = "\u20B9";
-        //        $scope.response = data;
-        //    }).
-        //    error(function (data, status, headers, config) {
-        //    });
-
-
-        ////Get Token Request for braintree paymentgateway
-        //$scope.param = { "Amount": "11", "payment_method_nonce": "" };
-        //$http({ method: 'POST', url: $scope.Url + 'Payment/Request/', data: $scope.param }).
-        //    success(function (data, status, headers, config) {
-        //        $scope.Token = data;
-        //    }).
-        //    error(function (data, status, headers, config) {
-        //    });
+      
         $scope.function = function (data) {
 
             $scope.IndexPage = false;
@@ -136,15 +112,7 @@
             $scope.detailpageData.IsStockPresent = data.IsStockPresent;
         }
 
-        $scope.ShowCart = function () {
-            $scope.HomePage = false;
-            $scope.IndexPage = false;
-            $scope.DetailPage = false;
-            $scope.CheckOutpage = true;
-            $scope.Loginpage = false;
-            $scope.RegistrationPage = false;
-            $scope.ThankYouPage = false;
-        }
+       
 
         // add an item to the cart
         $scope.addItemToCart = function (sku, name, ItemImage, price, quantity, IsStockPresent, ItemType, ItemId) {
@@ -194,7 +162,7 @@
 
         // get the total price for all items currently in the cart
         $scope.getTotalCount = function (sku) {
-
+            debugger
             var count = 0;
             for (var i = 0; i < this.items.length; i++) {
                 var item = this.items[i];
@@ -206,6 +174,7 @@
         }
         // get the total price for all items currently in the cart
         $scope.getTotalPrice = function (sku) {
+            debugger
             var total = 0;
             for (var i = 0; i < this.items.length; i++) {
                 var item = this.items[i];
@@ -228,19 +197,23 @@
 
         // load items from local storage
         $scope.loadItems = function () {
-
+            debugger
             // empty list
             $scope.items.splice(0, $scope.items.length);
+            var items = localStorage != null ? localStorage[$scope.cartName + "_items"] : null;
+
 
             // load from local storage
-            var items = localStorage != null ? localStorage[$scope.cartName + "_items"] : null;
             if (items != null && JSON != null) {
                 try {
-                    var items = JSON.parse(items);
+                    $scope.decryptedUserName = CryptoJS.AES.decrypt(items, myPassword);
+                    var decryptItems = $scope.decryptedUserName.toString(CryptoJS.enc.Utf8);
+
+                    var items = JSON.parse(decryptItems);
                     for (var i = 0; i < items.length; i++) {
                         var item = items[i];
                         if (item.sku != null && item.name != null && item.price != null && item.quantity != null) {
-                            item = new cartItem(item.sku, item.name, item.price, item.quantity, item.IsStockPresent);
+                            item = new cartItem1(item.sku, item.name, item.price, item.quantity, item.IsStockPresent);
                             $scope.items.push(item);
                         }
                     }
@@ -254,6 +227,16 @@
             if ($scope.itemsChanged) {
                 $scope.itemsChanged();
             }
+        }
+        function cartItem1(sku, name, price, quantity, IsStockPresent) {
+            this.sku = sku;
+            this.name = name;
+
+            this.price = price * 1;
+            this.quantity = quantity * 1;
+            this.IsStockPresent = IsStockPresent;
+
+
         }
         $scope.itemsChanged = function (e) {
             if (!$scope.$$phase) {
@@ -769,5 +752,18 @@
                 error(function (data, status, headers, config) {
                 });
 
+        }
+
+
+
+        ///////////////////////////////////////SHOW CART
+
+        $scope.ShowCart = function () {
+            if ($location.path() == '/MyCart') {
+                            $route.reload();
+            }
+            else {
+                $location.path('MyCart');
+                        }
         }
     }]);

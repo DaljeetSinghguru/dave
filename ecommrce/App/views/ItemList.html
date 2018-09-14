@@ -43,23 +43,23 @@
                     <a href="#">Circular Saws Cordless</a>
                 </div>
                 <div class="product-display" ng-show="ShowCategorylist==false">
-                    <h3>show item</h3>
-                    <div ng-click="ShowItemDetail(ItemdataCatWise)" class="product-inner" ng-repeat="ItemdataCatWise in ItemListDetails">
-                        <img src="images/product-inner.jpg" alt="product">
+                    <h3>show item</h3><!--ng-click="ShowItemDetail(ItemdataCatWise)"-->
+                    <div class="product-inner product-innerproduct" ng-repeat="ItemdataCatWise in ItemListDetails">
+                        <img class="img-responsive" src="images/product-inner.jpg" alt="product">
                         <h2>{{ItemdataCatWise.Title}}  </h2>
                         <h4>{{ItemdataCatWise.Name}} </h4>
                         <h5>{{ItemdataCatWise.Price}} </h5>
-                        <a href="">Add to Basket</a>
-                        <a ng-click="addItemToCart(ItemdataCatWise)">Add to cart</a>
+                        <!--<a href="">Add to Basket</a>-->
+                        <a ng-click="addItemToCart(ItemdataCatWise.ItemStockCode,ItemdataCatWise.Title,ItemdataCatWise.ItemMainImage,ItemdataCatWise.Price,1,null,ItemdataCatWise.CategoryName,ItemdataCatWise.ItemId)">Add to cart</a>
                     </div>
 
                 </div>
                 <div class="product-display" ng-show="ShowCategorylist==true">
 
                     <h3>show category  level 3{{ItemListPageCategory.text}}</h3>
-                    <img src="{{WebsiteDomain}}/images/{{ItemListPageCategory.filename}}.jpg" alt="product">
-                    <div ng-click="ShowItemDetailCategory(dataCatWiseLevel3)" class="product-inner" ng-repeat="dataCatWiseLevel3 in ItemListPageCategory.items">
-                        <img src="{{WebsiteDomain}}/images/{{dataCatWiseLevel3.filename}}.jpg" alt="product">
+                    <img class="img-responsive" src="{{WebsiteDomain}}/images/{{ItemListPageCategory.filename}}.jpg" alt="product">
+                    <div ng-click="ShowItemDetailCategory(dataCatWiseLevel3)" class="product-inner product-innerproduct" ng-repeat="dataCatWiseLevel3 in ItemListPageCategory.items">
+                        <img class="img-responsive" src="{{WebsiteDomain}}/images/{{dataCatWiseLevel3.filename}}.jpg" alt="product">
                         <h2>{{dataCatWiseLevel3.text}}</h2>
                         <h4>{{dataCatWiseLevel3.Description}}</h4>
 
@@ -69,9 +69,9 @@
                 <div class="product-display" ng-show="ShowCategoryLevel2list==true">
 
                     <h3>show category  level 2 {{ItemListPageCategoryLevel2.text}}</h3>
-                    <img src="{{WebsiteDomain}}/images/{{ItemListPageCategoryLevel2.filename}}.jpg" alt="product">
+                    <img class="img-responsive" src="{{WebsiteDomain}}/images/{{ItemListPageCategoryLevel2.filename}}.jpg" alt="product">
                     <div ng-click="ShowCategoryLevel3(dataCatWiseLevel2)" class="product-inner" ng-repeat="dataCatWiseLevel2 in ItemListPageCategoryLevel2.items">
-                        <img src="{{WebsiteDomain}}/images/{{dataCatWiseLevel2.filename}}.jpg" alt="product">
+                        <img class="img-responsive" src="{{WebsiteDomain}}/images/{{dataCatWiseLevel2.filename}}.jpg" alt="product">
                         <h2>{{dataCatWiseLevel2.text}}</h2>
                         <h4>{{dataCatWiseLevel2.Description}}</h4>
 
@@ -81,9 +81,9 @@
                 <div class="product-display" ng-show="ShowCategoryLevel1list==true">
 
                     <h3>show category level 1 {{ItemListPageCategoryLevel1.text}}</h3>
-                    <img src="{{WebsiteDomain}}/images/{{ItemListPageCategoryLevel1.filename}}.jpg" alt="product">
+                    <img class="img-responsive" src="{{WebsiteDomain}}/images/{{ItemListPageCategoryLevel1.filename}}.jpg" alt="product">
                     <div ng-click="ShowCategoryLevel1(dataCatWiseLevel1)" class="product-inner" ng-repeat="dataCatWiseLevel1 in ItemListPageCategoryLevel1.items">
-                        <img src="{{WebsiteDomain}}/images/{{dataCatWiseLevel1.filename}}.jpg" alt="product">
+                        <img class="img-responsive" src="{{WebsiteDomain}}/images/{{dataCatWiseLevel1.filename}}.jpg" alt="product">
                         <h2>{{dataCatWiseLevel1.text}}</h2>
                         <h4>{{dataCatWiseLevel1.Description}}</h4>
 

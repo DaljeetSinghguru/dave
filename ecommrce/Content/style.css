@@ -5,12 +5,11 @@
     box-sizing: border-box;
 }
 /** * Eric Meyer's Reset CSS v2.0 (https://meyerweb.com/eric/tools/css/reset/) * http://cssreset.com */
-html, div, span, applet, object, iframe, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+html, div, span, applet, object, iframe, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption, tbody, tfoot, thead, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
     margin: 0;
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -214,6 +213,9 @@ nav.menu {
     font-style: normal;
     margin-left: 5px;
 }
+.menu {
+    background:#333;
+}
 /*MediaQuerys*/
 @media (max-width: 600px) {
     .menu {
@@ -268,7 +270,7 @@ nav.menu {
 
 
 * {
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
     -moz-transition: all .2s ease-in;
     -o-transition: all .2s ease-in;
@@ -314,7 +316,7 @@ p {
 
 .search {
     float: left;
-    width: 50%;
+    width: 48%;
     margin-top: 30px;
 }
 
@@ -563,15 +565,15 @@ p {
     padding: 20px 0;
 }
 
-    .inner h3 {
-        margin: 0;
-        padding: 0 0 7px 0;
-        color: #f80000;
-        text-transform: uppercase;
-        border-bottom: 1px solid #e5e5e5;
-        font-size: 16px;
-        font-weight: bold;
-    }
+.category h3 {
+    margin: 0;
+    padding: 0 0 7px 0;
+    color: #f80000;
+    text-transform: uppercase;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 16px;
+    font-weight: bold;
+}
 
 .category {
     border-radius: 5px;
@@ -603,6 +605,16 @@ p {
             color: #f80000;
         }
 
+.product-display h3 {
+    margin: 0;
+    padding: 0 0 7px 0;
+    color: #f80000;
+    text-transform: uppercase;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 16px;
+    font-weight: bold;
+}
+
 .product-display {
     border-radius: 5px;
     background: #fff;
@@ -610,15 +622,25 @@ p {
     width: 73%;
     float: right;
 }
-
+.img-responsive{
+    width:100%;
+}
 .product-inner {
     border-radius: 5px;
     border: 1px solid #e5e5e5;
     padding: 10px;
     margin: 10px 0 0 0;
     overflow: hidden;
+    /*width: 48%;
+    float: left;
+    margin-right: 15px;*/
 }
-
+.product-innerproduct {
+   
+    width: 48%;
+    float: left;
+    margin-right: 15px;
+}   
     .product-inner img {
         float: left;
     }
@@ -716,6 +738,103 @@ p {
         width: 120px;
         margin: auto;
     }
+
+.white-bg {
+    border-radius: 5px;
+    background: #fff;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.login h2 {
+    margin: 10px;
+}
+
+.login [type=text] {
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.login [type=password] {
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.login [type=submit] {
+    padding: 10px;
+    background: #f80000;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin: 10px 0;
+    width: 100px;
+}
+
+.login label {
+    margin: 5px 0;
+    display: block;
+}
+
+.login-user {
+    width: 50%;
+    float: left;
+    padding: 50px;
+}
+
+.register-user {
+    width: 50%;
+    float: right;
+    padding: 50px;
+}
+
+.login h3 {
+    margin: 0 0 10px 0;
+    padding: 0 0 7px 0;
+    color: #f80000;
+    text-transform: uppercase;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.basket tr:nth-child(even) {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background: #eee;
+    padding: 10px 0;
+}
+
+.basket th {
+    background: #333;
+    color: #fff;
+}
+
+.basket table {
+    margin-top: 30px;
+}
+
+.basket input {
+    width: 30px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.checkout2 {
+    padding: 10px;
+    background: #f80000;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin: 10px 0;
+    float: right;
+}
 
 @media only screen and (max-width:768px) {
     .container {

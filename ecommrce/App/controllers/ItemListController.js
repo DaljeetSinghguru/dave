@@ -1,7 +1,7 @@
 ﻿app.controller('ItemListController', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location',
     function ($scope, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location) {
         debugger;
-
+        var myPassword = "MAKV123456789312";
         $scope.Url = ViewVariablesService.GetBaseAddress();
         $scope.WebsiteDomain = ViewVariablesService.GetWebsiteDomain();
         $scope.ShowCategoryLevel2list = false;
@@ -94,7 +94,7 @@
   $scope.addItemToCart = function (sku, name, ItemImage, price, quantity, IsStockPresent, ItemType, ItemId) {
             debugger 
 
-            if (IsStockPresent == "In Stock") {
+           // if (IsStockPresent == "In Stock") {
                 quantity = this.toNumber(quantity);
                 if (quantity != 0) {
 
@@ -120,10 +120,10 @@
                     // save changes
                     this.saveItems();
                 }
-            }
-            else {
-                //item is outof stock
-            }
+            //}
+            //else {
+            //    //item is outof stock
+            //}
         }
         function cartItem(sku, name, ItemImage, price, quantity, IsStockPresent, ItemType, ItemId) {
             this.sku = sku;
@@ -165,20 +165,24 @@
         $scope.saveItems = function () {
 
             if (localStorage != null && JSON != null) {
-                localStorage[$scope.cartName + "_items"] = JSON.stringify($scope.items);
+                localStorage[$scope.cartName + "_items"] = CryptoJS.AES.encrypt(JSON.stringify($scope.items), myPassword);
             }
         }
-       // load items from local storage
+        // load items from local storage
         $scope.loadItems = function () {
 
             // empty list
             $scope.items.splice(0, $scope.items.length);
-
-            // load from local storage
             var items = localStorage != null ? localStorage[$scope.cartName + "_items"] : null;
+
+           
+            // load from local storage
             if (items != null && JSON != null) {
-                try {
-                    var items = JSON.parse(items);
+              try {
+                  $scope.decryptedUserName = CryptoJS.AES.decrypt(items, myPassword);
+                  var decryptItems = $scope.decryptedUserName.toString(CryptoJS.enc.Utf8);
+
+                    var items = JSON.parse(decryptItems);
                     for (var i = 0; i < items.length; i++) {
                         var item = items[i];
                         if (item.sku != null && item.name != null && item.price != null && item.quantity != null) {
@@ -207,9 +211,9 @@
         $scope.deleteRowFromBasket = function (data) {
 
             $scope.items.splice($scope.items.indexOf(data), 1);
-            localStorage.setItem($scope.cartName + "_items", JSON.stringify($scope.items));
+            localStorage.setItem($scope.cartName + "_items", CryptoJS.AES.encrypt(JSON.stringify($scope.items), myPassword));
 
         }
-
+       // $scope.decryptedUserName = CryptoJS.AES.decrypt($scope.encryptedUserName, myPassword);
 
     }]);

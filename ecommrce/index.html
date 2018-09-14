@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width">
     <link href="Content/style.css" rel="stylesheet" />
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/bebas" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet">
     <!--<link href="Content/css/index.css" rel="stylesheet" />
     <link href="Content/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -61,7 +62,7 @@
                 </div>
             </div>
         </div>-->
-        <div class="container">
+        <!--<div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <nav class="navbar  navbar-expand-lg navbar-light">
@@ -124,7 +125,7 @@
                 </div>
             </div>
 
-        </div>
+        </div>-->
         <!--<div class="dropdown" ng-repeat="data in AllCategory">
             <button class="dropbtn">{{data.text}}</button>
             <div class="dropdown-content">
@@ -142,7 +143,7 @@
                         <input type="text" placeholder="What are you searching for ?">
                         <input type="submit" name="submit" value="Search">
                     </div>
-                    <div class="checkout"> <a href="#" class="cart-icon">(0) IETMS</a> <a href="#">VIEW BASKET</a> <a href="#" class="active">CHECKOUT</a> </div>
+                    <div class="checkout"> <a href="" class="cart-icon">{{getTotalCount()}} items, <b>{{getTotalPrice() | currency}}</b></a> <a href="" ng-click="ShowCart()">VIEW BASKET</a> <a href="#" class="active">CHECKOUT</a> </div>
                 </div>
             </div>
             <div class="menu">
@@ -152,7 +153,7 @@
                         <ul>
                             <li class="active"> <a href="#">Home</a> </li>
                             <li class="drop-down {{data.Value| translate}}" ng-repeat="data in AllCategory">
-                                <a  ng-click="categoryClickLevel1(data)">{{data.text| translate}}</a>
+                                <a ng-click="categoryClickLevel1(data)">{{data.text| translate}}</a>
                                 <div class="mega-menu {{data.Value| translate}}">
 
                                     <div class="mm-3column" ng-repeat="level2 in GetSubMenu(data,data.Value)">
@@ -260,6 +261,7 @@
     <script src="Scripts/angular-animate.js"></script>
     <script src="Scripts/angular-resource.js"></script>
     <script src="Scripts/angular-sanitize.js"></script>
+
     <script src="Scripts/angular-ui/ui-bootstrap.min.js"></script>
     <script src="Scripts/angular-ui/ui-bootstrap-tpls-0.12.1.min.js"></script>
     <script src="Scripts/angular-translate.min.js"></script>
@@ -267,7 +269,7 @@
     <!--<script src="Scripts/textAngular-rangy.min.js"></script>
     <script src="Scripts/textAngular-sanitize.min.js"></script>
     <script src="Scripts/textAngular.min.js"></script>-->
-
+    <script src="Scripts/Crypto-js.js"></script>
     <script src="app/loginApp.js"></script>
 
     <script src="App/services/UserService_v1.js"></script>
@@ -280,5 +282,7 @@
     <script src="App/controllers/CheckLoginController.js"></script>
     <script src="App/controllers/ItemListController.js"></script>
     <script src="App/controllers/ItemDetailController.js"></script>
+    <script src="App/controllers/MyCartController.js"></script>
+    <script src="App/controllers/ShopLoginController.js"></script>
 </body>
 </html>

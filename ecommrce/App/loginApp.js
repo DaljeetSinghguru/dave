@@ -42,9 +42,17 @@ app.config(['$routeProvider',  function ($routeProvider) {
             templateUrl: 'app/views/ItemList.html',
             contrller: 'loginController'
         })
+        .when('/Login', {
+            templateUrl: 'app/views/Login.html',
+            contrller: 'loginController'
+        })
         .when('/ItemDetail', {
             templateUrl: 'app/views/ItemDetail.html',
             contrller: 'ItemDetailController'
+        })
+        .when('/MyCart', {
+            templateUrl: 'app/views/MyCart.html',
+            contrller: 'MyCartController'
         })
         .when('/signup', {
             templateUrl: 'app/views/signup.html',
