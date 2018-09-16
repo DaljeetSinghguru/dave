@@ -6,38 +6,45 @@
         $scope.WebsiteDomain = ViewVariablesService.GetWebsiteDomain();
         $scope.ShowCategoryLevel2list = false;
         $scope.ShowCategoryLevel1list = false;
+        $scope.ShowITEMlist = false;
         $scope.ItemListDetails = ViewVariablesService.GetDatasendToItemListPage();
-        //if ($scope.ItemListDetails == {} || $scope.ItemListDetails == undefined) {
-        //    $scope.ShowCategorylist = true;
-        //}
-        //else {
-        //    $scope.ShowCategorylist = false;
-        //}
-        $scope.ItemListPageCategory = ViewVariablesService.GetDatasendToItemListPageCategory();
-        //if ($scope.ItemListPageCategory == {} || $scope.ItemListPageCategory == undefined) {
-        //    $scope.ShowCategoryLevel2list = true;
-        //}
-        //else {
-        //    $scope.ShowCategoryLevel2list = false;
-        //}
-        $scope.ItemListPageCategoryLevel2 = ViewVariablesService.GetDatasendToItemListPageCategoryLevel2();
-        //if ($scope.ItemListPageCategoryLevel2 == {} || $scope.ItemListPageCategoryLevel2 == undefined) {
-        //    $scope.ShowCategoryLevel1list = true;
-        //}
-        //else {
-        //    $scope.ShowCategoryLevel1list = false;
-        //}
-        $scope.ItemListPageCategoryLevel1 = ViewVariablesService.GetDatasendToItemListPageLevel1();
-        $scope.topProductshowonfront = ViewVariablesService.GetDataofMenu();
+      
 
+        debugger
+        ////////////////////////////////////////////////////////////////////////
+        ///
+        $scope.topProductshowonfront = ViewVariablesService.GetDataofMenu();
+        //$scope.ItemListPageCategory = ViewVariablesService.GetDatasendToItemListPageCategory();
+        $scope.dataTreeView = $scope.topProductshowonfront;
+        $scope.treeData1 = new kendo.data.HierarchicalDataSource({
+            data: $scope.dataTreeView,
+           
+        });
+
+
+        //////////////////////////////////////////////////////////
+
+
+
+
+
+        $scope.OpenReleventItemByCategory = function (data) {
+            debugger
+            $scope.categoryID = (data.Value);
+            //pass this category id to database and get all item present in category and display in browser
+        }
+
+        
+        //show category
+        if ($scope.ItemListDetails == {} || $scope.ItemListDetails == undefined) {
+        }
+        else {
+            $scope.ShowITEMlist = true;
+        }
+       
 
         ///show hide box of category and item
-            if($scope.ItemListPageCategoryLevel1){
-        if ($scope.ItemListPageCategoryLevel1.filename != undefined || $scope.ItemListPageCategoryLevel1.filename == null)
-        {
-            $scope.ShowCategoryLevel1list = true;
-        }
-            }
+       
 
 
 

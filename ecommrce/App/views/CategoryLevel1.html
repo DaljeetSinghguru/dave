@@ -1,0 +1,47 @@
+﻿
+<div class="" ng-controller="CategoryLevel1Controller">
+
+    <div class="middle inner">
+        <div class="container">
+            <div class="category">
+                Browse Items By Category
+                <div kendo-tree-view="tree"
+                     k-data-source="treeData1"
+                     k-on-change="selectedItem = dataItem">
+                    <span k-template ng-click="OpenReleventItemByCategory(dataItem)">
+                        <!--<a  ng-click="OpenReleventItemByCategory(dataItem)">-->  {{dataItem.text}} <!--</a>-->   <!--<button class='k-button' ng-click='click(dataItem)'>Add Category/Subcategory</button>-->
+                    </span>
+                </div>
+            </div>
+
+            <div class="product-display" ng-show="ShowCategoryLevel1list==true">
+
+                <!--<h3>show category level 1 {{ItemListPageCategoryLevel1.text}}</h3>
+        <img class="img-responsive" src="{{WebsiteDomain}}/images/{{ItemListPageCategoryLevel1.filename}}.jpg" alt="product">
+        <div ng-click="ShowCategoryLevel1(dataCatWiseLevel1)" class="product-inner" ng-repeat="dataCatWiseLevel1 in ItemListPageCategoryLevel1.items">
+            <img class="img-responsive" src="{{WebsiteDomain}}/images/{{dataCatWiseLevel1.filename}}.jpg" alt="product">
+            <h2>{{dataCatWiseLevel1.text}}</h2>
+            <h4>{{dataCatWiseLevel1.Description}}</h4>
+
+        </div>-->
+                <h3>show category  level 1{{ItemListPageCategory.text}}</h3>
+                <img class="img-responsive" src="{{WebsiteDomain}}/images/{{ItemListPageCategory.filename}}.jpg" alt="product">
+                <div ng-click="ShowItemDetailCategory(dataCatWiseLevel3)" class="product-inner product-innerproduct" ng-repeat="dataCatWiseLevel3 in ItemListPageCategory.items">
+                    <img class="img-responsive" src="{{WebsiteDomain}}/images/{{dataCatWiseLevel3.filename}}.jpg" alt="product">
+                    <h2>{{dataCatWiseLevel3.text}}</h2>
+                    <h4>{{dataCatWiseLevel3.Description}}</h4>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+</div>
+
+
+

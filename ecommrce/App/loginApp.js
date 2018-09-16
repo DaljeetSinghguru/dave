@@ -1,7 +1,7 @@
 ﻿var app = angular.module('loginApp', [
     'ngRoute',
     'ui.bootstrap',
-    'pascalprecht.translate', 'ngSanitize'
+    'pascalprecht.translate', 'ngSanitize', 'kendo.directives'
 ]);
 
 //app.config(['$httpProvider', function ($httpProvider) {
@@ -50,6 +50,18 @@ app.config(['$routeProvider',  function ($routeProvider) {
             templateUrl: 'app/views/ItemDetail.html',
             contrller: 'ItemDetailController'
         })
+        .when('/ItemListCategory3', {
+            templateUrl: 'app/views/CategoryLevel3.html',
+            contrller: 'loginController'
+        })
+        .when('/ItemListCategory2', {
+            templateUrl: 'app/views/CategoryLevel2.html',
+            contrller: 'loginController'
+        })
+        .when('/ItemListCategory1', {
+            templateUrl: 'app/views/CategoryLevel1.html',
+            contrller: 'loginController'
+        })
         .when('/MyCart', {
             templateUrl: 'app/views/MyCart.html',
             contrller: 'MyCartController'
@@ -58,6 +70,7 @@ app.config(['$routeProvider',  function ($routeProvider) {
             templateUrl: 'app/views/signup.html',
             contrller: 'signupController'
         })
+
         .when('/ForgetPassword', {
             templateUrl: 'app/views/ForgetPassword.html',
         })

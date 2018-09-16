@@ -4,6 +4,16 @@
         <div class="middle inner">
             <div class="container">
                 <div class="category">
+                    Browse Items By Category
+                    <div kendo-tree-view="tree"
+                         k-data-source="treeData1"
+                         k-on-change="selectedItem = dataItem">
+                        <span k-template ng-click="OpenReleventItemByCategory(dataItem)">
+                            <!--<a  ng-click="OpenReleventItemByCategory(dataItem)">-->  {{dataItem.text}} <!--</a>-->   <!--<button class='k-button' ng-click='click(dataItem)'>Add Category/Subcategory</button>-->
+                        </span>
+                    </div>
+                </div>
+                <!--<div class="category">
                     <h3>Browse By category</h3>
                     <a href="#">Angle Drills Cordless</a>
                     <a href="#">Angle Grinders Cordless</a>
@@ -41,8 +51,8 @@
                     <a href="#">Angle Drills Cordless</a>
                     <a href="#">Angle Grinders Cordless</a>
                     <a href="#">Circular Saws Cordless</a>
-                </div>
-                <div class="product-display" ng-show="ShowCategorylist==false">
+                </div>-->
+                <div class="product-display" ng-show="ShowITEMlist==true">
                     <h3>show item</h3><!--ng-click="ShowItemDetail(ItemdataCatWise)"-->
                     <div class="product-inner product-innerproduct" ng-repeat="ItemdataCatWise in ItemListDetails">
                         <img class="img-responsive" src="images/product-inner.jpg" alt="product">
@@ -54,7 +64,7 @@
                     </div>
 
                 </div>
-                <div class="product-display" ng-show="ShowCategorylist==true">
+                <!--<div class="product-display" ng-show="ShowCategorylist==true">
 
                     <h3>show category  level 3{{ItemListPageCategory.text}}</h3>
                     <img class="img-responsive" src="{{WebsiteDomain}}/images/{{ItemListPageCategory.filename}}.jpg" alt="product">
@@ -65,8 +75,8 @@
 
                     </div>
 
-                </div>
-                <div class="product-display" ng-show="ShowCategoryLevel2list==true">
+                </div>-->
+                <!--<div class="product-display" ng-show="ShowCategoryLevel2list==true">
 
                     <h3>show category  level 2 {{ItemListPageCategoryLevel2.text}}</h3>
                     <img class="img-responsive" src="{{WebsiteDomain}}/images/{{ItemListPageCategoryLevel2.filename}}.jpg" alt="product">
@@ -89,7 +99,7 @@
 
                     </div>
 
-                </div>
+                </div>-->
             </div>
 
 

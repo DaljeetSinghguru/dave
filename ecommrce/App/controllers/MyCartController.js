@@ -6,7 +6,7 @@
         // load items from local storage
         // load items from local storage
         $scope.loadItems = function () {
-
+            debugger
             // empty list
             $scope.items.splice(0, $scope.items.length);
             var items = localStorage != null ? localStorage[$scope.cartName + "_items"] : null;
@@ -58,6 +58,10 @@
 
         $scope.CheckOut = function () {
             debugger
+
+            //check if it is already login then go to payment gate way 
+            //otherwaisego to login page
+
             if ($location.path() == '/Login') {
                 $route.reload();
             }

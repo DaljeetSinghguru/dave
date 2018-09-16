@@ -4,70 +4,114 @@
             <div class="white-bg basket">
                 <h2>My Basket</h2>
                 <p>Simply adjust the quantity to update the "Total" in the basket.</p>
-                <table width="100%" border="0" cellspacing="0" cellpadding="10">
-                    <tr>
-                        <th>&nbsp;</th>
-                        <th><strong>Stock Code</strong></th>
-                        <th><strong>Description</strong></th>
-                        <th><strong>In Stock	</strong></th>
-                        <th><strong>Qty.	</strong></th>
-                        <th><strong>Price</strong></th>
-                        <th><strong>Total</strong></th>
-                        <th><strong>Remove</strong></th>
-                    </tr>
-                    <tr>
-                        <td><img src="images/basket.jpg" width="40" height="40" alt="bas"></td>
-                        <td>060118B070</td>
-                        <td>Bosch GSB162-2RE Impact Drill 2 Speed 240V 060118B070</td>
-                        <td align="center">1</td>
-                        <td align="center"><input type="text" value="1"></td>
-                        <td align="center">£431.67</td>
-                        <td align="center">£863.34	</td>
-                        <td align="center"><a href="#">Delete</a></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>Total Goods	</td>
-                        <td>&nbsp;</td>
-                        <td align="center">£863.34	</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>SubTotal	</td>
-                        <td>&nbsp;</td>
-                        <td align="center">£863.34	</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>Vat	</td>
-                        <td>&nbsp;</td>
-                        <td align="center">£14.34	</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td><strong>GRAND TOTAL	</strong></td>
-                        <td>&nbsp;</td>
-                        <td align="center"><strong>£863.34	</strong></td>
-                        <td>&nbsp;</td>
-                    </tr>
-                </table>
+                <!--<table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+            <th>&nbsp;</th>
+            <th><strong>Stock Code</strong></th>
+            <th><strong>Description</strong></th>
+            <th><strong>In Stock	</strong></th>
+            <th><strong>Qty.	</strong></th>
+            <th><strong>Price</strong></th>
+            <th><strong>Total</strong></th>
+            <th><strong>Remove</strong></th>
+        </tr>
+        <tr ng-repeat="item in items | orderBy:'name'">
+            <td><img src="images/basket.jpg" width="40" height="40" alt="bas"></td>
+            <td>{{item.sku}}</td>
+            <td>{{name}}</td>
+            <td align="center">1</td>
+            <td align="center"><input type="text" ng-model="qty" value="1"></td>
+            <td align="center">{{price}}</td>
+            <td align="center">{{getLinePrice(item.price,item.quantity)| currency:"&#8377;"}}</td>
+            <td align="center"><a href="#">Delete</a></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>Total Goods	</td>
+            <td>&nbsp;</td>
+            <td align="center">£863.34	</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>SubTotal	</td>
+            <td>&nbsp;</td>
+            <td align="center">£863.34	</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>Vat	</td>
+            <td>&nbsp;</td>
+            <td align="center">£14.34	</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><strong>GRAND TOTAL	</strong></td>
+            <td>&nbsp;</td>
+            <td align="center"><strong>£863.34	</strong></td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>-->
+                <table id="cart" width="100%" border="0" cellspacing="0" cellpadding="10" class="">
+                    <thead>
+                        <tr>
+                            <th style="width: 50%">Product</th>
+                            <th style="width: 10%">Price</th>
+                            <th style="width: 8%">Quantity</th>
+                            <th style="width: 22%" class="text-center">Subtotal</th>
+                            <th style="width: 10%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in items | orderBy:'name'">
+                            <td data-th="Product">
+                                <div class="row">
+                                    <div class="col-sm-3 hidden-xs">
+                                        <img src="{{WebsiteDomain}}/images/{{item.filename}}.jpg" alt="..." class="img-responsive" />
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <h4 class="nomargin">{{item.name}}</h4>
+                                        <p>{{item.sku}}Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td data-th="Price" style="vertical-align: middle; font-weight: bold; font-size: 18px;">{{item.price| currency:"&#8377;"}}</td>
+                            <td data-th="Quantity" style="vertical-align: middle; font-weight: bold; font-size: 18px;">
+                                {{item.quantity}}
 
-                <a href=""  ng-click="CheckOut()" class="checkout">Checkout</a>
+                            </td>
+                            <td data-th="Subtotal" class="text-center" style="vertical-align: middle;">{{getLinePrice(item.price,item.quantity)| currency:"&#8377;"}}</td>
+                            <td class="actions" data-th="" style="vertical-align: middle;">
+                                <button class=""><i class="fa fa-refresh"></i></button>
+                                <button class="" ng-click="deleteRowFromBasket(item)"><i class="fa fa-trash-o"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+
+                        <tr>
+                            <td><a href="" class="btn btn-warning" ng-click="ContinueToBasket()"><i class=""></i>Continue Shopping</a></td>
+                            <td colspan="2" class="hidden-xs"></td>
+                            <td class="hidden-xs text-center"><strong>Total {{getTotalPrice()| currency:"&#8377;"}}</strong></td>
+                            <td><!--<a href="" class="btn btn-success btn-block" ng-click="Order()">Checkout <i class=""></i></a>--></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <a href="" ng-click="CheckOut()" class="checkout">Checkout</a>
             </div>
         </div>
 
@@ -80,51 +124,7 @@
   
    
     <div class="container">
-        <table id="cart" class="table table-hover table-condensed table-responsive">
-            <thead>
-                <tr>
-                    <th style="width: 50%">Product</th>
-                    <th style="width: 10%">Price</th>
-                    <th style="width: 8%">Quantity</th>
-                    <th style="width: 22%" class="text-center">Subtotal</th>
-                    <th style="width: 10%"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="item in items | orderBy:'name'">
-                    <td data-th="Product">
-                        <div class="row">
-                            <div class="col-sm-3 hidden-xs">
-                                <img src="{{item.ItemImage}}" alt="..." class="img-responsive" />
-                            </div>
-                            <div class="col-sm-9">
-                                <h4 class="nomargin">{{item.name}}</h4>
-                                <p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td data-th="Price" style="vertical-align: middle; font-weight: bold; font-size: 18px;">{{item.price| currency:"&#8377;"}}</td>
-                    <td data-th="Quantity" style="vertical-align: middle; font-weight: bold; font-size: 18px;">
-                        {{item.quantity}}
-                      
-                    </td>
-                    <td data-th="Subtotal" class="text-center" style="vertical-align: middle;">{{getLinePrice(item.price,item.quantity)| currency:"&#8377;"}}</td>
-                    <td class="actions" data-th="" style="vertical-align: middle;">
-                        <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-                        <button class="btn btn-danger btn-sm" ng-click="deleteRowFromBasket(item)"><i class="fa fa-trash-o"></i></button>
-                    </td>
-                </tr>
-            </tbody>
-            <tfoot>
-
-                <tr>
-                    <td><a href="" class="btn btn-warning" ng-click="ContinueToBasket()"><i class=""></i>Continue Shopping</a></td>
-                    <td colspan="2" class="hidden-xs"></td>
-                    <td class="hidden-xs text-center"><strong>Total {{getTotalPrice()| currency:"&#8377;"}}</strong></td>
-                    <td><a href="" class="btn btn-success btn-block" ng-click="Order()">Checkout <i class=""></i></a></td>
-                </tr>
-            </tfoot>
-        </table>
+        
 
     </div>
     <div class="clearfix"></div>

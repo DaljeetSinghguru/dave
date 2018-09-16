@@ -1,9 +1,9 @@
 ﻿app.service('ViewVariablesService', ['$http', function ($http) {
     debugger
     this.GetWebsiteDomain = function () {
-       // return "http://api.davemuslayah.com/";
+        // return "http://api.davemuslayah.com/";
         return "http://localhost:50675/";
-        
+
     }
     this.GetBaseAddress = function () {
         //return this.GetWebsiteDomain() + "api/";
@@ -36,7 +36,7 @@
     this.GetSingleItemData = function (data) {
         return this.SingleItemData;
     }
-    
+
     var DatasendToItemListPageCategory = {};
     this.SetDatasendToItemListPageCategory = function (data) {
         debugger
@@ -45,7 +45,7 @@
     this.GetDatasendToItemListPageCategory = function (data) {
         return this.DatasendToItemListPageCategory;
     }
-    
+
     var DatasendToItemListPageCategoryLevel2 = {};
     this.SetDatasendToItemListPageCategoryLevel2 = function (data) {
         debugger
@@ -62,5 +62,5 @@
     this.GetDatasendToItemListPageLevel1 = function (data) {
         return this.DatasendToItemListPageLevel1;
     }
-    
+
 }]);

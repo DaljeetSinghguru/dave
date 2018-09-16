@@ -162,7 +162,7 @@
 
         // get the total price for all items currently in the cart
         $scope.getTotalCount = function (sku) {
-            debugger
+        //    debugger
             var count = 0;
             for (var i = 0; i < this.items.length; i++) {
                 var item = this.items[i];
@@ -174,7 +174,7 @@
         }
         // get the total price for all items currently in the cart
         $scope.getTotalPrice = function (sku) {
-            debugger
+         //   debugger
             var total = 0;
             for (var i = 0; i < this.items.length; i++) {
                 var item = this.items[i];
@@ -197,7 +197,7 @@
 
         // load items from local storage
         $scope.loadItems = function () {
-            debugger
+        //    debugger
             // empty list
             $scope.items.splice(0, $scope.items.length);
             var items = localStorage != null ? localStorage[$scope.cartName + "_items"] : null;
@@ -685,69 +685,77 @@
 
 
         $scope.categoryClickLevel1 = function (CategoryId) {
-            debugger
+         //   debugger
 
             $scope.ItemDetailDataCategoryWiselevel1 = CategoryId;
             ViewVariablesService.SetDatasendToItemListPageLevel1($scope.ItemDetailDataCategoryWiselevel1);
-            if ($location.path() == '/ItemList') {
+            ViewVariablesService.SetDatasendToItemListPage();
+            ViewVariablesService.SetDatasendToItemListPageCategory();
+            ViewVariablesService.SetDatasendToItemListPageCategoryLevel2();
+
+            if ($location.path() == '/ItemListCategory3') {
                 $route.reload();
             } else {
-                $location.path('ItemList');
+                $location.path('ItemListCategory3');
             }
             //$location.path('ItemList');
 
 
         }
         $scope.categoryClicklevel2 = function (CategoryLevel2) {
-            debugger
+            //debugger
 
 
             $scope.ItemDetailDataCategoryWiselevel2 = CategoryLevel2;
             ViewVariablesService.SetDatasendToItemListPageCategoryLevel2($scope.ItemDetailDataCategoryWiselevel2);
-            if ($location.path() == '/ItemList') {
+            ViewVariablesService.SetDatasendToItemListPage();
+            ViewVariablesService.SetDatasendToItemListPageCategory();
+            if ($location.path() == '/ItemListCategory2') {
                 $route.reload();
             } else {
-                $location.path('ItemList');
+                $location.path('ItemListCategory2');
             }
 
 
         }
         $scope.categoryClicklevel3 = function (CategoryData) {
-            debugger
+          //  debugger
 
 
             $scope.ItemDetailDataCategoryWiselevel3 = CategoryData;
-            if ($scope.ItemDetailDataCategoryWiselevel4 == undefined) {
+            //if ($scope.ItemDetailDataCategoryWiselevel4 == undefined) {
+            ViewVariablesService.SetDatasendToItemListPage();
 
-                ViewVariablesService.SetDatasendToItemListPageCategory($scope.ItemDetailDataCategoryWiselevel3);
-                if ($location.path() == '/ItemList') {
+            ViewVariablesService.SetDatasendToItemListPageCategory($scope.ItemDetailDataCategoryWiselevel3);
+
+                if ($location.path() == '/ItemListCategory1') {
                     $route.reload();
                 } else {
-                    $location.path('ItemList');
+                    $location.path('ItemListCategory1');
                 }
-            }
+            //}
 
 
 
         }
         $scope.categoryClicklevel4 = function (CategoryId) {
-            debugger
+           // debugger
             $http({
                 method: 'GET', url: $scope.Url + 'Category/GetItemByCategoryId?CategoryId=' + CategoryId + ''
             }).
                 success(function (data, status, headers, config) {
-                    debugger
+                  //  debugger
 
                     $scope.ItemDetailDataCategoryWiselevel4 = data;
-                    if ($scope.ItemDetailDataCategoryWiselevel3 == undefined || $scope.ItemDetailDataCategoryWiselevel3.length == 0) {
+                   // if ($scope.ItemDetailDataCategoryWiselevel3 == undefined || $scope.ItemDetailDataCategoryWiselevel3.length == 0) {
                         ViewVariablesService.SetDatasendToItemListPage($scope.ItemDetailDataCategoryWiselevel4);
-
+                        ViewVariablesService.SetDatasendToItemListPageCategory();
                         if ($location.path() == '/ItemList') {
                             $route.reload();
                         } else {
                             $location.path('ItemList');
                         }
-                    }
+                   // }
                 }).
                 error(function (data, status, headers, config) {
                 });
@@ -766,4 +774,9 @@
                 $location.path('MyCart');
                         }
         }
+
+
+
+
+        
     }]);
