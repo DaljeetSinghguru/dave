@@ -1,7 +1,9 @@
-﻿var app = angular.module('loginApp', [
+﻿Stripe.setPublishableKey('pk_test_aj305u5jk2uN1hrDQWdH0eyl');
+
+var app = angular.module('loginApp', [
     'ngRoute',
     'ui.bootstrap',
-    'pascalprecht.translate', 'ngSanitize', 'kendo.directives'
+    'pascalprecht.translate', 'ngSanitize', 'kendo.directives','angularPayments', 'ngAnimate', 'angularSpinner'
 ]);
 
 //app.config(['$httpProvider', function ($httpProvider) {
@@ -9,6 +11,7 @@
 //    $httpProvider.interceptors.push('httpInterceptor');
 
 //}]);
+
 app.config(["$translateProvider", function ($translateProvider) {
 
     var en_translations = {

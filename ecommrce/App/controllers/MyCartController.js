@@ -56,18 +56,56 @@
 
 
 
-        $scope.CheckOut = function () {
+       // $scope.CheckOut = function () {
             debugger
 
             //check if it is already login then go to payment gate way 
             //otherwaisego to login page
 
-            if ($location.path() == '/Login') {
-                $route.reload();
-            }
-            else {
-                $location.path('Login');
-            }
-        }
+            //if ($location.path() == '/Login') {
+            //    $route.reload();
+            //}
+            //else {
+            //    $location.path('Login');
+            //}
+            $scope.getCartPrice = "100";
+            $scope.CheckOut = function () {
+                //$modal.open({
+                //    templateUrl: 'App/views/Checkout.html',
+                //    controller: 'App/controllers/CheckoutController',
+                //    resolve: {
+                //        totalAmount: $scope.getCartPrice
+                //    }
+                //});
+
+                $scope.modalInstanceExtention = $modal.open({
+                    scope: $scope,
+                    templateUrl: 'App/views/Checkout.html',
+                   // controller: 'App/controllers/CheckoutController',
+                    size: "lg",
+                });
+            };
+        //}
+
+            $scope.totalAmount = "100";
+
+            $scope.onSubmit = function () {
+                $scope.processing = true;
+            };
+
+            $scope.stripeCallback = function (code, result) {
+                $scope.processing = false;
+                $scope.hideAlerts();
+                if (result.error) {
+                    $scope.stripeError = result.error.message;
+                } else {
+                    $scope.stripeToken = result.id;
+                }
+            };
+
+            $scope.hideAlerts = function () {
+                $scope.stripeError = null;
+                $scope.stripeToken = null;
+            };
 
     }])
