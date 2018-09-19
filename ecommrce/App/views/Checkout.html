@@ -23,73 +23,59 @@
 
 <div id="modalInserUpdateDocsData" class="modal-content">
 
-    <div class="modal-header">
-        <button type="button" class="close" ng-click="cancelCampusDetailModal()">&times;</button>
-        <h4 class="modal-title">Campus Details </h4>
+  
+
+   
+
+    <div class="bt-drop-in-wrapper">
+        <div id="dropin-container"></div>
+    </div>
+    <a id="submit-button" class="order" href="" ng-click="Order()">Place Order</a>
+
+    <!--<div class="container section login">
+        <div class="row shdw-bx">
+            <div class="col-md-6">
+                <div class="bt-drop-in-wrapper">
+                    <div id="dropin-container"></div>
+                </div>
+            </div>
+            <div class="col-md-6 paypal">
+                <img src="../../ItemImage/paypal.png" alt="pay with paypal" />
+
+                <h2> Paypal is the safer, easier way to pay.</h2>
+                <p>No matter where you shop, we keep your financial information secure. </p>
+            </div>
+            <button id="submit-button">Request payment method</button>
+            <div class="col-md-12"> <a id="submit-button" class="order red-btn" href="" ng-click="Order()">Place Order</a></div>
+        </div>
     </div>
 
-    <!--  <form ng-submit="UpdateCampus()" name="forms.frmArea" novalidate="" class="supSupplier" enter-tab>-->
-    <form name="checkoutForm" stripe-form="stripeCallback" ng-submit="onSubmit()" data-abide>
-        <div ng-if="processing" us-spinner></div>
-        <fieldset>
-            <legend>Shipping Information</legend>
-            <div class="row">
-                <label class="large-12 columns">
-                    Name
-                    <input ng-model="name" type="text" placeholder="Name">
-                </label>
-                <label class="large-12 columns">
-                    Address
-                    <input ng-model="address" type="text" placeholder="Address">
-                </label>
-            </div>
-        </fieldset>
-        <fieldset>
-            <legend>Payment Information</legend>
-            <div class="row">
-                <div class="large-6 columns" ng-class="{error: checkoutForm.number.$invalid}">
-                    <label>
-                        Card Information
-                        <input ng-model="number" name="number" payments-format="card" payments-validate="card"
-                               placeholder="Card Number" type="text" />
-                    </label>
-                    <small class="error">Invalid card number</small>
-                </div>
-                <div class="large-3 columns" ng-class="{error: checkoutForm.expiry.$invalid}">
-                    <label>
-                        Expiry
-                        <input ng-model="expiry" name="expiry" payments-format="expiry" payments-validate="expiry"
-                               placeholder="Expiry" type="text" />
-                    </label>
-                    <small class="error">Invalid date.</small>
-                </div>
-                <div class="large-3 columns" ng-class="{error: checkoutForm.cvc.$invalid}">
-                    <label>
-                        CVC
-                        <input ng-model="cvc" name="cvc" payments-format="cvc" payments-validate="cvc"
-                               placeholder="CVC" type="text" />
-                    </label>
-                    <small class="error">Invalid CVC.</small>
-                </div>
-                <div class="large-12 columns">
-                    <strong>
-                        Amount to pay: {{totalAmount}}$
-                    </strong>
-                </div>
-            </div>
-        </fieldset>
-        <alert ng-if="stripeError" type="'alert'" close="hideAlerts()">
-            Stripe returned an error: {{stripeError}}
-        </alert>
-        <alert ng-if="stripeToken" close="hideAlerts()">
-            Stripe successfully acquired! Token: {{stripeToken}}
-        </alert>
-        <div class="clearfix">
-            <div class="right">
-                <button class="cancel" ng-click="$dismiss();">Cancel</button>
-                <button type="submit" ng-disabled="checkoutForm.$invalid">Place Order</button>
-            </div>
-        </div>
+    <script>
+        var button = document.querySelector('#submit-button');
+
+        braintree.dropin.create({
+            authorization: 'CLIENT_AUTHORIZATION',
+            container: '#dropin-container'
+        }, function (createErr, instance) {
+            button.addEventListener('click', function () {
+                instance.requestPaymentMethod(function (requestPaymentMethodErr, payload) {
+                    // Submit payload.nonce to your server
+                });
+            });
+        });
+    </script>-->
+    <!--<form id="checkout" method="post" action="/checkout">
+        <div id="payment-form"></div>
+        <input type="submit" value="Pay $10">
     </form>
 
+    <script src="https://js.braintreegateway.com/js/braintree-2.32.1.min.js"></script>
+    <script>
+
+        var clientToken = "eyJ2ZXJzaW9uIjoyLCJhdXRob3JpemF0aW9uRmluZ2VycHJpbnQiOiJiMzZmNDQ4YTNkNDZkODNiMjBjNzgxMmRhMTU0MWRlYzZkZjMwZjMzODFiMzY1MmE1MzBiNDg4NDRkNmQ2MTc0fGNyZWF0ZWRfYXQ9MjAxOC0wOS0xOVQxMDowMTo0OS4wNTk5ODA1NzUrMDAwMFx1MDAyNm1lcmNoYW50X2lkPTM0OHBrOWNnZjNiZ3l3MmJcdTAwMjZwdWJsaWNfa2V5PTJuMjQ3ZHY4OWJxOXZtcHIiLCJjb25maWdVcmwiOiJodHRwczovL2FwaS5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMvMzQ4cGs5Y2dmM2JneXcyYi9jbGllbnRfYXBpL3YxL2NvbmZpZ3VyYXRpb24iLCJncmFwaFFMIjp7InVybCI6Imh0dHBzOi8vcGF5bWVudHMuc2FuZGJveC5icmFpbnRyZWUtYXBpLmNvbS9ncmFwaHFsIiwiZGF0ZSI6IjIwMTgtMDUtMDgifSwiY2hhbGxlbmdlcyI6W10sImVudmlyb25tZW50Ijoic2FuZGJveCIsImNsaWVudEFwaVVybCI6Imh0dHBzOi8vYXBpLnNhbmRib3guYnJhaW50cmVlZ2F0ZXdheS5jb206NDQzL21lcmNoYW50cy8zNDhwazljZ2YzYmd5dzJiL2NsaWVudF9hcGkiLCJhc3NldHNVcmwiOiJodHRwczovL2Fzc2V0cy5icmFpbnRyZWVnYXRld2F5LmNvbSIsImF1dGhVcmwiOiJodHRwczovL2F1dGgudmVubW8uc2FuZGJveC5icmFpbnRyZWVnYXRld2F5LmNvbSIsImFuYWx5dGljcyI6eyJ1cmwiOiJodHRwczovL29yaWdpbi1hbmFseXRpY3Mtc2FuZC5zYW5kYm94LmJyYWludHJlZS1hcGkuY29tLzM0OHBrOWNnZjNiZ3l3MmIifSwidGhyZWVEU2VjdXJlRW5hYmxlZCI6dHJ1ZSwicGF5cGFsRW5hYmxlZCI6dHJ1ZSwicGF5cGFsIjp7ImRpc3BsYXlOYW1lIjoiQWNtZSBXaWRnZXRzLCBMdGQuIChTYW5kYm94KSIsImNsaWVudElkIjpudWxsLCJwcml2YWN5VXJsIjoiaHR0cDovL2V4YW1wbGUuY29tL3BwIiwidXNlckFncmVlbWVudFVybCI6Imh0dHA6Ly9leGFtcGxlLmNvbS90b3MiLCJiYXNlVXJsIjoiaHR0cHM6Ly9hc3NldHMuYnJhaW50cmVlZ2F0ZXdheS5jb20iLCJhc3NldHNVcmwiOiJodHRwczovL2NoZWNrb3V0LnBheXBhbC5jb20iLCJkaXJlY3RCYXNlVXJsIjpudWxsLCJhbGxvd0h0dHAiOnRydWUsImVudmlyb25tZW50Tm9OZXR3b3JrIjp0cnVlLCJlbnZpcm9ubWVudCI6Im9mZmxpbmUiLCJ1bnZldHRlZE1lcmNoYW50IjpmYWxzZSwiYnJhaW50cmVlQ2xpZW50SWQiOiJtYXN0ZXJjbGllbnQzIiwiYmlsbGluZ0FncmVlbWVudHNFbmFibGVkIjp0cnVlLCJtZXJjaGFudEFjY291bnRJZCI6ImFjbWV3aWRnZXRzbHRkc2FuZGJveCIsImN1cnJlbmN5SXNvQ29kZSI6IlVTRCJ9LCJtZXJjaGFudElkIjoiMzQ4cGs5Y2dmM2JneXcyYiIsInZlbm1vIjoib2ZmIn0=";
+
+        braintree.setup(clientToken, "dropin", {
+            container: "payment-form"
+        });
+    </script>-->
 </div>

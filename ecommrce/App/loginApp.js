@@ -1,9 +1,9 @@
-﻿Stripe.setPublishableKey('pk_test_aj305u5jk2uN1hrDQWdH0eyl');
+﻿//Stripe.setPublishableKey('pk_test_aj305u5jk2uN1hrDQWdH0eyl');
 
 var app = angular.module('loginApp', [
     'ngRoute',
     'ui.bootstrap',
-    'pascalprecht.translate', 'ngSanitize', 'kendo.directives','angularPayments', 'ngAnimate', 'angularSpinner'
+    'pascalprecht.translate', 'ngSanitize', 'kendo.directives',
 ]);
 
 //app.config(['$httpProvider', function ($httpProvider) {

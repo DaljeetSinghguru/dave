@@ -265,6 +265,7 @@
     <Content Include="Content\images\v2-home-page_62.jpg" />
     <Content Include="Content\lobibox.min.css" />
     <Content Include="Content\QuizStyleSheet.css" />
+    <Content Include="Content\stripe-form.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="ItemImage\1.jpg" />
@@ -362,6 +363,7 @@
     <Content Include="ItemImage\page3_img4.jpg" />
     <Content Include="ItemImage\page3_img5.jpg" />
     <Content Include="ItemImage\page4_img1.jpg" />
+    <Content Include="ItemImage\paypal.png" />
     <Content Include="ItemImage\phone_icon.png" />
     <Content Include="ItemImage\preloader.gif" />
     <Content Include="ItemImage\prevnext.png" />
@@ -418,6 +420,8 @@
     <Content Include="Scripts\Crypto-js.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Scripts\jquery.payment.js" />
+    <Content Include="Scripts\stripe-form.js" />
     <Content Include="Scripts\textAngular-rangy.min.js" />
     <Content Include="Scripts\textAngular-sanitize.min.js" />
     <Content Include="Scripts\textAngular.min.js" />
