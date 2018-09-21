@@ -1037,3 +1037,21 @@ button.cancel:hover {
         right: 16px;
     }
 
+
+
+/*///////////////////////////////////////////*/
+
+
+.thankyou h1 {
+    color: #090;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.checkimg {
+    width: 100px;
+    height: auto;
+    margin: auto;
+    text-align: center;
+    display: block;
+}

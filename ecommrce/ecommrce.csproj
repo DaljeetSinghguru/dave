@@ -88,6 +88,7 @@
     <Content Include="App\controllers\ItemDetailController.js" />
     <Content Include="App\controllers\CategoryLevel3Controller.js" />
     <Content Include="App\controllers\ItemListController.js" />
+    <Content Include="App\controllers\ThankyouController.js" />
     <Content Include="App\controllers\MyCartController.js" />
     <Content Include="App\controllers\ShopLoginController.js" />
     <Content Include="App\main.js" />
@@ -96,6 +97,7 @@
     <Content Include="App\views\Checkout.html" />
     <Content Include="App\views\Default.html" />
     <Content Include="App\views\CategoryLevel3.html" />
+    <Content Include="App\views\Thankyou.html" />
     <Content Include="App\views\MyCart.html" />
     <Content Include="App\views\ItemDetail.html" />
     <Content Include="App\views\ItemList.html" />
@@ -382,6 +384,7 @@
     <Content Include="ItemImage\slide2.jpg" />
     <Content Include="ItemImage\slide3.jpg" />
     <Content Include="ItemImage\subscribe_icon.png" />
+    <Content Include="ItemImage\thankyou.png" />
     <Content Include="ItemImage\tick1.png" />
     <Content Include="ItemImage\totop.png" />
     <Content Include="ItemImage\touchstone-educationals-logo.jpg" />
