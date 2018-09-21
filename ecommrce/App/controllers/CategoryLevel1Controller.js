@@ -25,7 +25,31 @@
             debugger
             $scope.categoryID = (data.Value);
             //pass this category id to database and get all item present in category and display in browser
+
+
+
+            $http({
+                method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=' + $scope.categoryID  + ''
+            }).
+                success(function (data, status, headers, config) {
+                    debugger
+
+                    $scope.ItemListDetails = data;
+                    ViewVariablesService.SetDatasendToItemListPage(data);
+                    if ($location.path() == '/ItemList') {
+                        $route.reload();
+                    }
+                    else {
+                        $location.path('ItemList');
+                    }
+                   
+
+                }).
+                error(function (data, status, headers, config) {
+                });
         }
+
+
         ///////////////////////////////////////////////////////////////////////////////
         ////show level 1
         //if ($scope.ItemListPageCategoryLevel1) {
