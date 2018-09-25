@@ -1,4 +1,5 @@
 ﻿<div class="" ng-controller="MyCartController">
+
     <div class="middle inner">
         <div class="container">
             <div class="white-bg basket">
@@ -81,7 +82,7 @@
                             <td data-th="Product">
                                 <div class="row">
                                     <div class="col-sm-3 hidden-xs">
-                                        <img src="{{WebsiteDomain}}/images/{{item.filename}}.jpg" alt="..." class="img-responsive" />
+                                        <img src="{{WebsiteDomain}}/images/{{item.image}}" alt="..." class="img-responsive" />
                                     </div>
                                     <div class="col-sm-9">
                                         <h4 class="nomargin">{{item.name}}</h4>
@@ -89,14 +90,16 @@
                                     </div>
                                 </div>
                             </td>
-                            <td data-th="Price" style="vertical-align: middle; font-weight: bold; font-size: 18px;">{{item.price| currency:"&#8377;"}}</td>
+                            <td data-th="Price" style="vertical-align: middle; font-weight: bold; font-size: 18px;">{{item.price}}</td>
                             <td data-th="Quantity" style="vertical-align: middle; font-weight: bold; font-size: 18px;">
-                                {{item.quantity}}
+                                <!--{{item.quantity}}-->
+
+                                <input type="number" min="1" ng-model="item.quantity" style="width:66px" />
 
                             </td>
-                            <td data-th="Subtotal" class="text-center" style="vertical-align: middle;">{{getLinePrice(item.price,item.quantity)| currency:"&#8377;"}}</td>
+                            <td data-th="Subtotal" class="text-center" style="vertical-align: middle;">{{getLinePrice(item.price,item.quantity)}}</td>
                             <td class="actions" data-th="" style="vertical-align: middle;">
-                                <button class=""><i class="fa fa-refresh"></i></button>
+                                <!--<button class=""><i class="fa fa-refresh"></i></button>-->
                                 <button class="" ng-click="deleteRowFromBasket(item)"><i class="fa fa-trash-o"></i></button>
                             </td>
                         </tr>
@@ -117,7 +120,7 @@
                 </div>
 
 
-                <a href="" id="submit-button" ng-click="Orders()" class="checkout1">Place Order</a>
+                <a href="" id="submit-button" ng-click="PlaceOrder()" class="checkout1">Place Order</a>
 
 
 

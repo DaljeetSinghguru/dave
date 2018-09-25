@@ -8,6 +8,8 @@
     <link href="Content/style.css" rel="stylesheet" />
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/bebas" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet">
+    <link href="../../Content/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
     <!--<link href="Content/css/index.css" rel="stylesheet" />
     <link href="Content/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -143,7 +145,7 @@
                         <input type="text" placeholder="What are you searching for ?">
                         <input type="submit" name="submit" value="Search">
                     </div>
-                    <div class="checkout"> <a href="" class="cart-icon">{{getTotalCount()}} items, <b>{{getTotalPrice() | currency}}</b></a> <a href="" ng-click="ShowCart()">VIEW BASKET</a> <a href="#" class="active">CHECKOUT</a> </div>
+                    <div class="checkout"> <a href="" class="cart-icon">{{getTotalCount()}} items, <b>{{getTotalPrice() | currency}}</b></a> <a href="" ng-click="ShowCart()">VIEW BASKET</a> <a href="" ng-click="login()" class="active">LOGIN</a> </div>
                 </div>
             </div>
             <div class="menu">
@@ -188,7 +190,7 @@
         </div>
         <div class="feature"></div>
 
-         <div class="slider"> <img src="../../Content/images/slider.jpg" alt="home page slider"> </div>
+        <div class="slider"> <img src="../../Content/images/slider.jpg" alt="home page slider"> </div>
         <!--header end here-->
         <!--middle start here-->
 
@@ -302,5 +304,6 @@
     <script src="App/controllers/CategoryLevel3Controller.js"></script>
     <script src="App/controllers/CheckoutController.js"></script>
     <script src="App/controllers/ThankyouController.js"></script>
+    <script src="App/controllers/RegistermeController.js"></script>
 </body>
 </html>

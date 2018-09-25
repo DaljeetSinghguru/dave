@@ -62,5 +62,12 @@
     this.GetDatasendToItemListPageLevel1 = function (data) {
         return this.DatasendToItemListPageLevel1;
     }
-
+    var logindetails = {};
+    this.setlogindetails = function (data) {
+        debugger
+        this.logindetails = data;
+    }
+    this.Getlogindetails = function (data) {
+        return this.logindetails;
+    }
 }]);

@@ -19,13 +19,3 @@
 
 
 
-//WITH cte AS(
-//    SELECT  coa.*
-//    FROM    Mst_Inv_Category as coa
-//        WHERE   coa.CategoryId = 86
-//        UNION ALL
-//        SELECT  t.*
-//    FROM    Mst_Inv_Category t INNER JOIN
-//                cte x ON t.IsParentId = x.CategoryId)
-
-//SELECT i.* FROM cte ct inner join daljeet.Trn_LinkCategoryItem li on li.SubCategoryId = ct.CategoryId inner join Mst_Item i on i.ItemStockCode = li.ItemStockCode

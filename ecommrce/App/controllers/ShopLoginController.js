@@ -1,5 +1,106 @@
 ﻿app.controller('ShopLoginController', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location', '$sce',
     function ($scope, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location, $sce) {
         debugger
-       
+        $scope.cartName = "DAVE";
+        $scope.Url = ViewVariablesService.GetBaseAddress();
+        $scope.loginDetail = {};
+        $scope.showpasswordmismatch = false;
+        $scope.shownamemandatory = false;
+        $scope.showPhoneNumbermandatory = false;
+        $scope.showEmailmandatory = false;
+        $scope.showPasswordmandatory = false;
+
+
+        $scope.newuseryes = false;
+        $scope.showdiv = function () {
+        $scope.newuseryes = true;
+        }
+        $scope.registerme = function () {
+            debugger
+            var chkValFields = 0;
+            $scope.showpasswordmismatch = false;
+            $scope.shownamemandatory = false;
+            $scope.showPhoneNumbermandatory = false;
+            $scope.showEmailmandatory = false;
+            $scope.showPasswordmandatory = false;
+            if ($scope.loginDetail.FirstName == "" || $scope.loginDetail.FirstName == undefined) {
+                $scope.shownamemandatory = true;
+                chkValFields = 1;
+            }
+            if ($scope.loginDetail.PhoneNumber == "" || $scope.loginDetail.PhoneNumber == undefined) {
+                $scope.showPhoneNumbermandatory = true;
+                chkValFields = 1;
+            }
+            if ($scope.loginDetail.email == "" || $scope.loginDetail.email == undefined) {
+                $scope.showEmailmandatory = true;
+                chkValFields = 1;
+            }
+            if ($scope.loginDetail.Password == "" || $scope.loginDetail.Password == undefined) {
+                $scope.showPasswordmandatory = true;
+                chkValFields = 1;
+            }
+            /////////////////check krna confirm password te passwoed same ne js ngi
+            if ($scope.loginDetail.ConfirmPassword == $scope.loginDetail.Password) {
+                $scope.showpasswordmismatch = false;
+            }
+            else {
+                chkValFields = 1;
+                $scope.showpasswordmismatch = true;
+            }
+
+
+            if (chkValFields == 0) {
+                
+                //call api and store data into api
+                $http({ method: 'POST', url: $scope.Url + 'login/Loginfirst_Insert/', data: $scope.loginDetail }).
+                    success(function (data, status, headers, config) {
+                        debugger
+                        if (data == "Success") {
+                            ViewVariablesService.setlogindetails($scope.loginDetail);
+                            $location.path('Registerme');
+                        }
+                        if (data == "already exist") {
+                            $scope.showalreadyregistermsg = true;
+                        }
+                    }).
+                    error(function (data, status, headers, config) {
+                    });
+                
+            }
+            //ConfirmPassword            :            "1234"
+            //FirstName            :            "gh"
+            //Password            :            "1234"
+            //PhoneNumber            :            "1233"
+            //email: "daljeetsingh@gmail.bom"
+        }
+
+        $scope.user = {};
+        $scope.UserLoginCheck = function () {
+            $scope.user;
+            $http({ method: 'POST', url: $scope.Url + 'login/checklogin/', data: $scope.user }).
+                success(function (data, status, headers, config) {
+                    debugger
+                    if (data == "login successfully") {
+                        //////////////////////
+                        //if user have added some thing into cart then go to mycart 
+                        //else go to home page
+                        var items = localStorage != null ? localStorage[$scope.cartName + "_items"] : null;
+                        if (items != null && JSON != null)
+                        {
+                            $location.path('MyCart');
+                        }
+                        else {
+                            $location.path('Default');
+                        }    
+                       
+
+                    }
+                    else {
+                        alert("Email and Password is incorrect.");
+                    }
+                }).
+                error(function (data, status, headers, config) {
+                });
+        }
+
     }])

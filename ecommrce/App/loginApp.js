@@ -41,6 +41,12 @@ app.config(['$routeProvider',  function ($routeProvider) {
             templateUrl: 'app/views/Default.html',
             contrller: 'DefaultController'
         })
+
+        .when('/Registerme', {
+            templateUrl: 'app/views/Registerme.html',
+            contrller: 'RegistermeController'
+        })
+
         .when('/ItemList', {
             templateUrl: 'app/views/ItemList.html',
             contrller: 'loginController'

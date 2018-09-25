@@ -10,63 +10,34 @@
         <div class="container">
             <div class="category">
                 <h3>Browse By category</h3>
-                <a href="#">Angle Drills Cordless</a>
-                <a href="#">Angle Grinders Cordless</a>
-                <a href="#">Circular Saws Cordless</a>
-                <a href="#">Angle Drills Cordless</a>
-                <a href="#">Angle Grinders Cordless</a>
-                <a href="#">Circular Saws Cordless</a>
-                <a href="#">Angle Drills Cordless</a>
-                <a href="#">Angle Grinders Cordless</a>
-                <a href="#">Circular Saws Cordless</a>
-                <a href="#">Angle Drills Cordless</a>
-                <a href="#">Angle Grinders Cordless</a>
-                <a href="#">Circular Saws Cordless</a>
-                <a href="#">Angle Drills Cordless</a>
-                <a href="#">Angle Grinders Cordless</a>
-                <a href="#">Circular Saws Cordless</a>
-                <a href="#">Angle Drills Cordless</a>
-                <a href="#">Angle Grinders Cordless</a>
-                <a href="#">Circular Saws Cordless</a>
-                <a href="#">Angle Drills Cordless</a>
-                <a href="#">Angle Grinders Cordless</a>
-                <a href="#">Circular Saws Cordless</a>
-                <a href="#">Angle Drills Cordless</a>
-                <a href="#">Angle Grinders Cordless</a>
-                <a href="#">Circular Saws Cordless</a>
-                <a href="#">Angle Drills Cordless</a>
-                <a href="#">Angle Grinders Cordless</a>
-                <a href="#">Circular Saws Cordless</a>
-                <a href="#">Angle Drills Cordless</a>
-                <a href="#">Angle Grinders Cordless</a>
-                <a href="#">Circular Saws Cordless</a>
-                <a href="#">Angle Drills Cordless</a>
-                <a href="#">Angle Grinders Cordless</a>
-                <a href="#">Circular Saws Cordless</a>
-                <a href="#">Angle Drills Cordless</a>
-                <a href="#">Angle Grinders Cordless</a>
-                <a href="#">Circular Saws Cordless</a>
+                <div kendo-tree-view="tree"
+                     k-data-source="treeData1"
+                     k-on-change="selectedItem = dataItem">
+                    <span k-template ng-click="OpenReleventItemByCategory(dataItem)">
+                        <!--<a  ng-click="OpenReleventItemByCategory(dataItem)">-->  {{dataItem.text}} <!--</a>-->   <!--<button class='k-button' ng-click='click(dataItem)'>Add Category/Subcategory</button>-->
+                    </span>
+                </div>
             </div>
             <div class="product-display">
                 <h3>{{SingleItemDataInDetail.Title}}  </h3>
                 <div class="product-single">
-                    <img src="images/product-single.jpg" alt="single img">
+                    <img class="img-responsive" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemMainImage}}" alt="single img">
                     <h2>
                         {{SingleItemDataInDetail.Title}}
-                        <!--Makita 3 Piece 10.8V Li-ion Kit 2 x 2Ah Batteries
-                        &amp; Charger T4TKIT-30-->
+
                     </h2>
                     <h4>Our postal rates are reasonable and honest which take into consideration the weight, size and location of delivery</h4>
-                    <h6>Available in Stock</h6>
-                    Select Quantity <br><input type="number" value="1" class="quantity">
-                                        <h5> {{SingleItemDataInDetail.Price}}</h5>
-                    <a href="#">Add to Basket</a>
+                    <!--<h6>Available in Stock</h6>-->
+                    Select Quantity <br>
+                    <input type="number" ng-value="1" class="quantity" ng-model="quantity">
+                    <h5>{{SingleItemDataInDetail.Price}}</h5>
+                    <a href="" ng-click="addtobasket(SingleItemDataInDetail)">Add to Basket</a>
 
                 </div>
                 <div class="discription">
                     <div class="clear"></div>
                     <h2>Product Discription</h2>
-                
+
                     <div ng-bind-html="Description"></div>
 
                     <div class="clear"></div>
@@ -102,4 +73,4 @@
 
 
     </div>
-    </div>
+</div>

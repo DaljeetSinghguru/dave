@@ -1,28 +1,28 @@
-﻿app.controller('ShopmainController', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate','$location',
+﻿app.controller('ShopmainController', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location',
     function ($scope, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location) {
-        
+
         $scope.changeLanguage = function (lang) {
-            
+
             $translate.use(lang);
         }
 
 
 
-       // $scope.Url = "http://localhost:50675/api/";
+        // $scope.Url = "http://localhost:50675/api/";
 
         $scope.Url = ViewVariablesService.GetBaseAddress();
         $scope.WebsiteDomain = ViewVariablesService.GetWebsiteDomain();
 
 
-        
-        $scope.Country =  [
+
+        $scope.Country = [
             { text: "English", value: "1" },
             { text: "French", value: "2" },
             { text: "German", value: "3" }
         ];
-        
 
-     
+
+
 
         /////////////
         //display home page 
@@ -61,7 +61,7 @@
             $scope.ThankYouPage = false;
         }
         ///Get data for top 8 item show on home page
-      
+
 
 
         ///Get data for top 8 item show on home page
@@ -70,14 +70,14 @@
         }).
             success(function (data, status, headers, config) {
 
-                
+
                 $scope.AllCategory = data
                 ViewVariablesService.SetDataofMenu($scope.AllCategory);
 
                 //$scope.AllCategory1 = data;
-setTimeout(function(){
- $scope.Mousehoveroncat($scope.AllCategory);
-},1000);               
+                setTimeout(function () {
+                    $scope.Mousehoveroncat($scope.AllCategory);
+                }, 1000);
 
             }).
             error(function (data, status, headers, config) {
@@ -108,7 +108,7 @@ setTimeout(function(){
         //    error(function (data, status, headers, config) {
         //    });
         $scope.function = function (data) {
-            
+
             $scope.IndexPage = false;
             $scope.HomePage = false;
             $scope.DetailPage = true;
@@ -148,7 +148,7 @@ setTimeout(function(){
 
         // add an item to the cart
         $scope.addItemToCart = function (sku, name, ItemImage, price, quantity, IsStockPresent, ItemType, ItemId) {
-            
+
             if (IsStockPresent == "In Stock") {
                 quantity = this.toNumber(quantity);
                 if (quantity != 0) {
@@ -305,7 +305,7 @@ setTimeout(function(){
                                 $scope.param = { "Amount": $scope.totalPrice, "payment_method_nonce": payload.nonce };
                                 $http({ method: 'POST', url: $scope.Url + 'Payment/Request/', data: $scope.param }).
                                     success(function (data, status, headers, config) {
-                                        
+
 
                                         if ($scope.HrUserId == null) {
                                             //GET HRUSERID FROM DATABASE
@@ -376,7 +376,7 @@ setTimeout(function(){
                                                 });
 
                                         }
-                                        
+
 
                                         //save transaction into Database and accounts 
 
@@ -432,7 +432,7 @@ setTimeout(function(){
 
 
             //open admin panel
-           // window.location.replace('app_v10.html#/LandingPageVisa');
+            // window.location.replace('app_v10.html#/LandingPageVisa');
             $scope.Login = {};
             $scope.LoginError = "";
             $scope.btnSaveText = "Submit";
@@ -446,7 +446,7 @@ setTimeout(function(){
 
 
 
-            
+
         }
         $scope.DisplayRegistrationPage = function () {
             $scope.HomePage = false;
@@ -574,7 +574,7 @@ setTimeout(function(){
 
         //apply filter on screen by ItemType
         $scope.applyFilterItemType = function (data) {
-            
+
             data = data.replace("\"", "");
             $http({ method: 'GET', url: $scope.Url + 'ShopPortalListingByItemType?ItemType=' + data }).
                 success(function (data, status, headers, config) {
@@ -586,7 +586,7 @@ setTimeout(function(){
 
         //apply filter on screen by Course
         $scope.applyFilterByCourse = function (data) {
-            
+
             data = data.replace("\"", "");
             $http({ method: 'GET', url: $scope.Url + 'ShopPortalListingByCourse?Course=' + data }).
                 success(function (data, status, headers, config) {
@@ -594,36 +594,36 @@ setTimeout(function(){
                 }).
                 error(function (data, status, headers, config) {
                 });
-                }
-
-
-
-
-                ///////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-                //////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-                $scope.GOTODestinationPage = function () {
-                    
-                    $scope.Userlogin = {};
-                    $scope.Userlogin.Name = $scope.sName;
-                    $scope.Userlogin.Password = $scope.sUserPassword;
-                    $http({ method: 'POST', url: $scope.Url + 'Login/checkLogin/', data: $scope.Userlogin }).
-                        success(function (data, status, headers, config) {
-                            $scope.Token = data;
-
-
-                        }).
-                        error(function (data, status, headers, config) {
-                        });
         }
-                
-       $scope.GetSubMenu = function (toplevel, menuId) {
-            
+
+
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+        $scope.GOTODestinationPage = function () {
+
+            $scope.Userlogin = {};
+            $scope.Userlogin.Name = $scope.sName;
+            $scope.Userlogin.Password = $scope.sUserPassword;
+            $http({ method: 'POST', url: $scope.Url + 'Login/checkLogin/', data: $scope.Userlogin }).
+                success(function (data, status, headers, config) {
+                    $scope.Token = data;
+
+
+                }).
+                error(function (data, status, headers, config) {
+                });
+        }
+
+        $scope.GetSubMenu = function (toplevel, menuId) {
+
 
             return toplevel.items.filter(function (obj) {
                 if (obj.ParentMenuId == menuId) {
@@ -635,17 +635,17 @@ setTimeout(function(){
         }
 
         $scope.GetSuperSubMenu = function (supersublevel, menuId) {
-            
-           return supersublevel.items.filter(function (obj) {
+
+            return supersublevel.items.filter(function (obj) {
                 if (obj.ParentMenuId == menuId) {
                     return true;
                 }
                 return false;
             });
-        }   
+        }
 
         $scope.GetSuperSuperSubMenu = function (suppersupersublevel, menuId1) {
-            
+
             return suppersupersublevel.items.filter(function (obj) {
                 if (obj.ParentMenuId == menuId1) {
                     return true;
@@ -653,62 +653,62 @@ setTimeout(function(){
                 return false;
             });
         }
-            $scope.Mousehoveroncat=function(data){
-            
+        $scope.Mousehoveroncat = function (data) {
 
-                    $(" .25").hover(function () {
-                    
-						$('.25').addClass('display-on');
-					});
-                        $(" .29").hover(function () {
-                    
-						$('.29').addClass('display-on');
-					});
-                    $(" .42").hover(function () {
-                    
-						$('.42').addClass('display-on');
-					});
-                    $(" .45").hover(function () {
-                    
-						$('.45').addClass('display-on');
-					});
-                    $(" .50").hover(function () {
-                    
-						$('.50').addClass('display-on');
-					});
-                    $(" .54").hover(function () {
-                    
-						$('.54').addClass('display-on');
-					});
-                    $(".drop-down").mouseleave(function () {
-                    
-						$('.mega-menu').removeClass('display-on');
-					});
- 
-            }
-            
 
-                $http({
-                method: 'GET', url: $scope.Url + 'Category/Category_Get'
-                }).
-                success(function (data, status, headers, config) {
-                    
-                    $scope.topProductshowonfront = data;
-               
-                }).
-                error(function (data, status, headers, config) {
+            $(" .25").hover(function () {
+
+                $('.25').addClass('display-on');
+            });
+            $(" .29").hover(function () {
+
+                $('.29').addClass('display-on');
+            });
+            $(" .42").hover(function () {
+
+                $('.42').addClass('display-on');
+            });
+            $(" .45").hover(function () {
+
+                $('.45').addClass('display-on');
+            });
+            $(" .50").hover(function () {
+
+                $('.50').addClass('display-on');
+            });
+            $(" .54").hover(function () {
+
+                $('.54').addClass('display-on');
+            });
+            $(".drop-down").mouseleave(function () {
+
+                $('.mega-menu').removeClass('display-on');
+            });
+
+        }
+
+
+        $http({
+            method: 'GET', url: $scope.Url + 'Category/Category_Get'
+        }).
+            success(function (data, status, headers, config) {
+
+                $scope.topProductshowonfront = data;
+
+            }).
+            error(function (data, status, headers, config) {
             });
 
 
-       
+
         $scope.categoryClick = function (CategoryId) {
             debugger
             $http({
-                method: 'GET', url: $scope.Url + 'Category/GetItemByCategoryId?CategoryId='+CategoryId+''
+                method: 'GET', url: $scope.Url + 'Category/GetItemByCategoryId?CategoryId=' + CategoryId + ''
             }).
                 success(function (data, status, headers, config) {
                     debugger
-                   
+
                     $scope.ItemDetailDataCategoryWise = data;
                     ViewVariablesService.SetDatasendToItemListPage($scope.ItemDetailDataCategoryWise);
                     $location.path('ItemList');

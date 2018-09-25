@@ -1,5 +1,5 @@
-﻿app.controller('ItemListController', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location',
-    function ($scope, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location) {
+﻿app.controller('ItemListController', ['$scope','$route', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location',
+    function ($scope, $route, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location) {
         debugger;
         var myPassword = "MAKV123456789312";
         $scope.Url = ViewVariablesService.GetBaseAddress();
@@ -8,7 +8,7 @@
         $scope.ShowCategoryLevel1list = false;
         $scope.ShowITEMlist = false;
         $scope.ItemListDetails = ViewVariablesService.GetDatasendToItemListPage();
-      
+        $scope.cartName = "DAVE";
 
         debugger
         ////////////////////////////////////////////////////////////////////////
@@ -198,7 +198,7 @@
         }
         // load items from local storage
         $scope.loadItems = function () {
-
+            debugger
             // empty list
             $scope.items.splice(0, $scope.items.length);
             var items = localStorage != null ? localStorage[$scope.cartName + "_items"] : null;
@@ -209,12 +209,13 @@
               try {
                   $scope.decryptedUserName = CryptoJS.AES.decrypt(items, myPassword);
                   var decryptItems = $scope.decryptedUserName.toString(CryptoJS.enc.Utf8);
-
+                  debugger
                     var items = JSON.parse(decryptItems);
                     for (var i = 0; i < items.length; i++) {
+                      debugger
                         var item = items[i];
                         if (item.sku != null && item.name != null && item.price != null && item.quantity != null) {
-                            item = new cartItem(item.sku, item.name, item.price, item.quantity, item.IsStockPresent);
+                            item = new cartItem1(item.sku, item.name, item.price, item.quantity, item.IsStockPresent, item.ItemImage);
                             $scope.items.push(item);
                         }
                     }
@@ -229,6 +230,17 @@
                 $scope.itemsChanged();
             }
         }
+        function cartItem1(sku, name, price, quantity, IsStockPresent,image) {
+            this.sku = sku;
+            this.name = name;
+
+            this.price = price * 1;
+            this.quantity = quantity * 1;
+            this.IsStockPresent = IsStockPresent;
+            this.image = image;
+
+        }
+
         $scope.itemsChanged = function (e) {
             if (!$scope.$$phase) {
                 $scope.$apply();

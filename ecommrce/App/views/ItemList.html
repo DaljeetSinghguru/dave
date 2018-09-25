@@ -13,93 +13,20 @@
                         </span>
                     </div>
                 </div>
-                <!--<div class="category">
-                    <h3>Browse By category</h3>
-                    <a href="#">Angle Drills Cordless</a>
-                    <a href="#">Angle Grinders Cordless</a>
-                    <a href="#">Circular Saws Cordless</a>
-                    <a href="#">Angle Drills Cordless</a>
-                    <a href="#">Angle Grinders Cordless</a>
-                    <a href="#">Circular Saws Cordless</a>
-                    <a href="#">Angle Drills Cordless</a>
-                    <a href="#">Angle Grinders Cordless</a>
-                    <a href="#">Circular Saws Cordless</a>
-                    <a href="#">Angle Drills Cordless</a>
-                    <a href="#">Angle Grinders Cordless</a>
-                    <a href="#">Circular Saws Cordless</a>
-                    <a href="#">Angle Drills Cordless</a>
-                    <a href="#">Angle Grinders Cordless</a>
-                    <a href="#">Circular Saws Cordless</a>
-                    <a href="#">Angle Drills Cordless</a>
-                    <a href="#">Angle Grinders Cordless</a>
-                    <a href="#">Circular Saws Cordless</a>
-                    <a href="#">Angle Drills Cordless</a>
-                    <a href="#">Angle Grinders Cordless</a>
-                    <a href="#">Circular Saws Cordless</a>
-                    <a href="#">Angle Drills Cordless</a>
-                    <a href="#">Angle Grinders Cordless</a>
-                    <a href="#">Circular Saws Cordless</a>
-                    <a href="#">Angle Drills Cordless</a>
-                    <a href="#">Angle Grinders Cordless</a>
-                    <a href="#">Circular Saws Cordless</a>
-                    <a href="#">Angle Drills Cordless</a>
-                    <a href="#">Angle Grinders Cordless</a>
-                    <a href="#">Circular Saws Cordless</a>
-                    <a href="#">Angle Drills Cordless</a>
-                    <a href="#">Angle Grinders Cordless</a>
-                    <a href="#">Circular Saws Cordless</a>
-                    <a href="#">Angle Drills Cordless</a>
-                    <a href="#">Angle Grinders Cordless</a>
-                    <a href="#">Circular Saws Cordless</a>
-                </div>-->
                 <div class="product-display" ng-show="ShowITEMlist==true">
-                    <h3>show item</h3><!--ng-click="ShowItemDetail(ItemdataCatWise)"-->
+                    <h3>show item</h3><!--"-->
                     <div class="product-inner product-innerproduct" ng-repeat="ItemdataCatWise in ItemListDetails">
-                        <img class="img-responsive" src="images/product-inner.jpg" alt="product">
-                        <h2>{{ItemdataCatWise.Title}}  </h2>
-                        <h4>{{ItemdataCatWise.Name}} </h4>
-                        <h5>{{ItemdataCatWise.Price}} </h5>
-                        <!--<a href="">Add to Basket</a>-->
+                        <div ng-click="ShowItemDetail(ItemdataCatWise)">
+                            <img class="img-responsive" src="{{WebsiteDomain}}images/{{ItemdataCatWise.ItemMainImage}}" alt="product">
+                            <h2>{{ItemdataCatWise.Title}}  </h2>
+                            <h4>{{ItemdataCatWise.Name}} </h4>
+                            <h5>{{ItemdataCatWise.Price}} </h5>
+                        </div><!--<a href="">Add to Basket</a>-->
                         <a ng-click="addItemToCart(ItemdataCatWise.ItemStockCode,ItemdataCatWise.Title,ItemdataCatWise.ItemMainImage,ItemdataCatWise.Price,1,null,ItemdataCatWise.CategoryName,ItemdataCatWise.ItemId)">Add to cart</a>
                     </div>
 
                 </div>
-                <!--<div class="product-display" ng-show="ShowCategorylist==true">
 
-                    <h3>show category  level 3{{ItemListPageCategory.text}}</h3>
-                    <img class="img-responsive" src="{{WebsiteDomain}}/images/{{ItemListPageCategory.filename}}.jpg" alt="product">
-                    <div ng-click="ShowItemDetailCategory(dataCatWiseLevel3)" class="product-inner product-innerproduct" ng-repeat="dataCatWiseLevel3 in ItemListPageCategory.items">
-                        <img class="img-responsive" src="{{WebsiteDomain}}/images/{{dataCatWiseLevel3.filename}}.jpg" alt="product">
-                        <h2>{{dataCatWiseLevel3.text}}</h2>
-                        <h4>{{dataCatWiseLevel3.Description}}</h4>
-
-                    </div>
-
-                </div>-->
-                <!--<div class="product-display" ng-show="ShowCategoryLevel2list==true">
-
-                    <h3>show category  level 2 {{ItemListPageCategoryLevel2.text}}</h3>
-                    <img class="img-responsive" src="{{WebsiteDomain}}/images/{{ItemListPageCategoryLevel2.filename}}.jpg" alt="product">
-                    <div ng-click="ShowCategoryLevel3(dataCatWiseLevel2)" class="product-inner" ng-repeat="dataCatWiseLevel2 in ItemListPageCategoryLevel2.items">
-                        <img class="img-responsive" src="{{WebsiteDomain}}/images/{{dataCatWiseLevel2.filename}}.jpg" alt="product">
-                        <h2>{{dataCatWiseLevel2.text}}</h2>
-                        <h4>{{dataCatWiseLevel2.Description}}</h4>
-
-                    </div>
-
-                </div>
-                <div class="product-display" ng-show="ShowCategoryLevel1list==true">
-
-                    <h3>show category level 1 {{ItemListPageCategoryLevel1.text}}</h3>
-                    <img class="img-responsive" src="{{WebsiteDomain}}/images/{{ItemListPageCategoryLevel1.filename}}.jpg" alt="product">
-                    <div ng-click="ShowCategoryLevel1(dataCatWiseLevel1)" class="product-inner" ng-repeat="dataCatWiseLevel1 in ItemListPageCategoryLevel1.items">
-                        <img class="img-responsive" src="{{WebsiteDomain}}/images/{{dataCatWiseLevel1.filename}}.jpg" alt="product">
-                        <h2>{{dataCatWiseLevel1.text}}</h2>
-                        <h4>{{dataCatWiseLevel1.Description}}</h4>
-
-                    </div>
-
-                </div>-->
             </div>
 
 

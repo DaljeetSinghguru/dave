@@ -88,6 +88,7 @@
     <Content Include="App\controllers\ItemDetailController.js" />
     <Content Include="App\controllers\CategoryLevel3Controller.js" />
     <Content Include="App\controllers\ItemListController.js" />
+    <Content Include="App\controllers\RegistermeController.js" />
     <Content Include="App\controllers\ThankyouController.js" />
     <Content Include="App\controllers\MyCartController.js" />
     <Content Include="App\controllers\ShopLoginController.js" />
@@ -97,6 +98,8 @@
     <Content Include="App\views\Checkout.html" />
     <Content Include="App\views\Default.html" />
     <Content Include="App\views\CategoryLevel3.html" />
+    <Content Include="App\views\Terms.html" />
+    <Content Include="App\views\Registerme.html" />
     <Content Include="App\views\Thankyou.html" />
     <Content Include="App\views\MyCart.html" />
     <Content Include="App\views\ItemDetail.html" />

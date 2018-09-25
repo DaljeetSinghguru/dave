@@ -213,13 +213,13 @@
                     for (var i = 0; i < items.length; i++) {
                         var item = items[i];
                         if (item.sku != null && item.name != null && item.price != null && item.quantity != null) {
-                            item = new cartItem1(item.sku, item.name, item.price, item.quantity, item.IsStockPresent);
+                            item = new cartItem1(item.sku, item.name, item.price, item.quantity, item.IsStockPresent, item.ItemImage);
                             $scope.items.push(item);
                         }
                     }
                 }
                 catch (err) {
-                    // ignore errors while loading...
+                    // ign    ore errors while loading...
                 }
             }
 
@@ -228,14 +228,14 @@
                 $scope.itemsChanged();
             }
         }
-        function cartItem1(sku, name, price, quantity, IsStockPresent) {
+        function cartItem1(sku, name, price, quantity, IsStockPresent,image) {
             this.sku = sku;
             this.name = name;
 
             this.price = price * 1;
             this.quantity = quantity * 1;
             this.IsStockPresent = IsStockPresent;
-
+            this.image = image;
 
         }
         $scope.itemsChanged = function (e) {
@@ -776,7 +776,18 @@
         }
 
 
+        /////////////////////////////////////////////////////////////////////////////////
 
 
+        //login
+        ///////////////////////////
+        $scope.login = function () {
+            if ($location.path() == '/Login') {
+                $route.reload();
+            }
+            else {
+                $location.path('Login');
+            }
+        }
         
     }]);
