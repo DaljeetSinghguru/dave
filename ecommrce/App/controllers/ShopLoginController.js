@@ -77,13 +77,17 @@
         $scope.user = {};
         $scope.UserLoginCheck = function () {
             $scope.user;
-            $http({ method: 'POST', url: $scope.Url + 'login/checklogin/', data: $scope.user }).
+            $http({ method: 'POST', url: $scope.Url + 'login/checkLogincustomer/', data: $scope.user }).
                 success(function (data, status, headers, config) {
                     debugger
                     if (data == "login successfully") {
                         //////////////////////
                         //if user have added some thing into cart then go to mycart 
                         //else go to home page
+
+                        $scope.saveusercredential = { "username": $scope.user.Name, "password": $scope.user.Password };
+                        localStorage["credential"] = JSON.stringify($scope.saveusercredential);//{ "username": $scope.user.Name, "password": $scope.user.Password };
+
                         var items = localStorage != null ? localStorage[$scope.cartName + "_items"] : null;
                         if (items != null && JSON != null)
                         {

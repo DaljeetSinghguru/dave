@@ -110,7 +110,7 @@
 
                             var items = localStorage != null ? localStorage[$scope.cartName + "_items"] : null;
                             $scope.saveusercredential = { "username": $scope.loginDetail.email, "password": $scope.loginDetail.password };
-                            localStorage[credential] = $scope.saveusercredential;
+                            localStorage["credential"] = $scope.saveusercredential;
 
                             if (items == undefined || items == null) {
                                 $location.path('defualt');
