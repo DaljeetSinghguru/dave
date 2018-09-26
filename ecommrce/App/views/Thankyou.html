@@ -9,7 +9,7 @@
                 <h1>Your Payment was sucessful</h1>
                 <div id="PrintMe">
                     <div align="center">
-                        <h3>Order Id: 54554787745</h3>
+                        <h3>Order Id: {{TransectionId}}</h3>
                         <p>We will not break the traffic rules but attempt to deliver your order as soonest possible.</p>
                     </div>
                     <table width="80%" border="1" cellspacing="0" cellpadding="10" align="center" style="border:1px solid #ccc; margin-top:50px;">
@@ -19,36 +19,36 @@
                             <td bgcolor="#CCCCCC"><strong>Price</strong></td>
 
                         </tr>
-                        <tr>
-                            <td>Auto Moter and High Volt 200</td>
-                            <td>1</td>
-                            <td>$200</td>
+                        <tr ng-repeat="item in items | orderBy:'name'">
+                            <td>{{item.name}}</td>
+                            <td>{{item.quantity}}</td>
+                            <td>{{getLinePrice(item.price,item.quantity)}}</td>
 
                         </tr>
-                        <tr>
+                        <!--<tr>
                             <td colspan="2">Cast Subtotal</td>
-                            <td>$200</td>
+                            <td></td>
 
-                        </tr>
+                        </tr>-->
                         <tr>
                             <td>Shipping:</td>
                             <td>&nbsp;</td>
                             <td>Estimated 15 days</td>
                         </tr>
-                        <tr>
+                        <!--<tr>
                             <td>Tax:</td>
                             <td>&nbsp;</td>
                             <td>$10</td>
-                        </tr>
-                        <tr>
+                        </tr>-->
+                        <!--<tr>
                             <td>Payment Method:</td>
                             <td>&nbsp;</td>
                             <td>Credit Card</td>
-                        </tr>
+                        </tr>-->
                         <tr>
                             <td><strong>Order Total:</strong></td>
                             <td>&nbsp;</td>
-                            <td><strong>$210</strong></td>
+                            <td><strong>{{getTotalPrice()| currency:"&#8377;"}}</strong></td>
                         </tr>
                     </table>
                     <br>
@@ -56,23 +56,26 @@
                         <tr>
                             <td>
                                 <h2><strong>Customer Details:</strong></h2>
-                                <p>Mobile: +919467400157</p>
-                                <p>Email: vikaskumar057@gmail.com</p>
+                                <p>Mobile: {{PhoneNumber}}</p>
+                                <p>Email: {{Email}}</p>
                             </td>
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
                             <td>
                                 <h2><strong>Billing Address:</strong></h2>
-                                <p>Vikas Kumar</p>
-                                <p>#324E, Railway Colony Near Curch </p>
-                                <p>Kalka (Haryana) 133302</p>
+                                <p>{{Name}}</p>
+                                <p>{{Company}}{{InvoiceName}} </p>
+                                <p>{{InvoiceAddessLine2}}</p>
+                                <p>{{InvoiceAddressLine3}}</p>
+                                <p>{{InvoiceAddressLine4}}</p><p>{{InvoicePostCode}}</p>
+
                             </td>
                             <td>
                                 <h2><strong>Shipping  Address:</strong></h2>
-                                <p>Vikas Kumar</p>
-                                <p>#324E, Railway Colony Near Curch </p>
-                                <p>Kalka (Haryana) 133302</p>
+                                <p>{{Name}}</p>
+                                <p>{{HouseNo}} </p>
+                                <p>{{AddressLine2}}</p><p>{{AddressLine3}}</p><p>{{AddressLine4}}</p><p>{{PostCode}}</p>
                             </td>
                         </tr>
                     </table>

@@ -80,12 +80,12 @@
             $http({ method: 'POST', url: $scope.Url + 'login/checkLogincustomer/', data: $scope.user }).
                 success(function (data, status, headers, config) {
                     debugger
-                    if (data == "login successfully") {
+                    if (data != "0") {
                         //////////////////////
                         //if user have added some thing into cart then go to mycart 
                         //else go to home page
 
-                        $scope.saveusercredential = { "username": $scope.user.Name, "password": $scope.user.Password };
+                        $scope.saveusercredential = { "username": $scope.user.Name, "password": $scope.user.Password,"UserId":data };
                         localStorage["credential"] = JSON.stringify($scope.saveusercredential);//{ "username": $scope.user.Name, "password": $scope.user.Password };
 
                         var items = localStorage != null ? localStorage[$scope.cartName + "_items"] : null;

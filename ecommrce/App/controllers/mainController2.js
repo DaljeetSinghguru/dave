@@ -12,7 +12,11 @@
 
         $scope.Url = ViewVariablesService.GetBaseAddress();
         $scope.WebsiteDomain = ViewVariablesService.GetWebsiteDomain();
+      
+       
 
+
+        /////////////////////////////////////////////////////////////////
 
 
         $scope.Country = [

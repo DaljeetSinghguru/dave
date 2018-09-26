@@ -109,7 +109,7 @@
                            ///// else go to home page
 
                             var items = localStorage != null ? localStorage[$scope.cartName + "_items"] : null;
-                            $scope.saveusercredential = { "username": $scope.loginDetail.email, "password": $scope.loginDetail.password };
+                            $scope.saveusercredential = { "username": $scope.loginDetail.email, "password": $scope.loginDetail.password, "UserId": data  };
                             localStorage["credential"] = $scope.saveusercredential;
 
                             if (items == undefined || items == null) {
