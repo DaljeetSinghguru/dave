@@ -109,9 +109,9 @@
                            ///// else go to home page
 
                             var items = localStorage != null ? localStorage[$scope.cartName + "_items"] : null;
-                            $scope.saveusercredential = { "username": $scope.loginDetail.email, "password": $scope.loginDetail.password, "UserId": data  };
+                            $scope.saveusercredential = { "username": $scope.loginDetail.email, "password": $scope.loginDetail.password, "UserId": data.Id, "UserName": data.Name  };
                             localStorage["credential"] = $scope.saveusercredential;
-
+                            $rootScope.DisplayUserName = data.Name;
                             if (items == undefined || items == null) {
                                 $location.path('defualt');
                             }

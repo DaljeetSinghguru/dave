@@ -12,6 +12,8 @@
         $scope.Logincredentialpassword = JSON.parse($scope.Logincredential).password;
         $scope.CustId = JSON.parse($scope.Logincredential).UserId;
 
+        $scope.OrderId = "DaveLiveOrder-2018-" + ViewVariablesService.GetOrderId(); "";
+
         /////////////////////////////////////////////////////////////////
 
         $http({ method: 'POST', url: $scope.Url + 'login/GetCustomer_Find?Id=' + $scope.CustId + '' }).

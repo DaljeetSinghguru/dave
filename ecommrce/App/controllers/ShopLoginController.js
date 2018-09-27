@@ -85,9 +85,9 @@
                         //if user have added some thing into cart then go to mycart 
                         //else go to home page
 
-                        $scope.saveusercredential = { "username": $scope.user.Name, "password": $scope.user.Password,"UserId":data };
+                        $scope.saveusercredential = { "username": $scope.user.Name, "password": $scope.user.Password, "UserId": data.Id, "UserName": data.Name };
                         localStorage["credential"] = JSON.stringify($scope.saveusercredential);//{ "username": $scope.user.Name, "password": $scope.user.Password };
-
+                        $rootScope.DisplayUserName = data.Name;
                         var items = localStorage != null ? localStorage[$scope.cartName + "_items"] : null;
                         if (items != null && JSON != null)
                         {

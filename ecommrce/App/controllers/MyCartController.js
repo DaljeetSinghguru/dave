@@ -200,6 +200,8 @@
                                                 if (status == "200") {
                                                     if (data != "") {
                                                         debugger
+
+                                                        ViewVariablesService.SetOrderId(data);
                                                         //$scope.Token = data;
                                                         //$window.localStorage.clear();
                                                         //$scope.items = [];

@@ -14,8 +14,17 @@
         $scope.WebsiteDomain = ViewVariablesService.GetWebsiteDomain();
       
        
+        $scope.Logincredential = localStorage != null ? localStorage["credential"] : null;
+        if ($scope.Logincredential) {
+            $rootScope.DisplayUserName = JSON.parse($scope.Logincredential).UserName;
+            if ($rootScope.DisplayUserName != null || $rootScope.DisplayUserName != undefined || $rootScope.DisplayUserName !="") {
+                $rootScope.showloginbutton == true;
+            }
+            else {
+                $rootScope.showloginbutton == false;
 
-
+            }
+        }
         /////////////////////////////////////////////////////////////////
 
 
@@ -793,5 +802,12 @@
                 $location.path('Login');
             }
         }
-        
+
+        $scope.logOut = function () {
+
+            $window.localStorage.clear();
+            $rootScope.DisplayUserName = "";
+            $location.path('Default');
+        }
+
     }]);

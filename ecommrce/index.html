@@ -145,7 +145,13 @@
                         <input type="text" placeholder="What are you searching for ?">
                         <input type="submit" name="submit" value="Search">
                     </div>
-                    <div class="checkout"> <a href="" class="cart-icon">{{getTotalCount()}} items, <b>{{getTotalPrice() | currency}}</b></a> <a href="" ng-click="ShowCart()">VIEW BASKET</a> <a href="" ng-click="login()" class="active">LOGIN</a> </div>
+                    <div class="checkout">
+                        <a href="" class="cart-icon">{{getTotalCount()}} items, <b>{{getTotalPrice() | currency}}</b></a>
+                        <a href="" ng-click="ShowCart()">VIEW BASKET</a>
+                        <span>{{DisplayUserName}}</span>
+                        <a href="" ng-click="login()" class="active" ng-show="showloginbutton==true">LOGIN</a>
+                        <a href="" ng-click="logOut()" class="active" ng-show="showloginbutton==false">LOGOUT</a>
+                    </div>
                 </div>
             </div>
             <div class="menu">
@@ -190,7 +196,7 @@
         </div>
         <div class="feature"></div>
 
-     <!--   <div class="slider"> <img src="../../Content/images/slider.jpg" alt="home page slider"> </div>-->
+        <!--   <div class="slider"> <img src="../../Content/images/slider.jpg" alt="home page slider"> </div>-->
         <!--header end here-->
         <!--middle start here-->
 

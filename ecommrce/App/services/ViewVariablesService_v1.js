@@ -70,4 +70,12 @@
     this.Getlogindetails = function (data) {
         return this.logindetails;
     }
+    var OrderId = {};
+    this.SetOrderId = function (data) {
+        debugger
+        this.OrderId = data;
+    }
+    this.GetOrderId = function (data) {
+        return this.OrderId;
+    }
 }]);
