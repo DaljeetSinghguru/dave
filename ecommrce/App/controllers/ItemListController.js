@@ -1,6 +1,6 @@
 ﻿app.controller('ItemListController', ['$scope','$route', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location',
     function ($scope, $route, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location) {
-        debugger;
+        ;
         var myPassword = "MAKV123456789312";
         $scope.Url = ViewVariablesService.GetBaseAddress();
         $scope.WebsiteDomain = ViewVariablesService.GetWebsiteDomain();
@@ -10,7 +10,7 @@
         $scope.ItemListDetails = ViewVariablesService.GetDatasendToItemListPage();
         $scope.cartName = "DAVE";
 
-        debugger
+        
         ////////////////////////////////////////////////////////////////////////
         ///
         $scope.topProductshowonfront = ViewVariablesService.GetDataofMenu();
@@ -29,7 +29,7 @@
 
 
         $scope.OpenReleventItemByCategory = function (data) {
-            debugger
+            
             $scope.categoryID = (data.Value);
             //pass this category id to database and get all item present in category and display in browser
 
@@ -38,7 +38,7 @@
                 method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=' + $scope.categoryID + ''
             }).
                 success(function (data, status, headers, config) {
-                    debugger
+                    
 
                     $scope.ItemListDetails = data;
                     ViewVariablesService.SetDatasendToItemListPage(data);
@@ -78,7 +78,7 @@
         }
 
         $scope.ShowItemDetailCategory = function (data) {
-            debugger
+            
 
             //call API FOR GET ITESM
             $scope.CategoryId = data.Value;
@@ -86,7 +86,7 @@
                 method: 'GET', url: $scope.Url + 'Category/GetItemByCategoryId?CategoryId=' + $scope.CategoryId + ''
             }).
                 success(function (data, status, headers, config) {
-                    debugger
+                    
 
                     $scope.ItemListDetails = data;
                     ViewVariablesService.SetDatasendToItemListPage(data);
@@ -120,7 +120,7 @@
 
 
   $scope.addItemToCart = function (sku, name, ItemImage, price, quantity, IsStockPresent, ItemType, ItemId) {
-            debugger 
+             
 
            // if (IsStockPresent == "In Stock") {
                 quantity = this.toNumber(quantity);
@@ -198,7 +198,7 @@
         }
         // load items from local storage
         $scope.loadItems = function () {
-            debugger
+            
             // empty list
             $scope.items.splice(0, $scope.items.length);
             var items = localStorage != null ? localStorage[$scope.cartName + "_items"] : null;
@@ -209,10 +209,10 @@
               try {
                   $scope.decryptedUserName = CryptoJS.AES.decrypt(items, myPassword);
                   var decryptItems = $scope.decryptedUserName.toString(CryptoJS.enc.Utf8);
-                  debugger
+                  
                     var items = JSON.parse(decryptItems);
                     for (var i = 0; i < items.length; i++) {
-                      debugger
+                      
                         var item = items[i];
                         if (item.sku != null && item.name != null && item.price != null && item.quantity != null) {
                             item = new cartItem1(item.sku, item.name, item.price, item.quantity, item.IsStockPresent, item.ItemImage);

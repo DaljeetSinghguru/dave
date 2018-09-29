@@ -1,6 +1,6 @@
 ﻿app.controller('ItemDetailController', ['$scope', '$route', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location', '$sce',
     function ($scope, $route,$window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location, $sce) {
-        debugger
+        
 
         $scope.WebsiteDomain = ViewVariablesService.GetWebsiteDomain();
         $scope.cartName = "DAVE";
@@ -19,7 +19,7 @@
         });
 
         $scope.OpenReleventItemByCategory = function (data) {
-            debugger
+            
             $scope.categoryID = (data.Value);
             //pass this category id to database and get all item present in category and display in browser
 
@@ -29,7 +29,7 @@
                 method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=' + $scope.categoryID + ''
             }).
                 success(function (data, status, headers, config) {
-                    debugger
+                    
 
                     $scope.ItemListDetails = data;
                     ViewVariablesService.SetDatasendToItemListPage(data);
@@ -48,7 +48,7 @@
 
         $scope.addtobasket = function (SingleItemDataInDetail) {
 
-            debugger
+            
             $scope.addItemToCart(SingleItemDataInDetail.SKU, SingleItemDataInDetail.Title, SingleItemDataInDetail.ItemMainImage,
                 SingleItemDataInDetail.Price, $scope.quantity, SingleItemDataInDetail.StockInHand,SingleItemDataInDetail.CategoryId, SingleItemDataInDetail.ItemId);
         }
@@ -59,7 +59,7 @@
 
 
         $scope.addItemToCart = function (sku, name, ItemImage, price, quantity, IsStockPresent, ItemType, ItemId) {
-            debugger
+            
 
             // if (IsStockPresent == "In Stock") {
             quantity = this.toNumber(quantity);
@@ -93,7 +93,7 @@
             //}
         }
         function cartItem(sku, name, ItemImage, price, quantity, IsStockPresent, ItemType, ItemId) {
-            debugger
+            
             this.sku = sku;
             this.name = name;
             this.ItemImage = ItemImage;
@@ -117,7 +117,7 @@
         }
         // get the total price for all items currently in the cart
         $scope.getTotalPrice = function (sku) {
-            debugger
+            
             var total = 0;
             for (var i = 0; i < this.items.length; i++) {
                 var item = this.items[i];

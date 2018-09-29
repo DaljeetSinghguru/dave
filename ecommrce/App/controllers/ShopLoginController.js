@@ -1,6 +1,6 @@
 ﻿app.controller('ShopLoginController', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location', '$sce',
     function ($scope, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location, $sce) {
-        debugger
+        
         $scope.cartName = "DAVE";
         $scope.Url = ViewVariablesService.GetBaseAddress();
         $scope.loginDetail = {};
@@ -16,7 +16,7 @@
         $scope.newuseryes = true;
         }
         $scope.registerme = function () {
-            debugger
+            
             var chkValFields = 0;
             $scope.showpasswordmismatch = false;
             $scope.shownamemandatory = false;
@@ -54,7 +54,7 @@
                 //call api and store data into api
                 $http({ method: 'POST', url: $scope.Url + 'login/Loginfirst_Insert/', data: $scope.loginDetail }).
                     success(function (data, status, headers, config) {
-                        debugger
+                        
                         if (data == "Success") {
                             ViewVariablesService.setlogindetails($scope.loginDetail);
                             $location.path('Registerme');
@@ -79,7 +79,7 @@
             $scope.user;
             $http({ method: 'POST', url: $scope.Url + 'login/checkLogincustomer/', data: $scope.user }).
                 success(function (data, status, headers, config) {
-                    debugger
+                    
                     if (data != "0") {
                         //////////////////////
                         //if user have added some thing into cart then go to mycart 

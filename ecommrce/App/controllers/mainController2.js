@@ -14,17 +14,19 @@
         $scope.WebsiteDomain = ViewVariablesService.GetWebsiteDomain();
       
        
+
         $scope.Logincredential = localStorage != null ? localStorage["credential"] : null;
         if ($scope.Logincredential) {
             $rootScope.DisplayUserName = JSON.parse($scope.Logincredential).UserName;
             if ($rootScope.DisplayUserName != null || $rootScope.DisplayUserName != undefined || $rootScope.DisplayUserName !="") {
-                $rootScope.showloginbutton == true;
+                $rootScope.showloginbutton = false;
             }
             else {
-                $rootScope.showloginbutton == false;
+                $rootScope.showloginbutton = true;
 
             }
         }
+ if ($scope.Logincredential==undefined) {  $rootScope.showloginbutton = true;}
         /////////////////////////////////////////////////////////////////
 
 
@@ -175,7 +177,7 @@
 
         // get the total price for all items currently in the cart
         $scope.getTotalCount = function (sku) {
-        //    debugger
+        //    
             var count = 0;
             for (var i = 0; i < this.items.length; i++) {
                 var item = this.items[i];
@@ -187,7 +189,7 @@
         }
         // get the total price for all items currently in the cart
         $scope.getTotalPrice = function (sku) {
-         //   debugger
+         //   
             var total = 0;
             for (var i = 0; i < this.items.length; i++) {
                 var item = this.items[i];
@@ -210,7 +212,7 @@
 
         // load items from local storage
         $scope.loadItems = function () {
-        //    debugger
+        //    
             // empty list
             $scope.items.splice(0, $scope.items.length);
             var items = localStorage != null ? localStorage[$scope.cartName + "_items"] : null;
@@ -698,7 +700,7 @@
 
 
         $scope.categoryClickLevel1 = function (CategoryId) {
-         //   debugger
+         //   
 
             $scope.ItemDetailDataCategoryWiselevel1 = CategoryId;
             ViewVariablesService.SetDatasendToItemListPageLevel1($scope.ItemDetailDataCategoryWiselevel1);
@@ -716,7 +718,7 @@
 
         }
         $scope.categoryClicklevel2 = function (CategoryLevel2) {
-            //debugger
+            //
 
 
             $scope.ItemDetailDataCategoryWiselevel2 = CategoryLevel2;
@@ -732,7 +734,7 @@
 
         }
         $scope.categoryClicklevel3 = function (CategoryData) {
-          //  debugger
+          //  
 
 
             $scope.ItemDetailDataCategoryWiselevel3 = CategoryData;
@@ -752,12 +754,12 @@
 
         }
         $scope.categoryClicklevel4 = function (CategoryId) {
-           // debugger
+           // 
             $http({
                 method: 'GET', url: $scope.Url + 'Category/GetItemByCategoryId?CategoryId=' + CategoryId + ''
             }).
                 success(function (data, status, headers, config) {
-                  //  debugger
+                  //  
 
                     $scope.ItemDetailDataCategoryWiselevel4 = data;
                    // if ($scope.ItemDetailDataCategoryWiselevel3 == undefined || $scope.ItemDetailDataCategoryWiselevel3.length == 0) {
@@ -807,6 +809,10 @@
 
             $window.localStorage.clear();
             $rootScope.DisplayUserName = "";
+            $rootScope.showloginbutton = true;
+            $location.path('Default');
+        }
+        $scope.gotoDefault = function () {
             $location.path('Default');
         }
 

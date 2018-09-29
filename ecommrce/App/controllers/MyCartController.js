@@ -1,6 +1,6 @@
 ﻿app.controller('MyCartController', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location', '$sce',
     function ($scope, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location, $sce) {
-        debugger
+        
 
 
 
@@ -14,12 +14,22 @@
 
         ////get token
 
-       
+       $scope.Logincredential = localStorage != null ? localStorage["credential"] : null;
+        if ($scope.Logincredential) {
+            $rootScope.DisplayUserName = JSON.parse($scope.Logincredential).UserName;
+            if ($rootScope.DisplayUserName != null || $rootScope.DisplayUserName != undefined || $rootScope.DisplayUserName !="") {
+                $rootScope.showloginbutton = false;
+            }
+            else {
+                $rootScope.showloginbutton = true;
+
+            }
+        }
 
         // load items from local storage
         // load items from local storage
         $scope.loadItems = function () {
-            debugger
+            
             // empty list
             $scope.items.splice(0, $scope.items.length);
             var items = localStorage != null ? localStorage[$scope.cartName + "_items"] : null;
@@ -33,7 +43,7 @@
 
                     var items = JSON.parse(decryptItems);
                     for (var i = 0; i < items.length; i++) {
-                        debugger
+                        
                         var item = items[i];
                         if (item.sku != null && item.name != null && item.price != null && item.quantity != null) {
                             item = new cartItem(item.sku, item.name, item.price, item.quantity, item.IsStockPresent, item.ItemImage);
@@ -68,7 +78,7 @@
         }
 
         $scope.getLinePrice = function (price, qty) {
-            //   debugger
+            //   
             var total = 0;
 
             total = this.toNumber(qty * price);
@@ -87,7 +97,7 @@
             });
 
         // $scope.CheckOut = function () {
-        debugger
+        
 
         //check if it is already login then go to payment gate way 
         //otherwaisego to login page
@@ -122,7 +132,7 @@
         ////check krna user is login or not if user is not login then goto login page 
         //other wsie go to paymentgateway
         $scope.PlaceOrder = function () {
-            debugger
+            
             $scope.Logincredential = localStorage != null ? localStorage["credential"] : null;
 
             if ($scope.Logincredential != null) { $scope.Orders(); }
@@ -142,7 +152,7 @@
 
         $scope.Orders = function () {
             //check login user or not
-            debugger
+            
 
 
             $scope.items;
@@ -172,8 +182,9 @@
                                 success(function (dataTransectionId, status, headers, config) {
 
 
-                                    ViewVariablesService.SetTransectionId(dataTransectionId);
-                                    debugger
+
+                                   
+                                    
                                     ///////////////////////////
                                     ///////when user login its relevent all detail will get 
                                     //from database and store that into 
@@ -199,7 +210,7 @@
                                             success(function (data, status, headers, config) {
                                                 if (status == "200") {
                                                     if (data != "") {
-                                                        debugger
+                                                        
 
                                                         ViewVariablesService.SetOrderId(data);
                                                         //$scope.Token = data;
@@ -215,57 +226,7 @@
 
 
                                   
-                                    //    $scope.dataSendToHistory = {};
-                                    //    //$scope.dataSendToHistory.HrUserId = data;
-                                    //    $scope.dataSendToHistory.TransectionId = dataTransectionId;
-                                    //    $scope.dataSendToHistory.HrUserId = $scope.HrUserId;
-                                    //    $scope.dataSendToHistory.ItemsArray = $scope.items;
-                                    //    $scope.dataSendToHistory.totalPrice = $scope.totalPrice;
-                                    //    $scope.dataSendToHistory.FirstName = $scope.FirstName;
-                                    //    $scope.dataSendToHistory.LastName = $scope.LastName;
-                                    //    $scope.dataSendToHistory.ContactNumber = $scope.ContactNumber;
-                                    //    $scope.dataSendToHistory.DateOfBirth = $scope.DateOfBirth;
-                                    //    $scope.dataSendToHistory.BillingAddress = $scope.BillingAddress;
-                                    //    $scope.dataSendToHistory.ShippingAddress = $scope.ShippingAddress;
-                                    //    $scope.dataSendToHistory.PINCode = $scope.PINCode;
-                                    //    $scope.dataSendToHistory.EmailAddress = $scope.EmailAddress;
 
-                                    //    $http({ method: 'POST', url: $scope.Url + 'ShipmentHistory/ShipmentHistory/', data: $scope.dataSendToHistory }).
-                                    //        success(function (data, status, headers, config) {
-
-                                    //            $scope.Token = data;
-                                    //            $window.localStorage.clear();
-                                    //            $scope.items = [];
-                                    //        }).
-                                    //        error(function (data, status, headers, config) {
-                                    //        });
-                                    //    //INSERT DATA INTO ACCOUNT
-                                    //    //$http({ method: 'POST', url: $scope.Url + 'ShopAccount/ShopInsertintoAccount/', data: $scope.dataSendToHistory }).
-                                    //    //    success(function (data, status, headers, config) {
-                                    //    //        $scope.Token = data;
-                                    //    //    }).
-                                    //    //    error(function (data, status, headers, config) {
-                                    //    //    });
-
-                                    //}
-
-
-
-
-                                    //save transaction into Database and accounts 
-
-                                    //$scope.IndexPage = false;
-                                    //$scope.DetailPage = false;
-                                    //$scope.CheckOutpage = false;
-                                    //$scope.Loginpage = false;
-                                    //$scope.RegistrationPage = false;
-                                    //$scope.ThankYouPage = true;
-                                    //$scope.PaymentPage = false;
-                                    //$scope.OrderHistoryPage = false;
-                                    //$scope.ContactUsPage = false;
-                                    //$scope.ForgetPasswordPage = false;
-
-                                    //$window.localStorage.clear();
                                 }).
                                 error(function (data, status, headers, config) {
                                 });
@@ -291,7 +252,7 @@
         }
 
         $scope.getTotalCount = function (sku) {
-            //    debugger
+            //    
             var count = 0;
             for (var i = 0; i < this.items.length; i++) {
                 var item = this.items[i];
@@ -303,7 +264,7 @@
         }
         // get the total price for all items currently in the cart
         $scope.getTotalPrice = function (sku) {
-            //   debugger
+            //   
             var total = 0;
             for (var i = 0; i < this.items.length; i++) {
                 var item = this.items[i];
@@ -323,6 +284,10 @@
                 localStorage[$scope.cartName + "_items"] = JSON.stringify($scope.items);
             }
         }
+
+$scope.ContinueToBasket=function(){
+$location.path('Default');
+}
 
     }])
 

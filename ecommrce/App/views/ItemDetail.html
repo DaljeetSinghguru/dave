@@ -4,7 +4,13 @@
         list-style-type: square;
     }
 </style>
-
+<!--<link href="../../Content/normalize.css" rel="stylesheet" />-->
+<link href="../../Content/foundation.css" rel="stylesheet" />
+<!--<link href="../../Content/demo.css" rel="stylesheet" />-->
+<link href="../../Content/xzoom.css" rel="stylesheet" />
+<script src="../../Content/xzoom.js"></script>
+<!--<script src="../../Content/foundation.min.js"></script>-->
+<script src="../../Content/setup.js"></script>
 <div class="" ng-controller="ItemDetailController">
     <div class="middle inner">
         <div class="container">
@@ -21,18 +27,33 @@
             <div class="product-display">
                 <h3>{{SingleItemDataInDetail.Title}}  </h3>
                 <div class="product-single">
-                    <img class="img-responsive" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemMainImage}}" alt="single img">
-                    <h2>
-                        {{SingleItemDataInDetail.Title}}
+                    <!--<img class="img-responsive" style="width:400px;" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemMainImage}}" alt="single img">-->
 
-                    </h2>
-                    <h4>Our postal rates are reasonable and honest which take into consideration the weight, size and location of delivery</h4>
-                    <!--<h6>Available in Stock</h6>-->
-                    Select Quantity <br>
-                    <input type="number" ng-value="1" class="quantity" ng-model="quantity">
-                    <h5>{{SingleItemDataInDetail.Price}}</h5>
-                    <a href="" ng-click="addtobasket(SingleItemDataInDetail)">Add to Basket</a>
+                    <div class="xzoom-container" style="width:370px;">
+                        <img class="xzoom" id="xzoom-default" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemMainImage}}" xoriginal="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemMainImage}}" />
+                        <div class="xzoom-thumbs">
+                           
+                            <a href="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemMainImage}}"><img class="xzoom-gallery" width="80" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemMainImage}}" xpreview="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemMainImage}}" title="The description goes here"></a>
+                            <a href="../../ItemImage/gallery/original/01_b_car.jpg"><img class="xzoom-gallery" width="80" src="../../ItemImage/gallery/original/01_b_car.jpg" title="The description goes here"></a>
+                            <a href="../../ItemImage/gallery/original/02_o_car.jpg"><img class="xzoom-gallery" width="80" src="../../ItemImage/gallery/original/02_o_car.jpg" title="The description goes here"></a>
+                            <a href="../../ItemImage/gallery/original/03_r_car.jpg"><img class="xzoom-gallery" width="80" src="../../ItemImage/gallery/original/03_r_car.jpg" title="The description goes here"></a>
+                        </div>
+                    </div>
 
+
+                    <div style="margin-left:15px;">
+                        <h2>
+                            {{SingleItemDataInDetail.Title}}
+
+                        </h2>
+
+                        <h4>Our postal rates are reasonable and honest which take into consideration the weight, size and location of delivery</h4>
+                        <!--<h6>Available in Stock</h6>-->
+                        Select Quantity <br>
+                        <input type="number" ng-value="1" class="quantity" ng-model="quantity">
+                        <h5>{{SingleItemDataInDetail.Price}}</h5>
+                        <a href="" ng-click="addtobasket(SingleItemDataInDetail)">Add to Basket</a>
+                    </div>
                 </div>
                 <div class="discription">
                     <div class="clear"></div>

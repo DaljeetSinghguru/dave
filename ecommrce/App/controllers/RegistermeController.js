@@ -1,6 +1,6 @@
 ﻿app.controller('RegistermeController', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location', '$sce',
     function ($scope, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location, $sce) {
-        debugger
+        
 
         
 
@@ -17,10 +17,10 @@
 
         }
         $scope.samebillingaddresscheck = function (data) {
-            debugger
+            
             if ($scope.checksamebillingaddress == true) {
 
-                debugger
+                
                 $scope.loginDetail.InvoiceFirstName = $scope.loginDetail.FirstName;
                 $scope.loginDetail.InvoiceCompany = $scope.loginDetail.House;
                 $scope.loginDetail.InvoiceHouse = $scope.loginDetail.House;
@@ -49,7 +49,7 @@
 
         $scope.register = function () {
             $scope.loginDetail;
-            debugger
+            
             $scope.shownamemandatory = false;
             $scope.showHousemandatory = false;
             $scope.showAddressLine3mandatory = false;
@@ -103,7 +103,7 @@
                 ///call api and store data into db
                 $http({ method: 'POST', url: $scope.Url + 'login/Loginsecond_Update/', data: $scope.loginDetail }).
                     success(function (data, status, headers, config) {
-                        debugger
+                        
                         if (status == 200) {
                             ////check item present in cart if yes then go to cart
                            ///// else go to home page

@@ -7,7 +7,7 @@
         $scope.Url = ViewVariablesService.GetBaseAddress();
 
         $scope.login = function () {
-            debugger
+            
             //$scope.Login.UserName;
             //$scope.Login.Password;
             

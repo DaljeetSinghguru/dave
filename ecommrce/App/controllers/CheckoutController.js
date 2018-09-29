@@ -23,10 +23,10 @@
                         authorization: $scope.Token,
                         container: '#dropin-container'
                     }, function (createErr, instance) {
-                        debugger
+                        
                         button.addEventListener('click', function () {
                             instance.requestPaymentMethod(function (err, payload) {
-                                debugger
+                                
                                 // Submit payload.nonce to your server
                                 // payload.nonce
                                 $scope.param = { "Amount": $scope.totalPrice, "payment_method_nonce": payload.nonce };

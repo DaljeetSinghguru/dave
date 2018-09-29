@@ -671,13 +671,13 @@ p {
     margin: 50px 0 5px 0;
 }
 
-.product-single a {
+/*.product-single a {
     background: #f80000;
     color: #fff;
     padding: 10px;
     border-radius: 5px;
     float: left;
-}
+}*/
 
     .product-single a:hover {
         background: #333;
@@ -1054,4 +1054,21 @@ button.cancel:hover {
     margin: auto;
     text-align: center;
     display: block;
+}
+
+.showitem {
+    height: 293px;
+    margin-bottom: 10px;
+}
+
+
+.checkout3 {
+    padding: 10px;
+    background: #008000;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin: 10px 0;
+    float: left;
 }

@@ -1,6 +1,6 @@
 ﻿app.controller('CategoryLevel2Controller', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location',
     function ($scope, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location) {
-        debugger;
+        
         var myPassword = "MAKV123456789312";
         $scope.Url = ViewVariablesService.GetBaseAddress();
         $scope.WebsiteDomain = ViewVariablesService.GetWebsiteDomain();
@@ -22,14 +22,14 @@
 
         });
         $scope.OpenReleventItemByCategory = function (data) {
-            debugger
+            
             $scope.categoryID = (data.Value);
             //pass this category id to database and get all item present in category and display in browser
             $http({
                 method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=' + $scope.categoryID + ''
             }).
                 success(function (data, status, headers, config) {
-                    debugger
+                    
 
                     $scope.ItemListDetails = data;
                     ViewVariablesService.SetDatasendToItemListPage(data);
@@ -62,7 +62,7 @@
 
         
         $scope.ShowCategoryLevel3 = function (data) {
-            debugger
+            
             $scope.ItemListPageCategory = data;
             ViewVariablesService.SetDatasendToItemListPageCategory(data);
             $location.path('ItemListCategory1');

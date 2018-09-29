@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet">
     <link href="../../Content/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
+   
     <!--<link href="Content/css/index.css" rel="stylesheet" />
     <link href="Content/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -159,7 +160,7 @@
 
                     <nav class="menu">
                         <ul>
-                            <li class="active"> <a href="#">Home</a> </li>
+                            <li class="active"> <a href="" ng-click="gotoDefault()">Home</a> </li>
                             <li class="drop-down {{data.Value| translate}}" ng-repeat="data in AllCategory">
                                 <a ng-click="categoryClickLevel1(data)">{{data.text| translate}}</a>
                                 <div class="mega-menu {{data.Value| translate}}">
@@ -196,7 +197,7 @@
         </div>
         <div class="feature"></div>
 
-        <!--   <div class="slider"> <img src="../../Content/images/slider.jpg" alt="home page slider"> </div>-->
+        <div class="slider"> <img src="../../Content/images/slider.jpg" alt="home page slider"> </div>
         <!--header end here-->
         <!--middle start here-->
 
@@ -255,7 +256,7 @@
             </div>
         </div>
         <div class="copyright">
-            Copyright © 2018 Vikas KumarDesigner.com
+            Copyright © 2018 Ankar Singh
         </div>
     </div>
 
