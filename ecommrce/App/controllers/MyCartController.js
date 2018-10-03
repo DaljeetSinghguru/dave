@@ -80,8 +80,8 @@
         $scope.getLinePrice = function (price, qty) {
             //   
             var total = 0;
-
-            total = this.toNumber(qty * price);
+            var Price = price * $rootScope.currentRate;
+            total = this.toNumber(qty * Price);
             return total;
         }
         $scope.loadItems();
@@ -269,7 +269,8 @@
             for (var i = 0; i < this.items.length; i++) {
                 var item = this.items[i];
                 if (sku == null || item.sku == sku) {
-                    total += this.toNumber(item.quantity * item.price);
+                    var totalamount = item.price * $rootScope.currentRate;
+                    total += this.toNumber(item.quantity * totalamount);
                 }
             }
             return total;

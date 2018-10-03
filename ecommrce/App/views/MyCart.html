@@ -90,14 +90,14 @@
                                     </div>
                                 </div>
                             </td>
-                            <td align="center" data-th="Price" style="vertical-align: middle; font-weight: bold; font-size: 18px;">{{item.price}}</td>
+                            <td align="center" data-th="Price" style="vertical-align: middle; font-weight: bold; font-size: 18px;">{{item.price * currentRate| number:2}}</td>
                             <td align="center" data-th="Quantity" style="vertical-align: middle; font-weight: bold; font-size: 18px;">
                                 <!--{{item.quantity}}-->
 
                                 <input type="number" min="1" ng-model="item.quantity" style="width:66px" />
 
                             </td>
-                            <td align="center" data-th="Subtotal" class="text-center" style="vertical-align: middle;">{{getLinePrice(item.price,item.quantity)}}</td>
+                            <td align="center" data-th="Subtotal" class="text-center" style="vertical-align: middle;">{{getLinePrice(item.price,item.quantity)| number:2}}</td>
                             <td class="actions" data-th="" style="vertical-align: middle;">
                                 <!--<button class=""><i class="fa fa-refresh"></i></button>-->
                                 <button class="" ng-click="deleteRowFromBasket(item)"><i class="fa fa-trash-o"></i></button>
@@ -109,7 +109,7 @@
                         <tr>
                             <td></td>
                             <td colspan="2" class="hidden-xs"></td>
-                            <td class="hidden-xs text-center"><strong>Total {{getTotalPrice()| currency:"&#8377;"}}</strong></td>
+                            <td class="hidden-xs text-center"><strong>Total {{getTotalPrice()| number:2}}</strong></td>
                             <td><!--<a href="" class="btn btn-success btn-block" ng-click="Order()">Checkout <i class=""></i></a>--></td>
                         </tr>
                     </tfoot>
