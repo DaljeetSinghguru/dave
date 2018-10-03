@@ -158,7 +158,7 @@
             this.name = name;
             this.ItemImage = ItemImage;
             this.price = price * 1;
-            this.quantity = quantity * 1;
+            this.quantity = quantity;
             this.IsStockPresent = IsStockPresent;
             this.ItemType = ItemType;
             this.ItemId = ItemId;

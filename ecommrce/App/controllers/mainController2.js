@@ -1,10 +1,35 @@
-﻿app.controller('appmainController2', ['$scope','$route', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location',
+﻿app.controller('appmainController2', ['$scope', '$route', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location',
     function ($scope, $route, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location) {
 
-        $scope.changeLanguage = function (lang) {
+        //////////////////////////////
+        ///get latest rate of all country based on euro
 
-            $translate.use(lang);
-        }
+        //http://data.fixer.io/api/latest?access_key=af97a3a1617ee07c5e0f15fdd042f507&format=1
+        ///Get data for top 8 item show on home page
+        $http({
+            method: 'GET', url:'http://data.fixer.io/api/latest?access_key=af97a3a1617ee07c5e0f15fdd042f507&format=1'
+        }).
+            success(function (data, status, headers, config) {
+                debugger
+                $scope.data=data;
+                $rootScope.ratesofallcountry = data.rates;
+            }).
+            error(function (data, status, headers, config) {
+            });
+ 
+        $rootScope.currentRate ="1";
+
+        $scope.changeLanguage = function (langKey) {
+            $translate.use(langKey);
+
+            if (langKey == 'en') {
+                $rootScope.currentRate=$rootScope.ratesofallcountry.EUR;
+            }
+            if (langKey == 'fr') {
+                $rootScope.currentRate = $rootScope.ratesofallcountry.USD;
+            }
+        };
+
 
         var myPassword = "MAKV123456789312";
 
@@ -12,13 +37,13 @@
 
         $scope.Url = ViewVariablesService.GetBaseAddress();
         $scope.WebsiteDomain = ViewVariablesService.GetWebsiteDomain();
-      
-       
+
+
 
         $scope.Logincredential = localStorage != null ? localStorage["credential"] : null;
         if ($scope.Logincredential) {
             $rootScope.DisplayUserName = JSON.parse($scope.Logincredential).UserName;
-            if ($rootScope.DisplayUserName != null || $rootScope.DisplayUserName != undefined || $rootScope.DisplayUserName !="") {
+            if ($rootScope.DisplayUserName != null || $rootScope.DisplayUserName != undefined || $rootScope.DisplayUserName != "") {
                 $rootScope.showloginbutton = false;
             }
             else {
@@ -26,7 +51,7 @@
 
             }
         }
- if ($scope.Logincredential==undefined) {  $rootScope.showloginbutton = true;}
+        if ($scope.Logincredential == undefined) { $rootScope.showloginbutton = true; }
         /////////////////////////////////////////////////////////////////
 
 
@@ -97,7 +122,7 @@
             }).
             error(function (data, status, headers, config) {
             });
-      
+
         $scope.function = function (data) {
 
             $scope.IndexPage = false;
@@ -127,7 +152,7 @@
             $scope.detailpageData.IsStockPresent = data.IsStockPresent;
         }
 
-       
+
 
         // add an item to the cart
         $scope.addItemToCart = function (sku, name, ItemImage, price, quantity, IsStockPresent, ItemType, ItemId) {
@@ -177,7 +202,7 @@
 
         // get the total price for all items currently in the cart
         $scope.getTotalCount = function (sku) {
-        //    
+            //    
             var count = 0;
             for (var i = 0; i < this.items.length; i++) {
                 var item = this.items[i];
@@ -189,12 +214,14 @@
         }
         // get the total price for all items currently in the cart
         $scope.getTotalPrice = function (sku) {
-         //   
+            //   
             var total = 0;
             for (var i = 0; i < this.items.length; i++) {
                 var item = this.items[i];
                 if (sku == null || item.sku == sku) {
-                    total += this.toNumber(item.quantity * item.price);
+                    var totalamount = item.price * $rootScope.currentRate;
+
+                    total += this.toNumber(item.quantity * totalamount);
                 }
             }
             return total;
@@ -212,7 +239,7 @@
 
         // load items from local storage
         $scope.loadItems = function () {
-        //    
+            //    
             // empty list
             $scope.items.splice(0, $scope.items.length);
             var items = localStorage != null ? localStorage[$scope.cartName + "_items"] : null;
@@ -243,7 +270,7 @@
                 $scope.itemsChanged();
             }
         }
-        function cartItem1(sku, name, price, quantity, IsStockPresent,image) {
+        function cartItem1(sku, name, price, quantity, IsStockPresent, image) {
             this.sku = sku;
             this.name = name;
 
@@ -700,7 +727,7 @@
 
 
         $scope.categoryClickLevel1 = function (CategoryId) {
-         //   
+            //   
 
             $scope.ItemDetailDataCategoryWiselevel1 = CategoryId;
             ViewVariablesService.SetDatasendToItemListPageLevel1($scope.ItemDetailDataCategoryWiselevel1);
@@ -734,7 +761,7 @@
 
         }
         $scope.categoryClicklevel3 = function (CategoryData) {
-          //  
+            //  
 
 
             $scope.ItemDetailDataCategoryWiselevel3 = CategoryData;
@@ -743,34 +770,34 @@
 
             ViewVariablesService.SetDatasendToItemListPageCategory($scope.ItemDetailDataCategoryWiselevel3);
 
-                if ($location.path() == '/ItemListCategory1') {
-                    $route.reload();
-                } else {
-                    $location.path('ItemListCategory1');
-                }
+            if ($location.path() == '/ItemListCategory1') {
+                $route.reload();
+            } else {
+                $location.path('ItemListCategory1');
+            }
             //}
 
 
 
         }
         $scope.categoryClicklevel4 = function (CategoryId) {
-           // 
+            // 
             $http({
                 method: 'GET', url: $scope.Url + 'Category/GetItemByCategoryId?CategoryId=' + CategoryId + ''
             }).
                 success(function (data, status, headers, config) {
-                  //  
+                    //  
 
                     $scope.ItemDetailDataCategoryWiselevel4 = data;
-                   // if ($scope.ItemDetailDataCategoryWiselevel3 == undefined || $scope.ItemDetailDataCategoryWiselevel3.length == 0) {
-                        ViewVariablesService.SetDatasendToItemListPage($scope.ItemDetailDataCategoryWiselevel4);
-                        ViewVariablesService.SetDatasendToItemListPageCategory();
-                        if ($location.path() == '/ItemList') {
-                            $route.reload();
-                        } else {
-                            $location.path('ItemList');
-                        }
-                   // }
+                    // if ($scope.ItemDetailDataCategoryWiselevel3 == undefined || $scope.ItemDetailDataCategoryWiselevel3.length == 0) {
+                    ViewVariablesService.SetDatasendToItemListPage($scope.ItemDetailDataCategoryWiselevel4);
+                    ViewVariablesService.SetDatasendToItemListPageCategory();
+                    if ($location.path() == '/ItemList') {
+                        $route.reload();
+                    } else {
+                        $location.path('ItemList');
+                    }
+                    // }
                 }).
                 error(function (data, status, headers, config) {
                 });
@@ -783,11 +810,11 @@
 
         $scope.ShowCart = function () {
             if ($location.path() == '/MyCart') {
-                            $route.reload();
+                $route.reload();
             }
             else {
                 $location.path('MyCart');
-                        }
+            }
         }
 
 

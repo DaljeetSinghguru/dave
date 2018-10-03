@@ -20,7 +20,7 @@
                             <img class="img-responsive showitem" src="{{WebsiteDomain}}images/{{ItemdataCatWise.ItemMainImage}}" alt="product">
                             <h2>{{ItemdataCatWise.Title}}  </h2>
                             <h4>{{ItemdataCatWise.Name}} </h4>
-                            <h5>{{ItemdataCatWise.Price}} </h5>
+                            <h5>{{ItemdataCatWise.Price * currentRate| number:2}} </h5>
                         </div><!--<a href="">Add to Basket</a>-->
                         <a ng-click="addItemToCart(ItemdataCatWise.ItemStockCode,ItemdataCatWise.Title,ItemdataCatWise.ItemMainImage,ItemdataCatWise.Price,1,null,ItemdataCatWise.CategoryName,ItemdataCatWise.ItemId)">Add to cart</a>
                     </div>
