@@ -1,0 +1,91 @@
+/* slider */
+
+	.slider-container {
+
+		border: 1px solid #eaeaea;
+		margin: 10px 10px 10px 0;
+
+		&:hover {
+
+			cursor: pointer;
+
+		}
+
+	}
+
+	.slider-mask {
+
+		overflow: hidden;
+		position: relative;
+
+	}
+
+	.slider-images {
+
+		width: 500%;
+		position: relative;
+		overflow: hidden;
+
+		animation: slide 20s ease infinite;
+
+		li {
+
+			position: relative;
+	  		float: left;
+	  		width: 20%;
+	  		padding: 3px;
+
+		}
+
+		img {
+
+			display: block;
+
+		}
+
+		&:hover {
+
+			animation-play-state: paused;
+
+		}
+		
+	}
+
+
+/* SLIDER ANIMATION */
+
+/* slide animation, 5 images, modify to fit your needs */
+
+@keyframes slide {
+
+    0%, 15%, 100% { 
+
+      left: 0; 
+
+    }
+
+    20%, 35%  { 
+
+      left: -100%
+
+    }
+
+    40%, 55%    { 
+
+      left: -200%;
+      
+    }
+
+    60%, 75% { 
+
+      left: -300%;
+
+    }
+
+    80%, 95% { 
+
+      left: -400%; 
+
+    }
+
+}

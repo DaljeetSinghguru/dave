@@ -89,7 +89,7 @@
         $scope.totalPrice = $scope.getTotalPrice();
         //Get Token Request for braintree paymentgateway
         $scope.param = { "Amount": "" + $scope.totalPrice +"", "payment_method_nonce": "" };
-        $http({ method: 'POST', url: $scope.Url + 'Payment/Request/', data: $scope.param }).
+        $http({ method: 'POST', url: $scope.Url + 'Payment/RequestToken/' }).
             success(function (data, status, headers, config) {
                 $scope.Token = data;
             }).
@@ -161,6 +161,8 @@
             ////////
             ////send mail
             ///////////
+
+
 
             $scope.totalPrice = $scope.getTotalPrice();
             //generate Payment nouns from token

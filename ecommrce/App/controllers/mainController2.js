@@ -115,9 +115,9 @@
                 ViewVariablesService.SetDataofMenu($scope.AllCategory);
 
                 //$scope.AllCategory1 = data;
-                setTimeout(function () {
-                    $scope.Mousehoveroncat($scope.AllCategory);
-                }, 1000);
+                //setTimeout(function () {
+                //    $scope.Mousehoveroncat($scope.AllCategory);
+                //}, 1000);
 
             }).
             error(function (data, status, headers, config) {
@@ -678,39 +678,39 @@
                 return false;
             });
         }
-        $scope.Mousehoveroncat = function (data) {
+        //$scope.Mousehoveroncat = function (data) {
 
 
-            $(" .25").hover(function () {
+        //    $(" .25").hover(function () {
 
-                $('.25').addClass('display-on');
-            });
-            $(" .29").hover(function () {
+        //        $('.25').addClass('display-on');
+        //    });
+        //    $(" .29").hover(function () {
 
-                $('.29').addClass('display-on');
-            });
-            $(" .42").hover(function () {
+        //        $('.29').addClass('display-on');
+        //    });
+        //    $(" .42").hover(function () {
 
-                $('.42').addClass('display-on');
-            });
-            $(" .45").hover(function () {
+        //        $('.42').addClass('display-on');
+        //    });
+        //    $(" .45").hover(function () {
 
-                $('.45').addClass('display-on');
-            });
-            $(" .50").hover(function () {
+        //        $('.45').addClass('display-on');
+        //    });
+        //    $(" .50").hover(function () {
 
-                $('.50').addClass('display-on');
-            });
-            $(" .54").hover(function () {
+        //        $('.50').addClass('display-on');
+        //    });
+        //    $(" .54").hover(function () {
 
-                $('.54').addClass('display-on');
-            });
-            $(".drop-down").mouseleave(function () {
+        //        $('.54').addClass('display-on');
+        //    });
+        //    $(".drop-down").mouseleave(function () {
 
-                $('.mega-menu').removeClass('display-on');
-            });
+        //        $('.mega-menu').removeClass('display-on');
+        //    });
 
-        }
+        //}
 
 
         $http({

@@ -1,0 +1,130 @@
+/* slider */
+.slider-container {
+  border: 1px solid #eaeaea;
+  margin: 10px 10px 10px 0;
+}
+.slider-container:hover {
+  cursor: pointer;
+}
+.slider-mask {
+  overflow: hidden;
+  position: relative;
+}
+.slider-images {
+  width: 500%;
+  position: relative;
+  overflow: hidden;
+  -webkit-animation: slide 20s ease infinite;
+     -moz-animation: slide 20s ease infinite;
+       -o-animation: slide 20s ease infinite;
+          animation: slide 20s ease infinite;
+}
+.slider-images li {
+  position: relative;
+  float: left;
+  width: 20%;
+  padding: 3px;
+}
+.slider-images img {
+  display: block;
+}
+.slider-images:hover {
+  -webkit-animation-play-state: paused;
+     -moz-animation-play-state: paused;
+       -o-animation-play-state: paused;
+          animation-play-state: paused;
+}
+/* SLIDER ANIMATION */
+/* slide animation, 5 images, modify to fit your needs */
+@-webkit-keyframes slide {
+  0%,
+  15%,
+  100% {
+    left: 0;
+  }
+  20%,
+  35% {
+    left: -100%;
+  }
+  40%,
+  55% {
+    left: -200%;
+  }
+  60%,
+  75% {
+    left: -300%;
+  }
+  80%,
+  95% {
+    left: -400%;
+  }
+}
+@-moz-keyframes slide {
+  0%,
+  15%,
+  100% {
+    left: 0;
+  }
+  20%,
+  35% {
+    left: -100%;
+  }
+  40%,
+  55% {
+    left: -200%;
+  }
+  60%,
+  75% {
+    left: -300%;
+  }
+  80%,
+  95% {
+    left: -400%;
+  }
+}
+@-o-keyframes slide {
+  0%,
+  15%,
+  100% {
+    left: 0;
+  }
+  20%,
+  35% {
+    left: -100%;
+  }
+  40%,
+  55% {
+    left: -200%;
+  }
+  60%,
+  75% {
+    left: -300%;
+  }
+  80%,
+  95% {
+    left: -400%;
+  }
+}
+@keyframes slide {
+  0%,
+  15%,
+  100% {
+    left: 0;
+  }
+  20%,
+  35% {
+    left: -100%;
+  }
+  40%,
+  55% {
+    left: -200%;
+  }
+  60%,
+  75% {
+    left: -300%;
+  }
+  80%,
+  95% {
+    left: -400%;
+  }
+}

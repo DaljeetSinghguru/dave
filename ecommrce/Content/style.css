@@ -217,19 +217,7 @@ nav.menu {
     background:#333;
 }
 /*MediaQuerys*/
-@media (max-width: 600px) {
-    .menu {
-        display: none;
-    }
-
-    .xs-menu li a {
-        padding: 0px;
-    }
-
-    .xs-menu-cont {
-        display: block;
-    }
-}
+ 
 
 
 /*Animation--*/
@@ -404,6 +392,14 @@ p {
 
     .product li img {
         width: 100%;
+        vertical-align:bottom;
+    }
+.space a {
+    margin:4px;
+    float:left;
+}
+    .space a img {
+        width:73px;
     }
 
 .tag {
@@ -1071,4 +1067,59 @@ button.cancel:hover {
     border-radius: 5px;
     margin: 10px 0;
     float: left;
+}
+.solid-menus div#navigation .main-nav > li {
+    padding-top:9px !important;
+}
+.solid-menus .main-nav > li:last-child {
+    float:inherit !important;
+}
+.middle h1{
+    text-align:center;
+    padding:35px 0;
+    font-weight:bold;
+   
+}
+    .middle h1 span {
+        color:#f80000;
+    }
+.pro-left{
+    width: 50%;
+    overflow: hidden;
+    margin: 20px 0;
+    float: left;
+}
+.pro-right {
+    margin-left: 15px;
+    float: right;
+    width: 48%;
+}
+@media only screen and (max-width:768px) {
+
+    .login-user {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .register-user {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .product-innerproduct {
+        width: 100%;
+    }
+
+    .pro-left {
+        width: 100%;
+    }
+
+    .pro-right {
+        width: 100%;
+    }
+
+    .product-single h2{
+        margin:0;
+    }
+
 }

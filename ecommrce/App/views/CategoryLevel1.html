@@ -25,9 +25,9 @@
 
         </div>-->
                 <h3>show category  level 1{{ItemListPageCategory.text}}</h3>
-                <img class="img-responsive" src="{{WebsiteDomain}}images/{{ItemListPageCategory.filename}}.jpg" alt="product">
+                <img style="height: 160px;" class="img-responsive" src="{{WebsiteDomain}}images/{{ItemListPageCategory.filename}}" alt="product">
                 <div ng-click="ShowItemDetailCategory(dataCatWiseLevel3)" class="product-inner product-innerproduct" ng-repeat="dataCatWiseLevel3 in ItemListPageCategory.items">
-                    <img class="img-responsive" src="{{WebsiteDomain}}images/{{dataCatWiseLevel3.filename}}.jpg" alt="product">
+                    <img style="height: 250px; margin-bottom: 5px;" class="img-responsive" src="{{WebsiteDomain}}images/{{dataCatWiseLevel3.filename}}" alt="product">
                     <h2>{{dataCatWiseLevel3.text}}</h2>
                     <h4>{{dataCatWiseLevel3.Description}}</h4>
 

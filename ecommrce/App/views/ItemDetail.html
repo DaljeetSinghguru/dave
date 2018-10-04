@@ -5,12 +5,15 @@
     }
 </style>
 <!--<link href="../../Content/normalize.css" rel="stylesheet" />-->
-<link href="../../Content/foundation.css" rel="stylesheet" />
+<!--<link href="../../Content/foundation.css" rel="stylesheet" />-->
 <!--<link href="../../Content/demo.css" rel="stylesheet" />-->
-<link href="../../Content/xzoom.css" rel="stylesheet" />
-<script src="../../Content/xzoom.js"></script>
+<!--<link href="../../Content/xzoom.css" rel="stylesheet" />
+<script src="../../Content/xzoom.js"></script>-->
 <!--<script src="../../Content/foundation.min.js"></script>-->
-<script src="../../Content/setup.js"></script>
+<!--<script src="../../Content/setup.js"></script>-->
+
+
+
 <div class="" ng-controller="ItemDetailController">
     <div class="middle inner">
         <div class="container">
@@ -27,21 +30,33 @@
             <div class="product-display">
                 <h3>{{SingleItemDataInDetail.Title}}  </h3>
                 <div class="product-single">
+                   
                     <!--<img class="img-responsive" style="width:400px;" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemMainImage}}" alt="single img">-->
-
-                    <div class="xzoom-container" style="width:370px;">
-                        <img class="xzoom" id="xzoom-default" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemMainImage}}" xoriginal="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemMainImage}}" />
+                    <!--<div class="xzoom-container">
+                        <img class="xzoom" id="xzoom-default" src="../../ItemImage/gallery/preview/01_b_car.jpg" xoriginal="../../ItemImage/gallery/original/01_b_car.jpg" />
                         <div class="xzoom-thumbs">
-                           
-                            <a href="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemMainImage}}"><img class="xzoom-gallery" width="80" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemMainImage}}" xpreview="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemMainImage}}" title="The description goes here"></a>
-                            <a href="../../ItemImage/gallery/original/01_b_car.jpg"><img class="xzoom-gallery" width="80" src="../../ItemImage/gallery/original/01_b_car.jpg" title="The description goes here"></a>
-                            <a href="../../ItemImage/gallery/original/02_o_car.jpg"><img class="xzoom-gallery" width="80" src="../../ItemImage/gallery/original/02_o_car.jpg" title="The description goes here"></a>
-                            <a href="../../ItemImage/gallery/original/03_r_car.jpg"><img class="xzoom-gallery" width="80" src="../../ItemImage/gallery/original/03_r_car.jpg" title="The description goes here"></a>
+                            <a href="../../ItemImage/gallery/original/01_b_car.jpg">
+                                <img class="xzoom-gallery" width="80" src="../../ItemImage/gallery/thumbs/01_b_car.jpg" xpreview="../../ItemImage/gallery/preview/01_b_car.jpg" title="The description goes here">
+                            </a> 
+                            <a href="../../ItemImage/gallery/original/02_o_car.jpg"><img class="xzoom-gallery" width="80" src="../../ItemImage/gallery/preview/02_o_car.jpg" title="The description goes here"></a> 
+                            <a href="../../ItemImage/gallery/original/03_r_car.jpg"><img class="xzoom-gallery" width="80" src="../../ItemImage/gallery/preview/03_r_car.jpg" title="The description goes here"></a>
+                            <a href="../../ItemImage/gallery/original/04_g_car.jpg"><img class="xzoom-gallery" width="80" src="../../ItemImage/gallery/preview/04_g_car.jpg" title="The description goes here"></a>
                         </div>
-                    </div>
+                    </div>-->
+                   <div class="pro-left">
+        <img style="width:100%;" class="xzoom" id="xzoom-default" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemMainImage}}" />
+        <div class="xzoom-thumbs space" style="clear:both;">
+
+            <a><img class="xzoom-gallery" width="80" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemMainImage}}" title="The description goes here"></a>
+            <a><img class="xzoom-gallery" width="80" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemImage1}}" title="The description goes here"></a>
+            <a><img class="xzoom-gallery" width="80" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemImage2}}" title="The description goes here"></a>
+            <a><img class="xzoom-gallery" width="80" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemImage3}}" title="The description goes here"></a>
+            <a><img class="xzoom-gallery" width="80" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemImage4}}" title="The description goes here"></a>
+        </div>
+    </div>
 
 
-                    <div style="margin-left:15px;">
+                    <div class="pro-right">
                         <h2>
                             {{SingleItemDataInDetail.Title}}
 
@@ -49,10 +64,31 @@
 
                         <h4>Our postal rates are reasonable and honest which take into consideration the weight, size and location of delivery</h4>
                         <!--<h6>Available in Stock</h6>-->
-                        Select Quantity <br>
-                        <input type="number" ng-value="1" class="quantity" ng-model="quantity">
-                        <h5>{{SingleItemDataInDetail.Price}}</h5>
-                        <a href="" ng-click="addtobasket(SingleItemDataInDetail)">Add to Basket</a>
+
+                        <p style="border-top:1px solid #ccc; border-bottom:1px solid #ccc; margin:10px 0; padding:10px; ">
+                            Product Code: Shoes W23<br />
+
+                            Reward Points: 30<br />
+
+                            Availability: 20<br />
+                        </p>
+                        <div style="margin:20px 0; float:left;">
+                            Select Quantity<br />
+                            <input type="number" ng-value="1" class="quantity" ng-model="quantity">
+                        </div>
+                        <h5 style="float: right;
+    padding: 9px;
+    /* border: 1px solid #ccc; */
+    margin-top: 31px;
+    margin-right: 23px;
+    border-radius: 10px;">{{SingleItemDataInDetail.Price}}</h5>
+                        <a style="    background: #f80000;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 3px 0 0 0;
+    float: left; clear:both;" href="" ng-click="addtobasket(SingleItemDataInDetail)">Add to Basket</a>
                     </div>
                 </div>
                 <div class="discription">
@@ -95,3 +131,28 @@
 
     </div>
 </div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        //responsive menu toggle
+        $("#menutoggle").click(function () {
+            $('.xs-menu').toggleClass('displaynone');
+
+        });
+        //add active class on menu
+
+        //drop down menu
+        $(".drop-down").hover(function () {
+            $('.mega-menu').addClass('display-on');
+        });
+        $(".drop-down").mouseleave(function () {
+            $('.mega-menu').removeClass('display-on');
+        });
+
+    });
+
+
+
+</script>
+

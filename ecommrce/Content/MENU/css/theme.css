@@ -1,0 +1,19 @@
+.solid-menus .theme-margin-top {
+  margin-top: 1em;
+}
+.solid-menus .theme-margin-right {
+  margin-right: 1em;
+}
+.solid-menus .theme-margin-bottom {
+  margin-bottom: 1em;
+}
+.solid-menus .theme-margin-bottom-2x {
+  margin-bottom: 2em;
+}
+.solid-menus .theme-header-background {
+  background: #1F1E1E;
+  color: white;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+}

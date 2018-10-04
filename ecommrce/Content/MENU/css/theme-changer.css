@@ -1,0 +1,82 @@
+/* Theme Changer CSS Settings, just for demo */
+
+#theme-changer {
+
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -o-flex;
+	display: -ms-flex;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	width: 100%;
+	margin-bottom: 1em;
+
+}
+
+#theme-changer ul {
+
+	margin: 0;
+	padding: 0.65em 0.15em 0.65em 0;
+	height: 60px;
+	margin: 0 auto;
+
+}
+
+#theme-changer li {
+
+	width: 30px;
+    height: 30px;
+    line-height: 2.7;
+	margin: 0.35em;
+	float: left;
+	color: #fff;
+	-webkit-border-radius: 100%;
+	   -moz-border-radius: 100%;
+	        border-radius: 100%;
+	-webkit-transition: all 0.3s ease;
+	   -moz-transition: all 0.3s ease;
+	     -o-transition: all 0.3s ease;
+	        transition: all 0.3s ease;
+	
+}
+
+#theme-changer li:last-child {
+
+	margin-right: 0;
+}
+
+
+#theme-changer li:hover, i:hover {
+
+	cursor: pointer;
+
+}
+
+#theme-marker {
+	
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	
+	width: 50px;
+	height: 24px;
+	background: rgb(255, 255, 255);
+	margin: 0 auto;
+}
+
+#theme-marker span {
+
+	margin: 0 auto;
+	padding-bottom: 0.25em;
+
+}
+
+#theme-marker i {
+    
+    margin: 0;
+	
+}

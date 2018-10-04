@@ -1,0 +1,200 @@
+/* --- */
+.solid-menus {
+  /* navigation */
+  /* main-nav */
+  /* sub-menu-1s */
+  /* home-menu */
+  /* buttons */
+  /* tabs */
+  /* blog */
+  /* forms */
+}
+.solid-menus div#navigation {
+  background: #056d0b;
+}
+.solid-menus div#navigation .main-nav > li {
+  background: #056d0b;
+}
+.solid-menus div#navigation .main-nav > li:hover {
+  background: #ffffff;
+}
+.solid-menus ul.main-nav > li:hover > a {
+  color: #000000;
+}
+.solid-menus ul.main-nav > li#home:hover {
+  background: #ffffff;
+}
+.solid-menus .home,
+.solid-menus .drop-down,
+.solid-menus .multi-drop,
+.solid-menus .social,
+.solid-menus .full-width,
+.solid-menus .gallery,
+.solid-menus .tabs,
+.solid-menus .blog,
+.solid-menus .sign-up {
+  background: #ffffff;
+}
+.solid-menus .home-menu li.is-active {
+  background: #056d0b;
+}
+.solid-menus .home-menu li.is-active a {
+  color: #ffffff;
+}
+.solid-menus .home-menu li.is-active a:hover {
+  color: #ffffff;
+}
+.solid-menus .btn {
+  background: #056d0b;
+  background: -webkit-gradient(linear, left top, right top, color-stop(50%, #056d0b), color-stop(50%, #111111));
+  background: -webkit-linear-gradient(left, #056d0b 50%, #111111 50%);
+  background: -moz-linear-gradient(left, #056d0b 50%, #111111 50%);
+  background: -o-linear-gradient(left, #056d0b 50%, #111111 50%);
+  background: linear-gradient(to right, #056d0b 50%, #111111 50%);
+  -moz-background-size: 200% 100%;
+       background-size: 200% 100%;
+}
+.solid-menus .btn:hover {
+  background: #414141;
+  background: -webkit-gradient(linear, left top, right top, color-stop(50%, #056d0b), color-stop(50%, #111111));
+  background: -webkit-linear-gradient(left, #056d0b 50%, #111111 50%);
+  background: -moz-linear-gradient(left, #056d0b 50%, #111111 50%);
+  background: -o-linear-gradient(left, #056d0b 50%, #111111 50%);
+  background: linear-gradient(to right, #056d0b 50%, #111111 50%);
+  -moz-background-size: 200% 100%;
+       background-size: 200% 100%;
+  background-position: right bottom;
+}
+.solid-menus td.side-menu-wide em a.btn,
+.solid-menus div.gallery em a.btn,
+.solid-menus div.blog em a.btn,
+.solid-menus input.btn {
+  color: #ffffff;
+}
+.solid-menus .main-nav .drop-down ul.l-vertical-list > li:hover,
+.solid-menus .main-nav .multi-drop ul.l-vertical-list > li:hover,
+.solid-menus .main-nav .social ul.l-vertical-list > li:hover,
+.solid-menus .main-nav .social.social-inline ul.l-inline-list > li:hover {
+  background: #056d0b;
+}
+.solid-menus .main-nav .full-width ul.list li:hover {
+  background: #056d0b;
+}
+.solid-menus .tabs .tab-marker label {
+  background: #555;
+}
+.solid-menus .tabs .tab-marker [type="radio"]:checked ~ label {
+  background: #056d0b;
+  color: #ffffff;
+}
+.solid-menus div.blog p,
+.solid-menus div.blog blockquote {
+  color: #555;
+}
+.solid-menus div.blog blockquote {
+  border-right: 4px solid #056d0b;
+}
+.solid-menus span.call-out {
+  background: #414141;
+  color: #ffffff;
+}
+.solid-menus div.theme-header-background {
+  background: #056d0b;
+}
+.solid-menus div.theme-header-background:hover {
+  background: #111111;
+}
+.solid-menus input[type="text"].linear,
+.solid-menus input[type="email"].linear,
+.solid-menus input[type="password"].linear {
+  background: #000;
+  background: -webkit-linear-gradient(left, #056d0b 56px, #ffffff 0%);
+  background: -moz-linear-gradient(left, #056d0b 56px, #ffffff 0%);
+  background: -o-linear-gradient(left, #056d0b 56px, #ffffff 0%);
+  background: linear-gradient(to right, #056d0b 56px, #ffffff 0%);
+}
+.solid-menus .tri-right {
+  border-left: 0.75em solid #056d0b;
+}
+.solid-menus .side-menu-wide.side-menu-wide-colored {
+  background: #056d0b;
+}
+.solid-menus .flipX-caption,
+.solid-menus .flipY-caption,
+.solid-menus .flipDown-caption,
+.solid-menus .flipUp-caption,
+.solid-menus .flipLeft-caption,
+.solid-menus .flipRight-caption,
+.solid-menus .flipTopLeft-caption,
+.solid-menus .flipBottomRight-caption,
+.solid-menus .bounce-caption,
+.solid-menus .bounce-2-caption,
+.solid-menus .bounce-3-caption,
+.solid-menus .stretch-caption,
+.solid-menus .stretch-2-caption,
+.solid-menus .stretch-3-caption,
+.solid-menus .rollIn-caption,
+.solid-menus .rollIn-2-caption,
+.solid-menus .rollIn-3-caption,
+.solid-menus .rotateIn-caption,
+.solid-menus .rotateIn-2-caption,
+.solid-menus .rotateIn-3-caption,
+.solid-menus .hingeTop-caption,
+.solid-menus .hingeLeft-caption,
+.solid-menus .hingeBottom-caption,
+.solid-menus .slideDown-caption,
+.solid-menus .slideUp-caption,
+.solid-menus .slideRight-caption,
+.solid-menus .slideLeft-caption,
+.solid-menus .slideDiagonal-TL-caption,
+.solid-menus .slideDiagonal-TR-caption,
+.solid-menus .slideDiagonal-BL-caption,
+.solid-menus .slideDiagonal-BR-caption,
+.solid-menus .zoomIn-caption,
+.solid-menus .zoomOut-caption,
+.solid-menus .zoomInRotate-caption,
+.solid-menus .sweepTopCenter:hover .sweepTopCenter-caption:before,
+.solid-menus .sweepTopCenter:hover .sweepTopCenter-caption:after,
+.solid-menus .sweepLeftCenter:hover .sweepLeftCenter-caption:before,
+.solid-menus .sweepLeftCenter:hover .sweepLeftCenter-caption:after,
+.solid-menus .sweepCenterTop:hover .sweepCenterTop-caption:before,
+.solid-menus .sweepCenterTop:hover .sweepCenterTop-caption:after,
+.solid-menus .sweepCenterLeft:hover .sweepCenterLeft-caption:before,
+.solid-menus .sweepCenterLeft:hover .sweepCenterLeft-caption:after,
+.solid-menus .sweepAlternate-H:hover .sweepAlternate-H-caption:before,
+.solid-menus .sweepAlternate-H:hover .sweepAlternate-H-caption:after,
+.solid-menus .sweepAlternate-V:hover .sweepAlternate-V-caption:before,
+.solid-menus .sweepAlternate-V:hover .sweepAlternate-V-caption:after,
+.solid-menus ul[class*="overlay-blocks-"] li {
+  background: rgba(5, 109, 11, 0.85);
+}
+.solid-menus .sweepTriangle-1-caption:before,
+.solid-menus .sweepTriangle-3-caption:before,
+.solid-menus .sweepTriangle-5-caption:before {
+  border-left: 130px solid rgba(5, 109, 11, 0.85);
+}
+.solid-menus .sweepTriangle-1-caption:after,
+.solid-menus .sweepTriangle-3-caption:after,
+.solid-menus .sweepTriangle-5-caption:after {
+  border-bottom: 107px solid rgba(5, 109, 11, 0.85);
+}
+.solid-menus .sweepTriangle-2-caption:before,
+.solid-menus .sweepTriangle-4-caption:before,
+.solid-menus .sweepTriangle-6-caption:before {
+  border-right: 129px solid rgba(5, 109, 11, 0.85);
+}
+.solid-menus .sweepTriangle-2-caption:after,
+.solid-menus .sweepTriangle-4-caption:after,
+.solid-menus .sweepTriangle-6-caption:after {
+  border-bottom: 108px solid rgba(5, 109, 11, 0.85);
+}
+.solid-menus .overlay-software li {
+  opacity: 0;
+  background: rgba(5, 109, 11, 0.85);
+  -webkit-transition: -webkit-transform 1s ease, opacity 0.5s ease-in-out;
+     -moz-transition: -moz-transform 1s ease, opacity 0.5s ease-in-out;
+       -o-transition: -o-transform 1s ease, opacity 0.5s ease-in-out;
+          transition: transform 1s ease, opacity 0.5s ease-in-out;
+  padding: 0.15em 0;
+  z-index: 100000;
+}
