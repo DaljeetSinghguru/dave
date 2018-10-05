@@ -48,8 +48,8 @@ var translationsEN = {
     BUTTON_LANG_FR: 'French',
     BUTTON_LANG_EN: 'English',
 
-    What_are_you_searching_for:'What are you searching for?',
-    Search:'Search',
+    What_are_you_searching_for: 'What are you searching for?',
+    Search: 'Search',
     items: 'items',
     VIEW_BASKET: 'VIEW_BASKET',
     LOGIN: 'LOGIN',
@@ -68,14 +68,14 @@ var translationsFR = {
     BUTTON_LANG_FR: 'français',
     BUTTON_LANG_EN: 'Anglais',
 
-    
+
     What_are_you_searching_for: 'Que cherchez-vous?',
     Search: 'Chercher',
     items: 'articles',
     VIEW_BASKET: 'VOIR LE PANIER',
     LOGIN: 'S\'identifier',
     LOGOUT: 'CONNECTEZ - OUT',
-    Home:'Accueil',
+    Home: 'Accueil',
 
 
 };
@@ -109,12 +109,12 @@ app.config(['$translateProvider', function ($translateProvider) {
 //    $translateProvider.preferredLanguage('en');
 
 //}]);
-app.config(['$routeProvider',  function ($routeProvider) {
-    
-   // $httpProvider.interceptors.push('httpInterceptor');
+app.config(['$routeProvider', function ($routeProvider) {
+
+    // $httpProvider.interceptors.push('httpInterceptor');
 
     $routeProvider
-        
+
         .when('/Default', {
             templateUrl: 'app/views/Default.html',
             contrller: 'DefaultController'
@@ -183,6 +183,7 @@ app.config(['$routeProvider',  function ($routeProvider) {
 
 
 }]);
-   
+
 
 app.filter('unsafe', function ($sce) { return $sce.trustAsHtml; });
+

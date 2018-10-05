@@ -1,6 +1,15 @@
 ﻿app.controller('appmainController2', ['$scope', '$route', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location',
     function ($scope, $route, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location) {
 
+      //PAYMENT GATEWAY  $scope.customAmount = false;
+
+        $scope.searchme = function (text) {
+            debugger
+            $scope.searchtext;
+
+
+        }
+
         //////////////////////////////
         ///get latest rate of all country based on euro
 
@@ -10,7 +19,7 @@
             method: 'GET', url:'http://data.fixer.io/api/latest?access_key=af97a3a1617ee07c5e0f15fdd042f507&format=1'
         }).
             success(function (data, status, headers, config) {
-                debugger
+                
                 $scope.data=data;
                 $rootScope.ratesofallcountry = data.rates;
             }).

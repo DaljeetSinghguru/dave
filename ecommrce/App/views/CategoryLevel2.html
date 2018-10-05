@@ -7,7 +7,7 @@
                     Browse Items By Category
                     <div kendo-tree-view="tree"
                          k-data-source="treeData1"
-                         k-on-change="selectedItem = dataItem">
+                            k-on-change="selectedItem = dataItem">
                         <span k-template ng-click="OpenReleventItemByCategory(dataItem)">
                             <!--<a  ng-click="OpenReleventItemByCategory(dataItem)">-->  {{dataItem.text}} <!--</a>-->   <!--<button class='k-button' ng-click='click(dataItem)'>Add Category/Subcategory</button>-->
                         </span>

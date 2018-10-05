@@ -76,35 +76,54 @@
 
         $scope.user = {};
         $scope.UserLoginCheck = function () {
-            $scope.user;
-            $http({ method: 'POST', url: $scope.Url + 'login/checkLogincustomer/', data: $scope.user }).
-                success(function (data, status, headers, config) {
-                    
-                    if (data != "0") {
-                        //////////////////////
-                        //if user have added some thing into cart then go to mycart 
-                        //else go to home page
+           
+            if ($scope.AdminLogin == true) {
+                $http({ method: 'POST', url: $scope.Url + 'Login/checkLogin/', data: $scope.user }).
+                    success(function (data, status, headers, config) {
 
-                        $scope.saveusercredential = { "username": $scope.user.Name, "password": $scope.user.Password, "UserId": data.Id, "UserName": data.Name };
-                        localStorage["credential"] = JSON.stringify($scope.saveusercredential);//{ "username": $scope.user.Name, "password": $scope.user.Password };
-                        $rootScope.DisplayUserName = data.Name;
-                        var items = localStorage != null ? localStorage[$scope.cartName + "_items"] : null;
-                        if (items != null && JSON != null)
-                        {
-                            $location.path('MyCart');
+                        if (data == "login successfully") {
+                            window.location.replace('app_v10.html#/LandingPageVisa');
                         }
                         else {
-                            $location.path('Default');
-                        }    
-                       
+                            alert("User Name and password is incorrect");
+                        }
 
-                    }
-                    else {
-                        alert("Email and Password is incorrect.");
-                    }
-                }).
-                error(function (data, status, headers, config) {
-                });
+
+
+                    }).
+                    error(function (data, status, headers, config) {
+                    });
+
+            } else {
+                $http({ method: 'POST', url: $scope.Url + 'login/checkLogincustomer/', data: $scope.user }).
+                    success(function (data, status, headers, config) {
+                        debugger
+                        if (data != "0") {
+                            //////////////////////
+                            //if user have added some thing into cart then go to mycart 
+                            //else go to home page
+
+                            $scope.saveusercredential = { "username": $scope.user.Name, "password": $scope.user.Password, "UserId": data.Id, "UserName": data.Name };
+                            localStorage["credential"] = JSON.stringify($scope.saveusercredential);//{ "username": $scope.user.Name, "password": $scope.user.Password };
+                            $rootScope.DisplayUserName = data.Name;
+                            var items = localStorage != null ? localStorage[$scope.cartName + "_items"] : null;
+                            if (items != null && JSON != null) {
+                                $location.path('MyCart');
+                            }
+                            else {
+                                $location.path('Default');
+                            }
+
+
+                        }
+                        else {
+                            alert("Email and Password is incorrect.");
+                        }
+                    }).
+                    error(function (data, status, headers, config) {
+                    });
+            }
         }
+        
 
     }])

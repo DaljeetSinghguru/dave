@@ -12,7 +12,10 @@
                     <label>Password *</label>
                     <input type="text" value="" ng-model="user.Password"><br>
                     <input type="submit" value="Login" ng-click="UserLoginCheck()"> <a href="#">Forget Password?</a>
-                </div>
+                                                                                    <label>
+                                                                                        Login As Administrator  <input type="checkbox" ng-click="loginasadmin(AdminLogin)" ng-model="AdminLogin">
+                                                                                    </label>
+</div>
                 <div class="register-user" ng-show="newuseryes==false">
                     <h3>New Visitor?</h3>
                     <p> You can register a new account at checkout on your first order.</p>
