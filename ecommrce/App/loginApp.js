@@ -129,6 +129,30 @@ app.config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'app/views/ItemList.html',
             contrller: 'loginController'
         })
+        .when('/TermsandCondition', {
+            templateUrl: 'app/views/TermsandCondition.html',
+            contrller: 'loginController'
+        })
+        .when('/Privacy', {
+            templateUrl: 'app/views/Privacy.html',
+            contrller: 'loginController'
+        })
+        .when('/Return', {
+            templateUrl: 'app/views/Return.html',
+            contrller: 'loginController'
+        })
+        .when('/FAQ', {
+            templateUrl: 'app/views/FAQ.html',
+            contrller: 'loginController'
+        })
+        .when('/AboutUs', {
+            templateUrl: 'app/views/AboutUs.html',
+            contrller: 'loginController'
+        })
+        .when('/ContactUs', {
+            templateUrl: 'app/views/ContactUs.html',
+            contrller: 'loginController'
+        })
         .when('/Login', {
             templateUrl: 'app/views/Login.html',
             contrller: 'loginController'

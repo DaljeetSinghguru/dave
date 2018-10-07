@@ -288,14 +288,16 @@
         <div class="header">
             <div class="gray-bar">
                 <div class="container">
-                    <div class="logo"><img src="../../Content/images/logo.jpg" alt="logo"></div>
+                    <div class="logo">
+                        <img src="Content/images/logo.jpg" />
+                    </div>
                     <div class="search">
                         <input type="text" ng-model="searchtext" placeholder={{'What_are_you_searching_for'|translate}}">
                         <input type="submit" name="submit" ng-click="searchme(searchtext)"  value={{'Search'|translate}}>
                     </div>
                     <div class="checkout">
                         <a href="" class="cart-icon">{{getTotalCount()}} {{'items'|translate}}, <b>{{getTotalPrice()}}</b></a>
-                        <a href="" ng-click="ShowCart()">{{'VIEW_BASKET'|translate}}</a>
+                        <a href="" ng-click="ShowCart()">{{'VIEW BASKET'|translate}}</a>
 
                         <a href="" ng-click="login()" class="active" ng-show="showloginbutton==true">{{'LOGIN'|translate}}</a>
                         <a href="" ng-click="logOut()" class="active" ng-show="showloginbutton==false">{{'LOGOUT'|translate}}</a> <br />
@@ -456,47 +458,53 @@
             <div class="container">
                 <ul>
                     <li>
-                        <h3>LINKS</h3><a href="#">T's & C's</a>
-                        <a href="#">Privacy</a>
-                        <a href="#">Warranty</a>
-                        <a href="#">Delivery</a>
-                        <a href="#">Returns</a>
-                    </li>
-
-
-
-
-
-
-                    <li>
-                        <h3>Important Links</h3>
-                        <a href="#">FAQ</a>
-                        <a href="#">Terms & Conditions</a>
-                        <a href="#">Delivery Info</a>
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Careers</a>
-
-
-                    </li>
-                    <li>
-                        <h3>Help</h3><a href="#">T's & C's</a>
-                        <a href="#">Contact</a>
-                        <a href="#">Size</a>
-                        <a href="#">Help</a>
-                        <a href="#"></a>
-                    </li>
-                    <li>
-                        <h3>LOCATION</h3><p>
-                            Opening time:
-                            7:30 Am - 6:00 Pm Monday - Friday
-                            8:00 Am - 1:00 Pm Saturday
+                        <h3>Dave Mushlayah</h3>
+                        <p>Unit 1, Holdom Avenue, Saxon Park, Milton Keynes, MK1 1QU</p>
+                        <p>
+                            T +44 (0)1908 978343
+                            +44 (0)203 3972367
                         </p>
+                        <p><span>E</span>sales@ukplanettools.co.uk</p>
+
+                    </li>
+
+
+                    <li>
+                        <h3>News Letter</h3>
+                        <a href="#"></a>
+                        <p>
+                            Grab our Promotions and Special Offers,
+                            Subscribe to our Newsletter
+                        </p>
+                        <input type="text" />
+                        <a href="#">Subscribe</a>
+                    </li>
+                    <li>
+                        <h3>LINKS</h3>
+                        <a href="" ng-click="openTermsandCondition()">T's & C's</a>
+                        <a href="" ng-click="openPrivacy()">Privacy</a>
+                        <!--<a href="" ng-click="openwarranty()">Warranty</a>
+        <a href="#">Delivery</a>-->
+                        <a href="" ng-click="openReturn()">Returns</a>
+                    </li>
+                    <li>
+                        <a href="" ng-click="openAboutUs()">AboutUs</a>
+                        <a href="" ng-click="openContactUs()">ContactUs</a>
+                        <a href="" ng-click="openFAQ()">FAQ</a>
+                    </li>
+
+                    <li>
+                        <img style="width:80%" src="Content/images/secure-paypal-logo.jpg" />
+                        Opening time:
+                        7:30 Am - 6:00 Pm Monday - Friday
+                        8:00 Am - 1:00 Pm Saturday
+                        <a hrf="https://www.facebook.com/daljeet.singh.3720190"> Website Powered by Daljeet Singh</a>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="copyright">
-            Copyright © 2018 Ankar Singh
+            Copyright © 2018 DaveMuslayah.com
         </div>
     </div>
 
@@ -563,7 +571,7 @@
     <script src="App/controllers/CheckoutController.js"></script>
     <script src="App/controllers/ThankyouController.js"></script>
     <script src="App/controllers/RegistermeController.js"></script>
-
+    <script src="App/controllers/TermsController.js"></script>
   
     <script type="text/javascript">
         $(function () {

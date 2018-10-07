@@ -6,7 +6,19 @@
         $scope.searchme = function (text) {
             debugger
             $scope.searchtext;
+            $http({ method: 'POST', url: $scope.Url + 'Search/Request/?Searchtext='+$scope.searchtext }).
+                success(function (data, status, headers, config) {
+                    debugger
+                    $scope.ItemListDetails = data;
+                    ViewVariablesService.SetDatasendToItemListPage(data);
+                    if ($location.path() == '/ItemList') {
+                        $route.reload();
+                    }
+                    else {
+                        $location.path('ItemList');
+                    }
 
+                })
 
         }
 
@@ -852,4 +864,29 @@
             $location.path('Default');
         }
 
+        $scope.openTermsandCondition = function () {
+            $location.path('TermsandCondition');
+        }
+        $scope.openPrivacy = function () {
+            $location.path('Privacy');
+
+        }
+
+        $scope.openReturn = function () {
+            $location.path('Return');
+
+        }
+
+        $scope.openFAQ = function () {
+            $location.path('FAQ');
+
+        }
+        $scope.openAboutUs = function () {
+            $location.path('AboutUs');
+
+        }
+        $scope.openContactUs = function () {
+            $location.path('ContactUs');
+
+        }
     }]);

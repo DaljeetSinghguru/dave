@@ -48,26 +48,17 @@
                 <h1><span>Hot Deals</span>  Here </h1>
                 <div class="product">
                     <ul>
-                        <li>
+                        <li ng-click="CategoryClick(data11)" ng-repeat="data11 in topProductshowonfront">
 
-                            <img src="../../Content/images/v2-home-page_35.jpg" alt="img1">
-                            <div class="etc">DESIGN & DECORATING IDEAS</div>
+                            <img src="{{WebsiteDomain}}images/{{data11.filename}}" alt="img1">
+                            <div class="etc">{{data11.CategoryName| translate}}</div>
                         </li>
-                        <li>
-
-                            <img src="../../Content/images/v2-home-page_37.jpg" alt="img1">
-                            <div class="etc">Bosch power tool range</div>
-                        </li>
-                        <li>
-
-                            <img src="../../Content/images/v2-home-page_39.jpg" alt="img1">
-                            <div class="etc">Work Wear Essintial</div>
-                        </li>
+                        
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="container">
+        <!--<div class="container">
             <h1><span>What Client</span> Says </h1>
             <div class="testi">
                 <ul>
@@ -92,6 +83,6 @@
 
                 </ul>
             </div>
-        </div>
+        </div>-->
     </div>
 </div>
