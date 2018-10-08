@@ -22,7 +22,7 @@
                         <tr ng-repeat="item in items | orderBy:'name'">
                             <td>{{item.name}}</td>
                             <td>{{item.quantity}}</td>
-                            <td>{{getLinePrice(item.price,item.quantity)}}</td>
+                            <td>{{getLinePrice(item.price,item.quantity)|currency:"&#163;"}}</td>
 
                         </tr>
                         <!--<tr>
@@ -48,7 +48,7 @@
                         <tr>
                             <td><strong>Order Total:</strong></td>
                             <td>&nbsp;</td>
-                            <td><strong>{{getTotalPrice()}}</strong></td>
+                            <td><strong>{{getTotalPrice()|currency:"&#163;"}}</strong></td>
                         </tr>
                     </table>
                     <br>

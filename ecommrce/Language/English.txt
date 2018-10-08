@@ -1,0 +1,19 @@
+var translationsEN = {
+    HEADLINE: 'What an awesome module!',
+    PARAGRAPH: 'Srsly!',
+    PASSED_AS_TEXT: 'Hey there! I\'m passed as text value!',
+    PASSED_AS_ATTRIBUTE: 'I\'m passed as attribute value, cool ha?',
+    PASSED_AS_INTERPOLATION: 'Beginners! I\'m interpolated!',
+    VARIABLE_REPLACEMENT: 'Hi {{name}}',
+    MISSING_TRANSLATION: 'Oops! I have not been translated into German...',
+    BUTTON_LANG_FR: 'French',
+    BUTTON_LANG_EN: 'English',
+
+    What_are_you_searching_for: 'What are you searching for?',
+    Search: 'Search',
+    items: 'items',
+    VIEW_BASKET: 'VIEW_BASKET',
+    LOGIN: 'LOGIN',
+    LOGOUT: 'LOGOUT',
+    Home: 'Home',
+};

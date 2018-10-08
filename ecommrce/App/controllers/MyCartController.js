@@ -218,7 +218,16 @@
                                                         //$scope.Token = data;
                                                         //$window.localStorage.clear();
                                                         //$scope.items = [];
+
                                                         $location.path('Thankyou');
+
+
+                                                        /////send mail to user
+
+
+
+
+
                                                     }
                                                 }
 
