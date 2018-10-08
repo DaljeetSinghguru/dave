@@ -1094,6 +1094,18 @@ button.cancel:hover {
     float: right;
     width: 48%;
 }
+
+/*08102018*/
+.bdr-bottom{border-bottom:1px solid #000;}
+.bdr-right{border-right:1px solid #000;}
+.line{height:4px; background:#000; margin:20px 0;}
+.invoice-to{float:left; padding:35px; font-size:18px;}
+.deliver-to{float:left; padding:35px; font-size:15px;}
+.invoice h1{font-weight:bold; text-align:center; font-size:45px;}
+.company-address{float:right; padding:35px; font-size:16px;}
+.company-contact{float:right; padding:35px; font-size:16px;}
+.logo-invoice{float:left;padding:35px;}
+
 @media only screen and (max-width:768px) {
 
     .login-user {

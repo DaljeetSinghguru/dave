@@ -296,12 +296,12 @@
                         <input type="submit" name="submit" ng-click="searchme(searchtext)"  value={{'Search'|translate}}>
                     </div>
                     <div class="checkout">
-                        <a href="" class="cart-icon">{{getTotalCount()}} {{'items'|translate}}, <b>{{getTotalPrice()}}</b></a>
+                        <a href="" class="cart-icon">{{getTotalCount()}} {{'items'|translate}}, <b>{{getTotalPrice()|currency:"&#163;"}}</b></a>
                         <a href="" ng-click="ShowCart()">{{'VIEW BASKET'|translate}}</a>
 
                         <a href="" ng-click="login()" class="active" ng-show="showloginbutton==true">{{'LOGIN'|translate}}</a>
                         <a href="" ng-click="logOut()" class="active" ng-show="showloginbutton==false">{{'LOGOUT'|translate}}</a> <br />
-                        <div style="float:right; clear:both; display:block; margin:20px 10px 10px 0; border-radius:5px; font-weight:bold; padding:5px;">Welcome To Online Shop <span>{{DisplayUserName}}</span></div>
+                        <div style="float:right; clear:both; display:block; margin:20px 10px 10px 0; border-radius:5px; font-weight:bold; padding:5px;">{{'Welcome To Online Shop'|translate }}<span>{{DisplayUserName}}</span></div>
                     </div>
 
                 </div>
@@ -317,7 +317,7 @@
                                 <ul class="l-inline-list main-nav main-nav-first-only l-group trigger-hover">
 
                                     <!-- This is only shown when viewing on medium and small screen devices -->
-                                    <li id="menu"><a href="#" class="menu-links"> Computers and Gadget Store <i class="fa fa-bars fa-fw"></i></a></li>
+                                    <li id="menu"><a href="#" class="menu-links">{{'Computers and Gadget Store'|translate }} <i class="fa fa-bars fa-fw"></i></a></li>
 
                                     <!-- Mega Menu -->
                                     <li> <a href="" ng-click="gotoDefault()">{{'Home'|translate}}</a> </li>
@@ -400,46 +400,13 @@
 
 
                     </div>
-                    <!--<nav class="menu">
-                    <ul>
-                        <li class="active"> <a href="" ng-click="gotoDefault()">{{'Home'|translate}}</a> </li>
-                        <li class="drop-down {{data.Value| translate}}" ng-repeat="data in AllCategory">
-                            <a ng-click="categoryClickLevel1(data)">{{data.text| translate}}</a>
-                            <div class="mega-menu {{data.Value| translate}}">
-
-                                <div class="mm-3column" ng-repeat="level2 in GetSubMenu(data,data.Value)">
-                                    <span class="categories-list">
-                                        <ul>
-                                            <span ng-click="categoryClicklevel2(level2)">{{level2.text| translate}}</span>
-                                            <li ng-click="categoryClicklevel3(level3)" ng-repeat="level3 in GetSuperSubMenu(level2,level2.Value)">
-                                                {{level3.text| translate}}
-                                                <div class="mm-3column" ng-repeat="level4 in GetSuperSuperSubMenu(level3,level3.Value)">
-
-                                                    <ul>
-                                                        <span></span>
-                                                        <li ng-click="categoryClicklevel4(level4.Value)">{{level4.text| translate}}</li>
-
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-
-
-
-
-
-                    </ul>
-                </nav>-->
+                 
                 </div>
             </div>
         </div>
         <div class="feature"></div>
 
-        <div class="slider"> <img src="../../Content/images/slider.jpg" alt="home page slider"> </div>
+       <div class="slider"> <img src="../../Content/images/slider.jpg" alt="home page slider"> </div>
         <!--header end here-->
         <!--middle start here-->
 
@@ -461,7 +428,8 @@
                         <h3>Dave Mushlayah</h3>
                         <p>Unit 1, Holdom Avenue, Saxon Park, Milton Keynes, MK1 1QU</p>
                         <p>
-                            T +44 (0)1908 978343
+                            Tel No: 0203 3972 367
+                            Fax No: 0203 3972 910
                             +44 (0)203 3972367
                         </p>
                         <p><span>E</span>sales@ukplanettools.co.uk</p>
@@ -513,11 +481,7 @@
 
     <script src="Content/MENU/js/vendor/jquery-1.11.1.min.js"></script>
     <!-- menu scripts  codes -->
-
-
     <script src="Content/MENU/js/main.js"></script>
-
-
 
     <!-- jquery codes -->
     <!--<script src="Content/xzoom.js"></script>-->

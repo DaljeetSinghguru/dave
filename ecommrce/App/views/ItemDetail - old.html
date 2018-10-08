@@ -1,0 +1,148 @@
+﻿<style>
+    ul {
+        padding: 1px 10px 1px 20px;
+        list-style-type: square;
+    }
+</style>
+<!--<link href="../../Content/normalize.css" rel="stylesheet" />-->
+<!--<link href="../../Content/foundation.css" rel="stylesheet" />-->
+<!--<link href="../../Content/demo.css" rel="stylesheet" />-->
+<!--<link href="../../Content/xzoom.css" rel="stylesheet" />
+<script src="../../Content/xzoom.js"></script>-->
+<!--<script src="../../Content/foundation.min.js"></script>-->
+<!--<script src="../../Content/setup.js"></script>-->
+
+
+
+<div class="" ng-controller="ItemDetailController">
+    <div class="middle inner">
+        <div class="container">
+            <div class="category">
+                <h3>Browse By category</h3>
+                <div kendo-tree-view="tree"
+                     k-data-source="treeData1"
+                     k-on-change="selectedItem = dataItem">
+                    <span k-template ng-click="OpenReleventItemByCategory(dataItem)">
+                        <!--<a  ng-click="OpenReleventItemByCategory(dataItem)">-->  {{dataItem.text}} <!--</a>-->   <!--<button class='k-button' ng-click='click(dataItem)'>Add Category/Subcategory</button>-->
+                    </span>
+                </div>
+            </div>
+            <div class="product-display">
+                <h3>{{SingleItemDataInDetail.Title}}  </h3>
+                <div class="product-single">
+
+           
+                    <div class="pro-left">
+                        <img style="width:100%;" class="xzoom" id="xzoom-default" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemMainImage}}" />
+                        <div class="xzoom-thumbs space" style="clear:both;">
+
+                            <a><img class="xzoom-gallery" width="80" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemMainImage}}" title="The description goes here"></a>
+                            <a><img class="xzoom-gallery" width="80" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemImage1}}" title="The description goes here"></a>
+                            <a><img class="xzoom-gallery" width="80" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemImage2}}" title="The description goes here"></a>
+                            <a><img class="xzoom-gallery" width="80" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemImage3}}" title="The description goes here"></a>
+                            <a><img class="xzoom-gallery" width="80" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemImage4}}" title="The description goes here"></a>
+                        </div>
+                    </div>
+
+
+                    <div class="pro-right">
+                        <h2>
+                            {{SingleItemDataInDetail.Title}}
+
+                        </h2>
+
+                        <h4>Our postal rates are reasonable and honest which take into consideration the weight, size and location of delivery</h4>
+                        <!--<h6>Available in Stock</h6>-->
+
+                        <p style="border-top:1px solid #ccc; border-bottom:1px solid #ccc; margin:10px 0; padding:10px; ">
+                            Product Code: {{SingleItemDataInDetail.ItemStockCode}}<br />
+
+                            <!--Reward Points: 30<br />-->
+                            Availability: {{SingleItemDataInDetail.StockInHand}}<br />
+                        </p>
+                        <div style="margin:20px 0; float:left;">
+                            Select Quantity<br />
+                            <input type="number" ng-value="1" class="quantity" ng-model="quantity">
+                        </div>
+                        <h5 style="float: right;
+                             padding: 9px;
+                             /* border: 1px solid #ccc; */
+                             margin-top: 31px;
+                             margin-right: 23px;
+                             border-radius: 10px;">
+                            {{SingleItemDataInDetail.Price|currency:"&#163;"}}
+                        </h5>
+                        <a style="    background: #f80000;
+                         color: #fff;
+                         padding: 10px;
+                         border-radius: 5px;
+                         text-decoration: none;
+                         margin: 3px 0 0 0;
+                         float: left; clear:both;" href="" ng-click="addtobasket(SingleItemDataInDetail)">Add to Basket</a>
+                    </div>
+                </div>
+                <div class="discription">
+                    <div class="clear"></div>
+                    <h2>Product Discription</h2>
+
+                    <div ng-bind-html="Description"></div>
+
+                    <div class="clear"></div>
+                </div>
+                <div class="similar">
+                    <h2>Simiar Product</h2>
+                    <div class="product-inner">
+                        <img src="images/product-inner.jpg" alt="product">
+                        <h2>Makita 3 Piece 10.8V Li </h2>
+
+                        <h5>£199.00</h5>
+                        <a href="#">Add to Basket</a>
+                    </div>
+                    <div class="product-inner">
+                        <img src="images/product-inner.jpg" alt="product">
+                        <h2>Makita 3 Piece 10.8V Li </h2>
+
+                        <h5>£199.00</h5>
+                        <a href="#">Add to Basket</a>
+                    </div>
+                    <div class="product-inner">
+                        <img src="images/product-inner.jpg" alt="product">
+                        <h2>Makita 3 Piece 10.8V Li </h2>
+
+                        <h5>£199.00</h5>
+                        <a href="#">Add to Basket</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        //responsive menu toggle
+        $("#menutoggle").click(function () {
+            $('.xs-menu').toggleClass('displaynone');
+
+        });
+        //add active class on menu
+
+        //drop down menu
+        $(".drop-down").hover(function () {
+            $('.mega-menu').addClass('display-on');
+        });
+        $(".drop-down").mouseleave(function () {
+            $('.mega-menu').removeClass('display-on');
+        });
+
+    });
+
+
+
+</script>
+
