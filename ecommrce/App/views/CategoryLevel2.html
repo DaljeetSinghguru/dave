@@ -16,9 +16,9 @@
 
                 <div class="product-display" ng-show="ShowCategoryLevel2list==true">
 
-                    <h3>show category  level 2 {{ItemListPageCategoryLevel2.text}}</h3>
-                    <img style="height: 160px;" class="img-responsive" src="{{WebsiteDomain}}images/{{ItemListPageCategoryLevel2.filename}}" alt="product">
-                    <div ng-click="ShowCategoryLevel3(dataCatWiseLevel2)" class="product-inner" ng-repeat="dataCatWiseLevel2 in ItemListPageCategoryLevel2.items">
+                    <h3>{{ItemListPageCategoryLevel2.text}}</h3>
+                    <!--<img style="height: 160px;" class="img-responsive" src="{{WebsiteDomain}}images/{{ItemListPageCategoryLevel2.filename}}" alt="product">-->
+                    <div ng-click="ShowCategoryLevel3(dataCatWiseLevel2)" class="product-inner product-innerproduct" ng-repeat="dataCatWiseLevel2 in ItemListPageCategoryLevel2.items">
                         <img style="height: 250px; margin-bottom: 5px;"  class="img-responsive" src="{{WebsiteDomain}}images/{{dataCatWiseLevel2.filename}}" alt="product">
                         <h2>{{dataCatWiseLevel2.text}}</h2>
                         <h4>{{dataCatWiseLevel2.Description}}</h4>

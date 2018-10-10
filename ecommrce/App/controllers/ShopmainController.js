@@ -704,7 +704,7 @@
         $scope.categoryClick = function (CategoryId) {
             debugger
             $http({
-                method: 'GET', url: $scope.Url + 'Category/GetItemByCategoryId?CategoryId=' + CategoryId + ''
+                method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=' + CategoryId + ''
             }).
                 success(function (data, status, headers, config) {
                     debugger

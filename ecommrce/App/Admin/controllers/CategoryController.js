@@ -91,7 +91,9 @@
         };
 
         $scope.SaveCategoryModal = function () {
-            
+            debugger
+            if ($scope.Category.Active1 == undefined) { $scope.Category.Active1 = false; };
+            if ($scope.Category.CategoryId) { $scope.IsParentMenuId = $scope.Category.CategoryId;};
             CategoryMasterService.SaveCategory($scope.FileOfferletterUpload, $scope.Category.CategoryName, $scope.IsParentMenuId, $scope.Category.Active1).success(function (data, status, headers, config) {
                 
                 if (data != "") {
@@ -241,20 +243,6 @@
 //}
 //   }
 //        //Fill Data into Controll while click on Grid for Update
-//        $scope.onChangeCategoryGrid = function (selected, data, dataIteam, angularDataItem) {
-//            $scope.CategoryDescription1 = false;
-//            $scope.Category.CategoryDescription1 = data.CategoryName;
-//            debugger
-//            $scope.Category.SearchKeyword1 = data.SearchKeyword;
-//            $scope.Category.MetaDescription1 = data.MetaDescription;
-//            if (data.Active == "True") {
-//                $scope.Category.Active1 = true;
-//            }
-//            else { $scope.Category.Active1 = false; }
-            
-//            $scope.Category.CategoryId = data.CategoryId;
-//            $scope.btntextCategory = "Update";
-//        }
 //        ///REFRESH GRID 
 //        $scope.RefreshCategoryGrid = function () {
 //            $scope.CategoryGridRebind = new kendo.data.DataSource({
@@ -307,5 +295,46 @@
 //            $scope.CategoryDescription1 = false;
 //        }
 
+        $scope.onChangeCategoryGrid = function (selected, data, dataIteam, angularDataItem) {
+            $scope.CategoryDescription1 = false;
+            $scope.Category.CategoryName = data.CategoryName;
+            $scope.Category.CategoryId = data.CategoryId;
+            debugger
+            $scope.Category.SearchKeyword1 = data.SearchKeyword;
+            $scope.Category.MetaDescription1 = data.MetaDescription;
+            $scope.modalInstanceaddAfter = $modal.open({
+                scope: $scope,
+                templateUrl: 'App/Admin/views/EditCategory.html',
+                size: "lg",
 
+            });
+        }
+
+
+        $scope.UpdateCategoryModal = function () {
+            debugger
+
+           
+            if ($scope.Category.Active1 == undefined) { $scope.Category.Active1 = false; };
+            if ($scope.Category.CategoryId) { $scope.IsParentMenuId = $scope.Category.CategoryId; };
+            CategoryMasterService.SaveupdateCategory($scope.FileOfferletterUpload, $scope.Category.CategoryName, $scope.IsParentMenuId, $scope.Category.Active1).success(function (data, status, headers, config) {
+
+                if (data != "") {
+                    CategoryMasterService.GetCategorywithSubcategoryData().success(function (data, status, headers, config) {
+
+                        if (data != "") {
+                            $scope.dataTreeView = data;
+                            $scope.treeData = new kendo.data.HierarchicalDataSource({
+                                data: $scope.dataTreeView,
+
+                            });
+                        }
+                        if ($scope.modalInstanceaddAfter) {
+                            $scope.modalInstanceaddAfter.dismiss('cancel');
+                        }
+                    });
+                }
+            });
+
+        }
     }]);

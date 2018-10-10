@@ -1,6 +1,6 @@
 ﻿app.controller('ItemDetailController', ['$scope', '$route', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location', '$sce',
-    function ($scope, $route,$window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location, $sce) {
-        
+    function ($scope, $route, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location, $sce) {
+
 
         $scope.WebsiteDomain = ViewVariablesService.GetWebsiteDomain();
         $scope.cartName = "DAVE";
@@ -19,7 +19,7 @@
         });
 
         $scope.OpenReleventItemByCategory = function (data) {
-            
+
             $scope.categoryID = (data.Value);
             //pass this category id to database and get all item present in category and display in browser
 
@@ -29,7 +29,7 @@
                 method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=' + $scope.categoryID + ''
             }).
                 success(function (data, status, headers, config) {
-                    
+
 
                     $scope.ItemListDetails = data;
                     ViewVariablesService.SetDatasendToItemListPage(data);
@@ -48,9 +48,9 @@
 
         $scope.addtobasket = function (SingleItemDataInDetail) {
 
-            
+
             $scope.addItemToCart(SingleItemDataInDetail.SKU, SingleItemDataInDetail.Title, SingleItemDataInDetail.ItemMainImage,
-                SingleItemDataInDetail.Price, $scope.quantity, SingleItemDataInDetail.StockInHand,SingleItemDataInDetail.CategoryId, SingleItemDataInDetail.ItemId);
+                SingleItemDataInDetail.Price, $scope.quantity, SingleItemDataInDetail.StockInHand, SingleItemDataInDetail.CategoryId, SingleItemDataInDetail.ItemId);
         }
 
 
@@ -59,7 +59,7 @@
 
 
         $scope.addItemToCart = function (sku, name, ItemImage, price, quantity, IsStockPresent, ItemType, ItemId) {
-            
+
 
             // if (IsStockPresent == "In Stock") {
             quantity = this.toNumber(quantity);
@@ -93,7 +93,7 @@
             //}
         }
         function cartItem(sku, name, ItemImage, price, quantity, IsStockPresent, ItemType, ItemId) {
-            
+
             this.sku = sku;
             this.name = name;
             this.ItemImage = ItemImage;
@@ -117,7 +117,7 @@
         }
         // get the total price for all items currently in the cart
         $scope.getTotalPrice = function (sku) {
-            
+
             var total = 0;
             for (var i = 0; i < this.items.length; i++) {
                 var item = this.items[i];
@@ -186,7 +186,116 @@
                 $scope.$apply();
             }
         }
+        debugger
+
+        $scope.ItemStockCode = $scope.SingleItemDataInDetail.ItemStockCode;
+        //pass this category id to database and get all item present in category and display in browser
+        $scope.categoryid= $scope.SingleItemDataInDetail.CategoryId;
+
+        $http({
+            method: 'GET', url: $scope.Url + 'Category/GetRelatedItems?ItemStockCode=' + $scope.ItemStockCode + '&categoryid=' + $scope.categoryid + ''
+        }).
+            success(function (data, status, headers, config) {
+
+                debugger
+                $scope.relateditemdata = data;
+                //ViewVariablesService.SetDatasendToItemListPage(data);
+                //if ($location.path() == '/ItemList') {
+                //    $route.reload();
+                //}
+                //else {
+                //    $location.path('ItemList');
+                //}
 
 
+            }).
+            error(function (data, status, headers, config) {
+            });
+
+        $scope.addItemToCart = function (sku, name, ItemImage, price, quantity, IsStockPresent, ItemType, ItemId) {
+
+
+            // if (IsStockPresent == "In Stock") {
+            quantity = this.toNumber(quantity);
+            if (quantity != 0) {
+
+                // update quantity for existing item
+                var found = false;
+                for (var i = 0; i < $scope.items.length && !found; i++) {
+                    var item = $scope.items[i];
+                    if (item.sku == sku) {
+                        found = true;
+                        item.quantity = this.toNumber(item.quantity + quantity);
+                        if (item.quantity <= 0) {
+                            $scope.items.splice(i, 1);
+                        }
+                    }
+                }
+
+                // new item, add now
+                if (!found) {
+                    var item = new cartItem(sku, name, ItemImage, price, quantity, IsStockPresent, ItemType, ItemId);
+                    $scope.items.push(item);
+                }
+
+                // save changes
+                this.saveItems();
+            }
+            //}
+            //else {
+            //    //item is outof stock
+            //}
+        }
+        function cartItem(sku, name, ItemImage, price, quantity, IsStockPresent, ItemType, ItemId) {
+            this.sku = sku;
+            this.name = name;
+            this.ItemImage = ItemImage;
+            this.price = price * 1;
+            this.quantity = quantity;
+            this.IsStockPresent = IsStockPresent;
+            this.ItemType = ItemType;
+            this.ItemId = ItemId;
+        }
+        // get the total price for all items currently in the cart
+        $scope.getTotalCount = function (sku) {
+
+            var count = 0;
+            for (var i = 0; i < this.items.length; i++) {
+                var item = this.items[i];
+                if (sku == null || item.sku == sku) {
+                    count += this.toNumber(item.quantity);
+                }
+            }
+            return count;
+        }
+        // get the total price for all items currently in the cart
+        $scope.getTotalPrice = function (sku) {
+            var total = 0;
+            for (var i = 0; i < this.items.length; i++) {
+                var item = this.items[i];
+                if (sku == null || item.sku == sku) {
+                    total += this.toNumber(item.quantity * item.price);
+                }
+            }
+            return total;
+        }
+        $scope.toNumber = function (value) {
+            value = value * 1;
+            return isNaN(value) ? 0 : value;
+        }
+        $scope.saveItems = function () {
+
+            if (localStorage != null && JSON != null) {
+                localStorage[$scope.cartName + "_items"] = CryptoJS.AES.encrypt(JSON.stringify($scope.items), myPassword);
+            }
+        }
+
+        $scope.ShowItemDetail = function (ItemData) {
+
+            $scope.SingleItemData = ItemData;
+
+            ViewVariablesService.SetSingleItemData($scope.SingleItemData);
+            $route.reload();
+        }
 
     }])

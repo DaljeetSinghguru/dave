@@ -75,7 +75,7 @@
             //call API FOR GET ITESM
             $scope.CategoryId = data.Value;
             $http({
-                method: 'GET', url: $scope.Url + 'Category/GetItemByCategoryId?CategoryId=' + $scope.CategoryId + ''
+                method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=' + $scope.CategoryId + ''
             }).
                 success(function (data, status, headers, config) {
                     

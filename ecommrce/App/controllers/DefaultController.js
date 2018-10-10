@@ -24,6 +24,18 @@
                 error(function (data, status, headers, config) {
             });
 
+        $http({
+            method: 'GET', url: $scope.Url + 'Category/GetHotSaleItem'
+        }).
+            success(function (data, status, headers, config) {
+
+                $scope.topHotSaleItem = data;
+
+
+            }).
+            error(function (data, status, headers, config) {
+            });
+
 
         $scope.CategoryClick = function (categorydata) {
             
@@ -41,5 +53,14 @@
                 }).
                 error(function (data, status, headers, config) {
                 });
+        }
+
+
+        $scope.ItemClick = function (data) {
+            debugger
+            $scope.SingleItemData = data;
+
+            ViewVariablesService.SetSingleItemData($scope.SingleItemData);
+            $location.path('ItemDetail');
         }
 }]);

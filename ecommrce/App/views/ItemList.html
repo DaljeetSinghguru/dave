@@ -1,47 +1,44 @@
-﻿    <div class="" ng-controller="ItemListController">
-        <div class="middle inner">
-            <div class="container">
-                <div class="category">
-                    <h3>Browse By category</h3>
-                    <div kendo-tree-view="tree"
-                         k-data-source="treeData1"
-                         k-on-change="selectedItem = dataItem">
-                        <span k-template ng-click="OpenReleventItemByCategory(dataItem)">
-                            <!--<a  ng-click="OpenReleventItemByCategory(dataItem)">-->  {{dataItem.text}} <!--</a>-->   <!--<button class='k-button' ng-click='click(dataItem)'>Add Category/Subcategory</button>-->
-                        </span>
-                    </div>
+﻿<div class="" ng-controller="ItemListController">
+    <div class="middle inner">
+        <div class="container">
+            <div class="category">
+                <h3>Browse By category</h3>
+                <div kendo-tree-view="tree"
+                     k-data-source="treeData1"
+                     k-on-change="selectedItem = dataItem">
+                    <span k-template ng-click="OpenReleventItemByCategory(dataItem)">
+                        <!--<a  ng-click="OpenReleventItemByCategory(dataItem)">-->  {{dataItem.text}} <!--</a>-->   <!--<button class='k-button' ng-click='click(dataItem)'>Add Category/Subcategory</button>-->
+                    </span>
                 </div>
-                <div class="product-display" ng-show="ShowITEMlist==true">
-                    <h3 style="font-size:18px;">PRODUCTS</h3><!--"-->
-                    <div class="product-inner product-innerproduct" ng-repeat="ItemdataCatWise in ItemListDetails">
-                        <div ng-click="ShowItemDetail(ItemdataCatWise)">
-                            <img class="img-responsive showitem" src="{{WebsiteDomain}}images/{{ItemdataCatWise.ItemMainImage}}" alt="product">
-                            <h2 style="    font-weight: bold;
-    font-size: 15px;
-    margin: 0 0 10px 0;">{{ItemdataCatWise.Title}}  </h2>
-                            <h4 style="background: #ccc;
-    padding: 5px;
-    border-radius: 5px;
-    float: left;
-    clear: both;">{{ItemdataCatWise.Name}} </h4>
-                            <h5 style="float: right;
-    font-weight: bold;">
-                                {{ItemdataCatWise.Price * currentRate| number:2|currency:"&#163;"}}
-                            </h5>
-                        </div><!--<a href="">Add to Basket</a>-->
-                        <a style="float:left; clear:both;" ng-click="addItemToCart(ItemdataCatWise.ItemStockCode,ItemdataCatWise.Title,ItemdataCatWise.ItemMainImage,ItemdataCatWise.Price,1,null,ItemdataCatWise.CategoryName,ItemdataCatWise.ItemId)">Add to cart</a>
-                    </div>
-
+            </div>
+            <div class="product-display" ng-show="ShowITEMlist==true">
+                <h3 style="font-size:18px;">PRODUCTS</h3><!--"-->
+                <div class="product-inner product-innerproduct" ng-repeat="ItemdataCatWise in ItemListDetails">
+                    <div ng-click="ShowItemDetail(ItemdataCatWise)">
+                        <img class="img-responsive showitem" src="{{WebsiteDomain}}images/{{ItemdataCatWise.ItemMainImage}}" alt="product">
+                        <h2 style="    font-weight: bold;    font-size: 15px;    margin: 0 0 10px 0;">
+                            {{ItemdataCatWise.Title}}
+                        </h2>
+                        <h4 style="background: #ccc;    padding: 5px; border-radius: 5px;    float: left; clear: both;">
+                            {{ItemdataCatWise.Name}}
+                        </h4>
+                        <h5 style="float: right;    font-weight: bold;">
+                            {{ItemdataCatWise.Price * currentRate| number:2|currency:"&#163;"}}
+                        </h5>
+                    </div><!--<a href="">Add to Basket</a>-->
+                    <a style="float:left; clear:both;" ng-click="addItemToCart(ItemdataCatWise.ItemStockCode,ItemdataCatWise.Title,ItemdataCatWise.ItemMainImage,ItemdataCatWise.Price,1,null,ItemdataCatWise.CategoryName,ItemdataCatWise.ItemId)">Add to cart</a>
                 </div>
 
             </div>
 
-
-
-
         </div>
 
+
+
+
     </div>
+
+</div>
 
 
 

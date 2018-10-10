@@ -1,21 +1,116 @@
-﻿<div class="" ng-controller="DefaultController">
-  
+﻿<link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/">
+
+<style>
+/*.mySlides {
+        display: none;
+    }
+
+    .w3-content{
+        max-width: 1600px !important;
+        margin: auto;
+    }*/
+@keyframes slidy {
+    0%
+
+{
+    left: 0%;
+}
+
+20% {
+    left: 0%;
+}
+
+25% {
+    left: -100%;
+}
+
+45% {
+    left: -100%;
+}
+
+50% {
+    left: -200%;
+}
+
+70% {
+    left: -200%;
+}
+
+75% {
+    left: -300%;
+}
+
+95% {
+    left: -300%;
+}
+
+100% {
+    left: -400%;
+}
+
+}
+
+
+
+div#slider {
+    overflow: hidden;
+}
+
+    div#slider figure img {
+        width: 20%;
+        float: left;
+        height:300px;
+    }
+
+    div#slider figure {
+        position: relative;
+        width: 500%;
+        margin: 0;
+        left: 0;
+        text-align: left;
+        font-size: 0;
+        animation: 30s slidy infinite;
+    }
+</style>
+
+<div class="" ng-controller="DefaultController">
+
+    <div id="slider">
+        <figure>
+            <img src="../../Content/dcd796nt.jpg" alt>
+            <img src="../../Content/images/slider.jpg" alt>
+            <img src="../../Content/dcd796nt.jpg" alt>
+            <img src="../../Content/Banner 2.jpg" alt>
+
+        </figure>
+    </div>
+    <!--<div class="slider"> <img src="../../Content/images/slider.jpg" alt="home page slider"> </div>-->
+    <!--<div class="w3-content w3-display-container">
+        <img class="mySlides" src="../../Content/dcd796nt.jpg" style="width:100%">
+        <img class="mySlides" src="../../Content/images/slider.jpg" style="width:100%">
+        <img class="mySlides" src="../../Content/dcd796nt.jpg" style="width:100%">
+        <img class="mySlides" src="../../Content/Banner 2.jpg" style="width:100%">
+
+        <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+    </div>-->
     <div class="middle">
         <div class="container">
-            <h1><span>Tools</span> & Equipment </h1>
+            <h1><span>See</span> & All Brands </h1>
             <div class="product">
                 <ul>
                     <li ng-click="CategoryClick(data11)" ng-repeat="data11 in topProductshowonfront">
                         <div class="tag">{{data11.CategoryName| translate}}</div>
                         <img src="{{WebsiteDomain}}images/{{data11.filename}}" alt="img1">
-                         
+
                     </li>
 
 
                 </ul>
             </div>
         </div>
-        <div class="section">
+
+        <!--<div class="section">
             <div class="container">
                 <h1><span>Home </span> Supplies </h1>
                 <div class="product">
@@ -23,37 +118,48 @@
                         <li ng-click="CategoryClick(data11)" ng-repeat="data11 in topProductshowonfront">
                             <div class="tag">{{data11.CategoryName| translate}}</div>
                             <img src="{{WebsiteDomain}}images/{{data11.filename}}" alt="img1">
-                            
+
                         </li>
 
                     </ul>
                 </div>
             </div>
-        </div>
-        <div class="container">
+        </div>-->
+        <!--<div class="container">
             <h1><span>Fashion</span> & Style </h1>
             <div class="product">
                 <ul>
-                    <li ng-click="CategoryClick(data11)"  ng-repeat="data11 in topProductshowonfront">
+                    <li ng-click="CategoryClick(data11)" ng-repeat="data11 in topProductshowonfront">
                         <div class="tag">{{data11.CategoryName| translate}}</div>
                         <img src="{{WebsiteDomain}}images/{{data11.filename}}" alt="img1">
-                       
+
                     </li>
 
                 </ul>
             </div>
-        </div>
+        </div>-->
         <div class="section">
-            <div class="container">
-                <h1><span>Hot Deals</span>  Here </h1>
-                <div class="product">
-                    <ul>
-                        <li ng-click="CategoryClick(data11)" ng-repeat="data11 in topProductshowonfront">
 
-                            <img src="{{WebsiteDomain}}images/{{data11.filename}}" alt="img1">
-                            <div class="etc">{{data11.CategoryName| translate}}</div>
+            <div class="container">
+
+
+
+                <h1><span>Hot Deals</span>  Here </h1>
+
+                <div class="product">
+
+                    <ul>
+                        <li style="width:20%;max-height:270px;" ng-click="ItemClick(data111)" ng-repeat="data111 in topHotSaleItem">
+
+                            <img style=" max-height: 175px;" src="{{WebsiteDomain}}images/{{data111.ItemMainImage}}" alt="img1">
+                            <div class="etc" style="font-weight: bold; font-size:15px;">
+                                {{data111.Title| translate}}
+                                <h5 style="float: right; color:red;   font-weight: bold;">
+                                    {{data111.Price * currentRate| number:2|currency:"&#163;"}}
+                                </h5>
+                            </div>
                         </li>
-                        
+
                     </ul>
                 </div>
             </div>
@@ -86,3 +192,5 @@
         </div>-->
     </div>
 </div>
+
+
