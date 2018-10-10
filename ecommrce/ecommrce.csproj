@@ -100,6 +100,7 @@
     <Content Include="App\views\Checkout.html" />
     <Content Include="App\views\Default.html" />
     <Content Include="App\views\CategoryLevel3.html" />
+    <Content Include="App\views\ItemDetail - Copy1010918pm.html" />
     <Content Include="App\views\ItemDetail - old.html" />
     <Content Include="App\views\Privacy.html" />
     <Content Include="App\views\Return.html" />
@@ -264,6 +265,7 @@
     <Content Include="Content\owlcarousel\jquery.isotope.min.js" />
     <Content Include="Content\owlcarousel\jquery.jpanelmenu.js" />
     <Content Include="Content\owlcarousel\jquery.magnific-popup.min.js" />
+    <Content Include="Content\owlcarousel\jquery.picZoomer.js" />
     <Content Include="Content\owlcarousel\jquery.pricefilter.js" />
     <Content Include="Content\owlcarousel\jquery.pureparallax.js" />
     <Content Include="Content\owlcarousel\jquery.royalslider.min.js" />

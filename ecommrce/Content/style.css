@@ -284,7 +284,7 @@ a {
 
 p {
     line-height: 20px;
-    color: #585858;
+    
 }
 
 .container {
@@ -1088,7 +1088,7 @@ button.cancel:hover {
     }
 .pro-left{
     width: 50%;
-    overflow: hidden;
+    
     margin: 20px 0;
     float: left;
 }

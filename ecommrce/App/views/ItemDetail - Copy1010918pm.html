@@ -1,0 +1,192 @@
+﻿
+
+
+
+<link href="../../Content/owlcarousel/switcher.css" rel="stylesheet" />
+<link href="../../Content/owlcarousel/style.css" rel="stylesheet" />
+<link rel="stylesheet" href="../../Content/owlcarousel/red.css" id="colors">
+
+
+
+<div id="wrapper" ng-controller="ItemDetailController">
+
+
+    <!-- Top Bar
+    ================================================== -->
+
+
+    <div class="clearfix"></div>
+
+
+    <!-- Header
+    ================================================== -->
+    <!-- Navigation
+    ================================================== -->
+    <!-- Titlebar
+    ================================================== -->
+
+
+
+    <div class="container">
+
+        <!-- Slider
+
+
+                ================================================== -->
+        <div class="eight columns pro-left">
+            <div class="slider-padding">
+                <div id="product-slider-vertical" class="royalSlider rsDefault" style="height: 400px;width: 500px;">
+                    <a href="../../ItemImage/2_da4000lr.jpg" class="mfp-gallery" title="First Title">
+                        <img class="rsImg" src="../../ItemImage/2_da4000lr.jpg" data-rsTmb="../../ItemImage/2_da4000lr.jpg" alt="" />
+                    </a>
+                    <a href="../../ItemImage/Venn_0110_1000_1000_0000.png" class="mfp-gallery" title="Second Title">
+                        <img class="rsImg" src="../../ItemImage/Venn_0110_1000_1000_0000.png" data-rsTmb="../../ItemImage/Venn_0110_1000_1000_0000.png" alt="" />
+                    </a>
+                    <a href="../../images/product_item_04c-big.jpg" class="mfp-gallery" title="Third Title">
+                        <img class="rsImg" src="../../images/product_item_04c.jpg" data-rsTmb="../../images/product_item_thumb_04c.png" alt="" />
+                    </a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+
+        <!-- Content
+        ================================================== -->
+        <div class="eight columns pro-right">
+            <div class="product-page">
+
+                <!-- Headline -->
+                <section class="title">
+                    <h2>{{SingleItemDataInDetail.Title}} </h2>
+                    <span class="product-price">  {{SingleItemDataInDetail.Price|currency:"&#163;"}}</span>
+                </section>
+
+                <!-- Text Parapgraph -->
+                <section>
+                    <p style="border-top:1px solid #ccc; border-bottom:1px solid #ccc; margin:10px 0; padding:10px; ">
+                        Product Code: {{SingleItemDataInDetail.ItemStockCode}}<br />
+
+                        <!--Reward Points: 30<br />-->
+                        Availability: {{SingleItemDataInDetail.StockInHand}}<br />
+                    </p>
+
+                    <!-- Share Buttons -->
+
+                    <div class="clearfix"></div>
+
+                </section>
+
+
+                <section class="linking">
+
+                    <form>
+                        <div class="qtyminus"></div>
+                        <input type='text' name="quantity" value='1' ng-model="quantity" class="qty" />
+                        <div class="qtyplus"></div>
+                    </form>
+
+                    <a href="" ng-click="addtobasket(SingleItemDataInDetail)" class="button adc">Add to Cart</a>
+                    <div class="clearfix"></div>
+
+                </section>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="container">
+        <div class="sixteen columns">
+            <!-- Tabs Navigation -->
+            <ul class="tabs-nav">
+                <li class="active"><a href="#tab1">Item Description</a></li>
+
+            </ul>
+
+            <!-- Tabs Content -->
+            <div class="tabs-container">
+
+                <div class="tab-content" id="tab1">
+                    <div ng-bind-html="Description"></div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Related Products -->
+    <div class="container margin-top-5">
+
+        <!-- Headline -->
+        <div class="sixteen columns">
+            <h3 class="headline">Related Products</h3>
+            <span class="line margin-bottom-0"></span>
+            <div class="clearfix"></div>
+
+        </div>
+        <div class="similar">
+            <!-- Products -->
+            <div class="clearfix"></div>
+            <br />
+            <div class="product-inner" ng-repeat="data in relateditemdata">
+                <div ng-click="ShowItemDetail(data)">
+                    <img src="{{WebsiteDomain}}images/{{data.ItemMainImage}}" alt="product">
+                    <h2>{{data.Title}}</h2>
+
+                    <h5>{{data.Price|currency:"&#163;"}}</h5>
+                    <a href="" ng-click="addItemToCart(data.ItemStockCode,data.Title,data.ItemMainImage,data.Price,1,null,data.CategoryName,data.ItemId)">Add to Basket</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="margin-top-50"></div>
+
+    <!-- Footer
+    ================================================== -->
+    <!-- Footer / End -->
+    <!-- Footer Bottom / Start -->
+    <!-- Footer Bottom / End -->
+    <!-- Back To Top Button -->
+    <div id="backtotop"><a href="#"></a></div>
+
+</div>
+
+
+<!-- Java Script
+================================================== -->
+
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="../../Content/owlcarousel/jquery.jpanelmenu.js"></script>
+<script src="../../Content/owlcarousel/jquery.themepunch.plugins.min.js"></script>
+<script src="../../Content/owlcarousel/jquery.themepunch.revolution.min.js"></script>
+<script src="../../Content/owlcarousel/jquery.themepunch.showbizpro.min.js"></script>
+<script src="../../Content/owlcarousel/jquery.magnific-popup.min.js"></script>
+<script src="../../Content/owlcarousel/hoverIntent.js"></script>
+<script src="../../Content/owlcarousel/superfish.js"></script>
+<script src="../../Content/owlcarousel/jquery.pureparallax.js"></script>
+<script src="../../Content/owlcarousel/jquery.pricefilter.js"></script>
+<script src="../../Content/owlcarousel/jquery.selectric.min.js"></script>
+<script src="../../Content/owlcarousel/jquery.royalslider.min.js"></script>
+<script src="../../Content/owlcarousel/SelectBox.js"></script>
+<script src="../../Content/owlcarousel/modernizr.custom.js"></script>
+<script src="../../Content/owlcarousel/waypoints.min.js"></script>
+<script src="../../Content/owlcarousel/jquery.flexslider-min.js"></script>
+<script src="../../Content/owlcarousel/jquery.counterup.min.js"></script>
+<script src="../../Content/owlcarousel/jquery.tooltips.min.js"></script>
+<script src="../../Content/owlcarousel/jquery.isotope.min.js"></script>
+<script src="../../Content/owlcarousel/puregrid.js"></script>
+<script src="../../Content/owlcarousel/stacktable.js"></script>
+<script src="../../Content/owlcarousel/custom.js"></script>
+
+
+<!-- Style Switcher
+================================================== -->
+<script src="../../Content/owlcarousel/switcher.js"></script>
+
+
+
