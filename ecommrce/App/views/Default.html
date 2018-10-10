@@ -10,91 +10,84 @@
         margin: auto;
     }*/
 @keyframes slidy {
-    0%
-
-{
-    left: 0%;
+0%{left: 0%;}
+20% {left: 0%;}
+25% {left: -100%;}
+45% {left: -100%;}
+50% {left: -200%;}
+70% {left: -200%;}
+75% {left: -300%;}
+95% {left: -300%;}
+100%{left: -400%;}
 }
 
-20% {
-    left: 0%;
+div#slider {overflow: hidden;}
+div#slider figure img {width: 20%;float: left;height:300px;}
+div#slider figure {position: relative;width: 500%;margin: 0;left: 0;text-align: left;font-size: 0;animation: 30s slidy infinite;}
+
+#owl-demo .item {margin: 3px;}
+#owl-demo .item img {display: block;width: 50%;height: auto;}
+.owl-theme .owl-controls .owl-page {display: inline-block;}
+.owl-theme .owl-controls .owl-page span {
+background: none repeat scroll 0 0 #869791;
+border-radius: 20px;
+display: block;
+height: 12px;
+margin: 5px 7px;
+opacity: 0.5;
+width: 12px;
 }
-
-25% {
-    left: -100%;
-}
-
-45% {
-    left: -100%;
-}
-
-50% {
-    left: -200%;
-}
-
-70% {
-    left: -200%;
-}
-
-75% {
-    left: -300%;
-}
-
-95% {
-    left: -300%;
-}
-
-100% {
-    left: -400%;
-}
-
-}
-
-
-
-div#slider {
-    overflow: hidden;
-}
-
-    div#slider figure img {
-        width: 20%;
-        float: left;
-        height:300px;
-    }
-
-    div#slider figure {
-        position: relative;
-        width: 500%;
-        margin: 0;
-        left: 0;
-        text-align: left;
-        font-size: 0;
-        animation: 30s slidy infinite;
-    }
 </style>
 
 <div class="" ng-controller="DefaultController">
 
-    <div id="slider">
-        <figure>
-            <img src="../../Content/dcd796nt.jpg" alt>
-            <img src="../../Content/images/slider.jpg" alt>
-            <img src="../../Content/dcd796nt.jpg" alt>
-            <img src="../../Content/Banner 2.jpg" alt>
+    <!--<div id="slider">
+            <figure>
+                <img src="../../Content/dcd796nt.jpg" alt>
+                <img src="../../Content/images/slider.jpg" alt>
+                <img src="../../Content/dcd796nt.jpg" alt>
+                <img src="../../Content/Banner 2.jpg" alt>
 
-        </figure>
-    </div>
+            </figure>
+        </div>-->
     <!--<div class="slider"> <img src="../../Content/images/slider.jpg" alt="home page slider"> </div>-->
-    <!--<div class="w3-content w3-display-container">
-        <img class="mySlides" src="../../Content/dcd796nt.jpg" style="width:100%">
-        <img class="mySlides" src="../../Content/images/slider.jpg" style="width:100%">
-        <img class="mySlides" src="../../Content/dcd796nt.jpg" style="width:100%">
-        <img class="mySlides" src="../../Content/Banner 2.jpg" style="width:100%">
 
-        <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-        <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-    </div>-->
     <div class="middle">
+
+        <!--<div class="section">
+            <div class="container">
+                <h1><span>Shop</span>By Brand</h1>
+                <div class="product">
+                    <div id="owl-demo">
+                        <div class="item" ng-click="BrandClick(brand)" ng-repeat="brand in BrandList">
+                            <img src="{{WebsiteDomain}}images/{{brand.filename}}" alt="Owl Image" />
+                        </div>
+                        <div class="item">
+                            <img src="http://placehold.it/50x50" alt="Owl Image" />
+                        </div>
+                        <div class="item">
+                            <img src="http://placehold.it/50x50" alt="Owl Image" />
+                        </div>
+                        <div class="item">
+                            <img src="http://placehold.it/50x50" alt="Owl Image" />
+                        </div>
+                        <div class="item">
+                            <img src="http://placehold.it/50x50" alt="Owl Image" />
+                        </div>
+                        <div class="item">
+                            <img src="http://placehold.it/50x50" alt="Owl Image" />
+                        </div>
+                        <div class="item">
+                            <img src="http://placehold.it/50x50" alt="Owl Image" />
+                        </div>
+                        <div class="item">
+                            <img src="http://placehold.it/50x50" alt="Owl Image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
         <div class="container">
             <h1><span>See</span> & All Brands </h1>
             <div class="product">
@@ -110,21 +103,7 @@ div#slider {
             </div>
         </div>
 
-        <!--<div class="section">
-            <div class="container">
-                <h1><span>Home </span> Supplies </h1>
-                <div class="product">
-                    <ul>
-                        <li ng-click="CategoryClick(data11)" ng-repeat="data11 in topProductshowonfront">
-                            <div class="tag">{{data11.CategoryName| translate}}</div>
-                            <img src="{{WebsiteDomain}}images/{{data11.filename}}" alt="img1">
 
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        </div>-->
         <!--<div class="container">
             <h1><span>Fashion</span> & Style </h1>
             <div class="product">

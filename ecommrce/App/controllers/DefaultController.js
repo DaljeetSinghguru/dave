@@ -1,6 +1,7 @@
 ﻿app.controller('DefaultController', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate','$location',
     function ($scope, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location) {
-  
+
+        $scope.quantity = "1";
 
  $scope.Logincredential = localStorage != null ? localStorage["credential"] : null;
         if ($scope.Logincredential) {
@@ -13,7 +14,18 @@
 
             }
         }
-    
+
+        $http({
+            method: 'GET', url: $scope.Url + 'Brand/GetBrand'
+        }).
+            success(function (data, status, headers, config) {
+
+                $scope.BrandList = data;
+
+            }).
+            error(function (data, status, headers, config) {
+            });
+
         $http({method: 'GET', url: $scope.Url + 'Category/Category_Get'
                 }).
                 success(function (data, status, headers, config) {
@@ -59,8 +71,26 @@
         $scope.ItemClick = function (data) {
             debugger
             $scope.SingleItemData = data;
-
             ViewVariablesService.SetSingleItemData($scope.SingleItemData);
             $location.path('ItemDetail');
+        }
+
+
+
+        $scope.BrandClick = function (brandData) {
+            debugger
+            $http({
+                method: 'GET', url: $scope.Url + 'Category/GetItemByBrand?BrandId=' + brandData.BrandId + ''
+            }).
+                success(function (data, status, headers, config) {
+
+
+                    $scope.ItemListDetails = data;
+                    ViewVariablesService.SetDatasendToItemListPage(data);
+                    $location.path('ItemList');
+
+                }).
+                error(function (data, status, headers, config) {
+                });
         }
 }]);

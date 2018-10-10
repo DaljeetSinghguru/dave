@@ -1,150 +1,192 @@
-﻿<style>
-    ul {
-        padding: 1px 10px 1px 20px;
-        list-style-type: square;
-    }
-</style>
-<!--<link href="../../Content/normalize.css" rel="stylesheet" />-->
-<!--<link href="../../Content/foundation.css" rel="stylesheet" />-->
-<!--<link href="../../Content/demo.css" rel="stylesheet" />-->
-<!--<link href="../../Content/xzoom.css" rel="stylesheet" />
-<script src="../../Content/xzoom.js"></script>-->
-<!--<script src="../../Content/foundation.min.js"></script>-->
-<!--<script src="../../Content/setup.js"></script>-->
+﻿
 
 
 
-<div class="" ng-controller="ItemDetailController">
-    <div class="middle inner">
-        <div class="container">
-            <div class="category">
-                <h3>Browse By category</h3>
-                <div kendo-tree-view="tree"
-                     k-data-source="treeData1"
-                     k-on-change="selectedItem = dataItem">
-                    <span k-template ng-click="OpenReleventItemByCategory(dataItem)">
-                        <!--<a  ng-click="OpenReleventItemByCategory(dataItem)">-->  {{dataItem.text}} <!--</a>-->   <!--<button class='k-button' ng-click='click(dataItem)'>Add Category/Subcategory</button>-->
-                    </span>
+<link href="../../Content/owlcarousel/switcher.css" rel="stylesheet" />
+<link href="../../Content/owlcarousel/style.css" rel="stylesheet" />
+<link rel="stylesheet" href="../../Content/owlcarousel/red.css" id="colors">
+
+
+
+<div id="wrapper" ng-controller="ItemDetailController">
+
+
+    <!-- Top Bar
+    ================================================== -->
+
+
+    <div class="clearfix"></div>
+
+
+    <!-- Header
+    ================================================== -->
+    <!-- Navigation
+    ================================================== -->
+    <!-- Titlebar
+    ================================================== -->
+
+
+
+    <div class="container">
+
+        <!-- Slider
+
+
+                ================================================== -->
+        <div class="eight columns pro-left">
+            <div class="slider-padding">
+                <div id="product-slider-vertical" class="royalSlider rsDefault" style="height: 400px;width: 500px;">
+                    <a href="../../ItemImage/2_da4000lr.jpg" class="mfp-gallery" title="First Title">
+                        <img class="rsImg" src="../../ItemImage/2_da4000lr.jpg" data-rsTmb="../../ItemImage/2_da4000lr.jpg" alt="" />
+                    </a>
+                    <a href="../../ItemImage/Venn_0110_1000_1000_0000.png" class="mfp-gallery" title="Second Title">
+                        <img class="rsImg" src="../../ItemImage/Venn_0110_1000_1000_0000.png" data-rsTmb="../../ItemImage/Venn_0110_1000_1000_0000.png" alt="" />
+                    </a>
+                    <a href="../../images/product_item_04c-big.jpg" class="mfp-gallery" title="Third Title">
+                        <img class="rsImg" src="../../images/product_item_04c.jpg" data-rsTmb="../../images/product_item_thumb_04c.png" alt="" />
+                    </a>
                 </div>
-            </div>
-            <div class="product-display">
-                <h3>{{SingleItemDataInDetail.Title}}  </h3>
-                <div class="product-single">
-
-
-                    <div class="pro-left">
-                        <img style="width:100%;" class="xzoom" id="xzoom-default" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemMainImage}}" />
-                        <div class="xzoom-thumbs space" style="clear:both;">
-
-                            <a><img class="xzoom-gallery" width="80" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemMainImage}}" title="The description goes here"></a>
-                            <a><img class="xzoom-gallery" width="80" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemImage1}}" title="The description goes here"></a>
-                            <a><img class="xzoom-gallery" width="80" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemImage2}}" title="The description goes here"></a>
-                            <a><img class="xzoom-gallery" width="80" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemImage3}}" title="The description goes here"></a>
-                            <a><img class="xzoom-gallery" width="80" src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemImage4}}" title="The description goes here"></a>
-                        </div>
-                    </div>
-
-
-                    <div class="pro-right">
-                        <h2>
-                            {{SingleItemDataInDetail.Title}}
-
-                        </h2>
-
-                        <h4>Our postal rates are reasonable and honest which take into consideration the weight, size and location of delivery</h4>
-                        <!--<h6>Available in Stock</h6>-->
-
-                        <p style="border-top:1px solid #ccc; border-bottom:1px solid #ccc; margin:10px 0; padding:10px; ">
-                            Product Code: {{SingleItemDataInDetail.ItemStockCode}}<br />
-
-                            <!--Reward Points: 30<br />-->
-                            Availability: {{SingleItemDataInDetail.StockInHand}}<br />
-                        </p>
-                        <div style="margin:20px 0; float:left;">
-                            Select Quantity<br />
-                            <input type="number" ng-value="1" class="quantity" ng-model="quantity">
-                        </div>
-                        <h5 style="float: right;
-                             padding: 9px;
-                             /* border: 1px solid #ccc; */
-                             margin-top: 31px;
-                             margin-right: 23px;
-                             border-radius: 10px;">
-                            {{SingleItemDataInDetail.Price|currency:"&#163;"}}
-                        </h5>
-                        <a style="    background: #f80000;
-                         color: #fff;
-                         padding: 10px;
-                         border-radius: 5px;
-                         text-decoration: none;
-                         margin: 3px 0 0 0;
-                         float: left; clear:both;" href="" ng-click="addtobasket(SingleItemDataInDetail)">Add to Basket</a>
-                    </div>
-                </div>
-                <div class="discription">
-                    <div class="clear"></div>
-                    <h2 style="font-weight: bold;">Product Description</h2>
-
-                    <div ng-bind-html="Description"></div>
-
-                    <div class="clear"></div>
-                </div>
-                <div class="similar">
-                    <h2>Similar Product</h2>
-                    <div class="product-inner" ng-repeat="data in relateditemdata">
-                        <div  ng-click="ShowItemDetail(data)">
-                            <img src="{{WebsiteDomain}}images/{{data.ItemMainImage}}" alt="product">
-                            <h2>{{data.Title}}</h2>
-
-                            <h5>{{data.Price|currency:"&#163;"}}</h5>
-                            <a href="" ng-click="addItemToCart(data.ItemStockCode,data.Title,data.ItemMainImage,data.Price,1,null,data.CategoryName,data.ItemId)">Add to Basket</a>
-                        </div>
-                    </div>
-                    <!--<div class="product-inner">
-                        <img src="images/product-inner.jpg" alt="product">
-                        <h2>Makita 3 Piece 10.8V Li </h2>
-
-                        <h5>£199.00</h5>
-                        <a href="#">Add to Basket</a>
-                    </div>
-                    <div class="product-inner">
-                        <img src="images/product-inner.jpg" alt="product">
-                        <h2>Makita 3 Piece 10.8V Li </h2>
-
-                        <h5>£199.00</h5>
-                        <a href="#">Add to Basket</a>
-                    </div>-->
-                </div>
+                <div class="clearfix"></div>
             </div>
         </div>
 
 
+        <!-- Content
+        ================================================== -->
+        <div class="eight columns pro-right">
+            <div class="product-page">
 
+                <!-- Headline -->
+                <section class="title">
+                    <h2>{{SingleItemDataInDetail.Title}} </h2>
+                    <span class="product-price">  {{SingleItemDataInDetail.Price|currency:"&#163;"}}</span>
+                </section>
+
+                <!-- Text Parapgraph -->
+                <section>
+                    <p style="border-top:1px solid #ccc; border-bottom:1px solid #ccc; margin:10px 0; padding:10px; ">
+                        Product Code: {{SingleItemDataInDetail.ItemStockCode}}<br />
+
+                        <!--Reward Points: 30<br />-->
+                        Availability: {{SingleItemDataInDetail.StockInHand}}<br />
+                    </p>
+
+                    <!-- Share Buttons -->
+
+                    <div class="clearfix"></div>
+
+                </section>
+
+
+                <section class="linking">
+
+                    <form>
+                        <div class="qtyminus"></div>
+                        <input type='text' name="quantity" value='1' ng-model="quantity" class="qty" />
+                        <div class="qtyplus"></div>
+                    </form>
+
+                    <a href="" ng-click="addtobasket(SingleItemDataInDetail)" class="button adc">Add to Cart</a>
+                    <div class="clearfix"></div>
+
+                </section>
+
+            </div>
+        </div>
 
     </div>
+
+
+    <div class="container">
+        <div class="sixteen columns">
+            <!-- Tabs Navigation -->
+            <ul class="tabs-nav">
+                <li class="active"><a href="#tab1">Item Description</a></li>
+
+            </ul>
+
+            <!-- Tabs Content -->
+            <div class="tabs-container">
+
+                <div class="tab-content" id="tab1">
+                    <div ng-bind-html="Description"></div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Related Products -->
+    <div class="container margin-top-5">
+
+        <!-- Headline -->
+        <div class="sixteen columns">
+            <h3 class="headline">Related Products</h3>
+            <span class="line margin-bottom-0"></span>
+            <div class="clearfix"></div>
+
+        </div>
+        <div class="similar">
+            <!-- Products -->
+            <div class="clearfix"></div>
+
+            <div class="product-inner" ng-repeat="data in relateditemdata">
+                <div ng-click="ShowItemDetail(data)">
+                    <img src="{{WebsiteDomain}}images/{{data.ItemMainImage}}" alt="product">
+                    <h2>{{data.Title}}</h2>
+
+                    <h5>{{data.Price|currency:"&#163;"}}</h5>
+                    <a href="" ng-click="addItemToCart(data.ItemStockCode,data.Title,data.ItemMainImage,data.Price,1,null,data.CategoryName,data.ItemId)">Add to Basket</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="margin-top-50"></div>
+
+    <!-- Footer
+    ================================================== -->
+    <!-- Footer / End -->
+    <!-- Footer Bottom / Start -->
+    <!-- Footer Bottom / End -->
+    <!-- Back To Top Button -->
+    <div id="backtotop"><a href="#"></a></div>
+
 </div>
 
-<script type="text/javascript">
 
-    $(document).ready(function () {
-        //responsive menu toggle
-        $("#menutoggle").click(function () {
-            $('.xs-menu').toggleClass('displaynone');
+<!-- Java Script
+================================================== -->
 
-        });
-        //add active class on menu
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="../../Content/owlcarousel/jquery.jpanelmenu.js"></script>
+<script src="../../Content/owlcarousel/jquery.themepunch.plugins.min.js"></script>
+<script src="../../Content/owlcarousel/jquery.themepunch.revolution.min.js"></script>
+<script src="../../Content/owlcarousel/jquery.themepunch.showbizpro.min.js"></script>
+<script src="../../Content/owlcarousel/jquery.magnific-popup.min.js"></script>
+<script src="../../Content/owlcarousel/hoverIntent.js"></script>
+<script src="../../Content/owlcarousel/superfish.js"></script>
+<script src="../../Content/owlcarousel/jquery.pureparallax.js"></script>
+<script src="../../Content/owlcarousel/jquery.pricefilter.js"></script>
+<script src="../../Content/owlcarousel/jquery.selectric.min.js"></script>
+<script src="../../Content/owlcarousel/jquery.royalslider.min.js"></script>
+<script src="../../Content/owlcarousel/SelectBox.js"></script>
+<script src="../../Content/owlcarousel/modernizr.custom.js"></script>
+<script src="../../Content/owlcarousel/waypoints.min.js"></script>
+<script src="../../Content/owlcarousel/jquery.flexslider-min.js"></script>
+<script src="../../Content/owlcarousel/jquery.counterup.min.js"></script>
+<script src="../../Content/owlcarousel/jquery.tooltips.min.js"></script>
+<script src="../../Content/owlcarousel/jquery.isotope.min.js"></script>
+<script src="../../Content/owlcarousel/puregrid.js"></script>
+<script src="../../Content/owlcarousel/stacktable.js"></script>
+<script src="../../Content/owlcarousel/custom.js"></script>
 
-        //drop down menu
-        $(".drop-down").hover(function () {
-            $('.mega-menu').addClass('display-on');
-        });
-        $(".drop-down").mouseleave(function () {
-            $('.mega-menu').removeClass('display-on');
-        });
 
-    });
+<!-- Style Switcher
+================================================== -->
+<script src="../../Content/owlcarousel/switcher.js"></script>
 
 
-
-</script>
 

@@ -317,7 +317,7 @@
            
             if ($scope.Category.Active1 == undefined) { $scope.Category.Active1 = false; };
             if ($scope.Category.CategoryId) { $scope.IsParentMenuId = $scope.Category.CategoryId; };
-            CategoryMasterService.SaveupdateCategory($scope.FileOfferletterUpload, $scope.Category.CategoryName, $scope.IsParentMenuId, $scope.Category.Active1).success(function (data, status, headers, config) {
+            CategoryMasterService.SaveupdateCategory($scope.FileOfferletterUpload, $scope.FileOfferletterUploadBanner, $scope.Category.CategoryName, $scope.IsParentMenuId, $scope.Category.Active1).success(function (data, status, headers, config) {
 
                 if (data != "") {
                     CategoryMasterService.GetCategorywithSubcategoryData().success(function (data, status, headers, config) {
@@ -335,6 +335,25 @@
                     });
                 }
             });
+
+        }
+
+        $scope.BannerFileNameUpload = "";
+        $scope.BannerimagemainUpload = function (event) {
+            $scope.PlsUploadOfferLetter = false;
+            var files = event.target.files; //FileList object
+            $scope.FileOfferletterUploadBanner = event.target.files;
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                var reader = new FileReader();
+                reader.onload = $scope.imageIsLoaded;
+                reader.readAsDataURL(file);
+            }
+
+            $scope.BannerFileNameUpload = files[0].name;
+            $scope.$apply();
+
+
 
         }
     }]);

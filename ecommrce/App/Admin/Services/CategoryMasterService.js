@@ -31,9 +31,10 @@
  //}
 
 
-    this.SaveupdateCategory = function (FileUpload, CategoryName, IsParentMenuId, Active) {
+ this.SaveupdateCategory = function (FileUpload, BannerFileUpload, CategoryName, IsParentMenuId, Active) {
         var dataAsFormData = new FormData();
         dataAsFormData.append("Image", FileUpload[0]);
+        dataAsFormData.append("BannerImage", BannerFileUpload[0]);
         dataAsFormData.append("CategoryName", CategoryName);
         dataAsFormData.append("IsParentMenuId", IsParentMenuId);
         dataAsFormData.append("Active", Active);
