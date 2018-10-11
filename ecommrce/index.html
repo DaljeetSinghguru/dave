@@ -49,10 +49,10 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet">
     <link href="../../Content/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <!--  <link href="Content/xzoom.css" rel="stylesheet" />-->
-   
-  
 
 
+    <link href="ThirdParty/MetronixTheme/assets/global/plugins/owl-carousel/owl.carousel.css" rel="stylesheet" />
+    <link href="ThirdParty/MetronixTheme/assets/global/plugins/owl-carousel/owl.theme.css" rel="stylesheet" />
 
 </head>
 <body ng-app="loginApp">
@@ -430,7 +430,7 @@
                         <p>
                             <i class="fa fa-mobile-phone"></i>   +44 795 7741 524
 
-
+                            
                         </p>
 
 
@@ -464,12 +464,12 @@
 
                     <li>
                         <img style="width:80%" src="Content/images/secure-paypal-logo.jpg" />
-                        <a>
+                        <a style="font-size:12px;">
                             Opening time:
                             7:30 Am - 6:00 Pm Monday - Friday
                             8:00 Am - 1:00 Pm Saturday
                         </a>
-                        <a hrf="https://www.facebook.com/daljeet.singh.3720190"> Website Powered by Daljeet Singh</a>
+                        <a style="font-size:12px;" hrf="https://www.facebook.com/daljeet.singh.3720190"> Website Powered by Daljeet Singh</a>
                     </li>
                 </ul>
             </div>
@@ -547,27 +547,14 @@
             $(document).keydown(function (e) {
 
                 if (e.keyCode == 116) {
-                    window.location.href = 'http://localhost:51077/index.html#/default';
+                    window.location.href = 'http://www.davemuslayah.com/index.html#/default';
                     window.localStorage.clear();
                 }
 
             });
         });
 
-        $(document).ready(function () {
-
-            $("#owl-demo").owlCarousel({
-
-                autoPlay: 3000, //Set AutoPlay to 3 seconds
-
-                items: 4,
-                itemsDesktop: [1199, 3],
-                itemsDesktopSmall: [979, 3]
-
-            });
-
-        });
-
+       
     </script>
 
 </body>

@@ -98,6 +98,7 @@
     <Content Include="App\views\CategoryLevel1.html" />
     <Content Include="App\views\CategoryLevel2.html" />
     <Content Include="App\views\Checkout.html" />
+    <Content Include="App\views\Default - Copy.html" />
     <Content Include="App\views\Default.html" />
     <Content Include="App\views\CategoryLevel3.html" />
     <Content Include="App\views\ItemDetail - Copy1010918pm.html" />
@@ -219,6 +220,8 @@
     <Content Include="Content\fonts\poppins\Poppins-Thin.ttf" />
     <Content Include="Content\fonts\poppins\Poppins-ThinItalic.ttf" />
     <Content Include="Content\images\secure-paypal-logo.jpg" />
+    <Content Include="Content\lightslider\lightslider.css" />
+    <Content Include="Content\lightslider\lightslider.js" />
     <Content Include="Content\MENU\css\font-awesome-4.3.0\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\MENU\css\font-awesome-4.3.0\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\MENU\css\font-awesome-4.3.0\fonts\fontawesome-webfont.woff" />

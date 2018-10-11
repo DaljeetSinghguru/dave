@@ -31,10 +31,10 @@
  //}
 
 
- this.SaveupdateCategory = function (FileUpload, BannerFileUpload, CategoryName, IsParentMenuId, Active) {
+ this.SaveupdateCategory = function (FileUpload, CategoryName, IsParentMenuId, Active) {
         var dataAsFormData = new FormData();
         dataAsFormData.append("Image", FileUpload[0]);
-        dataAsFormData.append("BannerImage", BannerFileUpload[0]);
+       
         dataAsFormData.append("CategoryName", CategoryName);
         dataAsFormData.append("IsParentMenuId", IsParentMenuId);
         dataAsFormData.append("Active", Active);
@@ -64,5 +64,19 @@
  this.DeleteCategory = function (a) {
      return $http({ method: 'POST', url: this.baseURl + 'Category/DeleteCategory?Id=' + a + '' });
  }
+    
+
+    this.SaveBannerImageCategory = function (BannerFileUpload, IsParentMenuId) {
+        var dataAsFormData = new FormData();
+        dataAsFormData.append("BannerImage", BannerFileUpload[0]);
+        dataAsFormData.append("IsParentMenuId", IsParentMenuId);
+        return $http({
+            url: this.baseURl + 'Category/SaveBannerImageCategory',
+            method: "POST",
+            data: dataAsFormData,
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined }
+        });
+    }
 
 }])

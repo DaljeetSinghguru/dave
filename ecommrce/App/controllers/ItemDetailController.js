@@ -187,6 +187,7 @@
             }
         }
         debugger
+        $scope.ifsmiliarexist = false;
 
         $scope.ItemStockCode = $scope.SingleItemDataInDetail.ItemStockCode;
         //pass this category id to database and get all item present in category and display in browser
@@ -198,6 +199,8 @@
             success(function (data, status, headers, config) {
 
                 debugger
+                $scope.ifsmiliarexist = false;
+                if (data.length > 0) { $scope.ifsmiliarexist = true;}
                 $scope.relateditemdata = data;
                 //ViewVariablesService.SetDatasendToItemListPage(data);
                 //if ($location.path() == '/ItemList') {

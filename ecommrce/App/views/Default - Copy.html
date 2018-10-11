@@ -1,8 +1,14 @@
-﻿<link href="../../Content/lightslider/lightslider.css" rel="stylesheet" />
+﻿<link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/">
 
 <style>
+    /*.mySlides {
+        display: none;
+    }
 
-
+    .w3-content{
+        max-width: 1600px !important;
+        margin: auto;
+    }*/
     @keyframes slidy {
         0% {
             left: 0%;
@@ -61,76 +67,7 @@
             animation: 30s slidy infinite;
         }
 
-    ul {
-        list-style: none outside none;
-        padding-left: 0;
-        margin: 0;
-    }
-
-    .demo .item {
-        margin-bottom: 60px;
-    }
-
-    .content-slider li {
-        background-color: #ed3020;
-        text-align: center;
-        color: #FFF;
-    }
-
-    .content-slider h3 {
-        margin: 0;
-        padding: 70px 0;
-    }
-
-    .demo {
-        width: 1000px;
-        margin-left: 110px;
-    }
-
-
-    .innercontent {
-        float: left;
-        width: 20%;
-        height: 20px;
-    }
-
-        li h3 {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 16px;
-            text-decoration: none;
-        }
-
-            li h3:hover {
-                background-color: #D3D3D3;
-            }
-    /*ul.lSPager.lSpg {
-        display: none !important;
-    }*/
 </style>
-
-<script src="../src/js/lightslider.js"></script>
-<script src="../../Content/lightslider/lightslider.js"></script>
-<script>
-    $(document).ready(function () {
-        $("#content-slider").lightSlider({
-            loop: true,
-            keyPress: true, auto: true,
-        });
-        $('#image-gallery').lightSlider({
-            gallery: true,
-            item: 1,
-            thumbItem: 9,
-            slideMargin: 0,
-            speed: 500,
-            auto: true,
-            loop: true,
-            onSliderLoad: function () {
-                $('#image-gallery').removeClass('cS-hidden');
-            }
-        });
-    });</script>
 
 <div class="" ng-controller="DefaultController">
 
@@ -149,32 +86,57 @@
 
         <div class="section">
             <div class="container">
-                <h1><span>Shop </span>By Brand</h1>
-                <div class="product1">
-                    <div class="demo1">
+                <h1><span>Shop</span>By Brand</h1>
+                <div class="product">
+                    <div id="owl-demo" class="owl-carousel owl-theme">
 
-                        <div class="item1">
-                            <ul id="content" class="content1">
-                                <li ng-click="BrandClick(brand)" class="innercontent" ng-repeat="brand in BrandList">
-                                    <h3><img style="width: 150px;height: 100px;" src="{{WebsiteDomain}}images/{{brand.filename}}" /></h3>
-                                </li>
+                        <div class="item"><img src="../../Content/dcd796nt.jpg" alt="Owl Image" /></div>
+                        <div class="item"><img src="../../Content/dcd796nt.jpg" alt="Owl Image" /></div>
+                        <div class="item"><img src="../../Content/dcd796nt.jpg" alt="Owl Image"/></div>
+                        <div class="item"><img src="../../Content/dcd796nt.jpg" alt="Owl Image"/></div>
+                        <div class="item"><img src="../../Content/dcd796nt.jpg" alt="Owl Image"/></div>
+                        <div class="item"><img src="../../Content/dcd796nt.jpg" alt="Owl Image"/></div>
+                        <div class="item"><img src="../../Content/dcd796nt.jpg" alt="Owl Image"/></div>
+                        <div class="item"><img src="../../Content/dcd796nt.jpg" alt="Owl Image"/></div>
 
-                            </ul>
+                    </div>
+                    <div id="owl-demo">
+                        <div class="item" ng-click="BrandClick(brand)" ng-repeat="brand in BrandList">
+                            <img src="{{WebsiteDomain}}images/{{brand.filename}}" alt="Owl Image" />
+                        </div>
+                        <div class="item">
+                            <img src="http://placehold.it/50x50" alt="Owl Image" />
+                        </div>
+                        <div class="item">
+                            <img src="http://placehold.it/50x50" alt="Owl Image" />
+                        </div>
+                        <div class="item">
+                            <img src="http://placehold.it/50x50" alt="Owl Image" />
+                        </div>
+                        <div class="item">
+                            <img src="http://placehold.it/50x50" alt="Owl Image" />
+                        </div>
+                        <div class="item">
+                            <img src="http://placehold.it/50x50" alt="Owl Image" />
+                        </div>
+                        <div class="item">
+                            <img src="http://placehold.it/50x50" alt="Owl Image" />
+                        </div>
+                        <div class="item">
+                            <img src="http://placehold.it/50x50" alt="Owl Image" />
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
 
         <div class="container">
-            <h1><span>Shop </span>By Special Offers</h1>
+            <h1><span>See</span> & All Brands </h1>
             <div class="product">
                 <ul>
-                    <li  ng-click="CategoryClick(data11)" ng-repeat="data11 in topProductshowonfront">
+                    <li ng-click="CategoryClick(data11)" ng-repeat="data11 in topProductshowonfront">
                         <div class="tag">{{data11.CategoryName| translate}}</div>
-                        <img src="{{WebsiteDomain}}images/{{data11.BannerImage}}" alt="img1">
+                        <img src="{{WebsiteDomain}}images/{{data11.filename}}" alt="img1">
 
                     </li>
 
@@ -203,7 +165,7 @@
 
 
 
-                <h1><span>Hot </span>Deals</h1>
+                <h1><span>Hot Deals</span>  Here </h1>
 
                 <div class="product">
 
@@ -251,5 +213,4 @@
         </div>-->
     </div>
 </div>
-
 

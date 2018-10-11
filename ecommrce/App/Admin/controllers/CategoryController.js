@@ -317,7 +317,7 @@
            
             if ($scope.Category.Active1 == undefined) { $scope.Category.Active1 = false; };
             if ($scope.Category.CategoryId) { $scope.IsParentMenuId = $scope.Category.CategoryId; };
-            CategoryMasterService.SaveupdateCategory($scope.FileOfferletterUpload, $scope.FileOfferletterUploadBanner, $scope.Category.CategoryName, $scope.IsParentMenuId, $scope.Category.Active1).success(function (data, status, headers, config) {
+            CategoryMasterService.SaveupdateCategory($scope.FileOfferletterUpload,  $scope.Category.CategoryName, $scope.IsParentMenuId, $scope.Category.Active1).success(function (data, status, headers, config) {
 
                 if (data != "") {
                     CategoryMasterService.GetCategorywithSubcategoryData().success(function (data, status, headers, config) {
@@ -353,7 +353,11 @@
             $scope.BannerFileNameUpload = files[0].name;
             $scope.$apply();
 
+            if ($scope.Category.CategoryId) { $scope.IsParentMenuId = $scope.Category.CategoryId; };
+            CategoryMasterService.SaveBannerImageCategory( $scope.FileOfferletterUploadBanner, $scope.IsParentMenuId).success(function (data, status, headers, config) {
 
+                debugger 
+            });
 
         }
     }]);

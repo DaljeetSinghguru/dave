@@ -422,7 +422,7 @@ p {
 
 .section {
     background: #ededed;
-    padding: 10px 0 35px 0;
+    padding: 10px 0 135px 0;
     margin: 35px 0;
 }
 
@@ -527,6 +527,7 @@ p {
         color: #f80000;
         margin: 0;
         padding: 0;
+        text-align: inherit;
     }
 
     .footer li {
