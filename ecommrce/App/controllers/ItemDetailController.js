@@ -1,12 +1,61 @@
 ﻿app.controller('ItemDetailController', ['$scope', '$route', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location', '$sce',
     function ($scope, $route, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location, $sce) {
 
+        debugger
 
+        var StockCode =   $route.current.params.id;
+        var paramValue = $route.current.$$route.paramExample;
         $scope.WebsiteDomain = ViewVariablesService.GetWebsiteDomain();
+        //$scope.WebsiteDomain = "http://api.davemuslayah.com/";
         $scope.cartName = "DAVE";
         var myPassword = "MAKV123456789312";
-        $scope.SingleItemDataInDetail = ViewVariablesService.GetSingleItemData();
-        $scope.Description = $sce.trustAsHtml($scope.SingleItemDataInDetail.Description);
+
+
+
+        ///get item by sku
+        $scope.SingleItemDataInDetail = {};
+        $http({
+            method: 'GET', url: $scope.Url + 'Category/GetItemDetailByStockCode?ItemStockCode=' + StockCode 
+        }).
+            success(function (data, status, headers, config) {
+                debugger
+                $scope.SingleItemDataInDetail = data[0];
+                $scope.Description = $sce.trustAsHtml($scope.SingleItemDataInDetail.Description);
+                $scope.ItemStockCode = $scope.SingleItemDataInDetail.ItemStockCode;
+                //pass this category id to database and get all item present in category and display in browser
+                $scope.categoryid = $scope.SingleItemDataInDetail.CategoryId;
+
+                $http({
+                    method: 'GET', url: $scope.Url + 'Category/GetRelatedItems?ItemStockCode=' + $scope.ItemStockCode + '&categoryid=' + $scope.categoryid + ''
+                }).
+                    success(function (data, status, headers, config) {
+
+                        debugger
+                        $scope.ifsmiliarexist = false;
+                        if (data.length > 0) { $scope.ifsmiliarexist = true; }
+                        $scope.relateditemdata = data;
+                        //ViewVariablesService.SetDatasendToItemListPage(data);
+                        //if ($location.path() == '/ItemList') {
+                        //    $route.reload();
+                        //}
+                        //else {
+                        //    $location.path('ItemList');
+                        //}
+
+
+                    }).
+                    error(function (data, status, headers, config) {
+                    });
+
+
+            }).
+            error(function (data, status, headers, config) {
+            });
+
+
+
+       // $scope.SingleItemDataInDetail = ViewVariablesService.GetSingleItemData();
+        
         //$scope.html = '<ul><li>render me please</li></ul>';
         //$scope.trustedHtml = $sce.trustAsHtml($scope.html);
         //$scope.Description = $scope.SingleItemDataInDetail.Description;
@@ -189,32 +238,7 @@
         debugger
         $scope.ifsmiliarexist = false;
 
-        $scope.ItemStockCode = $scope.SingleItemDataInDetail.ItemStockCode;
-        //pass this category id to database and get all item present in category and display in browser
-        $scope.categoryid= $scope.SingleItemDataInDetail.CategoryId;
-
-        $http({
-            method: 'GET', url: $scope.Url + 'Category/GetRelatedItems?ItemStockCode=' + $scope.ItemStockCode + '&categoryid=' + $scope.categoryid + ''
-        }).
-            success(function (data, status, headers, config) {
-
-                debugger
-                $scope.ifsmiliarexist = false;
-                if (data.length > 0) { $scope.ifsmiliarexist = true;}
-                $scope.relateditemdata = data;
-                //ViewVariablesService.SetDatasendToItemListPage(data);
-                //if ($location.path() == '/ItemList') {
-                //    $route.reload();
-                //}
-                //else {
-                //    $location.path('ItemList');
-                //}
-
-
-            }).
-            error(function (data, status, headers, config) {
-            });
-
+        
         $scope.addItemToCart = function (sku, name, ItemImage, price, quantity, IsStockPresent, ItemType, ItemId) {
 
 

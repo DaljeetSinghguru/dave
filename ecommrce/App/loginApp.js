@@ -161,7 +161,7 @@ app.config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'app/views/Thankyou.html',
             contrller: 'ThankyouController'
         })
-        .when('/ItemDetail', {
+        .when('/ItemDetail/:id', {
             templateUrl: 'app/views/ItemDetail.html',
             contrller: 'ItemDetailController'
         })

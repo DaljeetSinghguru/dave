@@ -1,6 +1,6 @@
 ﻿app.controller('ItemListController', ['$scope','$route', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location',
     function ($scope, $route, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location) {
-        ;
+        
         var myPassword = "MAKV123456789312";
         $scope.Url = ViewVariablesService.GetBaseAddress();
         $scope.WebsiteDomain = ViewVariablesService.GetWebsiteDomain();
@@ -72,9 +72,20 @@
         $scope.ShowItemDetail = function (ItemData) {
 
             $scope.SingleItemData = ItemData;
-
+            debugger
             ViewVariablesService.SetSingleItemData($scope.SingleItemData);
-            $location.path('ItemDetail');
+
+
+            
+                var vm = $scope.jobOfferSearchViewModel;
+            var path = "/ItemDetail/" + ItemData.ItemStockCode;
+                $location.path(path);
+           
+
+
+            //$location.path('ItemDetail/:' + ItemData.ItemStockCode);
+
+          //  $scope.$parent.addTab(data.ExhibitorName, "suppliersearchresults:" + data.ExhibitorSupplierId);
         }
 
         $scope.ShowItemDetailCategory = function (data) {
@@ -256,5 +267,5 @@
 
         }
        // $scope.decryptedUserName = CryptoJS.AES.decrypt($scope.encryptedUserName, myPassword);
-
+       // $scope.$parent.addTab(data.ExhibitorName, "suppliersearchresults:" + data.ExhibitorSupplierId);
     }]);
