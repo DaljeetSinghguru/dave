@@ -2,7 +2,9 @@
     function ($scope, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location) {
 
         $scope.quantity = "1";
-
+        $scope.check = function () {
+            $location.path('Product');
+        }
  $scope.Logincredential = localStorage != null ? localStorage["credential"] : null;
         if ($scope.Logincredential) {
             $rootScope.DisplayUserName = JSON.parse($scope.Logincredential).UserName;

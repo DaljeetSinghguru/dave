@@ -60,8 +60,8 @@ D:\10102018\dave\ecommrce\bin\ecommrce.dll
 D:\10102018\dave\ecommrce\bin\ecommrce.pdb
 D:\10102018\dave\ecommrce\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\10102018\dave\ecommrce\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\10102018\dave\ecommrce\obj\Debug\ecommrce.csprojAssemblyReference.cache
 D:\10102018\dave\ecommrce\obj\Debug\ecommrce.csproj.CoreCompileInputs.cache
 D:\10102018\dave\ecommrce\obj\Debug\ecommrce.csproj.CopyComplete
 D:\10102018\dave\ecommrce\obj\Debug\ecommrce.dll
 D:\10102018\dave\ecommrce\obj\Debug\ecommrce.pdb
+D:\10102018\dave\ecommrce\obj\Debug\ecommrce.csprojAssemblyReference.cache

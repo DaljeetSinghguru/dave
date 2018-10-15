@@ -1,7 +1,20 @@
 ﻿app.controller('appmainController2', ['$scope', '$route', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location',
     function ($scope, $route, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location) {
+        debugger
+        //PAYMENT GATEWAY  $scope.customAmount = false;
+        $scope.check = function () {
+            $location.path('Product');
+        }
 
-      //PAYMENT GATEWAY  $scope.customAmount = false;
+
+        $scope.owlOptionsTestimonials = {
+            autoPlay: 4000,
+            stopOnHover: true,
+            slideSpeed: 300,
+            paginationSpeed: 600,
+            items: 2
+        }
+
 
         $scope.searchme = function (text) {
             debugger

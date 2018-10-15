@@ -1,0 +1,255 @@
+﻿<link href="../../Content/lightslider/lightslider.css" rel="stylesheet" />
+
+<style>
+
+
+    @keyframes slidy {
+        0% {
+            left: 0%;
+        }
+
+        20% {
+            left: 0%;
+        }
+
+        25% {
+            left: -100%;
+        }
+
+        45% {
+            left: -100%;
+        }
+
+        50% {
+            left: -200%;
+        }
+
+        70% {
+            left: -200%;
+        }
+
+        75% {
+            left: -300%;
+        }
+
+        95% {
+            left: -300%;
+        }
+
+        100% {
+            left: -400%;
+        }
+    }
+
+    div#slider {
+        overflow: hidden;
+    }
+
+        div#slider figure img {
+            width: 20%;
+            float: left;
+            height: 300px;
+        }
+
+        div#slider figure {
+            position: relative;
+            width: 500%;
+            margin: 0;
+            left: 0;
+            text-align: left;
+            font-size: 0;
+            animation: 30s slidy infinite;
+        }
+
+    ul {
+        list-style: none outside none;
+        padding-left: 0;
+        margin: 0;
+    }
+
+    .demo .item {
+        margin-bottom: 60px;
+    }
+
+    .content-slider li {
+        background-color: #ed3020;
+        text-align: center;
+        color: #FFF;
+    }
+
+    .content-slider h3 {
+        margin: 0;
+        padding: 70px 0;
+    }
+
+    .demo {
+        width: 1000px;
+        margin-left: 110px;
+    }
+
+
+    .innercontent {
+        float: left;
+        width: 20%;
+        height: 20px;
+    }
+
+        li h3 {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 16px;
+            text-decoration: none;
+        }
+
+            li h3:hover {
+                background-color: #D3D3D3;
+            }
+    /*ul.lSPager.lSpg {
+        display: none !important;
+    }*/
+</style>
+
+<script src="../src/js/lightslider.js"></script>
+<script src="../../Content/lightslider/lightslider.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#content-slider").lightSlider({
+            loop: true,
+            keyPress: true, auto: true,
+        });
+        $('#image-gallery').lightSlider({
+            gallery: true,
+            item: 1,
+            thumbItem: 9,
+            slideMargin: 0,
+            speed: 500,
+            auto: true,
+            loop: true,
+            onSliderLoad: function () {
+                $('#image-gallery').removeClass('cS-hidden');
+            }
+        });
+    });</script>
+
+<div class="" ng-controller="DefaultController">
+
+    <div id="slider">
+        <figure>
+            <img src="../../Content/dcd796nt.jpg" alt>
+            <img src="../../Content/images/slider.jpg" alt>
+            <img src="../../Content/dcd796nt.jpg" alt>
+            <img src="../../Content/Banner 2.jpg" alt>
+
+        </figure>
+    </div>
+    <!--<div class="slider"> <img src="../../Content/images/slider.jpg" alt="home page slider"> </div>-->
+
+    <div class="middle">
+
+        <div class="section">
+            <div class="container">
+                <h1><span>Shop </span>By Brand</h1>
+                <div class="product1">
+                    <div class="demo1">
+
+                        <div class="item1">
+                            <ul id="content" class="content1">
+                                <li ng-click="BrandClick(brand)" class="innercontent" ng-repeat="brand in BrandList">
+                                    <h3><img style="width: 150px;height: 100px;" src="{{WebsiteDomain}}images/{{brand.filename}}" /></h3>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <h1><span>Shop </span>By Special Offers</h1>
+            <div class="product">
+                <ul>
+                    <li  ng-click="CategoryClick(data11)" ng-repeat="data11 in topProductshowonfront">
+                        <div class="tag">{{data11.CategoryName| translate}}</div>
+                        <img src="{{WebsiteDomain}}images/{{data11.BannerImage}}" alt="img1">
+
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+
+
+        <!--<div class="container">
+            <h1><span>Fashion</span> & Style </h1>
+            <div class="product">
+                <ul>
+                    <li ng-click="CategoryClick(data11)" ng-repeat="data11 in topProductshowonfront">
+                        <div class="tag">{{data11.CategoryName| translate}}</div>
+                        <img src="{{WebsiteDomain}}images/{{data11.filename}}" alt="img1">
+
+                    </li>
+
+                </ul>
+            </div>
+        </div>-->
+        <div class="section">
+
+            <div class="container">
+
+
+
+                <h1><span>Hot </span>Deals</h1>
+
+                <div class="product">
+
+                    <ul>
+                        <li style="width:20%;max-height:270px;" ng-click="ItemClick(data111)" ng-repeat="data111 in topHotSaleItem">
+
+                            <img style=" max-height: 175px;" src="{{WebsiteDomain}}images/{{data111.ItemMainImage}}" alt="img1">
+                            <div class="etc" style="font-weight: bold; font-size:15px;">
+                                {{data111.Title| translate}}
+                                <h5 style="float: right; color:red;   font-weight: bold;">
+                                    {{data111.Price * currentRate| number:2|currency:"&#163;"}}
+                                </h5>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--<div class="container">
+            <h1><span>What Client</span> Says </h1>
+            <div class="testi">
+                <ul>
+                    <li>
+                        <div class="quote"><img src="../../Content/images/v2-home-page_45.jpg"></div><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printttting and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                        <div class="client-img"><img src="../../Content/images/v2-home-page_49.jpg"></div>  <div class="red">
+                            <div class="star"><img src="../../Content/images/star.jpg"></div><div class="client">Vikas Kumar</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="quote"><img src="../../Content/images/v2-home-page_45.jpg"></div><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printttting and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                        <div class="client-img"><img src="../../Content/images/v2-home-page_49.jpg"></div>  <div class="red">
+                            <div class="star"><img src="../../Content/images/star.jpg"></div><div class="client">Vikas Kumar</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="quote"><img src="../../Content/images/v2-home-page_45.jpg"></div><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printttting and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                        <div class="client-img"><img src="../../Content/images/v2-home-page_49.jpg"></div>  <div class="red">
+                            <div class="star"><img src="../../Content/images/star.jpg"></div><div class="client">Vikas Kumar</div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>-->
+    </div>
+</div>
+
+
