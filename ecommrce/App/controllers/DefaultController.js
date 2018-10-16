@@ -5,7 +5,7 @@
         $scope.check = function () {
             $location.path('Product');
         }
- $scope.Logincredential = localStorage != null ? localStorage["credential"] : null;
+        $scope.Logincredential = localStorage != null ? localStorage["credential"] : null;
         if ($scope.Logincredential) {
             $rootScope.DisplayUserName = JSON.parse($scope.Logincredential).UserName;
             if ($rootScope.DisplayUserName != null || $rootScope.DisplayUserName != undefined || $rootScope.DisplayUserName !="") {

@@ -6,7 +6,9 @@
             $location.path('Product');
         }
 
-
+        $scope.loginme = function () {
+            window.location.replace('app_v10.html#/LandingPageVisa');
+        }
         $scope.owlOptionsTestimonials = {
             autoPlay: 4000,
             stopOnHover: true,
@@ -762,7 +764,7 @@
 
         $scope.categoryClickLevel1 = function (CategoryId) {
             //   
-
+            debugger
             $scope.ItemDetailDataCategoryWiselevel1 = CategoryId;
             ViewVariablesService.SetDatasendToItemListPageLevel1($scope.ItemDetailDataCategoryWiselevel1);
             ViewVariablesService.SetDatasendToItemListPage();

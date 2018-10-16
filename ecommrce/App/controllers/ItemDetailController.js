@@ -325,4 +325,12 @@
             $route.reload();
         }
 
+        $scope.showimage4 = false;
+        $scope.showimage4thumb = function () {
+            $scope.showimage4 = true;
+        }
+        $scope.showimage3 = false;
+        $scope.showimage3thumb = function () {
+            $scope.showimage3 = true;
+        }
     }])

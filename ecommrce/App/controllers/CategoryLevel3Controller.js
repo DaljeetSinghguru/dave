@@ -67,4 +67,15 @@
         }
 
 
+        $scope.showgridviewdata = false;
+        $scope.showlistviewdata = true;
+        $scope.showgridview = function () {
+            debugger
+            $scope.showgridviewdata = true;
+            $scope.showlistviewdata = false;
+        }
+        $scope.showListview = function () {
+            $scope.showlistviewdata = true;
+            $scope.showgridviewdata = false;
+        }
     }]);

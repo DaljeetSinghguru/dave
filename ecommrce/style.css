@@ -36,10 +36,16 @@
 /*----------------------------------------*/
 body {
     font-family: 'Rubik', sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     color: #333;
     font-size: 14px;
     line-height: 24px;
+}
+
+.navigationmanu li {
+    font-style: oblique;
+    font-weight: 600 !important;
+    /* font-size: 13px !important; */
 }
 .group-title {
     border: 1px solid #ddd;

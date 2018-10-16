@@ -10,11 +10,11 @@
   /* forms */
 }
 .solid-menus div#navigation {
-  background: #333;
+  background: #e5e5e5;
 }
-.solid-menus div#navigation .main-nav > li {
-  background: #333;
-}
+    .solid-menus div#navigation .main-nav > li {
+        background: #ffffff;
+    }
 .solid-menus div#navigation .main-nav > li:hover {
   background: #ffffff;
 }

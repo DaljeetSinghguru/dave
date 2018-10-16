@@ -6,9 +6,9 @@ html {
   font-smoothing: antialiased;
 }
 body {
-  margin: 0;
-  background: #E5E5E5;
-  height: 100%;
+    margin: 0;
+    background: #ffffff;
+    height: 100%;
 }
 .solid-menus * {
   -webkit-box-sizing: border-box;

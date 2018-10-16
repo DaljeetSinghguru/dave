@@ -305,14 +305,14 @@
 .solid-menus .main-title {
   margin: 20px auto;
 }
-.solid-menus .main-nav {
-  position: relative;
-  padding: 0 0.6em 0 0.6em;
-  -webkit-perspective: 2500px;
-  -moz-perspective: 2500px;
-  perspective: 2500px;
-  z-index: 20;
-}
+    .solid-menus .main-nav {
+        position: relative;
+        padding: 0 -1.4em 0 0.6em;
+        -webkit-perspective: 2500px;
+        -moz-perspective: 2500px;
+        perspective: 2500px;
+        z-index: 20;
+    }
 .solid-menus .main-nav > li#home:hover {
   background: #FEFEFE;
 }
@@ -338,9 +338,9 @@
 .solid-menus .main-nav > li:last-child {
   float: right;
 }
-    .solid-menus .main-nav > li > a {
+.solid-menus .main-nav > li > a {
         display: block;
-        color: #fff;
+        color: #000;
         height:40px;
     }
 .solid-menus .main-nav > li > a > i {

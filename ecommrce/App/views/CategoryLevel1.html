@@ -1,7 +1,7 @@
 ﻿
 <div class="" ng-controller="CategoryLevel1Controller">
 
-    <div class="middle inner">
+    <!--<div class="middle inner">
         <div class="container">
             <div class="category">
                 <h3>Browse By category</h3>
@@ -9,23 +9,16 @@
                      k-data-source="treeData1"
                      k-on-change="selectedItem = dataItem">
                     <span k-template ng-click="OpenReleventItemByCategory(dataItem)">
-                        <!--<a  ng-click="OpenReleventItemByCategory(dataItem)">-->  {{dataItem.text}} <!--</a>-->   <!--<button class='k-button' ng-click='click(dataItem)'>Add Category/Subcategory</button>-->
-                    </span>
+
+                        {{dataItem.text}}
+                       </span>
                 </div>
             </div>
 
             <div class="product-display" ng-show="ShowCategoryLevel1list==true">
 
-                <!--<h3>show category level 1 {{ItemListPageCategoryLevel1.text}}</h3>
-        <img class="img-responsive" src="{{WebsiteDomain}}/images/{{ItemListPageCategoryLevel1.filename}}.jpg" alt="product">
-        <div ng-click="ShowCategoryLevel1(dataCatWiseLevel1)" class="product-inner" ng-repeat="dataCatWiseLevel1 in ItemListPageCategoryLevel1.items">
-            <img class="img-responsive" src="{{WebsiteDomain}}/images/{{dataCatWiseLevel1.filename}}.jpg" alt="product">
-            <h2>{{dataCatWiseLevel1.text}}</h2>
-            <h4>{{dataCatWiseLevel1.Description}}</h4>
 
-        </div>-->
                 <h3>{{ItemListPageCategory.text}}</h3>
-                <!--<img style="height: 160px;" class="img-responsive" src="{{WebsiteDomain}}images/{{ItemListPageCategory.filename}}" alt="product">-->
                 <div ng-click="ShowItemDetailCategory(dataCatWiseLevel3)" class="product-inner product-innerproduct" ng-repeat="dataCatWiseLevel3 in ItemListPageCategory.items">
                     <img style="height: 250px; margin-bottom: 5px;" class="img-responsive" src="{{WebsiteDomain}}images/{{dataCatWiseLevel3.filename}}" alt="product">
                     <h2>{{dataCatWiseLevel3.text}}</h2>
@@ -39,9 +32,291 @@
 
 
 
+    </div>-->
+    <!-- Breadcrumb Start -->
+    <div class="breadcrumb-area ptb-60 ptb-sm-30">
+        <div class="container">
+            <div class="breadcrumb">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active"><a href="shop.html">Shop</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Container End -->
     </div>
+    <!-- Breadcrumb End -->
+    <!-- Shop Page Start -->
+    <div class="main-shop-page pb-60">
+        <div class="container">
+            <!-- Row End -->
+            <div class="row">
+                <!-- Sidebar Shopping Option Start -->
+                <div class="col-lg-3  order-2">
+                    <div class="sidebar white-bg">
+                        <div class="single-sidebar">
+                            <div class="group-title">
+                                <h2>categories</h2>
+                            </div>
+                            <div kendo-tree-view="tree"
+                                 k-data-source="treeData1"
+                                 k-on-change="selectedItem = dataItem">
+                                <span k-template ng-click="OpenReleventItemByCategory(dataItem)">
+                                    {{dataItem.text}}
+                                </span>
+                            </div>
+                        </div>
+                        <!--<div class="single-sidebar">
+                            <div class="group-title">
+                                <h2>color</h2>
+                            </div>
+                            <ul class="color-option">
+                                <li>
+                                    <a class="blue" href="#"></a>
+                                </li>
+                                <li>
+                                    <a class="green" href="#"></a>
+                                </li>
+                                <li>
+                                    <a class="black" href="#"></a>
+                                </li>
+                                <li>
+                                    <a class="rose" href="#"></a>
+                                </li>
+                                <li>
+                                    <a class="red" href="#"></a>
+                                </li>
+                                <li>
+                                    <a class="purple" href="#"></a>
+                                </li>
+                                <li>
+                                    <a class="rose" href="#"></a>
+                                </li>
+                                <li>
+                                    <a class="yellow" href="#"></a>
+                                </li>
+                                <li>
+                                    <a class="orange" href="#"></a>
+                                </li>
+                            </ul>
+                        </div>-->
+                        <!--<div class="single-sidebar">
+                            <div class="group-title">
+                                <h2>price</h2>
+                            </div>
+                            <form action="#">
+                                <div id="slider-range" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                                    <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
+                                </div>
+                                <input id="amount" class="amount" readonly="" type="text">
+                            </form>
+                        </div>-->
+                        <div class="single-sidebar">
+                            <div class="group-title">
+                                <h2>manufacturer</h2>
+                            </div>
+                            <ul class="manufactures-list">
+                                <li><a href="#">Brand one (14)</a></li>
+                                <li><a href="#">Brand two (13)</a></li>
+                                <li><a href="#">Brand three (13)</a></li>
+                                <li><a href="#">Brand four (14)</a></li>
+                                <li><a href="#">Brand five (13)</a></li>
+                            </ul>
+                        </div>
+
+
+                        <!-- Single Banner Start -->
+                        <div class="single-sidebar single-banner zoom pt-20">
+                            <a href="#" class="hidden-sm"><img src="../../img/banner/8.jpg" alt="slider-banner"></a>
+                            <a href="#" class="visible-sm"><img src="../../img/banner/6.jpg" alt="slider-banner"></a>
+                        </div>
+                        <!-- Single Banner End -->
+                    </div>
+                </div>
+                <!-- Sidebar Shopping Option End -->
+                <!-- Product Categorie List Start -->
+                <div class="col-lg-9 order-lg-2">
+                    <!-- Grid & List View Start -->
+                    <div class="grid-list-top border-default universal-padding fix mb-30">
+                        <div class="grid-list-view f-left">
+                            <ul class="list-inline nav">
+                                <li><a data-toggle="tab" href="" ng-click="showgridview()"><i class="fa fa-th"></i></a></li>
+                                <li><a class="active" data-toggle="tab" href="" ng-click="showListview()"><i class="fa fa-list-ul"></i></a></li>
+                                <li><span class="grid-item-list"> Items 1-12 of 13</span></li>
+                            </ul>
+                        </div>
+                        <!-- Toolbar Short Area Start -->
+                        <div class="main-toolbar-sorter f-right">
+                            <!--<div class="toolbar-sorter">
+                                <label>sort by</label>
+                                <select class="sorter" name="sorter">
+                                    <option value="Position" selected="selected">position</option>
+                                    <option value="Product Name">Product Name</option>
+                                    <option value="Price">Price</option>
+                                </select>
+                                <span><a href="#"><i class="fa fa-arrow-up"></i></a></span>
+                            </div>-->
+                        </div>
+                        <!-- Toolbar Short Area End -->
+                    </div>
+                    <!-- Grid & List View End -->
+                    <div class="main-categorie">
+                        <!-- Grid & List Main Area End -->
+                        <div class="tab-content fix">
+                            <div id="grid-view" class="" ng-show="showgridviewdata == true">
+                                <div class="row">
+                                    <!-- Single Product Start -->
+
+                                    <div class="col-lg-4 col-sm-6" ng-click="ShowItemDetailCategory(dataCatWiseLevel3)" ng-repeat="dataCatWiseLevel3 in ItemListPageCategory.items">
+                                        <div class="single-product">
+                                            <!-- Product Image Start -->
+                                            <div class="pro-img">
+                                                <a>
+                                                    <img class="primary-img" src="{{WebsiteDomain}}images/{{dataCatWiseLevel3.filename}}" alt="single-product">
+                                                    <img class="secondary-img" src="{{WebsiteDomain}}images/{{dataCatWiseLevel3.filename}}" alt="single-product">
+                                                </a>
+                                            </div>
+                                            <!-- Product Image End -->
+                                            <!-- Product Content Start -->
+                                            <div class="pro-content">
+                                                <!--<div class="product-rating">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </div>-->
+                                                <h4><a>{{dataCatWiseLevel3.text}}</a></h4>
+                                                <div class="pro-actions">
+                                                    <div class="actions-secondary">
+                                                        <!--<a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
+                                                        <a class="add-cart" href="cart.html" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
+                                                        <a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Product Content End -->
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+
+                                </div>
+                            </div>
+                            <!-- #grid view End -->
+                            <div id="list-view" class="" ng-show="showlistviewdata == true">
+                                <!-- Single Product Start -->
+                                <!--<h3>{{ItemListPageCategoryLevel1.text}}</h3>-->
+
+
+                                <div ng-click="ShowItemDetailCategory(dataCatWiseLevel3)" class="single-product" ng-repeat="dataCatWiseLevel3 in ItemListPageCategory.items">
+                                    <!-- Product Image Start -->
+                                    <div class="pro-img">
+                                        <a>
+                                            <img class="primary-img" src="{{WebsiteDomain}}images/{{dataCatWiseLevel3.filename}}" alt="single-product">
+                                            <img class="secondary-img" src="{{WebsiteDomain}}images/{{dataCatWiseLevel3.filename}}" alt="single-product">
+                                        </a>
+                                    </div>
+                                    <!-- Product Image End -->
+                                    <!-- Product Content Start -->
+                                    <div class="pro-content">
+                                        <!--<div class="product-rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>-->
+                                        <h4><a>{{dataCatWiseLevel3.text}}</a></h4>
+
+                                        <p>{{dataCatWiseLevel3.Description}}</p>
+                                        <div class="pro-actions">
+                                            <div class="actions-secondary">
+                                                <!--   <a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>-->
+                                                <!--<a class="add-cart" href="cart.html" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>-->
+                                                <!--<a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Product Content End -->
+                                </div>
+                                <!-- Single Product Start -->
+
+                            </div>
+                            <!-- #list view End -->
+                        </div>
+                        <!-- Grid & List Main Area End -->
+                    </div>
+                    <!--Breadcrumb and Page Show Start -->
+                    <div class="pagination-box fix">
+                        <ul class="blog-pagination ">
+                            <li><a href="#">1</a></li>
+                            <li class="active"><a href="#">2</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                        </ul>
+                        <div class="toolbar-sorter-footer">
+                            <label>show</label>
+                            <select class="sorter" name="sorter">
+                                <option value="Position" selected="selected">12</option>
+                                <option value="Product Name">15</option>
+                                <option value="Price">30</option>
+                            </select>
+                            <span>per page</span>
+                        </div>
+                    </div>
+                    <!--Breadcrumb and Page Show End -->
+                </div>
+                <!-- product Categorie List End -->
+            </div>
+            <!-- Row End -->
+        </div>
+        <!-- Container End -->
+    </div>
+    <!-- Shop Page End -->
+    <!-- Brand Logo Start -->
+    <div class="brand-area pb-60">
+        <div class="container">
+            <!-- Brand Banner Start -->
+            <div class="brand-banner owl-carousel">
+                <div class="single-brand">
+                    <a href="#"><img class="img" src="../../img/brand/1.png" alt="brand-image"></a>
+                </div>
+                <div class="single-brand">
+                    <a href="#"><img src="../../img/brand/2.png" alt="brand-image"></a>
+                </div>
+                <div class="single-brand">
+                    <a href="#"><img src="../../img/brand/3.png" alt="brand-image"></a>
+                </div>
+                <div class="single-brand">
+                    <a href="#"><img src="../../img/brand/4.png" alt="brand-image"></a>
+                </div>
+                <div class="single-brand">
+                    <a href="#"><img src="../../img/brand/5.png" alt="brand-image"></a>
+                </div>
+                <div class="single-brand">
+                    <a href="#"><img class="img" src="../../img/brand/1.png" alt="brand-image"></a>
+                </div>
+                <div class="single-brand">
+                    <a href="#"><img src="../../img/brand/2.png" alt="brand-image"></a>
+                </div>
+                <div class="single-brand">
+                    <a href="#"><img src="../../img/brand/3.png" alt="brand-image"></a>
+                </div>
+                <div class="single-brand">
+                    <a href="#"><img src="../../img/brand/4.png" alt="brand-image"></a>
+                </div>
+                <div class="single-brand">
+                    <a href="#"><img src="../../img/brand/5.png" alt="brand-image"></a>
+                </div>
+            </div>
+            <!-- Brand Banner End -->
+        </div>
+    </div>
+    <!-- Brand Logo End -->
+    <!-- Footer End -->
+    <!-- Wrapper End -->
 
 </div>
 
 
 
+<script src="../../js/main.js"></script>
