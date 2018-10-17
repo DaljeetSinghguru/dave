@@ -22,22 +22,22 @@
                 <div class="col-lg-5">
                     <!-- Thumbnail Large Image start -->
                     <div class="tab-content">
-                        <div id="thumb1" class="tab-pane active" >
+                        <div id="thumb1" class="tab-pane" ng-class="{active : activeMenu === '1'}">
                             <a data-fancybox="images" href="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemMainImage}}">
                                 <img src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemMainImage}}">
                             </a>
                         </div>
-                        <div id="thumb2" class="tab-pane" ng-if="{{SingleItemDataInDetail.ItemImage1}}">
+                        <div id="thumb2" class="tab-pane" ng-class="{active : activeMenu === '2'}" ng-show="ifdataimage2==true">
                             <a data-fancybox="images" href="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemImage1}}">
                                 <img src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemImage1}}" >
                             </a>
                         </div>
-                        <div id="thumb3" ng-show="showimage3==true" class="tab-pane">
+                        <div id="thumb3"  class="tab-pane" ng-class="{active : activeMenu === '3'}" ng-show="ifdataimage3==true"> 
                             <a data-fancybox="images" href="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemImage2}}">
                                 <img src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemImage2}}" >
                             </a>
                         </div>
-                        <div ng-show="showimage4==true" class="tab-pane" ng-if="{{SingleItemDataInDetail.ItemImage3}}">
+                        <div  class="tab-pane" ng-class="{active : activeMenu === '4'}" ng-show="ifdataimage4==true">
                             <a data-fancybox="images" href="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemImage3}}">
                                 <img src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemImage3}}">
                             </a>
@@ -47,16 +47,16 @@
                     <!-- Thumbnail Image End -->
                     <div class="product-thumbnail">
                         <div class="thumb-menu nav">
-                            <a class="active" data-toggle="tab" href="#thumb1">
+                            <a class="active" data-toggle="tab" href="" ng-click="showimage1thumb()">
                                 <img src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemMainImage}}">
                             </a>
-                            <a data-toggle="tab" href="#thumb2" >
+                            <a data-toggle="tab" href="" ng-click="showimage2thumb()" ng-show="ifdataimage2==true">
                                 <img src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemImage1}}" >
                             </a>
-                            <a data-toggle="tab" href=""  ng-click="showimage3thumb()">
+                            <a data-toggle="tab" href=""  ng-click="showimage3thumb()" ng-show="ifdataimage3==true">
                                 <img src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemImage2}}" >
                             </a>
-                            <a data-toggle="tab" href="" ng-click="showimage4thumb()" ng-if="{{SingleItemDataInDetail.ItemImage3}}">
+                            <a data-toggle="tab" href="" ng-click="showimage4thumb()" ng-show="ifdataimage4==true" >
                                 <img src="{{WebsiteDomain}}images/{{SingleItemDataInDetail.ItemImage3}}" >
                             </a>
                         </div>

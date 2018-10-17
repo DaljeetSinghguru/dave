@@ -10,8 +10,9 @@
         $scope.cartName = "DAVE";
         var myPassword = "MAKV123456789312";
 
-
-
+        $scope.ifdataimage2 = false;
+        $scope.ifdataimage4 = false;
+        $scope.ifdataimage3 = false;
         ///get item by sku
         $scope.SingleItemDataInDetail = {};
         $http({
@@ -24,6 +25,16 @@
                 $scope.ItemStockCode = $scope.SingleItemDataInDetail.ItemStockCode;
                 //pass this category id to database and get all item present in category and display in browser
                 $scope.categoryid = $scope.SingleItemDataInDetail.CategoryId;
+                if ($scope.SingleItemDataInDetail.ItemImage3) {
+                    $scope.ifdataimage4 = true;
+                }
+                if ($scope.SingleItemDataInDetail.ItemImage2) {
+                    $scope.ifdataimage3 = true;
+                }
+                if ($scope.SingleItemDataInDetail.ItemImage1) {
+                    $scope.ifdataimage2 = true;
+                }
+
 
                 $http({
                     method: 'GET', url: $scope.Url + 'Category/GetRelatedItems?ItemStockCode=' + $scope.ItemStockCode + '&categoryid=' + $scope.categoryid + ''
@@ -324,13 +335,22 @@
             ViewVariablesService.SetSingleItemData($scope.SingleItemData);
             $route.reload();
         }
-
-        $scope.showimage4 = false;
+        $scope.activeMenu = '1';
+       
         $scope.showimage4thumb = function () {
-            $scope.showimage4 = true;
+            $scope.activeMenu = '4';
         }
-        $scope.showimage3 = false;
         $scope.showimage3thumb = function () {
-            $scope.showimage3 = true;
+            $scope.activeMenu = '3';
         }
+        $scope.showimage2thumb = function () {
+            $scope.activeMenu = '2';
+        }
+        $scope.showimage1thumb = function () {
+            $scope.activeMenu = '1';
+        }
+
+
+        
+       
     }])
