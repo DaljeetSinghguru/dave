@@ -250,7 +250,8 @@
     /*----------------------------------------------------
     10. Brand Banner Activation
     -----------------------------------------------------*/
-$('.brand-banner').on('changed.owl.carousel initialized.owl.carousel', function (event) {
+    $('.brand-banner').on('changed.owl.carousel initialized.owl.carousel', function (event) {
+        debugger
         $(event.target)
 
                 .find('.owl-item').removeClass('last')

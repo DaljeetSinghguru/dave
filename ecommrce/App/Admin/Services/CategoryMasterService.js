@@ -79,4 +79,53 @@
         });
     }
 
+    this.SaveBannerImageCategory870 = function (BannerFileUpload, IsParentMenuId) {
+        var dataAsFormData = new FormData();
+        dataAsFormData.append("BannerImage", BannerFileUpload[0]);
+        dataAsFormData.append("IsParentMenuId", IsParentMenuId);
+        return $http({
+            url: this.baseURl + 'Category/SaveBannerImageCategory870',
+            method: "POST",
+            data: dataAsFormData,
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined }
+        });
+    }
+    this.SaveBannerImageCategory370 = function (BannerFileUpload, IsParentMenuId) {
+        var dataAsFormData = new FormData();
+        dataAsFormData.append("BannerImage", BannerFileUpload[0]);
+        dataAsFormData.append("IsParentMenuId", IsParentMenuId);
+        return $http({
+            url: this.baseURl + 'Category/SaveBannerImageCategory370',
+            method: "POST",
+            data: dataAsFormData,
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined }
+        });
+    }
+    this.SaveBannerImageCategory570 = function (BannerFileUpload, IsParentMenuId) {
+        var dataAsFormData = new FormData();
+        dataAsFormData.append("BannerImage", BannerFileUpload[0]);
+        dataAsFormData.append("IsParentMenuId", IsParentMenuId);
+        return $http({
+            url: this.baseURl + 'Category/SaveBannerImageCategory570',
+            method: "POST",
+            data: dataAsFormData,
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined }
+        });
+    }
+    this.SaveBannerImageCategory1920 = function (BannerFileUpload, IsParentMenuId) {
+        var dataAsFormData = new FormData();
+        dataAsFormData.append("BannerImage", BannerFileUpload[0]);
+        dataAsFormData.append("IsParentMenuId", IsParentMenuId);
+        return $http({
+            url: this.baseURl + 'Category/SaveBannerImageCategory1920',
+            method: "POST",
+            data: dataAsFormData,
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined }
+        });
+    }
+
 }])

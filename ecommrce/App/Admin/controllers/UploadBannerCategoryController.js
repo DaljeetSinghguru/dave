@@ -1,94 +1,7 @@
-﻿app.controller('CategoryController', ['$scope', '$http','$modal', 'CategoryMasterService', '$anchorScroll', 
+﻿app.controller('UploadBannerCategoryController', ['$scope', '$http','$modal', 'CategoryMasterService', '$anchorScroll', 
     function ($scope, $http, $modal, CategoryMasterService, $anchorScroll) {
 
-        CategoryMasterService.GetCategorywithSubcategoryData().success(function (data, status, headers, config) {
-
-            if (data != "") {
-                $scope.dataTreeView = data;
-                $scope.treeData = new kendo.data.HierarchicalDataSource({
-                    data: $scope.dataTreeView,
-
-                });
-            }
-        });
-        $scope.$watchCollection('data', function (newData) {
-            if ($scope.treeData) {
-                $scope.treeData.data = newData;
-            }});
-        $scope.treeData = new kendo.data.HierarchicalDataSource({
-            data: $scope.dataTreeView,
-            
-        });
-
-        $scope.click = function (dataItem) {
-            alert(dataItem.Value);
-        };
-
-        function makeItem() {
-            var txt = kendo.toString(new Date(), "HH:mm:ss");
-            var value = "20";
-            return { text: txt, Value: value };
-        };
-
-        $scope.addAfter = function (item) {
-            debugger
-            $scope.IsParentMenuId = item.ParentMenuId;
-            //var array = item.parent();
-            //var index = array.indexOf(item);
-            //var newItem = makeItem();
-            //array.splice(index + 1, 0, newItem);
-            $scope.Category = {};
-            $scope.modalInstanceaddAfter = $modal.open({
-                scope: $scope,
-                templateUrl: 'App/Admin/views/Addcategory.html',
-                size: "lg",
-
-            });
-        };
-
-        $scope.addBelow = function (selectedItem) {
-            debugger
-
-            $scope.IsParentMenuId = selectedItem.Value;
-            $scope.Category = {};
-            //var newItem = makeItem();
-            //$scope.tree.append(newItem, $scope.tree.select());
-            $scope.modalInstanceaddAfter = $modal.open({
-                scope: $scope,
-                templateUrl: 'App/Admin/views/Addcategory.html',
-                size: "lg",
-
-            });
-        };
-
-        $scope.remove = function (item) {
-            debugger
-
-            
-            CategoryMasterService.DeleteCategory(item.Value)
-                .success(function (data, status, headers, config) {
-                    debugger
-                    if (data != "") {
-                        CategoryMasterService.GetCategorywithSubcategoryData().success(function (data, status, headers, config) {
-
-                            if (data != "") {
-                                $scope.dataTreeView = data;
-                                $scope.treeData = new kendo.data.HierarchicalDataSource({
-                                    data: $scope.dataTreeView,
-
-                                });
-                            }
-
-                        });
-                    }
-                })
-
-            //var array = item.parent();
-            //var index = array.indexOf(item);
-            //array.splice(index, 1);
-
-            //$scope.selectedItem = undefined;
-        };
+     
 
         $scope.SaveCategoryModal = function () {
             debugger
@@ -304,7 +217,7 @@
             $scope.Category.MetaDescription1 = data.MetaDescription;
             $scope.modalInstanceaddAfter = $modal.open({
                 scope: $scope,
-                templateUrl: 'App/Admin/views/EditCategory.html',
+                templateUrl: 'App/Admin/views/UploadBannerCategory.html',
                 size: "lg",
 
             });
@@ -338,5 +251,91 @@
 
         }
 
+        $scope.BannerFileNameUpload = "";
+        $scope.BannerimagemainUpload1920 = function (event) {
+            $scope.PlsUploadOfferLetter = false;
+            var files = event.target.files; //FileList object
+            $scope.FileOfferletterUploadBanner1920 = event.target.files;
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                var reader = new FileReader();
+                reader.onload = $scope.imageIsLoaded;
+                reader.readAsDataURL(file);
+            }
+
+            $scope.BannerFileNameUpload = files[0].name;
+            $scope.$apply();
+
+            if ($scope.Category.CategoryId) { $scope.IsParentMenuId = $scope.Category.CategoryId; };
+            CategoryMasterService.SaveBannerImageCategory1920( $scope.FileOfferletterUploadBanner1920, $scope.IsParentMenuId).success(function (data, status, headers, config) {
+
+                debugger 
+            });
+
+        }
+        $scope.BannerimagemainUpload370 = function (event) {
+            $scope.PlsUploadOfferLetter = false;
+            var files = event.target.files; //FileList object
+            $scope.FileOfferletterUploadBanner370 = event.target.files;
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                var reader = new FileReader();
+                reader.onload = $scope.imageIsLoaded;
+                reader.readAsDataURL(file);
+            }
+
+            $scope.BannerFileNameUpload = files[0].name;
+            $scope.$apply();
+
+            if ($scope.Category.CategoryId) { $scope.IsParentMenuId = $scope.Category.CategoryId; };
+            CategoryMasterService.SaveBannerImageCategory370($scope.FileOfferletterUploadBanner370, $scope.IsParentMenuId).success(function (data, status, headers, config) {
+
+                debugger
+            });
+
+        }
+
+        $scope.BannerimagemainUpload570 = function (event) {
+            $scope.PlsUploadOfferLetter = false;
+            var files = event.target.files; //FileList object
+            $scope.FileOfferletterUploadBanner570 = event.target.files;
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                var reader = new FileReader();
+                reader.onload = $scope.imageIsLoaded;
+                reader.readAsDataURL(file);
+            }
+
+            $scope.BannerFileNameUpload = files[0].name;
+            $scope.$apply();
+
+            if ($scope.Category.CategoryId) { $scope.IsParentMenuId = $scope.Category.CategoryId; };
+            CategoryMasterService.SaveBannerImageCategory570($scope.FileOfferletterUploadBanner570, $scope.IsParentMenuId).success(function (data, status, headers, config) {
+
+                debugger
+            });
+
+        }
+        $scope.BannerimagemainUpload870 = function (event) {
+            $scope.PlsUploadOfferLetter = false;
+            var files = event.target.files; //FileList object
+            $scope.FileOfferletterUploadBanner870 = event.target.files;
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                var reader = new FileReader();
+                reader.onload = $scope.imageIsLoaded;
+                reader.readAsDataURL(file);
+            }
+
+            $scope.BannerFileNameUpload = files[0].name;
+            $scope.$apply();
+
+            if ($scope.Category.CategoryId) { $scope.IsParentMenuId = $scope.Category.CategoryId; };
+            CategoryMasterService.SaveBannerImageCategory870($scope.FileOfferletterUploadBanner870, $scope.IsParentMenuId).success(function (data, status, headers, config) {
+
+                debugger
+            });
+
+        }
 
     }]);

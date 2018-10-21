@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\Admin\controllers\BrandController.js" />
+    <Content Include="App\Admin\controllers\UploadBannerCategoryController.js" />
     <Content Include="App\Admin\controllers\ItemSuggestionAccessoriesController.js" />
     <Content Include="App\Admin\controllers\ItemController.js" />
     <Content Include="App\Admin\Services\BrandMasterService.js" />
@@ -74,6 +75,8 @@
     <Content Include="App\Admin\Services\ItemService.js" />
     <Content Include="App\Admin\Services\SubCategoryMasterService.js" />
     <Content Include="App\Admin\Services\SubCategoryService.js" />
+    <Content Include="App\Admin\views\UploadBannerCategory.html" />
+    <Content Include="App\Admin\views\UploadBannerOfCategoryView.html" />
     <Content Include="App\Admin\views\EditCategory.html" />
     <Content Include="App\Admin\views\AddLinkCategoryWithItemView.html" />
     <Content Include="App\Admin\views\AddCategory.html" />

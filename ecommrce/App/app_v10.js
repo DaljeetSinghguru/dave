@@ -19,6 +19,10 @@ app.config(['$routeProvider', '$locationProvider',
                 templateUrl: 'App/Admin/views/LandingPageVisa.html',
                 contrller: 'app/controllers/LandingPageVisaController.js'
             })
+            .when('/CategoryBanner', {
+                templateUrl: 'App/Admin/views/UploadBannerOfCategoryView.html',
+                contrller: 'App/Admin/controllers/UploadBannerCategoryController.js'
+            })
             .when('/Category', {
 
                 templateUrl: 'App/Admin/views/CategoryView.html',

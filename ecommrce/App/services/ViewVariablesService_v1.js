@@ -1,8 +1,8 @@
 ﻿app.service('ViewVariablesService', ['$http', function ($http) {
     
     this.GetWebsiteDomain = function () {
-       return "http://api.davemuslayah.com/";
-     //  return "http://localhost:50675/";
+     //  return "http://api.davemuslayah.com/";
+       return "http://localhost:50675/";
 
     }
     this.GetBaseAddress = function () {
@@ -78,4 +78,15 @@
     this.GetOrderId = function (data) {
         return this.OrderId;
     }
+
+
+    var BrandData = [];
+    this.SetBrandData = function (data) {
+
+        this.BrandData = data;
+    }
+    this.GetBrandData = function (data) {
+        return this.BrandData;
+    }
+
 }]);

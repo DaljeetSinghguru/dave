@@ -904,4 +904,19 @@
             $location.path('ContactUs');
 
         }
+
+        debugger
+
+        $http({
+            method: 'GET', url: $scope.Url + 'Brand/GetBrand'
+        }).
+            success(function (data, status, headers, config) {
+                debugger
+                $scope.BrandList = data;
+                ViewVariablesService.SetBrandData(data);
+
+            }).
+            error(function (data, status, headers, config) {
+            });
+
     }]);
