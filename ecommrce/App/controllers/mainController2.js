@@ -919,4 +919,47 @@
             error(function (data, status, headers, config) {
             });
 
+        $http({
+            method: 'GET', url: $scope.Url + 'Category/Category_Get1920'
+        }).
+            success(function (data, status, headers, config) {
+                debugger
+             
+                ViewVariablesService.Set1920ImageData(data);
+
+            }).
+            error(function (data, status, headers, config) {
+            });
+
+
+        //Best Seller Product
+        $http({
+            method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=161'
+        }).
+            success(function (data, status, headers, config) {
+
+
+              //  $scope.ItemListBestSellerProduct = data;
+                ViewVariablesService.SetItemListBestSellerProduct(data);
+                
+
+            }).
+            error(function (data, status, headers, config) {
+            });
+
+        //Best Seller Product
+        $http({
+            method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=161'
+        }).
+            success(function (data, status, headers, config) {
+
+
+                //  $scope.ItemListBestSellerProduct = data;
+                ViewVariablesService.SetItemListBestSellerProduct(data);
+
+
+            }).
+            error(function (data, status, headers, config) {
+            });
+
     }]);

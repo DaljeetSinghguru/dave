@@ -1,6 +1,24 @@
 ﻿app.controller('DefaultController', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate','$location',
     function ($scope, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location) {
         debugger
+
+
+
+        $scope.activeTab = '1';
+
+        $scope.showTab1 = function () {
+            $scope.activeTab = '1';
+        }
+        $scope.showTab2 = function () {
+            $scope.activeTab = '2';
+        }
+        $scope.showTab3 = function () {
+            $scope.activeTab = '3';
+        }
+       
+
+
+
         $scope.quantity = "1";
         $scope.check = function () {
             $location.path('Product');
@@ -17,9 +35,29 @@
             }
         }
         setTimeout(function () {
-        $scope.BrandList = ViewVariablesService.GetBrandData();
+            $scope.BrandList = ViewVariablesService.GetBrandData();
+            $scope.ItemListBestSellerProduct = ViewVariablesService.GetItemListBestSellerProduct();
         }, 3500);
-        $http({method: 'GET', url: $scope.Url + 'Category/Category_Get'
+        $scope.ShowItemDetail = function (ItemData) {
+
+            $scope.SingleItemData = ItemData;
+            debugger
+            ViewVariablesService.SetSingleItemData($scope.SingleItemData);
+
+
+
+            var vm = $scope.jobOfferSearchViewModel;
+            var path = "/ItemDetail/" + ItemData.ItemStockCode;
+            $location.path(path);
+
+
+
+            //$location.path('ItemDetail/:' + ItemData.ItemStockCode);
+
+            //  $scope.$parent.addTab(data.ExhibitorName, "suppliersearchresults:" + data.ExhibitorSupplierId);
+        }
+        $http({
+            method: 'GET', url: $scope.Url + 'Category/Category_Get370'
                 }).
                 success(function (data, status, headers, config) {
                     
@@ -29,6 +67,26 @@
                 error(function (data, status, headers, config) {
             });
 
+        $http({
+            method: 'GET', url: $scope.Url + 'Category/Category_Get570'
+        }).
+            success(function (data, status, headers, config) {
+
+                $scope.topProductshowonfront570 = data;
+
+            }).
+            error(function (data, status, headers, config) {
+            });
+        $http({
+            method: 'GET', url: $scope.Url + 'Category/Category_Get870'
+        }).
+            success(function (data, status, headers, config) {
+
+                $scope.topProductshowonfront870 = data;
+
+            }).
+            error(function (data, status, headers, config) {
+            });
         $http({
             method: 'GET', url: $scope.Url + 'Category/GetHotSaleItem'
         }).

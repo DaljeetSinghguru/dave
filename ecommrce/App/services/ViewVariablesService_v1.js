@@ -88,5 +88,21 @@
     this.GetBrandData = function (data) {
         return this.BrandData;
     }
+    var ImageData1920 = [];
+    this.Set1920ImageData = function (data) {
 
+        this.ImageData1920 = data;
+    }
+    this.Get1920ImageData = function (data) {
+        return this.ImageData1920;
+    }
+    
+    var ItemListBestSellerProduct = [];
+    this.SetItemListBestSellerProduct = function (data) {
+
+        this.ItemListBestSellerProduct = data;
+    }
+    this.GetItemListBestSellerProduct = function (data) {
+        return this.ItemListBestSellerProduct;
+    }
 }]);
