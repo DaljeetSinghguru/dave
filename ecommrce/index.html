@@ -90,19 +90,26 @@
             <div class="header-bottom header-sticky">
                 <div class="container">
                     <div class="row">
-                        <div class="col-xl-3 col-lg-2 col-sm-5 col-5">
+                        <div class="col-xl-3 col-lg-2 col-sm-5 col-5" style="margin-top:10px;">
                             <div class="logo">
                                 <a href="index.html"><img src="Content/images/logo.jpg" alt="logo-image"></a>
                             </div>
                         </div>
+                        <div class="col-xl-2 col-lg-2 col-sm-5 col-5" style="margin-top: 20px;font-size: 12px; line-height:28px;">
+                            <div class="logso" >
+                                <span><i class="fa fa-phone">+44 795 7741 524</i></span>
+                                <br />
+                                <span>Mon - Fri 7:30 AM - 6:00 PM</span><br /><span>Saturday 8:00 AM - 1:00 PM</span>
+                            </div>
+                        </div>
                         <!-- Primary Vertical-Menu End -->
                         <!-- Search Box Start -->
-                        <div class="col-xl-6 col-lg-7 d-none d-lg-block" style="margin-top: 20px;">
+                        <div class="col-xl-4 col-lg-7 d-none d-lg-block" style="margin-top: 20px;">
                             <div class="search-box-view">
-                                <form action="">
+                                
                                     <input type="text" class="email" ng-model="searchtext" placeholder="Search Your Product" name="product">
-                                    <button type="submit" ng-click="searchme(searchtext)"  class="submit"></button>
-                                </form>
+                                    <button type="button" ng-click="searchme(searchtext)" class="submit"></button>
+                               
                             </div>
                         </div>
 
@@ -112,16 +119,16 @@
                             <div class="cart-box text-right">
                                 <ul>
                                     <li>
-                                        <a href="compare.html"><i class="fa fa-cog"></i></a>
+                                        <a href=""><i class="fa fa-cog"></i></a>
                                         <ul class="ht-dropdown">
                                             <li><a href="" ng-click="loginme()">Login</a></li>
-                                            <!--<li><a href="register.html">Register</a></li>
-                                            <li><a href="account.html">Account</a></li>-->
+                                            <!--<li><a href="register.html">Register</a></li>-->
+                                            <li><a href="">My Account</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
+                                    <!--<li><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>-->
                                     <li>
-                                        <a href="#"><i class="fa fa-shopping-basket"></i><span class="cart-counter">2</span></a>
+                                        <a href=""><i class="fa fa-shopping-basket"></i><span class="cart-counter">2</span></a>
                                         <ul class="ht-dropdown main-cart-box">
                                             <li>
                                                 <!-- Cart Box Start -->
@@ -159,11 +166,15 @@
                                             </li>
                                         </ul>
                                     </li>
+                                    <li><a href="https://twitter.com/login"><i class="fa fa-twitter"></i></a></li>
+                                    <!-- <li><a href="#"><i class="fa fa-wifi"></i></a></li>-->
+                                    <li><a href="https://plus.google.com/people"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="https://facebook.com"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="https://youtube.com"><i class="fa fa-youtube"></i></a></li>
                                 </ul>
                             </div>
                         </div>
                         <!-- Cartt Box End -->
-                  
                         <!-- Mobile Menu  End -->
                     </div>
                     <!-- Row End -->
@@ -188,9 +199,9 @@
                                                 <li id="menu"><a href="#" class="menu-links">{{'DM WholeSales'|translate }} <i class="fa fa-bars fa-fw"></i></a></li>
 
                                                 <!-- Mega Menu -->
-                                                <li> <a href="" ng-click="gotoDefault()">{{'Home'|translate }}</a> </li>
+                                                <li> <a href="" ng-click="gotoDefault()">{{'Home'|translate|uppercase  }}</a> </li>
                                                 <li ng-repeat="data in AllCategory">
-                                                    <a href="" class="menu-links" ng-click="categoryClickLevel1(data)"><span class="has-sub-menu"> {{data.text| translate}} </span><i class="fa fa-caret-down fa-fw"></i></a>
+                                                    <a href="" class="menu-links" ng-click="categoryClickLevel1(data)"><span class="has-sub-menu"> {{data.text| translate|uppercase }} </span><i class="fa fa-caret-down fa-fw"></i></a>
 
                                                     <div class="sub-menu-1 multi-drop l-group animated">
 
@@ -199,7 +210,7 @@
 
                                                             <li class="has-sub-menu" ng-repeat="level2 in GetSubMenu(data,data.Value)">
                                                                 <a href="" class="menu-links" ng-click="categoryClicklevel2(level2)">
-                                                                    <i class="fa fa-buysellads fa-fw"></i><span> {{level2.text| translate}}</span>
+                                                                    <i class="fa fa-buysellads fa-fw"></i><span> {{level2.text| translate|uppercase}}</span>
                                                                     <i class="fa fa-angle-right fa-fw l-pos-a"></i>
                                                                 </a>
 
@@ -209,7 +220,7 @@
                                                                     <ul class="l-vertical-list l-group">
 
                                                                         <li class="has-sub-menu" ng-repeat="level3 in GetSuperSubMenu(level2,level2.Value)">
-                                                                            <a href="" class="menu-links" ng-click="categoryClicklevel3(level3)"><i class="fa fa-arrow-circle-right fa-fw"></i><span> {{level3.text| translate}} </span><i class="fa fa-angle-right fa-fw l-pos-a"></i></a>
+                                                                            <a href="" class="menu-links" ng-click="categoryClicklevel3(level3)"><i class="fa fa-arrow-circle-right fa-fw"></i><span> {{level3.text| translate|uppercase}} </span><i class="fa fa-angle-right fa-fw l-pos-a"></i></a>
 
                                                                             <!-- sub-menu-3 -->
                                                                             <div class="sub-menu-3 drop-down side-menu l-group">
@@ -218,7 +229,7 @@
 
 
                                                                                     <li class="has-sub-menu" ng-repeat="level4 in GetSuperSuperSubMenu(level3,level3.Value)">
-                                                                                        <a href="" class="menu-links" ng-click="categoryClicklevel4(level4.Value)"><i class="fa fa-angle-double-right fa-fw"></i><span> {{level4.text| translate}} </span><i class="fa fa-angle-right fa-fw l-pos-a"></i></a>
+                                                                                        <a href="" class="menu-links" ng-click="categoryClicklevel4(level4.Value)"><i class="fa fa-angle-double-right fa-fw"></i><span> {{level4.text| translate|uppercase}} </span><i class="fa fa-angle-right fa-fw l-pos-a"></i></a>
 
                                                                                         <!-- sub-menu-4 -->
                                                                                         <!--<div class="sub-menu-4 drop-down side-menu l-group">
@@ -392,11 +403,11 @@
                         <p class="copy-right-text">Copyright © <a href="#">DM WholeSales</a> All Rights Reserved.</p>
                         <div class="footer-social-content">
                             <ul class="social-content-list">
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-wifi"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                                <li><a href="https://twitter.com/login"><i class="fa fa-twitter"></i></a></li>
+                               <!-- <li><a href="#"><i class="fa fa-wifi"></i></a></li>-->
+                                <li><a href="https://plus.google.com/people"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="https://facebook.com"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://youtube.com"><i class="fa fa-youtube"></i></a></li>
                             </ul>
                         </div>
                     </div>

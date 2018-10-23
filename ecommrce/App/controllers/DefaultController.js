@@ -43,6 +43,41 @@
             $scope.ItemListTopProductsProduct = ViewVariablesService.GetItemListTopProductsProduct();
             $scope.ItemListNewArrivalsProduct = ViewVariablesService.GetItemListNewArrivalsProduct();
         }, 3500);
+
+
+        ///////on main banner click show item by brand 
+        $scope.CategoryFirstClick = function () {
+            $http({
+                method: 'GET', url: $scope.Url + 'Category/GetItemByBrand?BrandId=1'
+            }).
+                success(function (data, status, headers, config) {
+
+
+                    $scope.ItemListDetails = data;
+                    ViewVariablesService.SetDatasendToItemListPage(data);
+                    $location.path('ItemList');
+
+                }).
+                error(function (data, status, headers, config) {
+                });
+        }
+        $scope.CategorysecondClick = function () {
+            $http({
+                method: 'GET', url: $scope.Url + 'Category/GetItemByBrand?BrandId=2'
+            }).
+                success(function (data, status, headers, config) {
+
+
+                    $scope.ItemListDetails = data;
+                    ViewVariablesService.SetDatasendToItemListPage(data);
+                    $location.path('ItemList');
+
+                }).
+                error(function (data, status, headers, config) {
+                });
+        }
+
+
         $scope.ShowItemDetail = function (ItemData) {
 
             $scope.SingleItemData = ItemData;

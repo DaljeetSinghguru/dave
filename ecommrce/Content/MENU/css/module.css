@@ -328,7 +328,7 @@
   /* main-menu, home, about, services, etc */
   float: left;
   position: relative;
-  font-size: 0.95em;
+  font-size: 0.85em;
   /* border: 1px solid transparent; */
   line-height: 2.65em;
 }
