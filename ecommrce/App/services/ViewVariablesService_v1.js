@@ -1,8 +1,8 @@
 ﻿app.service('ViewVariablesService', ['$http', function ($http) {
     
     this.GetWebsiteDomain = function () {
-     //  return "http://api.davemuslayah.com/";
-       return "http://localhost:50675/";
+       return "http://api.davemuslayah.com/";
+      // return "http://localhost:50675/";
 
     }
     this.GetBaseAddress = function () {
@@ -104,5 +104,37 @@
     }
     this.GetItemListBestSellerProduct = function (data) {
         return this.ItemListBestSellerProduct;
+    }
+    var ItemListHotDealsProduct = [];
+    this.SetItemListHotDealsProduct = function (data) {
+
+        this.ItemListHotDealsProduct = data;
+    }
+    this.GetItemListHotDealsProduct = function (data) {
+        return this.ItemListHotDealsProduct;
+    }
+    var ItemListFeaturedProduct = [];
+    this.SetItemListFeaturedProduct = function (data) {
+
+        this.ItemListFeaturedProduct = data;
+    }
+    this.GetItemListFeaturedProduct = function (data) {
+        return this.ItemListFeaturedProduct;
+    }
+    var ItemListNewArrivalsProduct = [];
+    this.SetItemListNewArrivalsProduct = function (data) {
+
+        this.ItemListNewArrivalsProduct = data;
+    }
+    this.GetItemListNewArrivalsProduct = function (data) {
+        return this.ItemListNewArrivalsProduct;
+    }
+    var ItemListTopProductsProduct = [];
+    this.SetItemListTopProductsProduct = function (data) {
+
+        this.ItemListTopProductsProduct = data;
+    }
+    this.GetItemListTopProductsProduct = function (data) {
+        return this.ItemListTopProductsProduct;
     }
 }]);

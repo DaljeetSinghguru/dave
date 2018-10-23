@@ -15,27 +15,27 @@
                 <a href="" ng-click="CategoryClick()"><img src="img/slider/4.jpg" data-thumb="img/slider/4.jpg" alt="" title="#slider-1-caption2" /></a>
             </div>
             <!-- Slider Background  Image Start-->
-            <div id="slider-1-caption1" class="nivo-html-caption nivo-caption">
+            <div id="slider-1-caption1" class="nivo-html-caption nivo-caption" ng-click="CategoryClick()">
                 <div class="text-content-wrapper">
                     <div class="container">
                         <div class="text-content">
                             <h4 class="title2 wow bounceInLeft mb-16" data-wow-duration="2s" data-wow-delay="0s">Big Sale</h4>
                             <h1 class="title1 wow bounceInRight mb-16" data-wow-duration="2s" data-wow-delay="1s">Hand Tools <br>Circular Saw & Power Saw</h1>
                             <div class="banner-readmore wow bounceInUp mt-35" data-wow-duration="2s" data-wow-delay="2s">
-                                <a class="button slider-btn" href="shop.html">Shop Now</a>
+                                <a class="button slider-btn" href="">Shop Now</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="slider-1-caption2" class="nivo-html-caption nivo-caption">
+            <div id="slider-1-caption2" class="nivo-html-caption nivo-caption" ng-click="CategoryClick()">
                 <div class="text-content-wrapper">
                     <div class="container">
                         <div class="text-content slide-2">
                             <h4 class="title2 wow bounceInLeft mb-16" data-wow-duration="1s" data-wow-delay="1s">Big Sale</h4>
                             <h1 class="title1 wow flipInX  mb-16" data-wow-duration="1s" data-wow-delay="2s">Hand Tools <br>Circular Saw & Power Saw</h1>
                             <div class="banner-readmore wow bounceInUp mt-35" data-wow-duration="1s" data-wow-delay="2s">
-                                <a class="button slider-btn" href="shop.html">Shop Now</a>
+                                <a class="button slider-btn" href="">Shop Now</a>
                             </div>
                         </div>
                     </div>
@@ -44,14 +44,14 @@
         </div>
     </div>
     <!-- Slider Area End -->
-    <!-- Banner Start  370 205 -->
+    <!-- Banner Start  370 205  DONE -->
     <div class="upper-banner banner pb-60">
         <div class="container">
             <div class="row">
                 <!-- Single Banner Start -->
                 <div class="col-sm-4" ng-repeat="data11 in topProductshowonfront">
-                    <div ng-click="CategoryClick(data11)" class="single-banner zoom">
-                        <a href=""><img src="{{WebsiteDomain}}images/{{data11.CategoryImageName370}}" alt="slider-banner"></a>
+                    <div  class="single-banner zoom">
+                        <a href="" ng-click="CategoryClick(data11)"><img src="{{WebsiteDomain}}images/{{data11.CategoryImageName370}}" alt="slider-banner"></a>
                     </div>
                 </div>
                 <!-- Single Banner End -->
@@ -63,7 +63,7 @@
         <!-- Container End -->
     </div>
     <!-- Banner End -->
-    <!-- Best Products Start -->
+    <!-- Best Products Start  DONE-->
     <div class="best-seller-product pb-30">
         <div class="container">
             <div class="group-title">
@@ -74,9 +74,9 @@
                 <!-- Single Product Start -->
                 <div class="single-product" ng-repeat="BestSellerProduct in ItemListBestSellerProduct">
                     <!-- Product Image Start -->
-                   
+
                     <div class="pro-img">
-                        <a href="">
+                        <a href="" ng-click="ShowItemDetail(BestSellerProduct)">
                             <img class="primary-img" src="{{WebsiteDomain}}images/{{BestSellerProduct.ItemMainImage}}" alt="single-product">
                             <img class="secondary-img" src="{{WebsiteDomain}}images/{{BestSellerProduct.ItemMainImage}}" alt="single-product">
                         </a>
@@ -91,12 +91,12 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                         </div>-->
-                        <h4><a href="">{{BestSellerProduct.Title}}</a></h4>
+                        <h4><a href="" ng-click="ShowItemDetail(BestSellerProduct)">{{BestSellerProduct.Title}}</a></h4>
                         <p><span class="price">{{BestSellerProduct.Price * currentRate| number:2|currency:"&#163;"}}</span></p>
                         <div class="pro-actions">
                             <div class="actions-secondary">
-                              <!--  <a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>-->
-                                <a class="add-cart" href="cart.html" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
+                                <!--  <a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>-->
+                                <a class="add-cart" href="" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
                                 <!--<a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a>-->
                             </div>
                         </div>
@@ -105,7 +105,6 @@
                 </div>
                 <!-- Single Product End -->
                 <!-- Single Product Start -->
-              
                 <!-- Single Product End -->
             </div>
             <!-- Best Product Activation End -->
@@ -113,13 +112,13 @@
         <!-- Container End -->
     </div>
     <!-- Best Product End -->
-    <!-- Banner Start 570 255 -->
+    <!-- Banner Start 570 255 DPONE -->
     <div class="upper-banner banner pb-60">
         <div class="container">
             <div class="row">
                 <!-- Single Banner Start -->
 
-      
+
                 <div class="col-sm-6" ng-repeat="data111 in topProductshowonfront570">
                     <div ng-click="CategoryClick(data111)" class="single-banner zoom">
                         <a href=""><img src="{{WebsiteDomain}}images/{{data111.CategoryImageName570}}" alt="slider-banner"></a>
@@ -153,284 +152,22 @@
                             <!-- Double Product Start -->
                             <div class="double-pro">
                                 <!-- Single Product Start -->
-                                <div class="single-product">
+                                <div class="single-product" ng-repeat="TopProductsProduct in ItemListTopProductsProduct">
                                     <div class="pro-img">
-                                        <a href="product.html"><img class="img" src="img/products/4.jpg" alt="product-image"></a>
+                                        <a href=""  ng-click="ShowItemDetail(TopProductsProduct)"><img class="img" src="{{WebsiteDomain}}images/{{TopProductsProduct.ItemMainImage}}" alt="product-image"></a>
                                     </div>
                                     <div class="pro-content">
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <h4><a href="product.html">Products Name Here</a></h4>
-                                        <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
+
+                                        <h4><a href=""  ng-click="ShowItemDetail(TopProductsProduct)">{{TopProductsProduct.Title}}</a></h4>
+                                        <p><span class="price">{{TopProductsProduct.Price * currentRate| number:2|currency:"&#163;"}}</span></p>
                                     </div>
                                 </div>
                                 <!-- Single Product End -->
-                                <!-- Single Product Start -->
-                                <div class="single-product">
-                                    <div class="pro-img">
-                                        <a href="product.html"><img class="img" src="img/products/3.jpg" alt="product-image"></a>
-                                    </div>
-                                    <div class="pro-content">
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <h4><a href="product.html">Products Name Here</a></h4>
-                                        <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
-                                    </div>
-                                </div>
-                                <!-- Single Product End -->
-                                <!-- Single Product Start -->
-                                <div class="single-product">
-                                    <div class="pro-img">
-                                        <a href="product.html"><img class="img" src="img/products/1.jpg" alt="product-image"></a>
-                                    </div>
-                                    <div class="pro-content">
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <h4><a href="product.html">Products Name Here</a></h4>
-                                        <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
-                                    </div>
-                                </div>
-                                <!-- Single Product End -->
-                                <!-- Single Product Start -->
-                                <div class="single-product">
-                                    <div class="pro-img">
-                                        <a href="product.html"><img class="img" src="img/products/2.jpg" alt="product-image"></a>
-                                    </div>
-                                    <div class="pro-content">
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <h4><a href="product.html">Products Name Here</a></h4>
-                                        <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
-                                    </div>
-                                </div>
-                                <!-- Single Product End -->
-                                <!-- Single Product Start -->
-                                <div class="single-product">
-                                    <div class="pro-img">
-                                        <a href="product.html"><img class="img" src="img/products/4.jpg" alt="product-image"></a>
-                                    </div>
-                                    <div class="pro-content">
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <h4><a href="product.html">Products Name Here</a></h4>
-                                        <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
-                                    </div>
-                                </div>
+
                             </div>
                             <!-- Double Product End -->
                             <!-- Double Product Start -->
-                            <div class="double-pro">
-                                <!-- Single Product Start -->
-                                <div class="single-product">
-                                    <div class="pro-img">
-                                        <a href="product.html"><img class="img" src="img/products/4.jpg" alt="product-image"></a>
-                                    </div>
-                                    <div class="pro-content">
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <h4><a href="product.html">Products Name Here</a></h4>
-                                        <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
-                                    </div>
-                                </div>
-                                <!-- Single Product End -->
-                                <!-- Single Product Start -->
-                                <div class="single-product">
-                                    <div class="pro-img">
-                                        <a href="product.html"><img class="img" src="img/products/3.jpg" alt="product-image"></a>
-                                    </div>
-                                    <div class="pro-content">
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <h4><a href="product.html">Products Name Here</a></h4>
-                                        <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
-                                    </div>
-                                </div>
-                                <!-- Single Product End -->
-                                <!-- Single Product Start -->
-                                <div class="single-product">
-                                    <div class="pro-img">
-                                        <a href="product.html"><img class="img" src="img/products/1.jpg" alt="product-image"></a>
-                                    </div>
-                                    <div class="pro-content">
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <h4><a href="product.html">Products Name Here</a></h4>
-                                        <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
-                                    </div>
-                                </div>
-                                <!-- Single Product End -->
-                                <!-- Single Product Start -->
-                                <div class="single-product">
-                                    <div class="pro-img">
-                                        <a href="product.html"><img class="img" src="img/products/2.jpg" alt="product-image"></a>
-                                    </div>
-                                    <div class="pro-content">
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <h4><a href="product.html">Products Name Here</a></h4>
-                                        <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
-                                    </div>
-                                </div>
-                                <!-- Single Product End -->
-                                <!-- Single Product Start -->
-                                <div class="single-product">
-                                    <div class="pro-img">
-                                        <a href="product.html"><img class="img" src="img/products/4.jpg" alt="product-image"></a>
-                                    </div>
-                                    <div class="pro-content">
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <h4><a href="product.html">Products Name Here</a></h4>
-                                        <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
-                                    </div>
-                                </div>
-                                <!-- Single Product End -->
-                            </div>
-                            <!-- Double Product End -->
-                            <!-- Double Product Start -->
-                            <div class="double-pro">
-                                <!-- Single Product Start -->
-                                <div class="single-product">
-                                    <div class="pro-img">
-                                        <a href="product.html"><img class="img" src="img/products/1.jpg" alt="product-image"></a>
-                                    </div>
-                                    <div class="pro-content">
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <h4><a href="product.html">Products Name Here</a></h4>
-                                        <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
-                                    </div>
-                                </div>
-                                <!-- Single Product End -->
-                                <!-- Single Product Start -->
-                                <div class="single-product">
-                                    <div class="pro-img">
-                                        <a href="product.html"><img class="img" src="img/products/2.jpg" alt="product-image"></a>
-                                    </div>
-                                    <div class="pro-content">
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <h4><a href="product.html">Products Name Here</a></h4>
-                                        <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
-                                    </div>
-                                </div>
-                                <!-- Single Product End -->
-                                <!-- Single Product Start -->
-                                <div class="single-product">
-                                    <div class="pro-img">
-                                        <a href="product.html"><img class="img" src="img/products/3.jpg" alt="product-image"></a>
-                                    </div>
-                                    <div class="pro-content">
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <h4><a href="product.html">Products Name Here</a></h4>
-                                        <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
-                                    </div>
-                                </div>
-                                <!-- Single Product End -->
-                                <!-- Single Product Start -->
-                                <div class="single-product">
-                                    <div class="pro-img">
-                                        <a href="product.html"><img class="img" src="img/products/4.jpg" alt="product-image"></a>
-                                    </div>
-                                    <div class="pro-content">
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <h4><a href="product.html">Products Name Here</a></h4>
-                                        <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
-                                    </div>
-                                </div>
-                                <!-- Single Product End -->
-                                <!-- Single Product Start -->
-                                <div class="single-product">
-                                    <div class="pro-img">
-                                        <a href="product.html"><img class="img" src="img/products/2.jpg" alt="product-image"></a>
-                                    </div>
-                                    <div class="pro-content">
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <h4><a href="product.html">Products Name Here</a></h4>
-                                        <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
-                                    </div>
-                                </div>
-                                <!-- Single Product End -->
-                            </div>
-                            <!-- Double Product End -->
+
                         </div>
                         <!-- Deal Pro Activation End -->
                     </div>
@@ -452,24 +189,24 @@
                                 <!-- New Products Activation Start -->
                                 <div class="new-pro-active owl-carousel">
                                     <!-- Single Product Start -->
-                                    <div class="single-product" ng-repeat="BestSellerProduct in ItemListBestSellerProduct">
+                                    <div class="single-product" ng-repeat="NewArrivalsProduct in ItemListNewArrivalsProduct">
                                         <!-- Product Image Start -->
                                         <div class="pro-img">
-                                            <a href=""  ng-click="ShowItemDetail(ItemdataCatWise)">
-                                                <img class="primary-img" src="{{WebsiteDomain}}images/{{BestSellerProduct.ItemMainImage}}"" alt="single-product">
-                                                <img class="secondary-img" src="{{WebsiteDomain}}images/{{BestSellerProduct.ItemMainImage}}"" alt="single-product">
+                                            <a href="" ng-click="ShowItemDetail(NewArrivalsProduct)">
+                                                <img class="primary-img" src="{{WebsiteDomain}}images/{{NewArrivalsProduct.ItemMainImage}}" alt="single-product">
+                                                <img class="secondary-img" src="{{WebsiteDomain}}images/{{NewArrivalsProduct.ItemMainImage}}" alt="single-product">
                                             </a>
                                         </div>
                                         <!-- Product Image End -->
                                         <!-- Product Content Start -->
                                         <div class="pro-content">
-                                           
-                                            <h4><a href="">{{BestSellerProduct.Title}}</a></h4>
-                                            <p><span class="price">{{BestSellerProduct.Price * currentRate| number:2|currency:"&#163;"}}</span></p>
+
+                                            <h4><a href="" ng-click="ShowItemDetail(NewArrivalsProduct)">{{NewArrivalsProduct.Title}}</a></h4>
+                                            <p><span class="price">{{NewArrivalsProduct.Price * currentRate| number:2|currency:"&#163;"}}</span></p>
                                             <div class="pro-actions">
                                                 <div class="actions-secondary">
                                                     <!--<a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>-->
-                                                    <a class="add-cart" href="cart.html" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
+                                                    <a class="add-cart" href="" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
                                                     <!--<a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a>-->
                                                 </div>
                                             </div>
@@ -478,7 +215,6 @@
                                     </div>
                                     <!-- Single Product End -->
                                     <!-- Single Product Start -->
-                                 
                                     <!-- Single Product End -->
                                 </div>
                                 <!-- New Products Activation End -->
@@ -488,24 +224,24 @@
                                 <!-- New Products Activation Start -->
                                 <div class="new-pro-active owl-carousel">
                                     <!-- Single Product Start -->
-                                  <div class="single-product" ng-repeat="BestSellerProduct in ItemListBestSellerProduct">
+                                    <div class="single-product" ng-repeat="FeaturedProduct in ItemListFeaturedProduct">
                                         <!-- Product Image Start -->
                                         <div class="pro-img">
-                                            <a href=""  ng-click="ShowItemDetail(ItemdataCatWise)">
-                                                <img class="primary-img" src="{{WebsiteDomain}}images/{{BestSellerProduct.ItemMainImage}}"" alt="single-product">
-                                                <img class="secondary-img" src="{{WebsiteDomain}}images/{{BestSellerProduct.ItemMainImage}}"" alt="single-product">
+                                            <a href="" ng-click="ShowItemDetail(FeaturedProduct)">
+                                                <img class="primary-img" src="{{WebsiteDomain}}images/{{FeaturedProduct.ItemMainImage}}" alt="single-product">
+                                                <img class="secondary-img" src="{{WebsiteDomain}}images/{{FeaturedProduct.ItemMainImage}}" alt="single-product">
                                             </a>
                                         </div>
                                         <!-- Product Image End -->
                                         <!-- Product Content Start -->
                                         <div class="pro-content">
-                                           
-                                            <h4><a href="">{{BestSellerProduct.Title}}</a></h4>
-                                            <p><span class="price">{{BestSellerProduct.Price * currentRate| number:2|currency:"&#163;"}}</span></p>
+
+                                            <h4><a href="" ng-click="ShowItemDetail(FeaturedProduct)">{{FeaturedProduct.Title}}</a></h4>
+                                            <p><span class="price">{{FeaturedProduct.Price * currentRate| number:2|currency:"&#163;"}}</span></p>
                                             <div class="pro-actions">
                                                 <div class="actions-secondary">
                                                     <!--<a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>-->
-                                                    <a class="add-cart" href="cart.html" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
+                                                    <a class="add-cart" href="" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
                                                     <!--<a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a>-->
                                                 </div>
                                             </div>
@@ -520,10 +256,10 @@
                                 <!-- New Products Activation Start -->
                                 <div class="new-pro-active owl-carousel">
                                     <!-- Single Product Start -->
-                                    <div class="single-product"  ng-repeat="BestSellerProduct in ItemListBestSellerProduct">
+                                    <div class="single-product" ng-repeat="BestSellerProduct in ItemListBestSellerProduct">
                                         <!-- Product Image Start -->
                                         <div class="pro-img">
-                                            <a href="" ng-click="ShowItemDetail(ItemdataCatWise)">
+                                            <a href="" ng-click="ShowItemDetail(BestSellerProduct)">
                                                 <img class="primary-img" src="{{WebsiteDomain}}images/{{BestSellerProduct.ItemMainImage}}" alt="single-product">
                                                 <img class="secondary-img" src="{{WebsiteDomain}}images/{{BestSellerProduct.ItemMainImage}}" alt="single-product">
                                             </a>
@@ -531,30 +267,29 @@
                                         <!-- Product Image End -->
                                         <!-- Product Content Start -->
                                         <div class="pro-content">
-                                      
-                                            <h4><a href="">{{BestSellerProduct.Title}}</a></h4>
+
+                                            <h4><a href="" ng-click="ShowItemDetail(BestSellerProduct)">{{BestSellerProduct.Title}}</a></h4>
                                             <p><span class="price">{{BestSellerProduct.Price * currentRate| number:2|currency:"&#163;"}}</span></p>
                                             <div class="pro-actions">
                                                 <div class="actions-secondary">
                                                     <!--<a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>-->
-                                                    <a class="add-cart" href="cart.html" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
-                                                   <!-- <a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a>-->
+                                                    <a class="add-cart" href="" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
+                                                    <!-- <a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a>-->
                                                 </div>
                                             </div>
                                         </div>
                                         <!-- Product Content End -->
                                     </div>
                                     <!-- Single Product End -->
-                                 
                                     <!-- Single Product End -->
                                 </div>
                                 <!-- New Products Activation End -->
                             </div>
                         </div>
-                        <!-- Tab-Content End   870 240 -->
-                        
-                        <div ng-click="CategoryClick(data1111)" class="single-banner zoom mt-30"  ng-repeat="data1111 in topProductshowonfront870">
-                            <a href=""><img src="{{WebsiteDomain}}images/{{data1111.CategoryImageName870}}" alt="slider-banner"></a>
+                        <!-- Tab-Content End   870 240 DONE -->
+
+                        <div  class="single-banner zoom mt-30" ng-repeat="data1111 in topProductshowonfront870">
+                            <a href="" ng-click="CategoryClick(data1111)"><img src="{{WebsiteDomain}}images/{{data1111.CategoryImageName870}}" alt="slider-banner"></a>
                         </div>
                     </div>
                     <!-- New Pro Content End -->
@@ -634,26 +369,24 @@
             <!-- Best Product Activation Start -->
             <div class="best-seller-pro-active  owl-carousel slider-right-content">
                 <!-- Double Product Start -->
-                <div class="double-pro" ng-repeat="BestSellerProduct in ItemListBestSellerProduct">
+                <div class="double-pro" ng-repeat="HotSellerProduct in ItemListHotSalesProduct">
                     <!-- Single Product Start -->
-                    <div class="single-product" ng-click="ShowItemDetail(ItemdataCatWise)">
-                        <div class="pro-img"  ng-click="ShowItemDetail(ItemdataCatWise)">
-                            <a href=""><img class="img" src="{{WebsiteDomain}}images/{{BestSellerProduct.ItemMainImage}}" alt="product-image"></a>
+                    <div class="single-product">
+                        <div class="pro-img" >
+                            <a href="" ng-click="ShowItemDetail(HotSellerProduct)"><img class="img" src="{{WebsiteDomain}}images/{{HotSellerProduct.ItemMainImage}}" alt="product-image"></a>
                         </div>
                         <div class="pro-content">
-                          
-                            <h4><a href="">{{BestSellerProduct.Title}}</a></h4>
-                            <p><span class="price">{{BestSellerProduct.Price * currentRate| number:2|currency:"&#163;"}}</span></p>
+
+                            <h4><a href="" ng-click="ShowItemDetail(HotSellerProduct)">{{HotSellerProduct.Title}}</a></h4>
+                            <p><span class="price">{{HotSellerProduct.Price * currentRate| number:2|currency:"&#163;"}}</span></p>
                         </div>
                     </div>
                     <!-- Single Product End -->
                     <!-- Single Product Start -->
-                 
                     <!-- Single Product End -->
                 </div>
                 <!-- Double Product End -->
                 <!-- Double Product Start -->
-             
                 <!-- Double Product End -->
             </div>
             <!-- Best Product Activation End -->
@@ -662,163 +395,29 @@
     </div>
     <!-- Best Product End -->
     <!-- Blog Page Start -->
-    <div class="blog-area pb-60">
-        <div class="container">
-            <div class="group-title">
-                <h2>From The Blog</h2>
-            </div>
-            <!-- Popular Categorie Activation Start -->
-            <div class="blog-active owl-carousel">
-                <!-- Single Blog Start -->
-                <div class="single-blog">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="img/blog/1.jpg" alt="blog-image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <h4 class="blog-title"><a href="blog-details.html">Lorem ipsum dolor sit amet, consectl adip elit, sed do eiusmod tempor</a></h4>
-                        <div class="blog-meta">
-                            <ul>
-                                <li><span>By: </span> <a href="#">Jantrik,</a></li>
-                                <li><span>On: </span> <a href="#">05 Nov, 2018</a></li>
-                            </ul>
-                        </div>
-                        <div class="readmore">
-                            <a href="blog-details.html">Read More.....</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Blog End -->
-                <!-- Single Blog Start -->
-                <div class="single-blog">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="img/blog/2.jpg" alt="blog-image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <h4 class="blog-title"><a href="blog-details.html">Lorem ipsum dolor sit amet, consectl adip elit, sed do eiusmod tempor</a></h4>
-                        <div class="blog-meta">
-                            <ul>
-                                <li><span>By </span> <a href="#">Jantrik, </a></li>
-                                <li><span>On </span> <a href="#">05 Nov, 2018</a></li>
-                            </ul>
-                        </div>
-                        <div class="readmore">
-                            <a href="blog-details.html">Read More.....</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Blog End -->
-                <!-- Single Blog Start -->
-                <div class="single-blog">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="img/blog/3.jpg" alt="blog-image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <h4 class="blog-title"><a href="blog-details.html">Lorem ipsum dolor sit amet, consectl adip elit, sed do eiusmod tempor</a></h4>
-                        <div class="blog-meta">
-                            <ul>
-                                <li><span>By </span> <a href="#">Jantrik, </a></li>
-                                <li><span>On </span> <a href="#">05 Nov, 2018</a></li>
-                            </ul>
-                        </div>
-                        <div class="readmore">
-                            <a href="blog-details.html">Read More.....</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Blog End -->
-                <!-- Single Blog Start -->
-                <div class="single-blog">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="img/blog/1.jpg" alt="blog-image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <h4 class="blog-title"><a href="blog-details.html">Lorem ipsum dolor sit amet, consectl adip elit, sed do eiusmod tempor</a></h4>
-                        <div class="blog-meta">
-                            <ul>
-                                <li><span>By </span> <a href="#">Jantrik, </a></li>
-                                <li><span>On </span> <a href="#">05 Nov, 2018</a></li>
-                            </ul>
-                        </div>
-                        <div class="readmore">
-                            <a href="blog-details.html">Read More.....</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Blog End -->
-                <!-- Single Blog Start -->
-                <div class="single-blog">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="img/blog/2.jpg" alt="blog-image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <h4 class="blog-title"><a href="blog-details.html">Lorem ipsum dolor sit amet, consectl adip elit, sed do eiusmod tempor</a></h4>
-                        <div class="blog-meta">
-                            <ul>
-                                <li><span>By </span> <a href="#">Jantrik, </a></li>
-                                <li><span>On </span> <a href="#">05 Nov, 2018</a></li>
-                            </ul>
-                        </div>
-                        <div class="readmore">
-                            <a href="blog-details.html">Read More.....</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Blog End -->
-                <!-- Single Blog Start -->
-                <div class="single-blog">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="img/blog/3.jpg" alt="blog-image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <h4 class="blog-title"><a href="blog-details.html">Lorem ipsum dolor sit amet, consectl adip elit, sed do eiusmod tempor</a></h4>
-                        <div class="blog-meta">
-                            <ul>
-                                <li><span>By </span> <a href="#">Jantrik, </a></li>
-                                <li><span>On </span> <a href="#">05 Nov, 2018</a></li>
-                            </ul>
-                        </div>
-                        <div class="readmore">
-                            <a href="blog-details.html">Read More.....</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Blog End -->
-            </div>
-            <!-- Popular Categorie Activation End -->
-        </div>
-        <!-- Container End -->
-    </div>
     <!-- Blog Page End -->
+
     <!-- Brand Logo Start -->
     <div class="brand-area pb-60">
         <div class="container">
+            <div class="group-title">
+                <h2 style="padding-left:450px!important;">Browse By Brand</h2>
+            </div>
             <!-- Brand Banner Start -->
             <div class="brand-banner owl-carousel">
 
-                <div class="single-brand" ng-repeat="brand in BrandList" ng-click="BrandClick(brand)">
-                    <a href=""><img class="img" src="{{WebsiteDomain}}images/{{brand.filename}}" alt="brand-image"></a>
+                <div class="single-brand" ng-repeat="brand in BrandList">
+                    <a href="" ng-click="BrandClick(brand)"><img class="img" src="{{WebsiteDomain}}images/{{brand.filename}}" alt="brand-image"></a>
                 </div>
-                <!--<div class="single-brand">
-                    <a href="#"><img src="img/brand/2.png" alt="brand-image"></a>
-                </div>
-                <div class="single-brand">
-                    <a href="#"><img src="img/brand/3.png" alt="brand-image"></a>
-                </div>
-                <div class="single-brand">
-                    <a href="#"><img src="img/brand/4.png" alt="brand-image"></a>
-                </div>
-                <div class="single-brand">
-                    <a href="#"><img src="img/brand/5.png" alt="brand-image"></a>
-                </div>-->
+
 
             </div>
             <!-- Brand Banner End -->
         </div>
     </div>
     <!-- Brand Logo End -->
-  
+
 </div>
 <!-- Wrapper End -->
 <!-- Brand Logo End -->
-
 <!--<script src="js/main.js"></script>-->

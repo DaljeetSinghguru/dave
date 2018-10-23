@@ -1,4 +1,4 @@
-﻿app.controller('DefaultController', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate','$location',
+﻿app.controller('DefaultController', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location',
     function ($scope, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location) {
         debugger
 
@@ -15,7 +15,7 @@
         $scope.showTab3 = function () {
             $scope.activeTab = '3';
         }
-       
+
 
 
 
@@ -26,7 +26,7 @@
         $scope.Logincredential = localStorage != null ? localStorage["credential"] : null;
         if ($scope.Logincredential) {
             $rootScope.DisplayUserName = JSON.parse($scope.Logincredential).UserName;
-            if ($rootScope.DisplayUserName != null || $rootScope.DisplayUserName != undefined || $rootScope.DisplayUserName !="") {
+            if ($rootScope.DisplayUserName != null || $rootScope.DisplayUserName != undefined || $rootScope.DisplayUserName != "") {
                 $rootScope.showloginbutton = false;
             }
             else {
@@ -38,6 +38,10 @@
             debugger
             $scope.BrandList = ViewVariablesService.GetBrandData();
             $scope.ItemListBestSellerProduct = ViewVariablesService.GetItemListBestSellerProduct();
+            $scope.ItemListHotSalesProduct = ViewVariablesService.GetItemListHotDealsProduct();
+            $scope.ItemListFeaturedProduct = ViewVariablesService.GetItemListFeaturedProduct();
+            $scope.ItemListTopProductsProduct = ViewVariablesService.GetItemListTopProductsProduct();
+            $scope.ItemListNewArrivalsProduct = ViewVariablesService.GetItemListNewArrivalsProduct();
         }, 3500);
         $scope.ShowItemDetail = function (ItemData) {
 
@@ -59,13 +63,13 @@
         }
         $http({
             method: 'GET', url: $scope.Url + 'Category/Category_Get370'
-                }).
-                success(function (data, status, headers, config) {
-                    
-                    $scope.topProductshowonfront = data;
-               
-                }).
-                error(function (data, status, headers, config) {
+        }).
+            success(function (data, status, headers, config) {
+
+                $scope.topProductshowonfront = data;
+
+            }).
+            error(function (data, status, headers, config) {
             });
 
         $http({
@@ -102,13 +106,13 @@
 
 
         $scope.CategoryClick = function (categorydata) {
-            
-            
+
+
             $http({
                 method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=' + categorydata.CategoryId + ''
             }).
                 success(function (data, status, headers, config) {
-                    
+
 
                     $scope.ItemListDetails = data;
                     ViewVariablesService.SetDatasendToItemListPage(data);
@@ -149,8 +153,8 @@
         $scope.loadbrand = function () {
             debugger
 
-       //     1. Newsletter Popup
-         //   ---------------------------* /
+            //     1. Newsletter Popup
+            //   ---------------------------* /
             setTimeout(function () {
                 $('.popup_wrapper').css({
                     "opacity": "1",
@@ -272,7 +276,7 @@
             -----------------------------------------------------*/
             $('.side-product-list-active')
                 .on('changed.owl.carousel initialized.owl.carousel', function (event) {
-                    
+
                     $(event.target)
                         .find('.owl-item').removeClass('last')
                         .eq(event.item.index + event.page.size - 1).addClass('last');
@@ -636,5 +640,5 @@
 
         setTimeout(function () {
             $scope.loadbrand();
-    }, 3500);
-}]);
+        }, 3500);
+    }]);

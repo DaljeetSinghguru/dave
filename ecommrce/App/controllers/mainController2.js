@@ -21,7 +21,7 @@
         $scope.searchme = function (text) {
             debugger
             $scope.searchtext;
-            $http({ method: 'POST', url: $scope.Url + 'Search/Request/?Searchtext='+$scope.searchtext }).
+            $http({ method: 'POST', url: $scope.Url + 'Search/Request/?Searchtext=' + $scope.searchtext }).
                 success(function (data, status, headers, config) {
                     debugger
                     $scope.ItemListDetails = data;
@@ -43,23 +43,23 @@
         //http://data.fixer.io/api/latest?access_key=af97a3a1617ee07c5e0f15fdd042f507&format=1
         ///Get data for top 8 item show on home page
         $http({
-            method: 'GET', url:'http://data.fixer.io/api/latest?access_key=af97a3a1617ee07c5e0f15fdd042f507&format=1'
+            method: 'GET', url: 'http://data.fixer.io/api/latest?access_key=af97a3a1617ee07c5e0f15fdd042f507&format=1'
         }).
             success(function (data, status, headers, config) {
-                
-                $scope.data=data;
+
+                $scope.data = data;
                 $rootScope.ratesofallcountry = data.rates;
             }).
             error(function (data, status, headers, config) {
             });
- 
-        $rootScope.currentRate ="1";
+
+        $rootScope.currentRate = "1";
 
         $scope.changeLanguage = function (langKey) {
             $translate.use(langKey);
 
             if (langKey == 'en') {
-                $rootScope.currentRate=$rootScope.ratesofallcountry.EUR;
+                $rootScope.currentRate = $rootScope.ratesofallcountry.EUR;
             }
             if (langKey == 'fr') {
                 $rootScope.currentRate = $rootScope.ratesofallcountry.USD;
@@ -919,17 +919,6 @@
             error(function (data, status, headers, config) {
             });
 
-        $http({
-            method: 'GET', url: $scope.Url + 'Category/Category_Get1920'
-        }).
-            success(function (data, status, headers, config) {
-                debugger
-             
-                ViewVariablesService.Set1920ImageData(data);
-
-            }).
-            error(function (data, status, headers, config) {
-            });
 
 
         //Best Seller Product
@@ -939,14 +928,70 @@
             success(function (data, status, headers, config) {
 
 
-               $scope.ItemListBestSellerProduct = data;
+                $scope.ItemListBestSellerProduct = data;
                 ViewVariablesService.SetItemListBestSellerProduct(data);
-                
+
 
             }).
             error(function (data, status, headers, config) {
             });
 
-        //Best Seller Product
-       
+        //HOT Deals 158
+        $http({
+            method: 'GET', url: $scope.Url + 'Category/GetHotSaleItem'
+        }).
+            success(function (data, status, headers, config) {
+
+
+                $scope.ItemListHotSalesProduct = data;
+                ViewVariablesService.SetItemListHotDealsProduct(data);
+
+
+            }).
+            error(function (data, status, headers, config) {
+            });
+        //Featured 163
+        $http({
+            method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=163'
+        }).
+            success(function (data, status, headers, config) {
+
+
+                $scope.ItemListFeaturedProduct = data;
+                ViewVariablesService.SetItemListFeaturedProduct(data);
+
+
+            }).
+            error(function (data, status, headers, config) {
+            });
+
+        //NewArrivals  162
+        $http({
+            method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=162'
+        }).
+            success(function (data, status, headers, config) {
+
+
+                $scope.ItemListNewArrivalsProduct = data;
+                ViewVariablesService.SetItemListNewArrivalsProduct(data);
+
+
+            }).
+            error(function (data, status, headers, config) {
+            });
+
+        //TopProducts 164
+        $http({
+            method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=164'
+        }).
+            success(function (data, status, headers, config) {
+
+
+                $scope.ItemListTopProductsProduct = data;
+                ViewVariablesService.SetItemListTopProductsProduct(data);
+
+
+            }).
+            error(function (data, status, headers, config) {
+            });
     }]);
