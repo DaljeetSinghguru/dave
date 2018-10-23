@@ -939,7 +939,7 @@
             success(function (data, status, headers, config) {
 
 
-              //  $scope.ItemListBestSellerProduct = data;
+               $scope.ItemListBestSellerProduct = data;
                 ViewVariablesService.SetItemListBestSellerProduct(data);
                 
 
@@ -948,18 +948,5 @@
             });
 
         //Best Seller Product
-        $http({
-            method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=161'
-        }).
-            success(function (data, status, headers, config) {
-
-
-                //  $scope.ItemListBestSellerProduct = data;
-                ViewVariablesService.SetItemListBestSellerProduct(data);
-
-
-            }).
-            error(function (data, status, headers, config) {
-            });
-
+       
     }]);

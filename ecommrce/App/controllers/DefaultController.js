@@ -35,6 +35,7 @@
             }
         }
         setTimeout(function () {
+            debugger
             $scope.BrandList = ViewVariablesService.GetBrandData();
             $scope.ItemListBestSellerProduct = ViewVariablesService.GetItemListBestSellerProduct();
         }, 3500);
@@ -271,7 +272,7 @@
             -----------------------------------------------------*/
             $('.side-product-list-active')
                 .on('changed.owl.carousel initialized.owl.carousel', function (event) {
-                    debugger
+                    
                     $(event.target)
                         .find('.owl-item').removeClass('last')
                         .eq(event.item.index + event.page.size - 1).addClass('last');
@@ -304,7 +305,7 @@
             -----------------------------------------------------*/
             $('.best-seller-pro-active')
                 .on('changed.owl.carousel initialized.owl.carousel', function (event) {
-
+                    debugger
                     $(event.target)
                         .find('.owl-item').removeClass('last')
                         .eq(event.item.index + event.page.size - 1).addClass('last');
@@ -339,6 +340,7 @@
             9. Hand Tool Activation
             -----------------------------------------------------*/
             $('.hand-tool-active').owlCarousel({
+
                 loop: false,
                 nav: true,
                 dots: false,
