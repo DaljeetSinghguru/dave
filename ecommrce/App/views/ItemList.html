@@ -36,17 +36,17 @@
 
 
     </div>-->
-    <!--<div class="breadcrumb-area ptb-60 ptb-sm-30">
+    <div class="breadcrumb-area ptb-60 ptb-sm-30">
         <div class="container">
             <div class="breadcrumb">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
+                <!--<ul>
+                    <li><a href="">Home</a></li>
                     <li class="active"><a href="shop.html">Shop</a></li>
-                </ul>
+                </ul>-->
             </div>
         </div>
        
-    </div>-->
+    </div>
     <!-- Breadcrumb End -->
     <!-- Shop Page Start -->
     <div class="main-shop-page pb-60">
@@ -58,7 +58,7 @@
                     <div class="sidebar white-bg">
                         <div class="single-sidebar">
                             <div class="group-title">
-                                <h2>categories</h2>
+                                <h2>Browse By Categories</h2>
                             </div>
                             <div kendo-tree-view="tree"
                                  k-data-source="treeData1"
@@ -115,14 +115,13 @@
                         </div>-->
                         <div class="single-sidebar">
                             <div class="group-title">
-                                <h2>manufacturer</h2>
+                                <h2>Browse By Brand</h2>
                             </div>
                             <ul class="manufactures-list">
-                                <li><a href="#">Brand one (14)</a></li>
-                                <li><a href="#">Brand two (13)</a></li>
-                                <li><a href="#">Brand three (13)</a></li>
-                                <li><a href="#">Brand four (14)</a></li>
-                                <li><a href="#">Brand five (13)</a></li>
+                                <li  ng-repeat="brand in BrandList">
+                                    <a href="" ng-click="BrandClick(brand)">{{brand.BrandName}}</a>
+                                </li>
+                             
                             </ul>
                         </div>
 
@@ -285,36 +284,11 @@
         <div class="container">
             <!-- Brand Banner Start -->
             <div class="brand-banner owl-carousel">
-                <div class="single-brand">
-                    <a href="#"><img class="img" src="../../img/brand/1.png" alt="brand-image"></a>
+               
+                <div class="single-brand"  ng-repeat="brand in BrandList">
+                    <a href="" ng-click="BrandClick(brand)"><img class="img" src="{{WebsiteDomain}}images/{{brand.filename}}" alt="{{brand.BrandName}}"></a>
                 </div>
-                <div class="single-brand">
-                    <a href="#"><img src="../../img/brand/2.png" alt="brand-image"></a>
-                </div>
-                <div class="single-brand">
-                    <a href="#"><img src="../../img/brand/3.png" alt="brand-image"></a>
-                </div>
-                <div class="single-brand">
-                    <a href="#"><img src="../../img/brand/4.png" alt="brand-image"></a>
-                </div>
-                <div class="single-brand">
-                    <a href="#"><img src="../../img/brand/5.png" alt="brand-image"></a>
-                </div>
-                <div class="single-brand">
-                    <a href="#"><img class="img" src="../../img/brand/1.png" alt="brand-image"></a>
-                </div>
-                <div class="single-brand">
-                    <a href="#"><img src="../../img/brand/2.png" alt="brand-image"></a>
-                </div>
-                <div class="single-brand">
-                    <a href="#"><img src="../../img/brand/3.png" alt="brand-image"></a>
-                </div>
-                <div class="single-brand">
-                    <a href="#"><img src="../../img/brand/4.png" alt="brand-image"></a>
-                </div>
-                <div class="single-brand">
-                    <a href="#"><img src="../../img/brand/5.png" alt="brand-image"></a>
-                </div>
+
             </div>
             <!-- Brand Banner End -->
         </div>
@@ -326,4 +300,4 @@
 </div>
 
 
-<script src="../../js/main.js"></script>
+

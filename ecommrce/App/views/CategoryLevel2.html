@@ -33,17 +33,17 @@
 
     </div>-->
     <!-- Breadcrumb Start -->
-    <!--<div class="breadcrumb-area ptb-60 ptb-sm-30">
+    <div class="breadcrumb-area ptb-60 ptb-sm-30">
         <div class="container">
             <div class="breadcrumb">
-                <ul>
+                <!--<ul>
                     <li><a href="index.html">Home</a></li>
                     <li class="active"><a href="shop.html">Shop</a></li>
-                </ul>
+                </ul>-->
             </div>
         </div>
-        
-    </div>-->
+
+    </div>
     <!-- Breadcrumb End -->
     <!-- Shop Page Start -->
     <div class="main-shop-page pb-60">
@@ -66,60 +66,59 @@
                             </div>
                         </div>
                         <!--<div class="single-sidebar">
-                            <div class="group-title">
-                                <h2>color</h2>
-                            </div>
-                            <ul class="color-option">
-                                <li>
-                                    <a class="blue" href="#"></a>
-                                </li>
-                                <li>
-                                    <a class="green" href="#"></a>
-                                </li>
-                                <li>
-                                    <a class="black" href="#"></a>
-                                </li>
-                                <li>
-                                    <a class="rose" href="#"></a>
-                                </li>
-                                <li>
-                                    <a class="red" href="#"></a>
-                                </li>
-                                <li>
-                                    <a class="purple" href="#"></a>
-                                </li>
-                                <li>
-                                    <a class="rose" href="#"></a>
-                                </li>
-                                <li>
-                                    <a class="yellow" href="#"></a>
-                                </li>
-                                <li>
-                                    <a class="orange" href="#"></a>
-                                </li>
-                            </ul>
-                        </div>-->
+        <div class="group-title">
+            <h2>color</h2>
+        </div>
+        <ul class="color-option">
+            <li>
+                <a class="blue" href="#"></a>
+            </li>
+            <li>
+                <a class="green" href="#"></a>
+            </li>
+            <li>
+                <a class="black" href="#"></a>
+            </li>
+            <li>
+                <a class="rose" href="#"></a>
+            </li>
+            <li>
+                <a class="red" href="#"></a>
+            </li>
+            <li>
+                <a class="purple" href="#"></a>
+            </li>
+            <li>
+                <a class="rose" href="#"></a>
+            </li>
+            <li>
+                <a class="yellow" href="#"></a>
+            </li>
+            <li>
+                <a class="orange" href="#"></a>
+            </li>
+        </ul>
+    </div>-->
                         <!--<div class="single-sidebar">
-                            <div class="group-title">
-                                <h2>price</h2>
-                            </div>
-                            <form action="#">
-                                <div id="slider-range" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
-                                    <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
-                                </div>
-                                <input id="amount" class="amount" readonly="" type="text">
-                            </form>
-                        </div>-->
+        <div class="group-title">
+            <h2>price</h2>
+        </div>
+        <form action="#">
+            <div id="slider-range" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
+            </div>
+            <input id="amount" class="amount" readonly="" type="text">
+        </form>
+    </div>-->
                         <div class="single-sidebar">
                             <div class="group-title">
-                                <h2>manufacturer</h2>
+                                <h2>Browse By Brand</h2>
                             </div>
                             <ul class="manufactures-list">
-                                <li><a href="#">Brand one (14)</a></li>
-                                <li><a href="#">Brand two (13)</a></li>
-                                <li><a href="#">Brand three (13)</a></li>
-                                <li><a href="#">Brand four (14)</a></li>
-                                <li><a href="#">Brand five (13)</a></li>
+                                <li ng-repeat="brand in BrandList">
+                                    <a href="" ng-click="BrandClick(brand)">{{brand.BrandName}}</a>
+                                </li>
+
                             </ul>
                         </div>
 
@@ -165,7 +164,7 @@
                             <div id="grid-view" class="" ng-show="showgridviewdata == true">
                                 <div class="row">
                                     <!-- Single Product Start -->
-                                 
+
                                     <div class="col-lg-4 col-sm-6" ng-click="ShowCategoryLevel3(dataCatWiseLevel2)" ng-repeat="dataCatWiseLevel2 in ItemListPageCategoryLevel2.items">
                                         <div class="single-product">
                                             <!-- Product Image Start -->
@@ -179,18 +178,18 @@
                                             <!-- Product Content Start -->
                                             <div class="pro-content">
                                                 <!--<div class="product-rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>-->
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </div>-->
                                                 <h4><a>{{dataCatWiseLevel2.text}}</a></h4>
                                                 <div class="pro-actions">
                                                     <div class="actions-secondary">
                                                         <!--<a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                        <a class="add-cart" href="cart.html" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
-                        <a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a>-->
+                                                        <a class="add-cart" href="cart.html" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
+                                                        <a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a>-->
                                                     </div>
                                                 </div>
                                             </div>
@@ -205,8 +204,8 @@
                             <div id="list-view" class="" ng-show="showlistviewdata == true">
                                 <!-- Single Product Start -->
                                 <!--<h3>{{ItemListPageCategoryLevel1.text}}</h3>-->
-                               
-                                <div ng-click="ShowCategoryLevel3(dataCatWiseLevel2)"class="single-product"  ng-repeat="dataCatWiseLevel2 in ItemListPageCategoryLevel2.items">
+
+                                <div ng-click="ShowCategoryLevel3(dataCatWiseLevel2)" class="single-product" ng-repeat="dataCatWiseLevel2 in ItemListPageCategoryLevel2.items">
                                     <!-- Product Image Start -->
                                     <div class="pro-img">
                                         <a>
@@ -218,12 +217,12 @@
                                     <!-- Product Content Start -->
                                     <div class="pro-content">
                                         <!--<div class="product-rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-            </div>-->
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>-->
                                         <h4><a>{{dataCatWiseLevel2.text}}</a></h4>
 
                                         <p>{{dataCatWiseLevel2.Description}}</p>
@@ -275,36 +274,11 @@
         <div class="container">
             <!-- Brand Banner Start -->
             <div class="brand-banner owl-carousel">
-                <div class="single-brand">
-                    <a href="#"><img class="img" src="../../img/brand/1.png" alt="brand-image"></a>
+
+                <div class="single-brand" ng-repeat="brand in BrandList">
+                    <a href="" ng-click="BrandClick(brand)"><img class="img" src="{{WebsiteDomain}}images/{{brand.filename}}" alt="{{brand.BrandName}}"></a>
                 </div>
-                <div class="single-brand">
-                    <a href="#"><img src="../../img/brand/2.png" alt="brand-image"></a>
-                </div>
-                <div class="single-brand">
-                    <a href="#"><img src="../../img/brand/3.png" alt="brand-image"></a>
-                </div>
-                <div class="single-brand">
-                    <a href="#"><img src="../../img/brand/4.png" alt="brand-image"></a>
-                </div>
-                <div class="single-brand">
-                    <a href="#"><img src="../../img/brand/5.png" alt="brand-image"></a>
-                </div>
-                <div class="single-brand">
-                    <a href="#"><img class="img" src="../../img/brand/1.png" alt="brand-image"></a>
-                </div>
-                <div class="single-brand">
-                    <a href="#"><img src="../../img/brand/2.png" alt="brand-image"></a>
-                </div>
-                <div class="single-brand">
-                    <a href="#"><img src="../../img/brand/3.png" alt="brand-image"></a>
-                </div>
-                <div class="single-brand">
-                    <a href="#"><img src="../../img/brand/4.png" alt="brand-image"></a>
-                </div>
-                <div class="single-brand">
-                    <a href="#"><img src="../../img/brand/5.png" alt="brand-image"></a>
-                </div>
+
             </div>
             <!-- Brand Banner End -->
         </div>
@@ -315,4 +289,3 @@
 
 </div>
 
-<script src="../../js/main.js"></script>

@@ -1,6 +1,7 @@
 ﻿app.controller('appmainController2', ['$scope', '$route', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location',
     function ($scope, $route, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location) {
         debugger
+   $window.scrollTo(0, 0);
         //PAYMENT GATEWAY  $scope.customAmount = false;
         $scope.check = function () {
             $location.path('Product');

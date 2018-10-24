@@ -3,7 +3,7 @@
         debugger
 
 
-
+        $window.scrollTo(0, 0);
         $scope.activeTab = '1';
 
         $scope.showTab1 = function () {
