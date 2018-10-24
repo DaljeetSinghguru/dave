@@ -5,8 +5,8 @@
         $window.scrollTo(0, 0);
         var StockCode =   $route.current.params.id;
         var paramValue = $route.current.$$route.paramExample;
-        $scope.WebsiteDomain = ViewVariablesService.GetWebsiteDomain();
-        //$scope.WebsiteDomain = "http://api.davemuslayah.com/";
+        //$scope.WebsiteDomain = ViewVariablesService.GetWebsiteDomain();
+        $scope.WebsiteDomain = "http://api.davemuslayah.com/";
         $scope.cartName = "DAVE";
         var myPassword = "MAKV123456789312";
 
