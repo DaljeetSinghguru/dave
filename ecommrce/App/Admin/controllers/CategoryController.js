@@ -185,7 +185,7 @@
                         });
                     }
                 },
-                pageSize: 10,
+                pageSize: 25,
                 //serverPaging: true,
                 // serverSorting: true
             },
@@ -338,5 +338,29 @@
 
         }
 
+
+
+        $scope.filterGrid = function () {
+
+            var grid = $scope.gridCategory;
+            if ($scope.filterText != "") {
+                grid.dataSource.query({
+                    page: 1,
+                    pageSize: 25,
+                    filter: {
+                        logic: "or",
+                        filters: [
+                            { field: "CategoryName", operator: "contains", value: $scope.filterText }
+                        ]
+                    }
+                });
+            }
+            else {
+                grid.dataSource.query({
+                    page: 1,
+                    pageSize: 10,
+                });
+            }
+        };
 
     }]);
