@@ -7,14 +7,17 @@
         $scope.ShowCategoryLevel2list = false;
         $scope.ShowCategoryLevel1list = false;
         $scope.ShowITEMlist = false;
-        $scope.ItemListDetails = ViewVariablesService.GetDatasendToItemListPage();
+       // $scope.ItemListDetails = ViewVariablesService.GetDatasendToItemListPage();
 
-        $scope.ItemListPageCategory = ViewVariablesService.GetDatasendToItemListPageCategory();
+        $scope.ItemListPageCategory = angular.fromJson($window.sessionStorage.getItem('CategoryId'));
+        $scope.topProductshowonfront = angular.fromJson($window.sessionStorage.getItem('MenuData'));
 
-        $scope.ItemListPageCategoryLevel2 = ViewVariablesService.GetDatasendToItemListPageCategoryLevel2();
+        $scope.BrandList = angular.fromJson($window.sessionStorage.getItem('BrandData'));
+
+//        $scope.ItemListPageCategoryLevel2 = ViewVariablesService.GetDatasendToItemListPageCategoryLevel2();
 
         ///////////////////////////////////////////////////////////////////////////////
-        $scope.topProductshowonfront = ViewVariablesService.GetDataofMenu();
+//        $scope.topProductshowonfront = ViewVariablesService.GetDataofMenu();
 
         $scope.dataTreeView = $scope.topProductshowonfront;
         $scope.treeData1 = new kendo.data.HierarchicalDataSource({
@@ -36,6 +39,7 @@
 
                     $scope.ItemListDetails = data;
                     ViewVariablesService.SetDatasendToItemListPage(data);
+                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
                     if ($location.path() == '/ItemList') {
                         $route.reload();
                     }
@@ -82,6 +86,8 @@
 
                     $scope.ItemListDetails = data;
                     ViewVariablesService.SetDatasendToItemListPage(data);
+                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+
                     $location.path('ItemList');
 
                 }).
@@ -102,7 +108,7 @@
             $scope.showlistviewdata = true;
             $scope.showgridviewdata = false;
         }
-   $scope.BrandList = ViewVariablesService.GetBrandData();
+   //$scope.BrandList = ViewVariablesService.GetBrandData();
         $scope.BrandClick = function (brandData) {
             debugger
             $http({
@@ -113,6 +119,7 @@
 
                     $scope.ItemListDetails = data;
                     ViewVariablesService.SetDatasendToItemListPage(data);
+                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
                     if ($location.path() == '/ItemList') {
                             $route.reload();
                         }

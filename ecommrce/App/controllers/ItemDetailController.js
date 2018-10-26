@@ -107,6 +107,7 @@
 
                     $scope.ItemListDetails = data;
                     ViewVariablesService.SetDatasendToItemListPage(data);
+                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
                     if ($location.path() == '/ItemList') {
                         $route.reload();
                     }
@@ -406,6 +407,7 @@
 
                     $scope.ItemListDetails = data;
                     ViewVariablesService.SetDatasendToItemListPage(data);
+                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
                     if ($location.path() == '/ItemList') {
                         $route.reload();
                     }
