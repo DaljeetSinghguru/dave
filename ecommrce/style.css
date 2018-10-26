@@ -3995,3 +3995,18 @@ legend {
 .mobile-menu nav ul{
     display: none;
 }
+
+
+@media only screen and (max-width:768px) {
+    .logso {
+        display: none;
+    }
+
+    .time {
+        display: none;
+    }
+
+    .solid-menus #navigation .main-nav > li {
+        width: 100%;
+    }
+}

@@ -80,7 +80,6 @@
     <!-- Wrapper Start -->
     <div class="wrapper homepage" ng-controller="appmainController2" ng-cloak>
         <!-- Newsletter Popup Start -->
-       
         <!-- Newsletter Popup End -->
         <!-- Header Area Start -->
         <header>
@@ -92,11 +91,12 @@
                     <div class="row">
                         <div class="col-xl-3 col-lg-2 col-sm-5 col-5" style="margin-top:10px;">
                             <div class="logo">
-                                <a href="index.html"><img src="Content/images/logo.jpg" alt="logo-image"></a>
+
+                                <a href="index.html"><img src="banner/BANNER-WORK/logo.png" alt="logo-image"></a>
                             </div>
                         </div>
-                        <div class="col-xl-2 col-lg-2 col-sm-5 col-5" style="margin-top: 20px;font-size: 12px; line-height:28px;">
-                            <div class="logso" >
+                        <div class="col-xl-2 col-lg-2 col-sm-5 col-5 time" style="margin-top: 20px;font-size: 12px; line-height:28px;">
+                            <div class="logso">
                                 <span><i class="fa fa-phone">+44 795 7741 524</i></span>
                                 <br />
                                 <span>Mon - Fri 7:30 AM - 6:00 PM</span><br /><span>Saturday 8:00 AM - 1:00 PM</span>
@@ -106,10 +106,10 @@
                         <!-- Search Box Start -->
                         <div class="col-xl-4 col-lg-7 d-none d-lg-block" style="margin-top: 20px;">
                             <div class="search-box-view">
-                                
-                                    <input type="text" class="email" ng-model="searchtext" placeholder="Search Your Product" name="product">
-                                    <button type="button" ng-click="searchme(searchtext)" class="submit"></button>
-                               
+
+                                <input type="text" class="email" ng-model="searchtext" placeholder="Search Your Product" name="product">
+                                <button type="button" ng-click="searchme(searchtext)" class="submit"></button>
+
                             </div>
                         </div>
 
@@ -134,43 +134,43 @@
                                                 <!-- Cart Box Start -->
                                                 <div class="single-cart-box">
                                                     <div class="cart-img">
-                                                        <a href="#"><img src="img/menu/1.jpg" alt="cart-image"></a>
+                                                        <a href=""><img src="img/menu/1.jpg" alt="cart-image"></a>
                                                     </div>
                                                     <div class="cart-content">
-                                                        <h6><a href="product.html">Products Name</a></h6>
+                                                        <h6><a href="">Products Name</a></h6>
                                                         <span>1 × $399.00</span>
                                                     </div>
-                                                    <a class="del-icone" href="#"><i class="fa fa-window-close-o"></i></a>
+                                                    <a class="del-icone" href=""><i class="fa fa-window-close-o"></i></a>
                                                 </div>
                                                 <!-- Cart Box End -->
                                                 <!-- Cart Box Start -->
                                                 <div class="single-cart-box">
                                                     <div class="cart-img">
-                                                        <a href="#"><img src="img/menu/2.jpg" alt="cart-image"></a>
+                                                        <a href=""><img src="img/menu/2.jpg" alt="cart-image"></a>
                                                     </div>
                                                     <div class="cart-content">
-                                                        <h6><a href="product.html">Products Name</a></h6>
+                                                        <h6><a href="">Products Name</a></h6>
                                                         <span>2 × $299.00</span>
                                                     </div>
-                                                    <a class="del-icone" href="#"><i class="fa fa-window-close-o"></i></a>
+                                                    <a class="del-icone" href=""><i class="fa fa-window-close-o"></i></a>
                                                 </div>
                                                 <!-- Cart Box End -->
                                                 <!-- Cart Footer Inner Start -->
                                                 <div class="cart-footer fix">
                                                     <h5>total :<span class="f-right">$698.00</span></h5>
                                                     <div class="cart-actions">
-                                                        <a class="checkout" href="checkout.html">Checkout</a>
+                                                        <a class="checkout" href="">Checkout</a>
                                                     </div>
                                                 </div>
                                                 <!-- Cart Footer Inner End -->
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a href="https://twitter.com/login"><i class="fa fa-twitter"></i></a></li>
+                                    
                                     <!-- <li><a href="#"><i class="fa fa-wifi"></i></a></li>-->
                                     <li><a href="https://plus.google.com/people"><i class="fa fa-google-plus"></i></a></li>
                                     <li><a href="https://facebook.com"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="https://youtube.com"><i class="fa fa-youtube"></i></a></li>
+                                   
                                 </ul>
                             </div>
                         </div>
@@ -180,8 +180,8 @@
                     <!-- Row End -->
                 </div>
             </div>
-                <!-- Container End -->
-            
+            <!-- Container End -->
+
             <div class="header-top">
                 <div class="container">
                     <div class="row">
@@ -196,7 +196,7 @@
                                             <ul class="l-inline-list main-nav main-nav-first-only l-group trigger-hover">
 
                                                 <!-- This is only shown when viewing on medium and small screen devices -->
-                                                <li id="menu"><a href="#" class="menu-links">{{'DM WholeSales'|translate }} <i class="fa fa-bars fa-fw"></i></a></li>
+                                                <li id="menu"><a href="" class="menu-links" ng-click="gotoDefault()">{{Menu}}<i class="fa fa-bars fa-fw"></i></a></li>
 
                                                 <!-- Mega Menu -->
                                                 <li> <a href="" ng-click="gotoDefault()">{{'Home'|translate|uppercase  }}</a> </li>
@@ -234,15 +234,15 @@
                                                                                         <!-- sub-menu-4 -->
                                                                                         <!--<div class="sub-menu-4 drop-down side-menu l-group">
 
-                                                                        <ul class="l-vertical-list l-group">
+                                                                                            <ul class="l-vertical-list l-group">
 
-                                                                            <li><a href="#" class="menu-links"><i class="fa fa-angle-double-right fa-fw"></i><span> Full Width </span></a></li>
-                                                                            <li><a href="#" class="menu-links"><i class="fa fa-angle-double-right fa-fw"></i><span> Medium Width </span></a></li>
-                                                                            <li><a href="#" class="menu-links"><i class="fa fa-angle-double-right fa-fw"></i><span> Small Width </span></a>
+                                                                                                <li><a href="#" class="menu-links"><i class="fa fa-angle-double-right fa-fw"></i><span> Full Width </span></a></li>
+                                                                                                <li><a href="#" class="menu-links"><i class="fa fa-angle-double-right fa-fw"></i><span> Medium Width </span></a></li>
+                                                                                                <li><a href="#" class="menu-links"><i class="fa fa-angle-double-right fa-fw"></i><span> Small Width </span></a>
 
-                                                                        </ul>
+                                                                                            </ul>
 
-                                                                    </div>-->
+                                                                                        </div>-->
                                                                                         <!-- sub-menu-4 -->
 
                                                                                     </li>
@@ -323,7 +323,7 @@
                                         <span><i class="fa fa-map-marker"></i>Preston Deanery, Northampton, NN7 2DT</span>
                                         <span><i class="fa fa-phone"></i>Phone: +44 795 7741 524</span>
                                     </div>
-                                   <!-- <div class="payment-mth"><a href="#"><img class="img" src="img/footer/1.png" alt="payment-image"></a></div>-->
+                                    <!-- <div class="payment-mth"><a href="#"><img class="img" src="img/footer/1.png" alt="payment-image"></a></div>-->
                                 </div>
                             </div>
                         </div>
@@ -334,11 +334,11 @@
                                 <h3 class="footer-title">Information</h3>
                                 <div class="footer-content">
                                     <ul class="footer-list">
-                                        <li><a href="#">Site Map</a></li>
+                                        <!--<li><a href="#">Site Map</a></li>-->
                                         <li><a href="" ng-click="openTermsandCondition()">T's & C's</a></li>
                                         <li><a href="" ng-click="openPrivacy()">Privacy Policy</a></li>
-                                        <li><a href="" ng-click="openReturn()">Returns</a></li>
-                                        
+
+
                                     </ul>
                                 </div>
                             </div>
@@ -350,9 +350,9 @@
                                 <h3 class="footer-title">My Account</h3>
                                 <div class="footer-content">
                                     <ul class="footer-list">
-                                        <li><a href="account.html">My account</a></li>
-                                        <li><a href="" ng-click="loginme()">Checkout</a></li>
-                                        <li><a href="" ng-click="loginme()">Login</a></li>
+                                        <li><a href="">My account</a></li>
+                                        <li><a href="" ng-click="">Checkout</a></li>
+                                        <li><a href="" ng-click="">Login</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -364,12 +364,12 @@
                                 <h3 class="footer-title">customer service</h3>
                                 <div class="footer-content">
                                     <ul class="footer-list">
-                                        <li><a href="account.html">My account</a></li>
-                                       
-                                       
-                                        <li><a href=""  ng-click="loginme()">Return Policy</a></li>
-                                        <li><a href=""  ng-click="loginme()">Your Orders</a></li>
-                                       
+                                        <li><a href="">My account</a></li>
+
+
+                                        <li><a href="" ng-click="openReturn()">Return Policy</a></li>
+                                        <li><a href="" ng-click="">Your Orders</a></li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -381,10 +381,10 @@
                                 <h3 class="footer-title">Let Us Help You</h3>
                                 <div class="footer-content">
                                     <ul class="footer-list">
-                                        <li><a href=""  ng-click="loginme()">Your Account</a></li>
+                                        <!--<li><a href=""  ng-click="loginme()">Your Account</a></li>
                                         <li><a href=""  ng-click="loginme()">Your Orders</a></li>
-                                        <li><a href=""  ng-click="loginme()">Shipping</a></li>
-                                        
+                                        <li><a href=""  ng-click="loginme()">Shipping</a></li>-->
+                                        <li><a href="" ng-click="openReturn()">Returns</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -404,7 +404,7 @@
                         <div class="footer-social-content">
                             <ul class="social-content-list">
                                 <li><a href="https://twitter.com/login"><i class="fa fa-twitter"></i></a></li>
-                               <!-- <li><a href="#"><i class="fa fa-wifi"></i></a></li>-->
+                                <!-- <li><a href="#"><i class="fa fa-wifi"></i></a></li>-->
                                 <li><a href="https://plus.google.com/people"><i class="fa fa-google-plus"></i></a></li>
                                 <li><a href="https://facebook.com"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="https://youtube.com"><i class="fa fa-youtube"></i></a></li>
