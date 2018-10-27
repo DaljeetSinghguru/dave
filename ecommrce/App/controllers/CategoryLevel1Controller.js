@@ -52,7 +52,58 @@
                 error(function (data, status, headers, config) {
                 });
         }
+        $scope.category270428Click = function (CategoryId) {
+            // 
+            $http({
+                method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=67'
+            }).
+                success(function (data, status, headers, config) {
+                    //  
 
+                    $scope.ItemDetailDataCategoryWiselevel4 = data;
+                    // if ($scope.ItemDetailDataCategoryWiselevel3 == undefined || $scope.ItemDetailDataCategoryWiselevel3.length == 0) {
+                    ViewVariablesService.SetDatasendToItemListPage($scope.ItemDetailDataCategoryWiselevel4);
+
+                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+
+                    ViewVariablesService.SetDatasendToItemListPageCategory();
+                    if ($location.path() == '/ItemList') {
+                        $route.reload();
+                    } else {
+                        $location.path('ItemList');
+                    }
+                    // }
+                }).
+                error(function (data, status, headers, config) {
+                });
+
+        }
+        $scope.category370205Click = function (CategoryId) {
+            // 
+            $http({
+                method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=30'
+            }).
+                success(function (data, status, headers, config) {
+                    //  
+
+                    $scope.ItemDetailDataCategoryWiselevel4 = data;
+                    // if ($scope.ItemDetailDataCategoryWiselevel3 == undefined || $scope.ItemDetailDataCategoryWiselevel3.length == 0) {
+                    ViewVariablesService.SetDatasendToItemListPage($scope.ItemDetailDataCategoryWiselevel4);
+
+                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+
+                    ViewVariablesService.SetDatasendToItemListPageCategory();
+                    if ($location.path() == '/ItemList') {
+                        $route.reload();
+                    } else {
+                        $location.path('ItemList');
+                    }
+                    // }
+                }).
+                error(function (data, status, headers, config) {
+                });
+
+        }
 
         ///////////////////////////////////////////////////////////////////////////////
         ////show level 1

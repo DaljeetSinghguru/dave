@@ -950,6 +950,8 @@
                 $scope.ItemListBestSellerProduct = data;
                 ViewVariablesService.SetItemListBestSellerProduct(data);
 
+                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+
 
             }).
             error(function (data, status, headers, config) {
@@ -965,6 +967,8 @@
                 $scope.ItemListHotSalesProduct = data;
                 ViewVariablesService.SetItemListHotDealsProduct(data);
 
+                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+
 
             }).
             error(function (data, status, headers, config) {
@@ -978,6 +982,8 @@
 
                 $scope.ItemListFeaturedProduct = data;
                 ViewVariablesService.SetItemListFeaturedProduct(data);
+
+                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
 
 
             }).
@@ -994,6 +1000,8 @@
                 $scope.ItemListNewArrivalsProduct = data;
                 ViewVariablesService.SetItemListNewArrivalsProduct(data);
 
+                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+
 
             }).
             error(function (data, status, headers, config) {
@@ -1009,6 +1017,8 @@
                 $scope.ItemListTopProductsProduct = data;
                 ViewVariablesService.SetItemListTopProductsProduct(data);
 
+
+                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
 
             }).
             error(function (data, status, headers, config) {
