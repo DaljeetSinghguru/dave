@@ -106,13 +106,39 @@
                         <!-- Search Box Start -->
                         <div class="col-xl-4 col-lg-7 d-none d-lg-block" style="margin-top: 20px;">
                             <div class="search-box-view">
-
-                                <input type="text" class="email" ng-model="searchtext" placeholder="Search Your Product" name="product">
+                                <input type="text" class="email" ng-model="searchtext" placeholder={{'What_are_you_searching_for'|translate}} name="product">
                                 <button type="button" ng-click="searchme(searchtext)" class="submit"></button>
 
                             </div>
                         </div>
 
+                        <div class="col-lg-4 col-md-12">
+                            <div class="header-top-right">
+                                <ul class="header-list-menu f-right">
+                                    <!-- Language Start -->
+                                    <li>
+                                        <a href="">Language: <i class="fa fa-angle-down"></i></a>
+                                        <ul class="ht-dropdown">
+                                            <li><a href="" ng-click="changeLanguage('en')">English</a></li>
+                                            <li><a href="" ng-click="changeLanguage('fr')">French</a></li>
+                                            <li><a href="" ng-click="changeLanguage('sp')">Spanish</a></li>
+                                        </ul>
+                                    </li>
+                                    <!-- Language End -->
+                                    <!-- Currency Start -->
+                                    <li>
+                                        <a href="">Currency: <i class="fa fa-angle-down"></i></a>
+                                        <ul class="ht-dropdown">
+                                            <li><a href="" ng-click="changeCurrency('Pound')">Pound</a></li>
+                                            <li><a href="" ng-click="changeCurrency('Euro')">Euro</a></li>
+                                            <li><a href="" ng-click="changeCurrency('USD')">USD</a></li>
+                                        </ul>
+                                    </li>
+                                    <!-- Currency End -->
+                                </ul>
+                                <!-- Header-list-menu End -->
+                            </div>
+                        </div>
                         <!-- Search Box End -->
                         <!-- Cartt Box Start -->
                         <div class="col-lg-3 col-sm-7 col-7">
@@ -166,11 +192,11 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    
+
                                     <!-- <li><a href="#"><i class="fa fa-wifi"></i></a></li>-->
                                     <li><a href="https://plus.google.com/people"><i class="fa fa-google-plus"></i></a></li>
                                     <li><a href="https://facebook.com"><i class="fa fa-facebook"></i></a></li>
-                                   
+
                                 </ul>
                             </div>
                         </div>

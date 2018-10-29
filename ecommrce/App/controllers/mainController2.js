@@ -1,7 +1,7 @@
 ﻿app.controller('appmainController2', ['$scope', '$route', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location',
     function ($scope, $route, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location) {
         debugger
-   $window.scrollTo(0, 0);
+        $window.scrollTo(0, 0);
         //PAYMENT GATEWAY  $scope.customAmount = false;
         $scope.check = function () {
             $location.path('Product');
@@ -48,7 +48,7 @@
             method: 'GET', url: 'http://data.fixer.io/api/latest?access_key=af97a3a1617ee07c5e0f15fdd042f507&format=1'
         }).
             success(function (data, status, headers, config) {
-
+                debugger
                 $scope.data = data;
                 $rootScope.ratesofallcountry = data.rates;
             }).
@@ -58,12 +58,17 @@
         $rootScope.currentRate = "1";
 
         $scope.changeLanguage = function (langKey) {
+            debugger
             $translate.use(langKey);
 
             if (langKey == 'en') {
                 $rootScope.currentRate = $rootScope.ratesofallcountry.EUR;
+
             }
             if (langKey == 'fr') {
+                $rootScope.currentRate = $rootScope.ratesofallcountry.USD;
+            }
+            if (langKey == 'sp') {
                 $rootScope.currentRate = $rootScope.ratesofallcountry.USD;
             }
         };
