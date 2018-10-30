@@ -189,7 +189,7 @@
         <i class="fa fa-star"></i>
     </div>-->
                                                 <h4><a>{{ItemdataCatWise.Title}}</a></h4>
-                                                <p><span class="price">{{ItemdataCatWise.Price * currentRate| number:2|currency:"&#163;"}}</span></p>
+                                                <p><span class="price"><span ng-bind-html="symbolz| unsafee"></span> {{ItemdataCatWise.Price * currentRate| number:2}}</span></p>
                                                 
                                                 <div class="pro-actions">
                                                     <div class="actions-secondary">
@@ -232,7 +232,8 @@
     </div>-->
                                        
                                         <h4><a>{{ItemdataCatWise.Title}}</a></h4>
-                                        <p><span class="price"> {{ItemdataCatWise.Price * currentRate| number:2|currency:"&#163;"}}</span></p>
+                                        
+                                        <p><span class="price"><span  ng-bind-html="symbolz| unsafee"></span> {{ItemdataCatWise.Price * currentRate| number:2}}</span></p>
 
                                         <p>{{ItemdataCatWise.Name}}</p>
 

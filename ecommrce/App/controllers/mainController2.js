@@ -56,7 +56,11 @@
             });
 
         $rootScope.currentRate = "1";
+       
 
+       
+        
+        $rootScope.symbolz = '&#163;';
         $scope.changeLanguage = function (langKey) {
             debugger
             $translate.use(langKey);
@@ -72,7 +76,24 @@
                 $rootScope.currentRate = $rootScope.ratesofallcountry.USD;
             }
         };
+        $scope.changeCurrency = function (langKey) {
+            debugger
+         
 
+            if (langKey == 'en') {
+                $rootScope.currentRate = $rootScope.ratesofallcountry.EUR;
+                $rootScope.symbolz = '&#163;';
+
+            }
+            if (langKey == 'fr') {
+                $rootScope.currentRate = $rootScope.ratesofallcountry.USD;
+                $rootScope.symbolz = '&#8364;';
+            }
+            if (langKey == 'sp') {
+                $rootScope.currentRate = $rootScope.ratesofallcountry.USD;
+                $rootScope.symbolz = '&#36;';
+            }
+        };
 
         var myPassword = "MAKV123456789312";
 
@@ -773,27 +794,35 @@
         $scope.categoryClickLevel1 = function (CategoryId) {
             //   
             debugger
-            $window.sessionStorage.setItem('CategoryId', angular.toJson(CategoryId));
-           // $rootScope.ItemDetailDataCategoryWiselevel1 = CategoryId;
-            //ViewVariablesService.SetDatasendToItemListPageLevel1($scope.ItemDetailDataCategoryWiselevel1);
-            //ViewVariablesService.SetDatasendToItemListPage();
-            //ViewVariablesService.SetDatasendToItemListPageCategory();
-            //ViewVariablesService.SetDatasendToItemListPageCategoryLevel2();
-
-            if ($location.path() == '/ItemListCategory3') {
-                $route.reload();
+            if (CategoryId.text == 'Blogs') {
+                if ($location.path() == '/blog') {
+                    $route.reload();
+                } else {
+                    $location.path('blog');
+                }
             } else {
-                $location.path('ItemListCategory3');
+
+                $window.sessionStorage.setItem('CategoryId', angular.toJson(CategoryId));
+                // $rootScope.ItemDetailDataCategoryWiselevel1 = CategoryId;
+                //ViewVariablesService.SetDatasendToItemListPageLevel1($scope.ItemDetailDataCategoryWiselevel1);
+                //ViewVariablesService.SetDatasendToItemListPage();
+                //ViewVariablesService.SetDatasendToItemListPageCategory();
+                //ViewVariablesService.SetDatasendToItemListPageCategoryLevel2();
+
+                if ($location.path() == '/ItemListCategory3') {
+                    $route.reload();
+                } else {
+                    $location.path('ItemListCategory3');
+                }
+                //$location.path('ItemList');
+
+                //on category click send Id to URL and   vm
+
+                // set category to local storagre 
+
+                //var path = "/ItemListCategory3/" + CategoryId;
+                //$location.path(path);
             }
-            //$location.path('ItemList');
-
-            //on category click send Id to URL and   vm
-
-           // set category to local storagre 
-            
-            //var path = "/ItemListCategory3/" + CategoryId;
-            //$location.path(path);
-
 
         }
         $scope.categoryClicklevel2 = function (CategoryLevel2) {

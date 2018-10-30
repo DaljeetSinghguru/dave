@@ -79,11 +79,33 @@ var translationsFR = {
 
 
 };
+var translationsSP = {
+    HEADLINE: '¡Qué increíble módulo!',
+    PARAGRAPH: 'Ernsthaft!',
+    PASSED_AS_TEXT: 'Hey! Ich wurde als text übergeben!',
+    PASSED_AS_ATTRIBUTE: 'Ich wurde als Attribut übergeben, cool oder?',
+    PASSED_AS_INTERPOLATION: 'Anfänger! Ich bin interpoliert!',
+    VARIABLE_REPLACEMENT: 'Hi {{name}}',
+    // MISSING_TRANSLATION is ... missing :)
+    BUTTON_LANG_FR: 'français',
+    BUTTON_LANG_EN: 'Anglais',
 
+
+    What_are_you_searching_for: '¿Que estás buscando?',
+    Search: 'Chercher',
+    items: 'articles',
+    VIEW_BASKET: 'VOIR LE PANIER',
+    LOGIN: 'S\'identifier',
+    LOGOUT: 'CONNECTEZ - OUT',
+    Home: 'Accueil',
+
+
+};
 app.config(['$translateProvider', function ($translateProvider) {
     // add translation tables
     $translateProvider.translations('en', translationsEN);
     $translateProvider.translations('fr', translationsFR);
+    $translateProvider.translations('sp', translationsSP);
     $translateProvider.fallbackLanguage('en');
     $translateProvider.preferredLanguage('en');
 }]);
@@ -135,6 +157,14 @@ app.config(['$routeProvider', function ($routeProvider) {
         .when('/TermsandCondition', {
             templateUrl: 'app/views/TermsandCondition.html',
             contrller: 'loginController'
+        })
+        .when('/blog', {
+            templateUrl: 'app/views/blog.html',
+            contrller: 'blogController'
+        })
+        .when('/blogdetail', {
+            templateUrl: 'app/views/blog-details.html',
+            contrller: 'blogController'
         })
         .when('/Privacy', {
             templateUrl: 'app/views/Privacy.html',
@@ -255,3 +285,8 @@ app.filter('unsafe', function ($sce) { return $sce.trustAsHtml; });
 //        };
 //    }
 //]);
+app.filter('unsafee', function ($sce) {
+    return function (val) {
+        return $sce.trustAsHtml(val);
+    };
+});

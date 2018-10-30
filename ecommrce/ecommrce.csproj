@@ -94,11 +94,14 @@
     <Content Include="App\controllers\ItemListController.js" />
     <Content Include="App\controllers\RegistermeController.js" />
     <Content Include="App\controllers\ProductController.js" />
+    <Content Include="App\controllers\BlogController.js" />
     <Content Include="App\controllers\TermsController.js" />
     <Content Include="App\controllers\ThankyouController.js" />
     <Content Include="App\controllers\MyCartController.js" />
     <Content Include="App\controllers\ShopLoginController.js" />
     <Content Include="App\main.js" />
+    <Content Include="App\views\blog-details.html" />
+    <Content Include="App\views\blog.html" />
     <Content Include="App\views\CategoryLevel1.html" />
     <Content Include="App\views\CategoryLevel2.html" />
     <Content Include="App\views\Checkout.html" />

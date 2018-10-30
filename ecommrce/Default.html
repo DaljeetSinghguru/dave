@@ -97,7 +97,7 @@
                             <i class="fa fa-star"></i>
                         </div>-->
                         <h4><a href="" ng-click="ShowItemDetail(BestSellerProduct)">{{BestSellerProduct.Title}}</a></h4>
-                        <p><span class="price">{{BestSellerProduct.Price * currentRate| number:2|currency:"&#163;"}}</span></p>
+                        <p><span class="price"><span ng-bind-html="symbolz| unsafee"></span> {{BestSellerProduct.Price * currentRate| number:2}}</span></p>
                         <div class="pro-actions">
                             <div class="actions-secondary">
                                 <!--  <a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>-->
@@ -164,7 +164,7 @@
                                     <div class="pro-content">
 
                                         <h4><a href=""  ng-click="ShowItemDetail(TopProductsProduct)">{{TopProductsProduct.Title}}</a></h4>
-                                        <p><span class="price">{{TopProductsProduct.Price * currentRate| number:2|currency:"&#163;"}}</span></p>
+                                        <p><span class="price"><span ng-bind-html="symbolz| unsafee"></span> {{TopProductsProduct.Price * currentRate| number:2}}</span></p>
                                     </div>
                                 </div>
                                 <!-- Single Product End -->
@@ -207,7 +207,7 @@
                                         <div class="pro-content">
 
                                             <h4><a href="" ng-click="ShowItemDetail(NewArrivalsProduct)">{{NewArrivalsProduct.Title}}</a></h4>
-                                            <p><span class="price">{{NewArrivalsProduct.Price * currentRate| number:2|currency:"&#163;"}}</span></p>
+                                            <p><span class="price"><span ng-bind-html="symbolz| unsafee"></span> {{NewArrivalsProduct.Price * currentRate| number:2}}</span></p>
                                             <div class="pro-actions">
                                                 <div class="actions-secondary">
                                                     <!--<a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>-->
@@ -242,7 +242,7 @@
                                         <div class="pro-content">
 
                                             <h4><a href="" ng-click="ShowItemDetail(FeaturedProduct)">{{FeaturedProduct.Title}}</a></h4>
-                                            <p><span class="price">{{FeaturedProduct.Price * currentRate| number:2|currency:"&#163;"}}</span></p>
+                                            <p><span class="price"><span ng-bind-html="symbolz| unsafee"></span> {{FeaturedProduct.Price * currentRate| number:2}}</span></p>
                                             <div class="pro-actions">
                                                 <div class="actions-secondary">
                                                     <!--<a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>-->
@@ -274,7 +274,7 @@
                                         <div class="pro-content">
 
                                             <h4><a href="" ng-click="ShowItemDetail(BestSellerProduct)">{{BestSellerProduct.Title}}</a></h4>
-                                            <p><span class="price">{{BestSellerProduct.Price * currentRate| number:2|currency:"&#163;"}}</span></p>
+                                            <p><span class="price"><span ng-bind-html="symbolz| unsafee"></span> {{BestSellerProduct.Price * currentRate| number:2}}</span></p>
                                             <div class="pro-actions">
                                                 <div class="actions-secondary">
                                                     <!--<a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>-->
@@ -383,7 +383,7 @@
                         <div class="pro-content">
 
                             <h4><a href="" ng-click="ShowItemDetail(HotSellerProduct)">{{HotSellerProduct.Title}}</a></h4>
-                            <p><span class="price">{{HotSellerProduct.Price * currentRate| number:2|currency:"&#163;"}}</span></p>
+                            <p><span class="price"><span ng-bind-html="symbolz| unsafee"></span> {{HotSellerProduct.Price * currentRate| number:2}}</span></p>
                         </div>
                     </div>
                     <!-- Single Product End -->

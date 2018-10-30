@@ -82,7 +82,7 @@
                             </div>-->
                         </div>
                         <div class="pro-price mb-10">
-                            <p><span class="price">{{SingleItemDataInDetail.Price|currency:"&#163;"}}<span> inc VAT Each</span></span></p>
+                            <p><span class="price">{{SingleItemDataInDetail.Price* currentRate| number:2|currency:currentCurrencySign}}<span> inc VAT Each</span></span></p>
                         </div>
                         <div class="pro-ref mb-15">
                             <p><span class="in-stock">IN STOCK</span><span class="sku">50</span></p>
@@ -188,9 +188,10 @@
                         <!-- Product Image End -->
                         <!-- Product Content Start -->
                         <div class="pro-content">
-                         
+
                             <h4><a href="" ng-click="ShowItemDetail(data)">{{data.Title}}</a></h4>
-                            <p><span class="price">{{data.Price * currentRate| number:2|currency:"&#163;"}}</span></p>
+                            <p><span class="price"><span ng-bind-html="symbolz| unsafee"></span> {{data.Price * currentRate| number:2}}</span></p>
+                         
                             <div class="pro-actions">
                                 <div class="actions-secondary">
                                     <!--<a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>-->
