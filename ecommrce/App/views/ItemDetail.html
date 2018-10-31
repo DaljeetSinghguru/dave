@@ -1,4 +1,24 @@
-﻿<div class="" ng-controller="ItemDetailController">
+﻿<style>
+    ul {
+        margin: 0px !important;
+        padding: -1px !important;
+    }
+
+    .descri strong {
+        margin-top: 10px !important;
+        font-weight: 600 !important;
+    }
+    .descri p{
+        font-size: 16px !important;
+    }
+    .descri li {
+        list-style: square !important;
+    }
+    .techinfo th {
+        font-weight: 400 !important;
+    }
+</style>
+<div class="" ng-controller="ItemDetailController">
 
     <!-- Breadcrumb Start -->
     <div class="breadcrumb-area ptb-60 ptb-sm-30">
@@ -120,7 +140,7 @@
                     <!-- Product Thumbnail Tab Content Start -->
                     <div class="tab-content thumb-content border-default">
                         <div id="dtail" class="tab-pane in" ng-class="{active : dtailshow === '1'}">
-                            <div ng-bind-html="Description"></div>
+                            <div class="descri" ng-bind-html="Description"></div>
                         </div>
                         <div id="review" class="tab-pane in"  ng-class="{active : reviewshow === '1'}">
                             <!-- Reviews Start -->

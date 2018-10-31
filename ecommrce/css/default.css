@@ -117,7 +117,7 @@ h6 {
 }
 ul {
     margin: 0px;
-    padding: 0px;
+    padding: -1px;
 }
 li { list-style: none}
 p {
@@ -1106,4 +1106,17 @@ input[type="text"]#email-two::-webkit-input-placeholder {
 .socile-icon-tooltip [data-tooltip]:hover::before, .socile-icon-tooltip [data-tooltip]:hover::after, .socile-icon-tooltip [data-tooltip]:focus::before, .socile-icon-tooltip [data-tooltip]:focus::after, .socile-icon-tooltip .tooltip:hover::before, .socile-icon-tooltip .tooltip:hover::after, .socile-icon-tooltip .tooltip:focus::before, .socile-icon-tooltip .tooltip:focus::after, .socile-icon-tooltip .tooltip-top:hover::before, .socile-icon-tooltip .tooltip-top:hover::after, .socile-icon-tooltip .tooltip-top:focus::before, .socile-icon-tooltip .tooltip-top:focus::after {
     -webkit-transform: translateY(-25px);
     transform: translateY(-25px);
+}
+
+.cart-box > ul > li > a {
+    color: #9d9d9d;
+    display: inline-block;
+    font-size: 25px;
+    line-height: 29px;
+    margin: 0;
+    padding: 10px 20px 10px 0px;
+}
+
+.lang-switch a {
+    padding: 10px 10px 10px 10px;
 }
