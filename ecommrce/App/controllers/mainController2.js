@@ -27,7 +27,8 @@
                     debugger
                     $scope.ItemListDetails = data;
                     ViewVariablesService.SetDatasendToItemListPage(data);
-                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+                    //$window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+                    localStorage["ItemListdata"] = angular.toJson(data);
                     if ($location.path() == '/ItemList') {
                         $route.reload();
                     }
@@ -177,8 +178,8 @@
 
                 $scope.AllCategory = data
                 ViewVariablesService.SetDataofMenu($scope.AllCategory);
-                $window.sessionStorage.setItem('MenuData', angular.toJson(data));
-
+               // $window.sessionStorage.setItem('MenuData', angular.toJson(data));
+                localStorage["MenuData"] = angular.toJson(data);
                 //$scope.AllCategory1 = data;
                 //setTimeout(function () {
                 //    $scope.Mousehoveroncat($scope.AllCategory);
@@ -802,7 +803,9 @@
                 }
             } else {
 
-                $window.sessionStorage.setItem('CategoryId', angular.toJson(CategoryId));
+               // $window.sessionStorage.setItem('CategoryId', angular.toJson(CategoryId));
+
+                localStorage["CategoryId"] = angular.toJson(CategoryId);
                 // $rootScope.ItemDetailDataCategoryWiselevel1 = CategoryId;
                 //ViewVariablesService.SetDatasendToItemListPageLevel1($scope.ItemDetailDataCategoryWiselevel1);
                 //ViewVariablesService.SetDatasendToItemListPage();
@@ -833,8 +836,8 @@
             ViewVariablesService.SetDatasendToItemListPageCategoryLevel2($scope.ItemDetailDataCategoryWiselevel2);
             ViewVariablesService.SetDatasendToItemListPage();
             ViewVariablesService.SetDatasendToItemListPageCategory();
-            $window.sessionStorage.setItem('CategoryId', angular.toJson(CategoryLevel2));
-
+         //   $window.sessionStorage.setItem('CategoryId', angular.toJson(CategoryLevel2));
+            localStorage["CategoryId"] = angular.toJson(CategoryLevel2);
             if ($location.path() == '/ItemListCategory2') {
                 $route.reload();
             } else {
@@ -852,8 +855,8 @@
             ViewVariablesService.SetDatasendToItemListPage();
 
             ViewVariablesService.SetDatasendToItemListPageCategory($scope.ItemDetailDataCategoryWiselevel3);
-            $window.sessionStorage.setItem('CategoryId', angular.toJson(CategoryData));
-
+         //   $window.sessionStorage.setItem('CategoryId', angular.toJson(CategoryData));
+            localStorage["CategoryId"] = angular.toJson(CategoryData);
             if ($location.path() == '/ItemListCategory1') {
                 $route.reload();
             } else {
@@ -876,8 +879,8 @@
                     // if ($scope.ItemDetailDataCategoryWiselevel3 == undefined || $scope.ItemDetailDataCategoryWiselevel3.length == 0) {
                     ViewVariablesService.SetDatasendToItemListPage($scope.ItemDetailDataCategoryWiselevel4);
 
-                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
-
+                //    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+                    localStorage["ItemListdata"] = angular.toJson(data);
                     ViewVariablesService.SetDatasendToItemListPageCategory();
                     if ($location.path() == '/ItemList') {
                         $route.reload();
@@ -965,9 +968,9 @@
                 debugger
                 $scope.BrandList = data;
                 ViewVariablesService.SetBrandData(data);
-                $window.sessionStorage.setItem('BrandData', angular.toJson(data));
+                //$window.sessionStorage.setItem('BrandData', angular.toJson(data));
 
-
+                localStorage["BrandData"] = angular.toJson(data);
             }).
             error(function (data, status, headers, config) {
             });
@@ -984,8 +987,8 @@
                 $scope.ItemListBestSellerProduct = data;
                 ViewVariablesService.SetItemListBestSellerProduct(data);
 
-                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
-
+                   // $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+                    localStorage["ItemListdata"] = angular.toJson(data);
 
             }).
             error(function (data, status, headers, config) {
@@ -1001,8 +1004,8 @@
                 $scope.ItemListHotSalesProduct = data;
                 ViewVariablesService.SetItemListHotDealsProduct(data);
 
-                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
-
+                   // $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+                localStorage["ItemListdata"] = angular.toJson(data);
 
             }).
             error(function (data, status, headers, config) {
@@ -1017,8 +1020,8 @@
                 $scope.ItemListFeaturedProduct = data;
                 ViewVariablesService.SetItemListFeaturedProduct(data);
 
-                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
-
+               //     $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+                    localStorage["ItemListdata"] = angular.toJson(data);
 
             }).
             error(function (data, status, headers, config) {
@@ -1034,8 +1037,8 @@
                 $scope.ItemListNewArrivalsProduct = data;
                 ViewVariablesService.SetItemListNewArrivalsProduct(data);
 
-                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
-
+                    //$window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+                    localStorage["ItemListdata"] = angular.toJson(data);
 
             }).
             error(function (data, status, headers, config) {
@@ -1052,8 +1055,8 @@
                 ViewVariablesService.SetItemListTopProductsProduct(data);
 
 
-                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
-
+                  //  $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+                    localStorage["ItemListdata"] = angular.toJson(data);
             }).
             error(function (data, status, headers, config) {
             });

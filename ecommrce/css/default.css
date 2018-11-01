@@ -1120,3 +1120,93 @@ input[type="text"]#email-two::-webkit-input-placeholder {
 .lang-switch a {
     padding: 10px 10px 10px 10px;
 }
+
+
+
+
+
+
+/*.header-top {
+    margin-top: 20px;
+    height: auto;
+}
+
+.header-top .container {
+        background: #000;
+}*/
+
+
+/*.solid-menus #navigation {
+    height: auto;
+}*/
+
+/*.solid-menus .main-nav > li > a {
+    display: block;
+    color: #fff;
+    height: 40px;
+    padding: 5px 16px;
+}*/
+
+
+.product-header {
+    text-transform: capitalize;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.pricedetail {
+    font-size: 26px !important;
+    font-weight: bold;
+}
+
+.ng-binding span {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.in-stock {
+    margin-right: 15px;
+    font-weight: 600;
+    color: #008000;
+    font-size: 15px;
+    text-decoration: underline;
+}
+
+
+@media screen and (min-device-width: 320px) and (max-device-width: 768px) {
+
+    .logo img {
+        width: 143px;
+    }
+
+    .cart-box.text-right {
+        padding: 0;
+    }
+
+    .header-top-right ul {
+        padding: 0px;
+    }
+
+    .cart-box.text-right ul {
+        padding: 0px;
+    }
+
+    .social-lan-switch {
+        padding-top: 35px;
+    }
+}
+
+
+.techinfo tr::before {
+    content: "";
+    color: #000;
+    display: inline-block;
+    width: 5px;
+    margin-left: -1em;
+    font-size: 19px;
+    height: 5px;
+    background: #333;
+    margin-left: 29px;
+    margin-right: 5px;
+}
+

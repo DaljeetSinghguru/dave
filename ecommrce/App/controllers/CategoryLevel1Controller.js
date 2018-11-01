@@ -7,17 +7,22 @@
         $scope.ShowCategoryLevel2list = false;
         $scope.ShowCategoryLevel1list = false;
         $scope.ShowITEMlist = false;
-       // $scope.ItemListDetails = ViewVariablesService.GetDatasendToItemListPage();
+        // $scope.ItemListDetails = ViewVariablesService.GetDatasendToItemListPage();
 
-        $scope.ItemListPageCategory = angular.fromJson($window.sessionStorage.getItem('CategoryId'));
-        $scope.topProductshowonfront = angular.fromJson($window.sessionStorage.getItem('MenuData'));
+        //$scope.ItemListPageCategory = angular.fromJson($window.sessionStorage.getItem('CategoryId'));
+        //$scope.topProductshowonfront = angular.fromJson($window.sessionStorage.getItem('MenuData'));
 
-        $scope.BrandList = angular.fromJson($window.sessionStorage.getItem('BrandData'));
+        //$scope.BrandList = angular.fromJson($window.sessionStorage.getItem('BrandData'));
 
-//        $scope.ItemListPageCategoryLevel2 = ViewVariablesService.GetDatasendToItemListPageCategoryLevel2();
+        $scope.ItemListPageCategory = angular.fromJson(localStorage["CategoryId"]);
+        $scope.topProductshowonfront = angular.fromJson(localStorage["MenuData"]);
+        $scope.BrandList = angular.fromJson(localStorage["BrandData"]);
+
+
+        //        $scope.ItemListPageCategoryLevel2 = ViewVariablesService.GetDatasendToItemListPageCategoryLevel2();
 
         ///////////////////////////////////////////////////////////////////////////////
-//        $scope.topProductshowonfront = ViewVariablesService.GetDataofMenu();
+        //        $scope.topProductshowonfront = ViewVariablesService.GetDataofMenu();
 
         $scope.dataTreeView = $scope.topProductshowonfront;
         $scope.treeData1 = new kendo.data.HierarchicalDataSource({
@@ -25,83 +30,95 @@
 
         });
         $scope.OpenReleventItemByCategory = function (data) {
-            
+
             $scope.categoryID = (data.Value);
             //pass this category id to database and get all item present in category and display in browser
 
+            var path = "/ItemList/" + data.Value;
+            $location.path(path);
+
+            //$http({
+            //    method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=' + $scope.categoryID + ''
+            //}).
+            //    success(function (data, status, headers, config) {
 
 
-            $http({
-                method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=' + $scope.categoryID  + ''
-            }).
-                success(function (data, status, headers, config) {
-                    
+            //        $scope.ItemListDetails = data;
+            //        ViewVariablesService.SetDatasendToItemListPage(data);
+            //        //     $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+            //        localStorage["ItemListdata"] = angular.toJson(data);
+            //        if ($location.path() == '/ItemList') {
+            //            $route.reload();
+            //        }
+            //        else {
+            //            $location.path('ItemList');
+            //        }
 
-                    $scope.ItemListDetails = data;
-                    ViewVariablesService.SetDatasendToItemListPage(data);
-                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
-                    if ($location.path() == '/ItemList') {
-                        $route.reload();
-                    }
-                    else {
-                        $location.path('ItemList');
-                    }
-                   
 
-                }).
-                error(function (data, status, headers, config) {
-                });
+            //    }).
+            //    error(function (data, status, headers, config) {
+            //    });
         }
         $scope.category270428Click = function (CategoryId) {
             // 
-            $http({
-                method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=67'
-            }).
-                success(function (data, status, headers, config) {
-                    //  
+            var path = "/ItemList/67";
+            $location.path(path);
 
-                    $scope.ItemDetailDataCategoryWiselevel4 = data;
-                    // if ($scope.ItemDetailDataCategoryWiselevel3 == undefined || $scope.ItemDetailDataCategoryWiselevel3.length == 0) {
-                    ViewVariablesService.SetDatasendToItemListPage($scope.ItemDetailDataCategoryWiselevel4);
+            //$http({
+            //    method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=67'
+            //}).
+            //    success(function (data, status, headers, config) {
+            //        //  
 
-                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+            //        $scope.ItemDetailDataCategoryWiselevel4 = data;
+            //        // if ($scope.ItemDetailDataCategoryWiselevel3 == undefined || $scope.ItemDetailDataCategoryWiselevel3.length == 0) {
+            //        ViewVariablesService.SetDatasendToItemListPage($scope.ItemDetailDataCategoryWiselevel4);
 
-                    ViewVariablesService.SetDatasendToItemListPageCategory();
-                    if ($location.path() == '/ItemList') {
-                        $route.reload();
-                    } else {
-                        $location.path('ItemList');
-                    }
-                    // }
-                }).
-                error(function (data, status, headers, config) {
-                });
+            //        //   $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+            //        localStorage["ItemListdata"] = angular.toJson(data);
+            //        ViewVariablesService.SetDatasendToItemListPageCategory();
+            //        if ($location.path() == '/ItemList') {
+            //            $route.reload();
+            //        } else {
+            //            $location.path('ItemList');
+            //        }
+            //        // }
+            //    }).
+            //    error(function (data, status, headers, config) {
+            //    });
 
         }
         $scope.category370205Click = function (CategoryId) {
             // 
-            $http({
-                method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=30'
-            }).
-                success(function (data, status, headers, config) {
-                    //  
 
-                    $scope.ItemDetailDataCategoryWiselevel4 = data;
-                    // if ($scope.ItemDetailDataCategoryWiselevel3 == undefined || $scope.ItemDetailDataCategoryWiselevel3.length == 0) {
-                    ViewVariablesService.SetDatasendToItemListPage($scope.ItemDetailDataCategoryWiselevel4);
+            var path = "/ItemList/30";
+            $location.path(path);
 
-                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+            //$http({
+            //    method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=30'
+            //}).
+            //    success(function (data, status, headers, config) {
+            //        //  
 
-                    ViewVariablesService.SetDatasendToItemListPageCategory();
-                    if ($location.path() == '/ItemList') {
-                        $route.reload();
-                    } else {
-                        $location.path('ItemList');
-                    }
-                    // }
-                }).
-                error(function (data, status, headers, config) {
-                });
+            //        $scope.ItemDetailDataCategoryWiselevel4 = data;
+            //        // if ($scope.ItemDetailDataCategoryWiselevel3 == undefined || $scope.ItemDetailDataCategoryWiselevel3.length == 0) {
+            //        ViewVariablesService.SetDatasendToItemListPage($scope.ItemDetailDataCategoryWiselevel4);
+
+            //        // $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+            //        localStorage["ItemListdata"] = angular.toJson(data);
+            //        ViewVariablesService.SetDatasendToItemListPageCategory();
+
+                    
+
+            //        if ($location.path() == '/ItemList') {
+            //            $route.reload();
+            //        } else {
+            //            $location.path('ItemList');
+            //        }
+            //        // }
+            //    }).
+            //    error(function (data, status, headers, config) {
+            //    });
 
         }
 
@@ -124,26 +141,23 @@
         else {
             $scope.ShowCategoryLevel1list = true;
         }
-        $scope.ShowItemDetailCategory = function (data) {
-            
-
+        $scope.ShowItemDetailCategory = function (data, evnt) {
+            debugger
+            if (
+                evnt.ctrlKey ||
+                evnt.shiftKey ||
+                evnt.metaKey ||
+                (evnt.button && evnt.button == 1)
+            ) {
+                return;
+            }
+            evnt.preventDefault();
             //call API FOR GET ITESM
             $scope.CategoryId = data.Value;
-            $http({
-                method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=' + $scope.CategoryId + ''
-            }).
-                success(function (data, status, headers, config) {
-                    
+          
+            var path = "/ItemList/" + data.Value;
+            $location.path(path);
 
-                    $scope.ItemListDetails = data;
-                    ViewVariablesService.SetDatasendToItemListPage(data);
-                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
-
-                    $location.path('ItemList');
-
-                }).
-                error(function (data, status, headers, config) {
-                });
 
 
 
@@ -159,29 +173,35 @@
             $scope.showlistviewdata = true;
             $scope.showgridviewdata = false;
         }
-   //$scope.BrandList = ViewVariablesService.GetBrandData();
+        //$scope.BrandList = ViewVariablesService.GetBrandData();
         $scope.BrandClick = function (brandData) {
             debugger
-            $http({
-                method: 'GET', url: $scope.Url + 'Category/GetItemByBrand?BrandId=' + brandData.BrandId + ''
-            }).
-                success(function (data, status, headers, config) {
 
 
-                    $scope.ItemListDetails = data;
-                    ViewVariablesService.SetDatasendToItemListPage(data);
-                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
-                    if ($location.path() == '/ItemList') {
-                            $route.reload();
-                        }
-                        else {
-                            $location.path('ItemList');
-                        }
+            var path = "/ItemList/" + data.Value;
+            $location.path(path);
+
+            //$http({
+            //    method: 'GET', url: $scope.Url + 'Category/GetItemByBrand?BrandId=' + brandData.BrandId + ''
+            //}).
+            //    success(function (data, status, headers, config) {
 
 
-                }).
-                error(function (data, status, headers, config) {
-                });
+            //        $scope.ItemListDetails = data;
+            //        ViewVariablesService.SetDatasendToItemListPage(data);
+            //        //   $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+            //        localStorage["ItemListdata"] = angular.toJson(data);
+            //        //if ($location.path() == '/ItemList') {
+            //        //    $route.reload();
+            //        //}
+            //        //else {
+            //        //    $location.path('ItemList');
+            //        //}
+
+
+            //    }).
+            //    error(function (data, status, headers, config) {
+            //    });
         }
 
 

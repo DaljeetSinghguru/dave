@@ -89,24 +89,29 @@
                     <div class="thubnail-desc fix">
                         <h3 class="product-header">{{SingleItemDataInDetail.Title}}</h3>
                         <div class="rating-summary fix mtb-10">
-                             <!--<div class="rating f-left">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>-->
+                            <!--<div class="rating f-left">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+        </div>-->
                             <!--<div class="rating-feedback f-left">
-                                <a href="#">(1 review)</a>
-                                <a href="#">add to your review</a>
-                            </div>-->
+            <a href="#">(1 review)</a>
+            <a href="#">add to your review</a>
+        </div>-->
                         </div>
                         <div class="pro-price mb-10">
-                            <p><span class="price">{{SingleItemDataInDetail.Price* currentRate| number:2|currency:currentCurrencySign}}<span> inc VAT Each</span></span></p>
+                            <p><span class="price pricedetail"><span ng-bind-html="symbolz| unsafee"></span> {{SingleItemDataInDetail.Price * currentRate| number:2}}<span> inc VAT Each</span></span></p>
+
+                        </div>
+                        <div class="pro-ref mb-10">
+                            <p><span class="">Stock Code: {{SingleItemDataInDetail.ItemStockCode}}</span></p>
                         </div>
                         <div class="pro-ref mb-15">
-                            <p><span class="in-stock">IN STOCK</span><span class="sku">50</span></p>
+                            <p><span class="in-stock">IN STOCK</span></p>
                         </div>
+
                         <div class="box-quantity">
                             <form action="#">
                                 <input class="number" id="numeric" ng-model="quantity" type="number" min="1" value="1">
@@ -114,11 +119,12 @@
                             </form>
                         </div>
                         <!--<div class="product-link">
-                            <ul class="list-inline">
-                                <li><a href="#">Email</a></li>
-                            </ul>
-                        </div>-->
+        <ul class="list-inline">
+            <li><a href="#">Email</a></li>
+        </ul>
+    </div>-->
                         <p class="ptb-20">{{SingleItemDataInDetail.Name}}</p>
+                        <p class="ptb-20" style="margin-top: 55px; color:red"> **images and video are for illustrative purposes only – please refer to description and specification for full details of product</p>
                     </div>
                 </div>
                 <!-- Thumbnail Description End -->

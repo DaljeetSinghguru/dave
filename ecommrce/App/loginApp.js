@@ -150,7 +150,7 @@ app.config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'Product.html',
             contrller: 'ProductController'
         })
-        .when('/ItemList', {
+        .when('/ItemList/:id', {
             templateUrl: 'app/views/ItemList.html',
             contrller: 'loginController'
         })
@@ -288,5 +288,17 @@ app.filter('unsafe', function ($sce) { return $sce.trustAsHtml; });
 app.filter('unsafee', function ($sce) {
     return function (val) {
         return $sce.trustAsHtml(val);
+    };
+});
+
+app.directive('ngRightClick', function($parse) {
+    return function(scope, element, attrs) {
+        var fn = $parse(attrs.ngRightClick);
+        element.bind('contextmenu', function(event) {
+            scope.$apply(function() {
+               
+                fn(scope, {$event:event});
+            });
+        });
     };
 });

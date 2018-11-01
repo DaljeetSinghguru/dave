@@ -55,7 +55,8 @@
 
                     $scope.ItemListDetails = data;
                     ViewVariablesService.SetDatasendToItemListPage(data);
-                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+               //     $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+    localStorage["ItemListdata"] = angular.toJson(data);
                     $location.path('ItemList');
 
                 }).
@@ -71,7 +72,8 @@
 
                     $scope.ItemListDetails = data;
                     ViewVariablesService.SetDatasendToItemListPage(data);
-                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+                   // $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+    localStorage["ItemListdata"] = angular.toJson(data);
                     $location.path('ItemList');
 
                 }).
@@ -153,7 +155,8 @@
 
                     $scope.ItemListDetails = data;
                     ViewVariablesService.SetDatasendToItemListPage(data);
-                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+                   // $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+    localStorage["ItemListdata"] = angular.toJson(data);
                     $location.path('ItemList');
 
                 }).
@@ -181,7 +184,8 @@
 
                     $scope.ItemListDetails = data;
                     ViewVariablesService.SetDatasendToItemListPage(data);
-                    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+                  //  $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+    localStorage["ItemListdata"] = angular.toJson(data);
                     $location.path('ItemList');
 
                 }).

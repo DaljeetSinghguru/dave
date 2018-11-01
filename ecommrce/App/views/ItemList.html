@@ -188,14 +188,17 @@
         <i class="fa fa-star"></i>
         <i class="fa fa-star"></i>
     </div>-->
-                                                <h4><a>{{ItemdataCatWise.Title}}</a></h4>
+                                                <!--  <h4><a>{{ItemdataCatWise.Title}}</a></h4>-->
+                                                <!--  <h4><a href="http://localhost:51077/index.html#/ItemList" target="_blank" ng-click="ShowItemDetail(ItemdataCatWise,$event)">{{ItemdataCatWise.Title}}</a></h4>-->
+                                                <h4><a href="http://www.davemuslayah.com/#/ItemDetail/{{ItemdataCatWise.ItemStockCode}}" target="_blank" ng-click="ShowItemDetail(ItemdataCatWise,$event)">{{ItemdataCatWise.Title}}</a></h4>
+
                                                 <p><span class="price"><span ng-bind-html="symbolz| unsafee"></span> {{ItemdataCatWise.Price * currentRate| number:2}}</span></p>
-                                                
+
                                                 <div class="pro-actions">
                                                     <div class="actions-secondary">
-          <!--                                              <a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>-->
-            <a class="add-cart" href=""  ng-click="addItemToCart(ItemdataCatWise.ItemStockCode,ItemdataCatWise.Title,ItemdataCatWise.ItemMainImage,ItemdataCatWise.Price,1,null,ItemdataCatWise.CategoryName,ItemdataCatWise.ItemId)" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
-            <!--<a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a>-->
+                                                        <!--                                              <a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>-->
+                                                        <a class="add-cart" href="" ng-click="addItemToCart(ItemdataCatWise.ItemStockCode,ItemdataCatWise.Title,ItemdataCatWise.ItemMainImage,ItemdataCatWise.Price,1,null,ItemdataCatWise.CategoryName,ItemdataCatWise.ItemId)" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
+                                                        <!--<a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a>-->
                                                     </div>
                                                 </div>
                                             </div>
@@ -230,17 +233,18 @@
         <i class="fa fa-star"></i>
         <i class="fa fa-star"></i>
     </div>-->
-                                       
-                                        <h4><a>{{ItemdataCatWise.Title}}</a></h4>
-                                        
-                                        <p><span class="price"><span  ng-bind-html="symbolz| unsafee"></span> {{ItemdataCatWise.Price * currentRate| number:2}}</span></p>
+                                        <!--<h4><a>{{ItemdataCatWise.Title}}</a></h4>-->
+                                        <h4><a href="http://www.davemuslayah.com/#/ItemDetail/{{ItemdataCatWise.ItemStockCode}}" target="_blank" ng-click="ShowItemDetail(ItemdataCatWise,$event)">{{ItemdataCatWise.Title}}</a></h4>
+<!--                                        <h4><a href="http://localhost:51077/index.html#/ItemList/{{ItemdataCatWise.ItemStockCode}}" target="_blank" ng-click="ShowItemDetail(ItemdataCatWise,$event)">{{ItemdataCatWise.Title}}</a></h4>-->
+
+                                        <p><span class="price"><span ng-bind-html="symbolz| unsafee"></span> {{ItemdataCatWise.Price * currentRate| number:2}}</span></p>
 
                                         <p>{{ItemdataCatWise.Name}}</p>
 
                                         <div class="pro-actions">
                                             <div class="actions-secondary">
                                                 <!--   <a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>-->
-                                                <a class="add-cart" href=""  ng-click="addItemToCart(ItemdataCatWise.ItemStockCode,ItemdataCatWise.Title,ItemdataCatWise.ItemMainImage,ItemdataCatWise.Price,1,null,ItemdataCatWise.CategoryName,ItemdataCatWise.ItemId)" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
+                                                <a class="add-cart" href="" ng-click="addItemToCart(ItemdataCatWise.ItemStockCode,ItemdataCatWise.Title,ItemdataCatWise.ItemMainImage,ItemdataCatWise.Price,1,null,ItemdataCatWise.CategoryName,ItemdataCatWise.ItemId)" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
                                                 <!--<a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a>-->
                                             </div>
                                         </div>
