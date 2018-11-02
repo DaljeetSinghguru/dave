@@ -154,6 +154,14 @@ app.config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'app/views/ItemList.html',
             contrller: 'loginController'
         })
+        .when('/ItemListBrand/:id', {
+            templateUrl: 'app/views/ItemListByBrand.html',
+            contrller: 'loginController'
+        })
+        .when('/ItemListSearchText/:id', {
+            templateUrl: 'app/views/ItemListByBrand.html',
+            contrller: 'loginController'
+        })
         .when('/TermsandCondition', {
             templateUrl: 'app/views/TermsandCondition.html',
             contrller: 'loginController'
@@ -198,15 +206,15 @@ app.config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'app/views/ItemDetail.html',
             contrller: 'ItemDetailController'
         })
-        .when('/ItemListCategory3', {
+        .when('/ItemListCategory3/:id', {
             templateUrl: 'app/views/CategoryLevel3.html',
             contrller: 'loginController'
         })
-        .when('/ItemListCategory2', {
+        .when('/ItemListCategory2/:id', {
             templateUrl: 'app/views/CategoryLevel2.html',
             contrller: 'loginController'
         })
-        .when('/ItemListCategory1', {
+        .when('/ItemListCategory1/:id', {
             templateUrl: 'app/views/CategoryLevel1.html',
             contrller: 'loginController'
         })

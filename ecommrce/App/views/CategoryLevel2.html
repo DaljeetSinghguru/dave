@@ -165,7 +165,7 @@
                                 <div class="row">
                                     <!-- Single Product Start -->
 
-                                    <div class="col-lg-4 col-sm-6" ng-click="ShowCategoryLevel3(dataCatWiseLevel2)" ng-repeat="dataCatWiseLevel2 in ItemListPageCategoryLevel2.items">
+                                    <div class="col-lg-4 col-sm-6" ng-click="ShowCategoryLevel3(dataCatWiseLevel2)" ng-repeat="dataCatWiseLevel2 in ItemListPageCategoryLevel2">
                                         <div class="single-product">
                                             <!-- Product Image Start -->
                                             <div class="pro-img">
@@ -184,8 +184,9 @@
         <i class="fa fa-star"></i>
         <i class="fa fa-star"></i>
     </div>-->
-                                         <!--       <h4><a>{{dataCatWiseLevel2.text}}</a></h4>-->
-                                                <h4><a href="http://www.davemuslayah.com/#/ItemListCategory2" target="_blank" ng-click="ShowCategoryLevel3(dataCatWiseLevel2,$event)">{{dataCatWiseLevel2.text}}</a></h4>
+                                                <!--       <h4><a>{{dataCatWiseLevel2.text}}</a></h4>-->
+                                               <!-- <h4><a href="http://www.davemuslayah.com/#/ItemListCategory2" target="_blank" ng-click="ShowCategoryLevel3(dataCatWiseLevel2,$event)">{{dataCatWiseLevel2.text}}</a></h4>-->
+                                                <h4><a href="http://www.davemuslayah.com/#/ItemListCategory1/{{dataCatWiseLevel2.Value}}" target="_blank" ng-click="ShowCategoryLevel3(dataCatWiseLevel2,$event)">{{dataCatWiseLevel2.text}}</a></h4>
 
                                                 <div class="pro-actions">
                                                     <div class="actions-secondary">
@@ -207,7 +208,7 @@
                                 <!-- Single Product Start -->
                                 <!--<h3>{{ItemListPageCategoryLevel1.text}}</h3>-->
 
-                                <div ng-click="ShowCategoryLevel3(dataCatWiseLevel2)" class="single-product" ng-repeat="dataCatWiseLevel2 in ItemListPageCategoryLevel2.items">
+                                <div ng-click="ShowCategoryLevel3(dataCatWiseLevel2)" class="single-product" ng-repeat="dataCatWiseLevel2 in ItemListPageCategoryLevel2">
                                     <!-- Product Image Start -->
                                     <div class="pro-img">
                                         <a>
@@ -226,8 +227,8 @@
         <i class="fa fa-star"></i>
     </div>-->
                                         <!--   <h4><a>{{dataCatWiseLevel2.text}}</a></h4>-->
-                                        <h4><a href="http://www.davemuslayah.com/#/ItemListCategory2" target="_blank" ng-click="ShowCategoryLevel3(dataCatWiseLevel2,$event)">{{dataCatWiseLevel2.text}}</a></h4>
-                                        <h4><!--<a href="http://localhost:51077/index.html#/ItemList/{{dataCatWiseLevel3.Value}}" target="_blank" ng-click="ShowCategoryLevel3(dataCatWiseLevel2,$event)">{{dataCatWiseLevel3.text}}</a>--></h4>
+                                     <!--   <h4><a href="http://www.davemuslayah.com/#/ItemListCategory2" target="_blank" ng-click="ShowCategoryLevel3(dataCatWiseLevel2,$event)">{{dataCatWiseLevel2.text}}</a></h4>-->
+                                       <h4><a href="http://www.davemuslayah.com/#/ItemListCategory1/{{dataCatWiseLevel2.Value}}" target="_blank" ng-click="ShowCategoryLevel3(dataCatWiseLevel2,$event)">{{dataCatWiseLevel2.text}}</a></h4>
 
                                         <p>{{dataCatWiseLevel2.Description}}</p>
                                         <div class="pro-actions">

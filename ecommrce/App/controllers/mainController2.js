@@ -22,21 +22,24 @@
         $scope.searchme = function (text) {
             debugger
             $scope.searchtext;
-            $http({ method: 'POST', url: $scope.Url + 'Search/Request/?Searchtext=' + $scope.searchtext }).
-                success(function (data, status, headers, config) {
-                    debugger
-                    $scope.ItemListDetails = data;
-                    ViewVariablesService.SetDatasendToItemListPage(data);
-                    //$window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
-                    localStorage["ItemListdata"] = angular.toJson(data);
-                    if ($location.path() == '/ItemList') {
-                        $route.reload();
-                    }
-                    else {
-                        $location.path('ItemList');
-                    }
+            var path = "/ItemListSearchText/" + $scope.searchtext;
+            $location.path(path);
+            //$http({ method: 'POST', url: $scope.Url + 'Search/Request/?Searchtext=' + $scope.searchtext }).
+            //    success(function (data, status, headers, config) {
+            //        debugger
+            //        $scope.ItemListDetails = data;
+            //        ViewVariablesService.SetDatasendToItemListPage(data);
+            //        //$window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+            //        localStorage["ItemListdata"] = angular.toJson(data);
 
-                })
+            //        if ($location.path() == '/ItemList') {
+            //            $route.reload();
+            //        }
+            //        else {
+            //            $location.path('ItemList');
+            //        }
+
+            //    })
 
         }
 
@@ -175,7 +178,7 @@
         }).
             success(function (data, status, headers, config) {
 
-
+                debugger
                 $scope.AllCategory = data
                 ViewVariablesService.SetDataofMenu($scope.AllCategory);
                // $window.sessionStorage.setItem('MenuData', angular.toJson(data));
@@ -792,7 +795,7 @@
 
 
 
-        $scope.categoryClickLevel1 = function (CategoryId) {
+        $scope.categoryClickLevel1 = function (CategoryId, evnt) {
             //   
             debugger
             if (CategoryId.text == 'Blogs') {
@@ -803,19 +806,30 @@
                 }
             } else {
 
-               // $window.sessionStorage.setItem('CategoryId', angular.toJson(CategoryId));
-
+                // $window.sessionStorage.setItem('CategoryId', angular.toJson(CategoryId));
+                debugger
                 localStorage["CategoryId"] = angular.toJson(CategoryId);
-                // $rootScope.ItemDetailDataCategoryWiselevel1 = CategoryId;
+                //$rootScope.ItemDetailDataCategoryWiselevel1 = CategoryId;
                 //ViewVariablesService.SetDatasendToItemListPageLevel1($scope.ItemDetailDataCategoryWiselevel1);
                 //ViewVariablesService.SetDatasendToItemListPage();
                 //ViewVariablesService.SetDatasendToItemListPageCategory();
                 //ViewVariablesService.SetDatasendToItemListPageCategoryLevel2();
+                if (
+                    evnt.ctrlKey ||
+                    evnt.shiftKey ||
+                    evnt.metaKey ||
+                    (evnt.button && evnt.button == 1)
+                ) {
+                    return;
+                }
+                evnt.preventDefault();
 
-                if ($location.path() == '/ItemListCategory3') {
+              
+
+                if ($location.path() == '/ItemListCategory3/' + CategoryId.Value) {
                     $route.reload();
                 } else {
-                    $location.path('ItemListCategory3');
+                    $location.path('ItemListCategory3/' + CategoryId.Value);
                 }
                 //$location.path('ItemList');
 
@@ -828,26 +842,49 @@
             }
 
         }
-        $scope.categoryClicklevel2 = function (CategoryLevel2) {
+        $scope.categoryClicklevel2 = function (CategoryLevel2, evnt) {
             //
+            debugger
+            localStorage["CategoryId2"] = angular.toJson(CategoryLevel2);
+            if (
+                evnt.ctrlKey ||
+                evnt.shiftKey ||
+                evnt.metaKey ||
+                (evnt.button && evnt.button == 1)
+            ) {
+                return;
+            }
+            evnt.preventDefault();
 
 
             $scope.ItemDetailDataCategoryWiselevel2 = CategoryLevel2;
-            ViewVariablesService.SetDatasendToItemListPageCategoryLevel2($scope.ItemDetailDataCategoryWiselevel2);
-            ViewVariablesService.SetDatasendToItemListPage();
-            ViewVariablesService.SetDatasendToItemListPageCategory();
+         // ViewVariablesService.SetDatasendToItemListPageCategoryLevel2($scope.ItemDetailDataCategoryWiselevel2);
+         //   ViewVariablesService.SetDatasendToItemListPage();
+         //  ViewVariablesService.SetDatasendToItemListPageCategory();
          //   $window.sessionStorage.setItem('CategoryId', angular.toJson(CategoryLevel2));
-            localStorage["CategoryId"] = angular.toJson(CategoryLevel2);
-            if ($location.path() == '/ItemListCategory2') {
+          
+            
+            if ($location.path() == '/ItemListCategory2/' + CategoryLevel2.Value) {
                 $route.reload();
             } else {
-                $location.path('ItemListCategory2');
+                $location.path('ItemListCategory2/' + CategoryLevel2.Value);
             }
 
-
         }
-        $scope.categoryClicklevel3 = function (CategoryData) {
+        $scope.categoryClicklevel3 = function (CategoryData, evnt) {
             //  
+            debugger
+            localStorage["CategoryId3"] = angular.toJson(CategoryData);
+            if (
+                evnt.ctrlKey ||
+                evnt.shiftKey ||
+                evnt.metaKey ||
+                (evnt.button && evnt.button == 1)
+            ) {
+                return;
+            }
+            evnt.preventDefault();
+
 
 
             $scope.ItemDetailDataCategoryWiselevel3 = CategoryData;
@@ -855,42 +892,50 @@
             ViewVariablesService.SetDatasendToItemListPage();
 
             ViewVariablesService.SetDatasendToItemListPageCategory($scope.ItemDetailDataCategoryWiselevel3);
-         //   $window.sessionStorage.setItem('CategoryId', angular.toJson(CategoryData));
-            localStorage["CategoryId"] = angular.toJson(CategoryData);
-            if ($location.path() == '/ItemListCategory1') {
+            //$window.sessionStorage.setItem('CategoryId', angular.toJson(CategoryData));
+            
+            //if ($location.path() == '/ItemListCategory1') {
+            //    $route.reload();
+            //} else {
+            //    $location.path('ItemListCategory1');
+            //}
+            //}
+            if ($location.path() == '/ItemListCategory1/' + CategoryData.Value) {
                 $route.reload();
             } else {
-                $location.path('ItemListCategory1');
+                $location.path('ItemListCategory1/' + CategoryData.Value);
             }
-            //}
-
 
 
         }
         $scope.categoryClicklevel4 = function (CategoryId) {
             // 
-            $http({
-                method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=' + CategoryId + ''
-            }).
-                success(function (data, status, headers, config) {
-                    //  
 
-                    $scope.ItemDetailDataCategoryWiselevel4 = data;
-                    // if ($scope.ItemDetailDataCategoryWiselevel3 == undefined || $scope.ItemDetailDataCategoryWiselevel3.length == 0) {
-                    ViewVariablesService.SetDatasendToItemListPage($scope.ItemDetailDataCategoryWiselevel4);
+            var path = "/ItemList/" + CategoryId;
+            $location.path(path);
 
-                //    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
-                    localStorage["ItemListdata"] = angular.toJson(data);
-                    ViewVariablesService.SetDatasendToItemListPageCategory();
-                    if ($location.path() == '/ItemList') {
-                        $route.reload();
-                    } else {
-                        $location.path('ItemList');
-                    }
-                    // }
-                }).
-                error(function (data, status, headers, config) {
-                });
+            //$http({
+            //    method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=' + CategoryId + ''
+            //}).
+            //    success(function (data, status, headers, config) {
+            //        //  
+
+            //        $scope.ItemDetailDataCategoryWiselevel4 = data;
+            //        // if ($scope.ItemDetailDataCategoryWiselevel3 == undefined || $scope.ItemDetailDataCategoryWiselevel3.length == 0) {
+            //        ViewVariablesService.SetDatasendToItemListPage($scope.ItemDetailDataCategoryWiselevel4);
+
+            //    //    $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+            //        localStorage["ItemListdata"] = angular.toJson(data);
+            //        ViewVariablesService.SetDatasendToItemListPageCategory();
+            //        if ($location.path() == '/ItemList') {
+            //            $route.reload();
+            //        } else {
+            //            $location.path('ItemList');
+            //        }
+            //        // }
+            //    }).
+            //    error(function (data, status, headers, config) {
+            //    });
 
         }
 

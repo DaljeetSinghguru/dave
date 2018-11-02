@@ -146,22 +146,25 @@
 
         $scope.CategoryClick = function (categorydata) {
 
-
-            $http({
-                method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=' + categorydata.CategoryId + ''
-            }).
-                success(function (data, status, headers, config) {
+            var path = "/ItemList/" + categorydata.CategoryId;
+            $location.path(path);
 
 
-                    $scope.ItemListDetails = data;
-                    ViewVariablesService.SetDatasendToItemListPage(data);
-                   // $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
-    localStorage["ItemListdata"] = angular.toJson(data);
-                    $location.path('ItemList');
+            //$http({
+            //    method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=' + categorydata.CategoryId + ''
+            //}).
+            //    success(function (data, status, headers, config) {
 
-                }).
-                error(function (data, status, headers, config) {
-                });
+
+            //        $scope.ItemListDetails = data;
+            //        ViewVariablesService.SetDatasendToItemListPage(data);
+            //       // $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+            //        localStorage["ItemListdata"] = angular.toJson(data);
+            //        $location.path('ItemList');
+
+            //    }).
+            //    error(function (data, status, headers, config) {
+            //    });
         }
 
 
@@ -176,21 +179,24 @@
 
         $scope.BrandClick = function (brandData) {
             debugger
-            $http({
-                method: 'GET', url: $scope.Url + 'Category/GetItemByBrand?BrandId=' + brandData.BrandId + ''
-            }).
-                success(function (data, status, headers, config) {
+            var path = "/ItemListBrand/" + brandData.BrandId;
+            $location.path(path);
+
+            //$http({
+            //    method: 'GET', url: $scope.Url + 'Category/GetItemByBrand?BrandId=' + brandData.BrandId + ''
+            //}).
+            //    success(function (data, status, headers, config) {
 
 
-                    $scope.ItemListDetails = data;
-                    ViewVariablesService.SetDatasendToItemListPage(data);
-                  //  $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
-    localStorage["ItemListdata"] = angular.toJson(data);
-                    $location.path('ItemList');
+            //        $scope.ItemListDetails = data;
+            //        ViewVariablesService.SetDatasendToItemListPage(data);
+            //      //  $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+            //        localStorage["ItemListdata"] = angular.toJson(data);
+            //        $location.path('ItemList');
 
-                }).
-                error(function (data, status, headers, config) {
-                });
+            //    }).
+            //    error(function (data, status, headers, config) {
+            //    });
         }
 
         $scope.loadbrand = function () {

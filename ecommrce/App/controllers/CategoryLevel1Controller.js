@@ -1,5 +1,5 @@
-﻿app.controller('CategoryLevel1Controller', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location',
-    function ($scope, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location) {
+﻿app.controller('CategoryLevel1Controller', ['$scope','$route', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location',
+    function ($scope, $route,$window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location) {
         $window.scrollTo(0, 0);
         var myPassword = "MAKV123456789312";
         $scope.Url = ViewVariablesService.GetBaseAddress();
@@ -7,14 +7,32 @@
         $scope.ShowCategoryLevel2list = false;
         $scope.ShowCategoryLevel1list = false;
         $scope.ShowITEMlist = false;
+        var CategoryIdparamee = $route.current.params.id;
         // $scope.ItemListDetails = ViewVariablesService.GetDatasendToItemListPage();
 
         //$scope.ItemListPageCategory = angular.fromJson($window.sessionStorage.getItem('CategoryId'));
         //$scope.topProductshowonfront = angular.fromJson($window.sessionStorage.getItem('MenuData'));
 
         //$scope.BrandList = angular.fromJson($window.sessionStorage.getItem('BrandData'));
+        $http({
+            method: 'GET', url: $scope.Url + 'Category/GetChildCategoryByCategoryId?CategoryId=' + CategoryIdparamee + ''
+        }).
+            success(function (data, status, headers, config) {
 
-        $scope.ItemListPageCategory = angular.fromJson(localStorage["CategoryId"]);
+                debugger
+                $scope.ItemListPageCategory = data;
+                //ViewVariablesService.SetDatasendToItemListPage(data);
+                //$window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+                localStorage["CategoryId3"] = angular.toJson(data);
+
+
+
+            }).
+            error(function (data, status, headers, config) {
+            });
+
+
+        $scope.ItemListPageCategory = angular.fromJson(localStorage["CategoryId3"]);
         $scope.topProductshowonfront = angular.fromJson(localStorage["MenuData"]);
         $scope.BrandList = angular.fromJson(localStorage["BrandData"]);
 
@@ -178,8 +196,9 @@
             debugger
 
 
-            var path = "/ItemList/" + data.Value;
+            var path = "/ItemListBrand/" + brandData.BrandId;
             $location.path(path);
+
 
             //$http({
             //    method: 'GET', url: $scope.Url + 'Category/GetItemByBrand?BrandId=' + brandData.BrandId + ''

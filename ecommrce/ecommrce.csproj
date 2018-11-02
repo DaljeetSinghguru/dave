@@ -91,6 +91,8 @@
     <Content Include="App\controllers\CheckoutController.js" />
     <Content Include="App\controllers\ItemDetailController.js" />
     <Content Include="App\controllers\CategoryLevel3Controller.js" />
+    <Content Include="App\controllers\ItemListBySerachText.js" />
+    <Content Include="App\controllers\ItemListByBrandController.js" />
     <Content Include="App\controllers\ItemListController.js" />
     <Content Include="App\controllers\RegistermeController.js" />
     <Content Include="App\controllers\ProductController.js" />
@@ -112,6 +114,8 @@
     <Content Include="App\views\ItemDetail - Copy16102018.html" />
     <Content Include="App\views\ItemDetail - Copy1010918pm.html" />
     <Content Include="App\views\ItemDetail - old.html" />
+    <Content Include="App\views\ItemListBySearchText.html" />
+    <Content Include="App\views\ItemListByBrand.html" />
     <Content Include="App\views\Privacy.html" />
     <Content Include="App\views\Product.html" />
     <Content Include="App\views\Return.html" />

@@ -167,7 +167,7 @@
                                 <div class="row">
                                     <!-- Single Product Start -->
 
-                                    <div class="col-lg-4 col-sm-6" ng-click="ShowCategoryLevel1(dataCatWiseLevel1)" ng-repeat="dataCatWiseLevel1 in ItemListPageCategoryLevel1.items">
+                                    <div class="col-lg-4 col-sm-6" ng-click="ShowCategoryLevel1(dataCatWiseLevel1)" ng-repeat="dataCatWiseLevel1 in ItemListPageCategoryLevel1">
                                         <div class="single-product">
                                             <!-- Product Image Start -->
                                             <div class="pro-img">
@@ -186,7 +186,7 @@
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                 </div>-->
-                                                <h4><a href="http://www.davemuslayah.com/#/ItemListCategory3" target="_blank" ng-click="ShowCategoryLevel1(dataCatWiseLevel1,$event)">{{dataCatWiseLevel1.text}}</a></h4>
+                                                <h4><a href="http://www.davemuslayah.com/#/ItemListCategory2/{{dataCatWiseLevel1.Value}}" target="_blank" ng-click="ShowCategoryLevel1(dataCatWiseLevel1,$event)">{{dataCatWiseLevel1.text}}</a></h4>
                                                 <div class="pro-actions">
                                                     <div class="actions-secondary">
                                                         <!--<a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
@@ -207,7 +207,7 @@
                                 <!-- Single Product Start -->
                                 <!--<h3>{{ItemListPageCategoryLevel1.text}}</h3>-->
 
-                                <div ng-click="ShowCategoryLevel1(dataCatWiseLevel1)" class="single-product" ng-repeat="dataCatWiseLevel1 in ItemListPageCategoryLevel1.items">
+                                <div ng-click="ShowCategoryLevel1(dataCatWiseLevel1)" class="single-product" ng-repeat="dataCatWiseLevel1 in ItemListPageCategoryLevel1">
                                     <!-- Product Image Start -->
                                     <div class="pro-img">
                                         <a>
@@ -219,13 +219,14 @@
                                     <!-- Product Content Start -->
                                     <div class="pro-content">
                                         <!--<div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>-->
-                                        <h4><a  href="http://www.davemuslayah.com/#/ItemListCategory3" target="_blank" ng-click="ShowCategoryLevel1(dataCatWiseLevel1,$event)">{{dataCatWiseLevel1.text}}</a></h4>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+    </div>-->
+                                      <!--  <h4><a href="http://www.davemuslayah.com/#/ItemListCategory3" target="_blank" ng-click="ShowCategoryLevel1(dataCatWiseLevel1,$event)">{{dataCatWiseLevel1.text}}</a></h4>-->
+                                        <h4><a href="http://www.davemuslayah.com/#/ItemListCategory2/{{dataCatWiseLevel1.Value}}" target="_blank" ng-click="ShowCategoryLevel1(dataCatWiseLevel1,$event)">{{dataCatWiseLevel1.text}}</a></h4>
 
                                         <p>{{dataCatWiseLevel1.Description}}</p>
                                         <div class="pro-actions">
