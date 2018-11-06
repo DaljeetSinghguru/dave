@@ -128,23 +128,23 @@
                                     </li>
                                     <!--<li><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>-->
                                     <li>
-                                        <a href=""><i class="fa fa-shopping-basket"></i><span class="cart-counter">2</span></a>
+                                        <a href=""><i class="fa fa-shopping-basket"></i><span class="cart-counter">{{getTotalCount()}}</span></a>
                                         <ul class="ht-dropdown main-cart-box">
                                             <li>
                                                 <!-- Cart Box Start -->
-                                                <div class="single-cart-box">
+                                                <div class="single-cart-box" ng-repeat="i in items">
                                                     <div class="cart-img">
-                                                        <a href=""><img src="img/menu/1.jpg" alt="cart-image"></a>
+                                                        <a href=""><img src="{{WebsiteDomain}}images/{{i.ItemImage}}" alt="cart-image"></a>
                                                     </div>
                                                     <div class="cart-content">
-                                                        <h6><a href="">Products Name</a></h6>
-                                                        <span>1 × $399.00</span>
+                                                        <h6><a href="">{{i.name}}</a></h6>
+                                                        <span>{{i.quantity}}*{{i.price}}</span>
                                                     </div>
-                                                    <a class="del-icone" href=""><i class="fa fa-window-close-o"></i></a>
+                                                    <a class="del-icone" href=""  ng-click="deleteRowFromBasket(i)"><i class="fa fa-window-close-o"></i></a>
                                                 </div>
                                                 <!-- Cart Box End -->
                                                 <!-- Cart Box Start -->
-                                                <div class="single-cart-box">
+                                                <!--<div class="single-cart-box">
                                                     <div class="cart-img">
                                                         <a href=""><img src="img/menu/2.jpg" alt="cart-image"></a>
                                                     </div>
@@ -153,11 +153,11 @@
                                                         <span>2 × $299.00</span>
                                                     </div>
                                                     <a class="del-icone" href=""><i class="fa fa-window-close-o"></i></a>
-                                                </div>
+                                                </div>-->
                                                 <!-- Cart Box End -->
                                                 <!-- Cart Footer Inner Start -->
                                                 <div class="cart-footer fix">
-                                                    <h5>total :<span class="f-right">$698.00</span></h5>
+                                                    <h5>total :<span class="f-right">{{getTotalPrice()|currency:"&#163;"}}</span></h5>
                                                     <div class="cart-actions">
                                                         <a class="checkout" href="">Checkout</a>
                                                     </div>

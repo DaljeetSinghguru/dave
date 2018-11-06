@@ -1,5 +1,5 @@
-﻿app.controller('ItemController', ['$scope', '$http','$modal', '$location', 'ItemService', 'brandService', 'SubCategoryService', 'CategoryMasterService',
-    function ($scope, $http, $modal, $location, ItemService, brandService, SubCategoryService, CategoryMasterService) {
+﻿app.controller('ItemController', ['$scope','$route', '$http','$modal', '$location', 'ItemService', 'brandService', 'SubCategoryService', 'CategoryMasterService',
+    function ($scope, $route, $http, $modal, $location, ItemService, brandService, SubCategoryService, CategoryMasterService) {
         
 
 
@@ -571,6 +571,9 @@
                 }
                 $scope.SaveItemDone = false;
                 $scope.btntextCategory = "Save";
+                $scope.Item = {};
+                $scope.RefreshItemGrid();
+                $route.reload();
                 alert("Item Link with Category Done.");
                 
             })

@@ -171,8 +171,8 @@
 
 
         $scope.addItemToCart = function (sku, name, ItemImage, price, quantity, IsStockPresent, ItemType, ItemId) {
-             
 
+            debugger
            // if (IsStockPresent == "In Stock") {
                 quantity = this.toNumber(quantity);
                 if (quantity != 0) {

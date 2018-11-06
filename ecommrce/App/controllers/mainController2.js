@@ -313,7 +313,7 @@
             $scope.items.splice(0, $scope.items.length);
             var items = localStorage != null ? localStorage[$scope.cartName + "_items"] : null;
 
-
+            debugger
             // load from local storage
             if (items != null && JSON != null) {
                 try {
@@ -346,7 +346,7 @@
             this.price = price * 1;
             this.quantity = quantity * 1;
             this.IsStockPresent = IsStockPresent;
-            this.image = image;
+            this.ItemImage = image;
 
         }
         $scope.itemsChanged = function (e) {
