@@ -223,10 +223,13 @@
                                                 <!-- This is only shown when viewing on medium and small screen devices -->
                                                 <li id="menu"><a href="" class="menu-links" ng-click="gotoDefault()">{{Menu}}<i class="fa fa-bars fa-fw"></i></a></li>
 
-                                                <!-- Mega Menu -->
+                                                <!-- Mega Menu http://localhost:51077/index.html# -->
                                                 <li> <a href="" ng-click="gotoDefault()">{{'Home'|translate|uppercase  }}</a> </li>
                                                 <li ng-repeat="data in AllCategory">
-                                                    <a href="http://www.davemuslayah.com/#/ItemListCategory3/{{data.Value}}" class="menu-links" ng-click="categoryClickLevel1(data)"><span class="has-sub-menu"> {{data.text| translate|uppercase }} </span><i class="fa fa-caret-down fa-fw"></i></a>
+                                                   <!-- <a href="http://www.davemuslayah.com/#/ItemListCategory3/{{data.Value}}" class="menu-links" ng-click="categoryClickLevel1(data)"><span class="has-sub-menu"> {{data.text| translate|uppercase }} </span><i class="fa fa-caret-down fa-fw"></i></a>-->
+
+                                                    <a href="http://localhost:51077/index.html#/ItemListCategory3/{{data.Value}}" class="menu-links" ng-click="categoryClickLevel1(data)"><span class="has-sub-menu"> {{data.text| translate|uppercase }} </span><i class="fa fa-caret-down fa-fw"></i></a>
+
 
                                                     <div class="sub-menu-1 multi-drop l-group animated">
 
@@ -234,58 +237,62 @@
 
 
                                                             <li class="has-sub-menu" ng-repeat="level2 in GetSubMenu(data,data.Value)">
-                                                                <a href="http://www.davemuslayah.com/#/ItemListCategory2/{{level2.Value}}" target="_blank" class="menu-links" ng-click="categoryClicklevel2(level2,$event)">
-                                                                    <i class="fa fa-buysellads fa-fw"></i><span> {{level2.text| translate|uppercase}}</span>
-                                                                    <i class="fa fa-angle-right fa-fw l-pos-a"></i>
-                                                                </a>
+    <!--                                                            <a href="http://www.davemuslayah.com/#/ItemListCategory2/{{level2.Value}}" target="_blank" class="menu-links" ng-click="categoryClicklevel2(level2,$event)">-->
+                                                                    <a href="http://localhost:51077/index.html#/ItemListCategory2/{{level2.Value}}" target="_blank" class="menu-links" ng-click="categoryClicklevel2(level2,$event)">
 
-                                                                <!-- sub-menu-2 -->
-                                                                <div class="sub-menu-2 drop-down side-menu l-group">
+                                                                        <i class="fa fa-buysellads fa-fw"></i><span> {{level2.text| translate|uppercase}}</span>
+                                                                        <i class="fa fa-angle-right fa-fw l-pos-a"></i>
+                                                                    </a>
 
-                                                                    <ul class="l-vertical-list l-group">
+                                                                    <!-- sub-menu-2 -->
+                                                                    <div class="sub-menu-2 drop-down side-menu l-group">
 
-                                                                        <li class="has-sub-menu" ng-repeat="level3 in GetSuperSubMenu(level2,level2.Value)">
-                                                                            <a href="http://www.davemuslayah.com/#/ItemListCategory1/{{level3.Value}}" target="_blank" class="menu-links" ng-click="categoryClicklevel3(level3,$event)"><i class="fa fa-arrow-circle-right fa-fw"></i><span> {{level3.text| translate|uppercase}} </span><i class="fa fa-angle-right fa-fw l-pos-a"></i></a>
+                                                                        <ul class="l-vertical-list l-group">
 
-                                                                            <!-- sub-menu-3 -->
-                                                                            <div class="sub-menu-3 drop-down side-menu l-group">
+                                                                            <li class="has-sub-menu" ng-repeat="level3 in GetSuperSubMenu(level2,level2.Value)">
+<!--                                                                                <a href="http://www.davemuslayah.com/#/ItemListCategory1/{{level3.Value}}" target="_blank" class="menu-links" ng-click="categoryClicklevel3(level3,$event)"><i class="fa fa-arrow-circle-right fa-fw"></i><span> {{level3.text| translate|uppercase}} </span><i class="fa fa-angle-right fa-fw l-pos-a"></i></a>-->
+                                                                                <a href="http://localhost:51077/index.html#/ItemListCategory1/{{level3.Value}}" target="_blank" class="menu-links" ng-click="categoryClicklevel3(level3,$event)"><i class="fa fa-arrow-circle-right fa-fw"></i><span> {{level3.text| translate|uppercase}} </span><i class="fa fa-angle-right fa-fw l-pos-a"></i></a>
 
-                                                                                <ul class="l-vertical-list l-group">
+                                                                                <!-- sub-menu-3 -->
+                                                                                <div class="sub-menu-3 drop-down side-menu l-group">
 
-
-                                                                                    <li class="has-sub-menu" ng-repeat="level4 in GetSuperSuperSubMenu(level3,level3.Value)">
-                                                                                        <a href="http://www.davemuslayah.com/#/ItemList/{{level4.Value}}" class="menu-links" ng-click="categoryClicklevel4(level4.Value)"><i class="fa fa-angle-double-right fa-fw"></i><span> {{level4.text| translate|uppercase}} </span><i class="fa fa-angle-right fa-fw l-pos-a"></i></a>
-
-                                                                                        <!-- sub-menu-4 -->
-                                                                                        <!--<div class="sub-menu-4 drop-down side-menu l-group">
-
-                                                                                            <ul class="l-vertical-list l-group">
-
-                                                                                                <li><a href="#" class="menu-links"><i class="fa fa-angle-double-right fa-fw"></i><span> Full Width </span></a></li>
-                                                                                                <li><a href="#" class="menu-links"><i class="fa fa-angle-double-right fa-fw"></i><span> Medium Width </span></a></li>
-                                                                                                <li><a href="#" class="menu-links"><i class="fa fa-angle-double-right fa-fw"></i><span> Small Width </span></a>
-
-                                                                                            </ul>
-
-                                                                                        </div>-->
-                                                                                        <!-- sub-menu-4 -->
-
-                                                                                    </li>
-
-                                                                                </ul>
-
-                                                                            </div>
-                                                                            <!-- end sub-menu-3 -->
-
-                                                                        </li>
+                                                                                    <ul class="l-vertical-list l-group">
 
 
-                                                                    </ul>
+                                                                                        <li class="has-sub-menu" ng-repeat="level4 in GetSuperSuperSubMenu(level3,level3.Value)">
+                                                                                          <!--  <a href="http://www.davemuslayah.com/#/ItemList/{{level4.Value}}" class="menu-links" ng-click="categoryClicklevel4(level4.Value)"><i class="fa fa-angle-double-right fa-fw"></i><span> {{level4.text| translate|uppercase}} </span><i class="fa fa-angle-right fa-fw l-pos-a"></i></a>-->
+                                                                                            <a href="http://localhost:51077/index.html#/ItemList/{{level4.Value}}" class="menu-links" ng-click="categoryClicklevel4(level4.Value)"><i class="fa fa-angle-double-right fa-fw"></i><span> {{level4.text| translate|uppercase}} </span><i class="fa fa-angle-right fa-fw l-pos-a"></i></a>
 
-                                                                </div>
-                                                                <!-- end sub-menu-2 -->
+                                                                                            <!-- sub-menu-4 -->
+                                                                                            <!--<div class="sub-menu-4 drop-down side-menu l-group">
 
-                                                            </li>
+        <ul class="l-vertical-list l-group">
+
+            <li><a href="#" class="menu-links"><i class="fa fa-angle-double-right fa-fw"></i><span> Full Width </span></a></li>
+            <li><a href="#" class="menu-links"><i class="fa fa-angle-double-right fa-fw"></i><span> Medium Width </span></a></li>
+            <li><a href="#" class="menu-links"><i class="fa fa-angle-double-right fa-fw"></i><span> Small Width </span></a>
+
+        </ul>
+
+    </div>-->
+                                                                                            <!-- sub-menu-4 -->
+
+                                                                                        </li>
+
+                                                                                    </ul>
+
+                                                                                </div>
+                                                                                <!-- end sub-menu-3 -->
+
+                                                                            </li>
+
+
+                                                                        </ul>
+
+                                                                    </div>
+                                                                    <!-- end sub-menu-2 -->
+
+</li>
 
                                                         </ul>
 
