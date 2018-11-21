@@ -116,6 +116,7 @@
     <Content Include="App\views\ItemDetail - old.html" />
     <Content Include="App\views\ItemListBySearchText.html" />
     <Content Include="App\views\ItemListByBrand.html" />
+    <Content Include="App\views\login - Copy21112018.html" />
     <Content Include="App\views\Privacy.html" />
     <Content Include="App\views\Product.html" />
     <Content Include="App\views\Return.html" />

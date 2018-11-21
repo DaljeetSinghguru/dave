@@ -226,9 +226,8 @@
                                                 <!-- Mega Menu http://localhost:51077/index.html# -->
                                                 <li> <a href="" ng-click="gotoDefault()">{{'Home'|translate|uppercase  }}</a> </li>
                                                 <li ng-repeat="data in AllCategory">
-                                                   <!-- <a href="http://www.davemuslayah.com/#/ItemListCategory3/{{data.Value}}" class="menu-links" ng-click="categoryClickLevel1(data)"><span class="has-sub-menu"> {{data.text| translate|uppercase }} </span><i class="fa fa-caret-down fa-fw"></i></a>-->
 
-                                                    <a href="http://localhost:51077/index.html#/ItemListCategory3/{{data.Value}}" class="menu-links" ng-click="categoryClickLevel1(data)"><span class="has-sub-menu"> {{data.text| translate|uppercase }} </span><i class="fa fa-caret-down fa-fw"></i></a>
+                                                    <a href="{{MainUrl}}ItemListCategory3/{{data.Value}}" class="menu-links" ng-click="categoryClickLevel1(data)"><span class="has-sub-menu"> {{data.text| translate|uppercase }} </span><i class="fa fa-caret-down fa-fw"></i></a>
 
 
                                                     <div class="sub-menu-1 multi-drop l-group animated">
@@ -237,8 +236,7 @@
 
 
                                                             <li class="has-sub-menu" ng-repeat="level2 in GetSubMenu(data,data.Value)">
-    <!--                                                            <a href="http://www.davemuslayah.com/#/ItemListCategory2/{{level2.Value}}" target="_blank" class="menu-links" ng-click="categoryClicklevel2(level2,$event)">-->
-                                                                    <a href="http://localhost:51077/index.html#/ItemListCategory2/{{level2.Value}}" target="_blank" class="menu-links" ng-click="categoryClicklevel2(level2,$event)">
+                                                                    <a href="{{MainUrl}}ItemListCategory2/{{level2.Value}}" target="_blank" class="menu-links" ng-click="categoryClicklevel2(level2,$event)">
 
                                                                         <i class="fa fa-buysellads fa-fw"></i><span> {{level2.text| translate|uppercase}}</span>
                                                                         <i class="fa fa-angle-right fa-fw l-pos-a"></i>
@@ -250,8 +248,7 @@
                                                                         <ul class="l-vertical-list l-group">
 
                                                                             <li class="has-sub-menu" ng-repeat="level3 in GetSuperSubMenu(level2,level2.Value)">
-<!--                                                                                <a href="http://www.davemuslayah.com/#/ItemListCategory1/{{level3.Value}}" target="_blank" class="menu-links" ng-click="categoryClicklevel3(level3,$event)"><i class="fa fa-arrow-circle-right fa-fw"></i><span> {{level3.text| translate|uppercase}} </span><i class="fa fa-angle-right fa-fw l-pos-a"></i></a>-->
-                                                                                <a href="http://localhost:51077/index.html#/ItemListCategory1/{{level3.Value}}" target="_blank" class="menu-links" ng-click="categoryClicklevel3(level3,$event)"><i class="fa fa-arrow-circle-right fa-fw"></i><span> {{level3.text| translate|uppercase}} </span><i class="fa fa-angle-right fa-fw l-pos-a"></i></a>
+                                                                                <a href="{{MainUrl}}ItemListCategory1/{{level3.Value}}" target="_blank" class="menu-links" ng-click="categoryClicklevel3(level3,$event)"><i class="fa fa-arrow-circle-right fa-fw"></i><span> {{level3.text| translate|uppercase}} </span><i class="fa fa-angle-right fa-fw l-pos-a"></i></a>
 
                                                                                 <!-- sub-menu-3 -->
                                                                                 <div class="sub-menu-3 drop-down side-menu l-group">
@@ -260,8 +257,7 @@
 
 
                                                                                         <li class="has-sub-menu" ng-repeat="level4 in GetSuperSuperSubMenu(level3,level3.Value)">
-                                                                                          <!--  <a href="http://www.davemuslayah.com/#/ItemList/{{level4.Value}}" class="menu-links" ng-click="categoryClicklevel4(level4.Value)"><i class="fa fa-angle-double-right fa-fw"></i><span> {{level4.text| translate|uppercase}} </span><i class="fa fa-angle-right fa-fw l-pos-a"></i></a>-->
-                                                                                            <a href="http://localhost:51077/index.html#/ItemList/{{level4.Value}}" class="menu-links" ng-click="categoryClicklevel4(level4.Value)"><i class="fa fa-angle-double-right fa-fw"></i><span> {{level4.text| translate|uppercase}} </span><i class="fa fa-angle-right fa-fw l-pos-a"></i></a>
+                                                                                            <a href="{{MainUrl}}ItemList/{{level4.Value}}" class="menu-links" ng-click="categoryClicklevel4(level4.Value)"><i class="fa fa-angle-double-right fa-fw"></i><span> {{level4.text| translate|uppercase}} </span><i class="fa fa-angle-right fa-fw l-pos-a"></i></a>
 
                                                                                             <!-- sub-menu-4 -->
                                                                                             <!--<div class="sub-menu-4 drop-down side-menu l-group">
@@ -367,8 +363,8 @@
                                 <div class="footer-content">
                                     <ul class="footer-list">
                                         <!--<li><a href="#">Site Map</a></li>-->
-                                        <li><a href="" ng-click="openTermsandCondition()">T's & C's</a></li>
-                                        <li><a href="" ng-click="openPrivacy()">Privacy Policy</a></li>
+                                        <li><a href="{{MainUrl}}TermsandCondition" ng-click="openTermsandCondition()">T's & C's</a></li>
+                                        <li><a href="{{MainUrl}}Privacy" ng-click="openPrivacy()">Privacy Policy</a></li>
 
 
                                     </ul>
@@ -379,12 +375,12 @@
                         <!-- Single Footer Start -->
                         <div class="col-lg-2  col-md-4 col-md-4 col-sm-6 footer-full">
                             <div class="single-footer">
-                                <h3 class="footer-title">My Account</h3>
+                                <h3 class="footer-title">More Info</h3>
                                 <div class="footer-content">
                                     <ul class="footer-list">
-                                        <li><a href="">My account</a></li>
-                                        <li><a href="" ng-click="">Checkout</a></li>
-                                        <li><a href="" ng-click="">Login</a></li>
+                                        <li><a href="{{MainUrl}}AboutUs">About Us</a></li>
+                                        <li><a href="{{MainUrl}}ContactUs" ng-click="">Contact Us</a></li>
+                                        <li><a href="{{MainUrl}}FAQ" ng-click="">FAQ</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -399,7 +395,7 @@
                                         <li><a href="">My account</a></li>
 
 
-                                        <li><a href="" ng-click="openReturn()">Return Policy</a></li>
+                                        <li><a href="{{MainUrl}}Return" ng-click="openReturn()">Return Policy</a></li>
                                         <li><a href="" ng-click="">Your Orders</a></li>
 
                                     </ul>
@@ -416,7 +412,7 @@
                                         <!--<li><a href=""  ng-click="loginme()">Your Account</a></li>
                                         <li><a href=""  ng-click="loginme()">Your Orders</a></li>
                                         <li><a href=""  ng-click="loginme()">Shipping</a></li>-->
-                                        <li><a href="" ng-click="openReturn()">Returns</a></li>
+                                        <li><a href="{{MainUrl}}Login" ng-click="loginme()">Login</a></li>
                                     </ul>
                                 </div>
                             </div>

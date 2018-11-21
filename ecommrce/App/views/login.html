@@ -1,58 +1,96 @@
 ﻿
 <div class="" ng-controller="ShopLoginController">
-    <div class="middle inner">
+    <div class="log-in pb-60">
         <div class="container">
-            <div class="login white-bg">
-                <h2>LOGIN OR CREATE AN ACCOUNT</h2>
-                <div class="login-user">
-                    <h3>ALREADY REGISTERED?</h3>
-                    <p>If you have an account with us, please log in.</p>
-                    <label>Email Address *</label>
-                    <input type="text" value="" ng-model="user.Name">
-                    <label>Password *</label>
-                    <input type="text" value="" ng-model="user.Password"><br>
-                    <input type="submit" value="Login" ng-click="UserLoginCheck()"> <a href="#">Forget Password?</a>
-                                                                                    <label>
-                                                                                        Login As Administrator  <input type="checkbox" ng-click="loginasadmin(AdminLogin)" ng-model="AdminLogin">
-                                                                                    </label>
-</div>
-                <div class="register-user" ng-show="newuseryes==false">
-                    <h3>New Visitor?</h3>
-                    <p> You can register a new account at checkout on your first order.</p>
-                    <p>Thank you for choosing Dave Muslayah</p>
-                    <input type="submit" ng-click="showdiv()" value="Register">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="well">
+                        <div class="return-customer">
+                            <h3 class="mb-10">DM WholeSales CUSTOMER</h3>
+                            <p class="mb-10"><strong>I am a DM WholeSales Customer</strong></p>
+                            <form action="#">
+                                <div class="form-group">
+                                    <label class="control-label">Enter your email address here...</label>
+                                    <input type="text" ng-model="user.Name" placeholder="Enter your email address here..." class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Password</label>
+                                    <input type="text" ng-model="user.Password" placeholder="Password" id="input-password" class="form-control">
+                                </div>
+                                <p class="lost-password"><a href="forgot-password.html">Forgot password?</a></p>
+                                <input type="submit" ng-click="UserLoginCheck()" value="Login" class="return-customer-btn">
+
+                                <p class="mb-10">
+                                    <strong>
+                                        <label>
+                                            Login As Administrator
+                                            <input type="checkbox" ng-click="loginasadmin(AdminLogin)" ng-model="AdminLogin">
+                                        </label>
+                                    </strong>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <div class="register-user" ng-show="newuseryes==true">
-                    <h3>New Visitor?</h3>
-                    <p> You can register a new account at checkout on your first order.</p>
-                    <label>First Name *</label>
-                    <input type="text" ng-model="loginDetail.FirstName">
-                    <span ng-show="shownamemandatory==true" style="color:red">Please Insert Name</span>
+                <!-- New Customer Start -->
+                <div class="col-sm-6">
+                    <div class="well">
+                        <div class="new-customer" ng-show="newuseryes==false">
+                            <h3>NEW CUSTOMER</h3>
+                            <p class="mtb-10"><strong>Register</strong></p>
+                            <p>You can register a new account at checkout on your first order.</p>
+                            <a class="customer-btn" ng-click="showdiv()">continue</a>
+                        </div>
+                        <div class="new-customer" ng-show="newuseryes==true">
+                            <h3>NEW CUSTOMER</h3>
+                            <p class="mtb-10"><strong>Register</strong></p>
+                            <p>You can register a new account at checkout on your first order.</p>
+                            <form action="#">
+                                <div class="form-group">
+                                    <label class="control-label">Enter your First Name</label>
+                                    <input type="text" ng-model="user.Name" placeholder="Enter your email address here..." class="form-control">
+                                    <span ng-show="shownamemandatory==true" style="color:red">Please Insert Name</span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Enter your Phone Number</label>
+                                    <input type="text" ng-model="user.Name" placeholder="Enter your email address here..." class="form-control">
+                                    <span ng-show="showPhoneNumbermandatory==true" style="color:red">Please Insert Phone Number</span>
 
-                    <label>Phone Number *</label>
-                    <input type="text" ng-model="loginDetail.PhoneNumber">
-                    <span ng-show="showPhoneNumbermandatory==true" style="color:red">Please Insert Phone Number</span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Enter your Email Address</label>
+                                    <input type="text" ng-model="user.Name" placeholder="Enter your email address here..." class="form-control">
+                                    <span ng-show="showEmailmandatory==true" style="color:red">Please Insert Email</span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Enter your Create Password</label>
+                                    <input type="text" ng-model="user.Name" placeholder="Enter your email address here..." class="form-control">
+                                    <span ng-show="showPasswordmandatory==true" style="color:red">Please Insert Password</span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Enter your Confirm Password</label>
+                                    <input type="text" ng-model="user.Password" placeholder="Password" id="input-password" class="form-control">
+                                    <span ng-show="showpasswordmismatch==true" style="color:red">Password and confirm Password should be same</span>
+                                </div>
 
-                    <label>Email Address *</label>
-                    <input type="email" ng-model="loginDetail.email">
-                    <span ng-show="showEmailmandatory==true" style="color:red">Please Insert Email</span>
+                                <span ng-show="showalreadyregistermsg==true" style="color:red">
+                                    <p>Hello There....</p> you are already Register with us.. Please login..
+                                </span>
+                                <p class="lost-password"><a href="forgot-password.html">Forgot password?</a></p>
+                                <input type="submit" ng-click="registerme()" value="Register" class="return-customer-btn">
 
-                    <label>Create Password *</label>
-                    <input type="password" ng-model="loginDetail.Password">
-                    <span ng-show="showPasswordmandatory==true" style="color:red">Please Insert Password</span>
 
-                    <label>Confirm Password *</label>
-                    <input type="password" ng-model="loginDetail.ConfirmPassword">
-                    <span ng-show="showpasswordmismatch==true" style="color:red">Password and confirm Password should be same</span>
-                    <span ng-show="showalreadyregistermsg==true" style="color:red">
-                        <p>Hello There....</p> you are already Register with us.. Please login.. </span>
-                        <input type="submit" ng-click="registerme()" value="Register">
+                            </form>
+                        </div>
+                    </div>
                 </div>
-
+                <!-- New Customer End -->
+                <!-- Returning Customer Start -->
+                <!-- Returning Customer End -->
             </div>
-
+            <!-- Row End -->
         </div>
-
+        <!-- Container End -->
     </div>
 
 </div>

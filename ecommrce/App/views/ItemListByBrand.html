@@ -190,7 +190,7 @@
     </div>-->
                                                 <!--  <h4><a>{{ItemdataCatWise.Title}}</a></h4>-->
                                                 <!--  <h4><a href="http://localhost:51077/index.html#/ItemList" target="_blank" ng-click="ShowItemDetail(ItemdataCatWise,$event)">{{ItemdataCatWise.Title}}</a></h4>-->
-                                                <h4><a href="http://www.davemuslayah.com/#/ItemDetail/{{ItemdataCatWise.ItemStockCode}}" target="_blank" ng-click="ShowItemDetail(ItemdataCatWise,$event)">{{ItemdataCatWise.Title}}</a></h4>
+                                                <h4><a href="{{MainUrl}}ItemDetail/{{ItemdataCatWise.ItemStockCode}}" target="_blank" ng-click="ShowItemDetail(ItemdataCatWise,$event)">{{ItemdataCatWise.Title}}</a></h4>
                                                 <p><span class="">Stock Code: {{ItemdataCatWise.ItemStockCode}}</span></p>
                                                 <p><span class="price pricedetail"><span ng-bind-html="symbolz| unsafee"></span> {{ItemdataCatWise.Price * currentRate| number:2}}</span></p>
 
@@ -234,7 +234,7 @@
         <i class="fa fa-star"></i>
     </div>-->
                                         <!--<h4><a>{{ItemdataCatWise.Title}}</a></h4>-->
-                                        <h4><a href="http://www.davemuslayah.com/#/ItemDetail/{{ItemdataCatWise.ItemStockCode}}" target="_blank" ng-click="ShowItemDetail(ItemdataCatWise,$event)">{{ItemdataCatWise.Title}}</a></h4>
+                                        <h4><a href="{{MainUrl}}ItemDetail/{{ItemdataCatWise.ItemStockCode}}" target="_blank" ng-click="ShowItemDetail(ItemdataCatWise,$event)">{{ItemdataCatWise.Title}}</a></h4>
                                         <!--                                        <h4><a href="http://localhost:51077/index.html#/ItemList/{{ItemdataCatWise.ItemStockCode}}" target="_blank" ng-click="ShowItemDetail(ItemdataCatWise,$event)">{{ItemdataCatWise.Title}}</a></h4>-->
 
                                         <p><span class="price pricedetail"><span ng-bind-html="symbolz| unsafee"></span> {{ItemdataCatWise.Price * currentRate| number:2}}</span></p>

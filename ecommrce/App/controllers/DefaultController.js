@@ -104,7 +104,7 @@
             method: 'GET', url: $scope.Url + 'Category/Category_Get370'
         }).
             success(function (data, status, headers, config) {
-
+                debugger
                 $scope.topProductshowonfront = data;
 
             }).

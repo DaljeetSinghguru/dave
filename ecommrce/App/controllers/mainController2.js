@@ -6,7 +6,7 @@
         $scope.check = function () {
             $location.path('Product');
         }
-
+        $rootScope.MainUrl = ViewVariablesService.GetMainUrl();
         $scope.loginme = function () {
             window.location.replace('app_v10.html#/LandingPageVisa');
         }

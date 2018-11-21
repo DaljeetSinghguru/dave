@@ -56,7 +56,7 @@
                 <!-- Single Banner Start -->
                 <div class="col-sm-4" ng-repeat="data11 in topProductshowonfront">
                     <div  class="single-banner zoom">
-                        <a href="" ng-click="CategoryClick(data11)"><img style="margin-top:10px;" src="{{WebsiteDomain}}images/{{data11.CategoryImageName370}}" alt="slider-banner"></a>
+                        <a href="{{MainUrl}}ItemList/{{data11.CategoryId}}" ng-click="CategoryClick(data11)"><img style="margin-top:10px;" src="{{WebsiteDomain}}images/{{data11.CategoryImageName370}}" alt="slider-banner"></a>
                     </div>
                 </div>
                 <!-- Single Banner End -->
@@ -81,7 +81,7 @@
                     <!-- Product Image Start -->
 
                     <div class="pro-img">
-                        <a href="" ng-click="ShowItemDetail(BestSellerProduct)">
+                        <a href="{{MainUrl}}ItemDetail/{{BestSellerProduct.ItemStockCode}}" ng-click="ShowItemDetail(BestSellerProduct)">
                             <img class="primary-img" src="{{WebsiteDomain}}images/{{BestSellerProduct.ItemMainImage}}" alt="single-product">
                             <img class="secondary-img" src="{{WebsiteDomain}}images/{{BestSellerProduct.ItemMainImage}}" alt="single-product">
                         </a>
@@ -96,7 +96,7 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                         </div>-->
-                        <h4><a href="" ng-click="ShowItemDetail(BestSellerProduct)">{{BestSellerProduct.Title}}</a></h4>
+                        <h4><a href="{{MainUrl}}ItemDetail/{{BestSellerProduct.ItemStockCode}}" ng-click="ShowItemDetail(BestSellerProduct)">{{BestSellerProduct.Title}}</a></h4>
                         <p><span class="price"><span ng-bind-html="symbolz| unsafee"></span> {{BestSellerProduct.Price * currentRate| number:2}}</span></p>
                         <div class="pro-actions">
                             <div class="actions-secondary">
@@ -126,7 +126,7 @@
 
                 <div class="col-sm-6" ng-repeat="data111 in topProductshowonfront570">
                     <div ng-click="CategoryClick(data111)" class="single-banner zoom">
-                        <a href=""><img src="{{WebsiteDomain}}images/{{data111.CategoryImageName570}}" alt="slider-banner"></a>
+                        <a href="{{MainUrl}}ItemList/{{data111.CategoryId}}"><img src="{{WebsiteDomain}}images/{{data111.CategoryImageName570}}" alt="slider-banner"></a>
                     </div>
                 </div>
                 <!-- Single Banner End -->
@@ -159,11 +159,11 @@
                                 <!-- Single Product Start -->
                                 <div class="single-product" ng-repeat="TopProductsProduct in ItemListTopProductsProduct">
                                     <div class="pro-img">
-                                        <a href=""  ng-click="ShowItemDetail(TopProductsProduct)"><img class="img" src="{{WebsiteDomain}}images/{{TopProductsProduct.ItemMainImage}}" alt="product-image"></a>
+                                        <a href="{{MainUrl}}ItemDetail/{{TopProductsProduct.ItemStockCode}}"  ng-click="ShowItemDetail(TopProductsProduct)"><img class="img" src="{{WebsiteDomain}}images/{{TopProductsProduct.ItemMainImage}}" alt="product-image"></a>
                                     </div>
                                     <div class="pro-content">
 
-                                        <h4><a href=""  ng-click="ShowItemDetail(TopProductsProduct)">{{TopProductsProduct.Title}}</a></h4>
+                                        <h4><a href="{{MainUrl}}ItemDetail/{{TopProductsProduct.ItemStockCode}}" ng-click="ShowItemDetail(TopProductsProduct)">{{TopProductsProduct.Title}}</a></h4>
                                         <p><span class="price"><span ng-bind-html="symbolz| unsafee"></span> {{TopProductsProduct.Price * currentRate| number:2}}</span></p>
                                     </div>
                                 </div>
@@ -197,7 +197,7 @@
                                     <div class="single-product" ng-repeat="NewArrivalsProduct in ItemListNewArrivalsProduct">
                                         <!-- Product Image Start -->
                                         <div class="pro-img">
-                                            <a href="" ng-click="ShowItemDetail(NewArrivalsProduct)">
+                                            <a href="{{MainUrl}}ItemDetail/{{NewArrivalsProduct.ItemStockCode}}" ng-click="ShowItemDetail(NewArrivalsProduct)">
                                                 <img class="primary-img" src="{{WebsiteDomain}}images/{{NewArrivalsProduct.ItemMainImage}}" alt="single-product">
                                                 <img class="secondary-img" src="{{WebsiteDomain}}images/{{NewArrivalsProduct.ItemMainImage}}" alt="single-product">
                                             </a>
@@ -206,7 +206,7 @@
                                         <!-- Product Content Start -->
                                         <div class="pro-content">
 
-                                            <h4><a href="" ng-click="ShowItemDetail(NewArrivalsProduct)">{{NewArrivalsProduct.Title}}</a></h4>
+                                            <h4><a href="{{MainUrl}}ItemDetail/{{NewArrivalsProduct.ItemStockCode}}" ng-click="ShowItemDetail(NewArrivalsProduct)">{{NewArrivalsProduct.Title}}</a></h4>
                                             <p><span class="price"><span ng-bind-html="symbolz| unsafee"></span> {{NewArrivalsProduct.Price * currentRate| number:2}}</span></p>
                                             <div class="pro-actions">
                                                 <div class="actions-secondary">
@@ -232,7 +232,7 @@
                                     <div class="single-product" ng-repeat="FeaturedProduct in ItemListFeaturedProduct">
                                         <!-- Product Image Start -->
                                         <div class="pro-img">
-                                            <a href="" ng-click="ShowItemDetail(FeaturedProduct)">
+                                            <a href="{{MainUrl}}ItemDetail/{{FeaturedProduct.ItemStockCode}}" ng-click="ShowItemDetail(FeaturedProduct)">
                                                 <img class="primary-img" src="{{WebsiteDomain}}images/{{FeaturedProduct.ItemMainImage}}" alt="single-product">
                                                 <img class="secondary-img" src="{{WebsiteDomain}}images/{{FeaturedProduct.ItemMainImage}}" alt="single-product">
                                             </a>
@@ -241,7 +241,7 @@
                                         <!-- Product Content Start -->
                                         <div class="pro-content">
 
-                                            <h4><a href="" ng-click="ShowItemDetail(FeaturedProduct)">{{FeaturedProduct.Title}}</a></h4>
+                                            <h4><a href="{{MainUrl}}ItemDetail/{{FeaturedProduct.ItemStockCode}}" ng-click="ShowItemDetail(FeaturedProduct)">{{FeaturedProduct.Title}}</a></h4>
                                             <p><span class="price"><span ng-bind-html="symbolz| unsafee"></span> {{FeaturedProduct.Price * currentRate| number:2}}</span></p>
                                             <div class="pro-actions">
                                                 <div class="actions-secondary">
@@ -264,7 +264,7 @@
                                     <div class="single-product" ng-repeat="BestSellerProduct in ItemListBestSellerProduct">
                                         <!-- Product Image Start -->
                                         <div class="pro-img">
-                                            <a href="" ng-click="ShowItemDetail(BestSellerProduct)">
+                                            <a href="{{MainUrl}}ItemDetail/{{BestSellerProduct.ItemStockCode}}" ng-click="ShowItemDetail(BestSellerProduct)">
                                                 <img class="primary-img" src="{{WebsiteDomain}}images/{{BestSellerProduct.ItemMainImage}}" alt="single-product">
                                                 <img class="secondary-img" src="{{WebsiteDomain}}images/{{BestSellerProduct.ItemMainImage}}" alt="single-product">
                                             </a>
@@ -273,7 +273,7 @@
                                         <!-- Product Content Start -->
                                         <div class="pro-content">
 
-                                            <h4><a href="" ng-click="ShowItemDetail(BestSellerProduct)">{{BestSellerProduct.Title}}</a></h4>
+                                            <h4><a href="{{MainUrl}}ItemDetail/{{BestSellerProduct.ItemStockCode}}" ng-click="ShowItemDetail(BestSellerProduct)">{{BestSellerProduct.Title}}</a></h4>
                                             <p><span class="price"><span ng-bind-html="symbolz| unsafee"></span> {{BestSellerProduct.Price * currentRate| number:2}}</span></p>
                                             <div class="pro-actions">
                                                 <div class="actions-secondary">
@@ -294,7 +294,7 @@
                         <!-- Tab-Content End   870 240 DONE -->
 
                         <div  class="single-banner zoom mt-30" ng-repeat="data1111 in topProductshowonfront870">
-                            <a href="" ng-click="CategoryClick(data1111)"><img src="{{WebsiteDomain}}images/{{data1111.CategoryImageName870}}" alt="slider-banner"></a>
+                            <a href="{{MainUrl}}ItemList/{{data1111.CategoryId}}" ng-click="CategoryClick(data1111)"><img src="{{WebsiteDomain}}images/{{data1111.CategoryImageName870}}" alt="slider-banner"></a>
                         </div>
                     </div>
                     <!-- New Pro Content End -->
@@ -378,11 +378,11 @@
                     <!-- Single Product Start -->
                     <div class="single-product">
                         <div class="pro-img" >
-                            <a href="" ng-click="ShowItemDetail(HotSellerProduct)"><img class="img" src="{{WebsiteDomain}}images/{{HotSellerProduct.ItemMainImage}}" alt="product-image"></a>
+                            <a href="{{MainUrl}}ItemDetail/{{HotSellerProduct.ItemStockCode}}" ng-click="ShowItemDetail(HotSellerProduct)"><img class="img" src="{{WebsiteDomain}}images/{{HotSellerProduct.ItemMainImage}}" alt="product-image"></a>
                         </div>
                         <div class="pro-content">
 
-                            <h4><a href="" ng-click="ShowItemDetail(HotSellerProduct)">{{HotSellerProduct.Title}}</a></h4>
+                            <h4><a href="{{MainUrl}}ItemDetail/{{HotSellerProduct.ItemStockCode}}" ng-click="ShowItemDetail(HotSellerProduct)">{{HotSellerProduct.Title}}</a></h4>
                             <p><span class="price"><span ng-bind-html="symbolz| unsafee"></span> {{HotSellerProduct.Price * currentRate| number:2}}</span></p>
                         </div>
                     </div>
@@ -410,7 +410,7 @@
             <div class="brand-banner owl-carousel">
 
                 <div class="single-brand" ng-repeat="brand in BrandList">
-                    <a href="" ng-click="BrandClick(brand)"><img class="img" src="{{WebsiteDomain}}images/{{brand.filename}}" alt="brand-image"></a>
+                    <a href="{{MainUrl}}ItemListBrand/{{brand.BrandId}}" ng-click="BrandClick(brand)"><img class="img" src="{{WebsiteDomain}}images/{{brand.filename}}" alt="brand-image"></a>
                 </div>
 
 
