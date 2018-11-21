@@ -76,9 +76,9 @@
     $('#slider').nivoSlider({
         effect: 'random',
         animSpeed: 300,
-        pauseTime: 5000,
+        pauseTime: 3000,
         directionNav: false,
-        manualAdvance: true,
+        manualAdvance: false,
         controlNavThumbs: false,
         pauseOnHover: true,
         controlNav: true,
@@ -254,24 +254,26 @@
         debugger
         $(event.target)
 
-                .find('.owl-item').removeClass('last')
-                .eq(event.item.index + event.page.size - 1).addClass('last');
+            .find('.owl-item').removeClass('last')
+            .eq(event.item.index + event.page.size - 1).addClass('last');
 
-            $(event.target)
-                .find('.owl-item').removeClass('first')
-                .eq(event.item.index).addClass('first')
+        $(event.target)
+            .find('.owl-item').removeClass('first')
+            .eq(event.item.index).addClass('first')
 
 
-        }).owlCarousel({
-        loop: false,
-        nav: false,
+    }).owlCarousel({
+        autoplay: true,
+        autoplayTimeout: 1000,
+        navigation: false,
+        margin: 10,
+
         dots: false,
-        smartSpeed: 1200,
-        margin: 1,
+        loop: true,
         responsive: {
             0: {
                 items: 1,
-                autoplay:true
+                // autoplay: true
             },
             480: {
                 items: 3

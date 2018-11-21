@@ -413,9 +413,9 @@
             $('#slider').nivoSlider({
                 effect: 'random',
                 animSpeed: 300,
-                pauseTime: 5000,
+                pauseTime: 3000,
                 directionNav: false,
-                manualAdvance: true,
+                manualAdvance: false,
                 controlNavThumbs: false,
                 pauseOnHover: true,
                 controlNav: true,
@@ -601,15 +601,17 @@
 
 
             }).owlCarousel({
-                loop: false,
-                nav: false,
+                autoplay: true,
+                autoplayTimeout: 1000,
+                navigation: false,
+                margin: 10,
+               
                 dots: false,
-                smartSpeed: 1200,
-                margin: 1,
+                loop: true,
                 responsive: {
                     0: {
                         items: 1,
-                        autoplay: true
+                       // autoplay: true
                     },
                     480: {
                         items: 3
