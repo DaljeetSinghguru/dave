@@ -1,12 +1,7 @@
 ﻿app.controller('RegistermeController', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 'ViewVariablesService', '$translate', '$location', '$sce',
     function ($scope, $window, $location, $modal, $rootScope, $http, ViewVariablesService, $translate, $location, $sce) {
         
-
         
-
-
-
-
         $scope.loginDetail = {};
         $scope.loginDetails = ViewVariablesService.Getlogindetails();
         if ($scope.loginDetails) {
@@ -43,11 +38,12 @@
 
 
         $scope.showtermscond = function () {
-            $location.path('Terms');
+            $location.path('TermsandCondition');
 
         }
 
         $scope.register = function () {
+            debugger
             $scope.loginDetail;
             
             $scope.shownamemandatory = false;
@@ -110,7 +106,8 @@
 
                             var items = localStorage != null ? localStorage[$scope.cartName + "_items"] : null;
                             $scope.saveusercredential = { "username": $scope.loginDetail.email, "password": $scope.loginDetail.password, "UserId": data.Id, "UserName": data.Name  };
-                            localStorage["credential"] = $scope.saveusercredential;
+                            
+                            localStorage.setItem("credential", JSON.stringify($scope.saveusercredential));
                             $rootScope.DisplayUserName = data.Name;
                             if (items == undefined || items == null) {
                                 $location.path('defualt');

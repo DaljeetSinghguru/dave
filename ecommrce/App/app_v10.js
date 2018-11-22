@@ -32,6 +32,10 @@ app.config(['$routeProvider', '$locationProvider',
                 templateUrl: 'App/Admin/views/BrandView.html',
                 contrller: 'app/controllers/Master/CountryMasterController.js'
             })
+            .when('/myaccount', {
+                   templateUrl: 'App/views/MyAccount.html',
+                contrller: 'app/controllers/MyAccountController.js'
+            })
             .when('/Item', {
                 templateUrl: 'App/Admin/views/ItemView.html',
                 contrller: 'app/controllers/Master/CountryMasterController.js'

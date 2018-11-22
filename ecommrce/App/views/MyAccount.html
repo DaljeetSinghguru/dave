@@ -1,0 +1,171 @@
+﻿<div class="" ng-controller="MyAccountController">
+
+    <div class="breadcrumb-area ptb-60 ptb-sm-30">
+        <div class="container">
+            <div class="breadcrumb">
+                <ul>
+                    <li>My Account</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Container End -->
+    </div>
+
+    <div class="my-account white-bg pb-60">
+        <div class="container">
+            <div class="account-dashboard">
+                <div class="dashboard-upper-info">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="d-single-info">
+                                <p class="user-name">Hello <span>{{DisplayUserName| uppercase}}</span></p>
+                                <p>(<a href="" ng-click="logOut()">Log Out</a>)</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="d-single-info">
+                                <p>Need Assistance? Customer service at.</p>
+                                <p>dmwholesales@info.com</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="d-single-info">
+                                <p>E-mail them at </p>
+                                <p>dmwholesales@info.com</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="d-single-info text-center">
+                                <a class="view-cart" href="{{MainUrl}}MyCart"><i class="fa fa-cart-plus" aria-hidden="true"></i>view cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2">
+                        <!-- Nav tabs -->
+                        <ul class="nav flex-column dashboard-list" role="tablist">
+                            
+                            <li><a  class="active" data-toggle="tab" href="" ng-click="openorder()" >Orders</a></li>
+                            
+                            <li><a data-toggle="tab" href=""  ng-click="openAddresses()">Addresses</a></li>
+                            <li><a data-toggle="tab" href=""  ng-click="openAccount()">Account details</a></li>
+                            <li><a href="login.html" href=""  ng-click="logout()">logout</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-10">
+                        <!-- Tab panes -->
+                        <div class="tab-content dashboard-content mt-all-40">
+                          
+                            <div id="orders" class="tab-pane active" ng-show="showOrders==true">
+                                <h3>Orders</h3>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Order</th>
+                                                <th>Date</th>
+                                                <th>Status</th>
+                                                <!--<th>Total</th>-->
+                                                <!--<th>Actions</th>-->
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="item in Orderhistory">
+                                                <td>{{item.ShopHistoryId}}</td>
+                                                <td>{{item.Date}}</td>
+                                                <td>Processing</td>
+                                                <!--<td>$25.00 for 1 item </td>-->
+                                                <!--<td><a class="view" href="cart.html">view</a></td>-->
+                                            </tr>
+                                         
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                           
+                            <div id="address" class="tab-pane active" ng-show="showAddresses==true">
+                                <p>The following addresses will be used on the checkout page by default.</p>
+                                <h4 class="billing-address">Billing address</h4>
+                                <p>{{InvoiceName}}</p>
+                                <p>{{PhoneNumber}}</p>
+                                <p>{{Company}}</p>
+                                <p>{{InvoiceAddessLine2}}</p>
+                                <p>{{InvoiceAddessLine3}}</p>
+                                <p>{{InvoiceAddessLine4}}</p><p>{{InvoicePostCode}}</p>
+                            </div>
+                            <div id="account-details" class="tab-pane active" ng-show="showAccountdetail==true">
+                                <h3>Account details </h3>
+                                <div class="register-form login-form clearfix">
+                                    <form action="#">
+                                        <!--<div class="form-group row align-items-center">
+        <label class="col-lg-3 col-md-4 col-form-label">Social title</label>
+        <div class="col-lg-6 col-md-8">
+            <span class="custom-radio"><input name="id_gender" value="1" type="radio"> Mr.</span>
+            <span class="custom-radio"><input name="id_gender" value="1" type="radio"> Mrs.</span>
+        </div>
+    </div>-->
+                                        <div class="form-group row">
+                                            <label for="f-name" class="col-lg-3 col-md-4 col-form-label">First Name</label>
+                                            <div class="col-lg-6 col-md-8">
+                                                {{Name}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="l-name" class="col-lg-3 col-md-4 col-form-label">Phone Number</label>
+                                            <div class="col-lg-6 col-md-8">
+                                                {{PhoneNumber}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="email" class="col-lg-3 col-md-4 col-form-label">Email address</label>
+                                            <div class="col-lg-6 col-md-8">
+                                                {{Email}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="email" class="col-lg-3 col-md-4 col-form-label">HouseNo</label>
+                                            <div class="col-lg-6 col-md-8">
+                                                {{HouseNo}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="email" class="col-lg-3 col-md-4 col-form-label">Address Line 2</label>
+                                            <div class="col-lg-6 col-md-8">
+                                                {{AddressLine2}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="email" class="col-lg-3 col-md-4 col-form-label">Address Line 3</label>
+                                            <div class="col-lg-6 col-md-8">
+                                                {{AddressLine3}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="email" class="col-lg-3 col-md-4 col-form-label">Address Line 4</label>
+                                            <div class="col-lg-6 col-md-8">
+                                                {{AddressLine4}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="email" class="col-lg-3 col-md-4 col-form-label">PostCode</label>
+                                            <div class="col-lg-6 col-md-8">
+                                                {{PostCode}}
+                                            </div>
+                                        </div>
+                                       
+
+                                        <!--<div class="register-box mt-40">
+                                            <button type="submit" class="return-customer-btn f-right">Save</button>
+                                        </div>-->
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

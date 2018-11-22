@@ -162,6 +162,7 @@ app.config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'app/views/ItemListByBrand.html',
             contrller: 'loginController'
         })
+
         .when('/TermsandCondition', {
             templateUrl: 'app/views/TermsandCondition.html',
             contrller: 'loginController'
@@ -221,6 +222,10 @@ app.config(['$routeProvider', function ($routeProvider) {
         .when('/MyCart', {
             templateUrl: 'app/views/MyCart.html',
             contrller: 'MyCartController'
+        })
+        .when('/myaccount', {
+            templateUrl: 'app/views/MyAccount.html',
+            contrller: 'MyAccountController.js'
         })
         .when('/signup', {
             templateUrl: 'app/views/signup.html',

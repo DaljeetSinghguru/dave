@@ -1,8 +1,8 @@
 ﻿app.service('ViewVariablesService', ['$http', function ($http) {
    
     this.GetMainUrl = function () {
-        //return "http://www.davemuslayah.com/#/";
-         return "http://localhost:51077/index.html#/";
+        return "http://www.davemuslayah.com/#/";
+         //return "http://localhost:51077/index.html#/";
 
     }
 

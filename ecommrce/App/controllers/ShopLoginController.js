@@ -16,7 +16,7 @@
         $scope.newuseryes = true;
         }
         $scope.registerme = function () {
-            
+            debugger
             var chkValFields = 0;
             $scope.showpasswordmismatch = false;
             $scope.shownamemandatory = false;
@@ -59,7 +59,7 @@
                             ViewVariablesService.setlogindetails($scope.loginDetail);
                             $location.path('Registerme');
                         }
-                        if (data == "already exist") {
+                        if (data == "Customer already exist.") {
                             $scope.showalreadyregistermsg = true;
                         }
                     }).
@@ -76,7 +76,7 @@
 
         $scope.user = {};
         $scope.UserLoginCheck = function () {
-           
+            debugger
             if ($scope.AdminLogin == true) {
                 $http({ method: 'POST', url: $scope.Url + 'Login/checkLogin/', data: $scope.user }).
                     success(function (data, status, headers, config) {
@@ -85,7 +85,7 @@
                             window.location.replace('app_v10.html#/LandingPageVisa');
                         }
                         else {
-                            alert("User Name and password is incorrect");
+                            alert("User Name and Password is incorrect");
                         }
 
 

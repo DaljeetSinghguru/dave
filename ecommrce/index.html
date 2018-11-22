@@ -112,7 +112,7 @@
                             </div>
                         </div>
 
-                     
+
                         <!-- Search Box End -->
                         <!-- Cartt Box Start -->
                         <div class="col-lg-3 col-sm-7 col-7 social-lan-switch">
@@ -121,14 +121,18 @@
                                     <li>
                                         <a href=""><i class="fa fa-cog"></i></a>
                                         <ul class="ht-dropdown">
-                                            <li><a href="" ng-click="loginme()">Login</a></li>
+                                            <li ng-show="showloginbutton==true"><a href="{{MainUrl}}Login" ng-click="loginme()">LOGIN</a></li>
+                                            <li ng-show="showloginbutton==false"><div href="">WELCOME {{DisplayUserName| uppercase}}</div></li>
+                                            <hr />
                                             <!--<li><a href="register.html">Register</a></li>-->
-                                            <li><a href="">My Account</a></li>
+                                            <li ng-show="showloginbutton==false"><a href="{{MainUrl}}myaccount" ng-click="myaccount()">MY ACCOUNT</a></li>
+                                            <hr />
+                                            <li ng-show="showloginbutton==false"><a href="" ng-click="logOut()">LOGOUT</a></li>
                                         </ul>
                                     </li>
                                     <!--<li><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>-->
                                     <li>
-                                        <a href=""><i class="fa fa-shopping-basket"></i><span class="cart-counter">{{getTotalCount()}}</span></a>
+                                        <a href="" ng-click="ShowCart()"><i class="fa fa-shopping-basket"></i><span class="cart-counter">{{getTotalCount()}}</span></a>
                                         <ul class="ht-dropdown main-cart-box">
                                             <li>
                                                 <!-- Cart Box Start -->
@@ -140,7 +144,7 @@
                                                         <h6><a href="">{{i.name}}</a></h6>
                                                         <span>{{i.quantity}}*{{i.price}}</span>
                                                     </div>
-                                                    <a class="del-icone" href=""  ng-click="deleteRowFromBasket(i)"><i class="fa fa-window-close-o"></i></a>
+                                                    <a class="del-icone" href="" ng-click="deleteRowFromBasket(i)"><i class="fa fa-window-close-o"></i></a>
                                                 </div>
                                                 <!-- Cart Box End -->
                                                 <!-- Cart Box Start -->
@@ -159,7 +163,7 @@
                                                 <div class="cart-footer fix">
                                                     <h5>total :<span class="f-right">{{getTotalPrice()|currency:"&#163;"}}</span></h5>
                                                     <div class="cart-actions">
-                                                        <a class="checkout" href="">Checkout</a>
+                                                        <a class="checkout" href="" ng-click="PlaceOrder()">Checkout</a>
                                                     </div>
                                                 </div>
                                                 <!-- Cart Footer Inner End -->
@@ -236,59 +240,59 @@
 
 
                                                             <li class="has-sub-menu" ng-repeat="level2 in GetSubMenu(data,data.Value)">
-                                                                    <a href="{{MainUrl}}ItemListCategory2/{{level2.Value}}" target="_blank" class="menu-links" ng-click="categoryClicklevel2(level2,$event)">
+                                                                <a href="{{MainUrl}}ItemListCategory2/{{level2.Value}}" target="_blank" class="menu-links" ng-click="categoryClicklevel2(level2,$event)">
 
-                                                                        <i class="fa fa-buysellads fa-fw"></i><span> {{level2.text| translate|uppercase}}</span>
-                                                                        <i class="fa fa-angle-right fa-fw l-pos-a"></i>
-                                                                    </a>
+                                                                    <i class="fa fa-buysellads fa-fw"></i><span> {{level2.text| translate|uppercase}}</span>
+                                                                    <i class="fa fa-angle-right fa-fw l-pos-a"></i>
+                                                                </a>
 
-                                                                    <!-- sub-menu-2 -->
-                                                                    <div class="sub-menu-2 drop-down side-menu l-group">
+                                                                <!-- sub-menu-2 -->
+                                                                <div class="sub-menu-2 drop-down side-menu l-group">
 
-                                                                        <ul class="l-vertical-list l-group">
+                                                                    <ul class="l-vertical-list l-group">
 
-                                                                            <li class="has-sub-menu" ng-repeat="level3 in GetSuperSubMenu(level2,level2.Value)">
-                                                                                <a href="{{MainUrl}}ItemListCategory1/{{level3.Value}}" target="_blank" class="menu-links" ng-click="categoryClicklevel3(level3,$event)"><i class="fa fa-arrow-circle-right fa-fw"></i><span> {{level3.text| translate|uppercase}} </span><i class="fa fa-angle-right fa-fw l-pos-a"></i></a>
+                                                                        <li class="has-sub-menu" ng-repeat="level3 in GetSuperSubMenu(level2,level2.Value)">
+                                                                            <a href="{{MainUrl}}ItemListCategory1/{{level3.Value}}" target="_blank" class="menu-links" ng-click="categoryClicklevel3(level3,$event)"><i class="fa fa-arrow-circle-right fa-fw"></i><span> {{level3.text| translate|uppercase}} </span><i class="fa fa-angle-right fa-fw l-pos-a"></i></a>
 
-                                                                                <!-- sub-menu-3 -->
-                                                                                <div class="sub-menu-3 drop-down side-menu l-group">
+                                                                            <!-- sub-menu-3 -->
+                                                                            <div class="sub-menu-3 drop-down side-menu l-group">
 
-                                                                                    <ul class="l-vertical-list l-group">
-
-
-                                                                                        <li class="has-sub-menu" ng-repeat="level4 in GetSuperSuperSubMenu(level3,level3.Value)">
-                                                                                            <a href="{{MainUrl}}ItemList/{{level4.Value}}" class="menu-links" ng-click="categoryClicklevel4(level4.Value)"><i class="fa fa-angle-double-right fa-fw"></i><span> {{level4.text| translate|uppercase}} </span><i class="fa fa-angle-right fa-fw l-pos-a"></i></a>
-
-                                                                                            <!-- sub-menu-4 -->
-                                                                                            <!--<div class="sub-menu-4 drop-down side-menu l-group">
-
-        <ul class="l-vertical-list l-group">
-
-            <li><a href="#" class="menu-links"><i class="fa fa-angle-double-right fa-fw"></i><span> Full Width </span></a></li>
-            <li><a href="#" class="menu-links"><i class="fa fa-angle-double-right fa-fw"></i><span> Medium Width </span></a></li>
-            <li><a href="#" class="menu-links"><i class="fa fa-angle-double-right fa-fw"></i><span> Small Width </span></a>
-
-        </ul>
-
-    </div>-->
-                                                                                            <!-- sub-menu-4 -->
-
-                                                                                        </li>
-
-                                                                                    </ul>
-
-                                                                                </div>
-                                                                                <!-- end sub-menu-3 -->
-
-                                                                            </li>
+                                                                                <ul class="l-vertical-list l-group">
 
 
-                                                                        </ul>
+                                                                                    <li class="has-sub-menu" ng-repeat="level4 in GetSuperSuperSubMenu(level3,level3.Value)">
+                                                                                        <a href="{{MainUrl}}ItemList/{{level4.Value}}" class="menu-links" ng-click="categoryClicklevel4(level4.Value)"><i class="fa fa-angle-double-right fa-fw"></i><span> {{level4.text| translate|uppercase}} </span><i class="fa fa-angle-right fa-fw l-pos-a"></i></a>
 
-                                                                    </div>
-                                                                    <!-- end sub-menu-2 -->
+                                                                                        <!-- sub-menu-4 -->
+                                                                                        <!--<div class="sub-menu-4 drop-down side-menu l-group">
 
-</li>
+                                                                                            <ul class="l-vertical-list l-group">
+
+                                                                                                <li><a href="#" class="menu-links"><i class="fa fa-angle-double-right fa-fw"></i><span> Full Width </span></a></li>
+                                                                                                <li><a href="#" class="menu-links"><i class="fa fa-angle-double-right fa-fw"></i><span> Medium Width </span></a></li>
+                                                                                                <li><a href="#" class="menu-links"><i class="fa fa-angle-double-right fa-fw"></i><span> Small Width </span></a>
+
+                                                                                            </ul>
+
+                                                                                        </div>-->
+                                                                                        <!-- sub-menu-4 -->
+
+                                                                                    </li>
+
+                                                                                </ul>
+
+                                                                            </div>
+                                                                            <!-- end sub-menu-3 -->
+
+                                                                        </li>
+
+
+                                                                    </ul>
+
+                                                                </div>
+                                                                <!-- end sub-menu-2 -->
+
+                                                            </li>
 
                                                         </ul>
 
@@ -392,11 +396,11 @@
                                 <h3 class="footer-title">customer service</h3>
                                 <div class="footer-content">
                                     <ul class="footer-list">
-                                        <li><a href="">My account</a></li>
+                                        <li><a href="{{MainUrl}}myaccount" ng-click="myaccount()">My account</a></li>
 
 
                                         <li><a href="{{MainUrl}}Return" ng-click="openReturn()">Return Policy</a></li>
-                                        <li><a href="" ng-click="">Your Orders</a></li>
+                                        <li><a href="{{MainUrl}}myaccount" ng-click="myaccount()">Your Orders</a></li>
 
                                     </ul>
                                 </div>
@@ -506,6 +510,7 @@
     <script src="App/controllers/BlogController.js"></script>
     <script src="App/controllers/ItemListByBrandController.js"></script>
     <script src="App/controllers/ItemListBySerachText.js"></script>
+    <script src="App/controllers/MyAccountController.js"></script>
     <!-- mobile menu js  -->
     <script src="js/jquery.meanmenu.min.js"></script>
     <!-- scroll-up js -->

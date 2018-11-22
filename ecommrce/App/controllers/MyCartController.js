@@ -153,62 +153,15 @@
         $scope.Orders = function () {
             //check login user or not
             
-
-
-            $scope.items;
-
-
-            ////////
-            ////send mail
-            ///////////
-
-
-
-            $scope.totalPrice = $scope.getTotalPrice();
-            //generate Payment nouns from token
-            var button = document.querySelector('#submit-button');
-            if ($scope.Token) {
-                braintree.dropin.create({
-                    authorization: $scope.Token,
-                    container: '#dropin-container'
-                }, function (createErr, instance) {
-                    
-                    button.addEventListener('click', function () {
-                        instance.requestPaymentMethod(function (err, payload) {
-                            // Submit payload.nonce to your server
-                            // payload.nonce
-
-                            //$location.path('Thankyou');
-                            $scope.param = { "Amount": $scope.totalPrice, "payment_method_nonce": payload.nonce };
-                            $http({ method: 'POST', url: $scope.Url + 'Payment/Request/', data: $scope.param }).
-                                success(function (dataTransectionId, status, headers, config) {
-
-
-
-                                   
-                                    
-                                    ///////////////////////////
-                                    ///////when user login its relevent all detail will get 
-                                    //from database and store that into 
-                                    /////////////////////view variable service 
-                                    /////////////////////get that save data from service and 
-                                    //send order history to thankyou page
-                                    ///////////////////////
-                                    ///////////////////////////create order history
-                                    /////////////////////////////descrese stock from inventory
-                                    /////////////////////////////email slip to customer 
-                                    //////////////////////////// send data to thankyou page 
-
-
-                                        $scope.dataSendToHistory = {};
-                                        $scope.dataSendToHistory.TransectionId = dataTransectionId;
+             $scope.dataSendToHistory = {};
+             $scope.dataSendToHistory.TransectionId = "TESTTOKEN";
     
-                                        $scope.dataSendToHistory.ItemsArray = $scope.items;
-                                        $scope.dataSendToHistory.totalPrice = $scope.totalPrice;
-                                        $scope.dataSendToHistory.Logincredentialusername = JSON.parse($scope.Logincredential).username;
-                                        $scope.dataSendToHistory.Logincredentialpassword = JSON.parse($scope.Logincredential).password;
-                                        $scope.dataSendToHistory.CustId = JSON.parse($scope.Logincredential).UserId;
-                                        $http({ method: 'POST', url: $scope.Url + 'Order/ShipmentHistory/', data: $scope.dataSendToHistory }).
+             $scope.dataSendToHistory.ItemsArray = $scope.items;
+             $scope.dataSendToHistory.totalPrice = $scope.totalPrice;
+             $scope.dataSendToHistory.Logincredentialusername = JSON.parse($scope.Logincredential).username;
+             $scope.dataSendToHistory.Logincredentialpassword = JSON.parse($scope.Logincredential).password;
+             $scope.dataSendToHistory.CustId = JSON.parse($scope.Logincredential).UserId;
+             $http({ method: 'POST', url: $scope.Url + 'Order/ShipmentHistory/', data: $scope.dataSendToHistory }).
                                             success(function (data, status, headers, config) {
                                                 if (status == "200") {
                                                     if (data != "") {
@@ -217,34 +170,115 @@
                                                         ViewVariablesService.SetOrderId(data);
                                                         //$scope.Token = data;
                                                         //$window.localStorage.clear();
-                                                        //$scope.items = [];
+                                       //$scope.items = [];
 
-                                                        $location.path('Thankyou');
-
-
-                                                        /////send mail to user
+                                       $location.path('Thankyou');
 
 
+                                       /////send mail to user
 
 
 
-                                                    }
-                                                }
 
-                                            }).
-                                            error(function (data, status, headers, config) {
-                                            });
+
+                                   }
+                               }
+
+                           }).
+                           error(function (data, status, headers, config) {
+                           });
+
+
+            //$scope.items;
+
+
+            //////////
+            //////send mail
+            /////////////
+
+
+
+            //$scope.totalPrice = $scope.getTotalPrice();
+            ////generate Payment nouns from token
+            //var button = document.querySelector('#submit-button');
+            //if ($scope.Token) {
+            //    braintree.dropin.create({
+            //        authorization: $scope.Token,
+            //        container: '#dropin-container'
+            //    }, function (createErr, instance) {
+                    
+            //        button.addEventListener('click', function () {
+            //            instance.requestPaymentMethod(function (err, payload) {
+            //                // Submit payload.nonce to your server
+            //                // payload.nonce
+
+            //                //$location.path('Thankyou');
+            //                $scope.param = { "Amount": $scope.totalPrice, "payment_method_nonce": payload.nonce };
+            //                $http({ method: 'POST', url: $scope.Url + 'Payment/Request/', data: $scope.param }).
+            //                    success(function (dataTransectionId, status, headers, config) {
+
+
+
+                                   
+                                    
+            //                        ///////////////////////////
+            //                        ///////when user login its relevent all detail will get 
+            //                        //from database and store that into 
+            //                        /////////////////////view variable service 
+            //                        /////////////////////get that save data from service and 
+            //                        //send order history to thankyou page
+            //                        ///////////////////////
+            //                        ///////////////////////////create order history
+            //                        /////////////////////////////descrese stock from inventory
+            //                        /////////////////////////////email slip to customer 
+            //                        //////////////////////////// send data to thankyou page 
+
+
+            //                            $scope.dataSendToHistory = {};
+            //                            $scope.dataSendToHistory.TransectionId = dataTransectionId;
+    
+            //                            $scope.dataSendToHistory.ItemsArray = $scope.items;
+            //                            $scope.dataSendToHistory.totalPrice = $scope.totalPrice;
+            //                            $scope.dataSendToHistory.Logincredentialusername = JSON.parse($scope.Logincredential).username;
+            //                            $scope.dataSendToHistory.Logincredentialpassword = JSON.parse($scope.Logincredential).password;
+            //                            $scope.dataSendToHistory.CustId = JSON.parse($scope.Logincredential).UserId;
+            //                            $http({ method: 'POST', url: $scope.Url + 'Order/ShipmentHistory/', data: $scope.dataSendToHistory }).
+            //                                success(function (data, status, headers, config) {
+            //                                    if (status == "200") {
+            //                                        if (data != "") {
+                                                        
+
+            //                                            ViewVariablesService.SetOrderId(data);
+            //                                            //$scope.Token = data;
+            //                                            //$window.localStorage.clear();
+            //                                            //$scope.items = [];
+
+            //                                            $location.path('Thankyou');
+
+
+            //                                            /////send mail to user
+
+
+
+
+
+            //                                        }
+            //                                    }
+
+            //                                }).
+            //                                error(function (data, status, headers, config) {
+            //                                });
 
 
                                   
 
-                                }).
-                                error(function (data, status, headers, config) {
-                                });
-                        });
-                    });
-                });
-            }
+            //                    }).
+            //                    error(function (data, status, headers, config) {
+            //                    });
+            //            });
+            //        });
+            //    });
+            //}
 
 
             //$window.localStorage.clear();

@@ -2,15 +2,15 @@
 <div class="" ng-controller="ShopLoginController">
     <div class="log-in pb-60">
         <div class="container">
-            <div class="row">
+            <div class="row" style="margin-top:20px;">
                 <div class="col-sm-6">
                     <div class="well">
                         <div class="return-customer">
-                            <h3 class="mb-10">DM WholeSales CUSTOMER</h3>
+                            <h3 class="mb-10">DM WHOLESALES CUSTOMER</h3>
                             <p class="mb-10"><strong>I am a DM WholeSales Customer</strong></p>
                             <form action="#">
                                 <div class="form-group">
-                                    <label class="control-label">Enter your email address here...</label>
+                                    <label class="control-label">Enter your Email Address here...</label>
                                     <input type="text" ng-model="user.Name" placeholder="Enter your email address here..." class="form-control">
                                 </div>
                                 <div class="form-group">
@@ -18,7 +18,7 @@
                                     <input type="text" ng-model="user.Password" placeholder="Password" id="input-password" class="form-control">
                                 </div>
                                 <p class="lost-password"><a href="forgot-password.html">Forgot password?</a></p>
-                                <input type="submit" ng-click="UserLoginCheck()" value="Login" class="return-customer-btn">
+                                <input type="button" ng-click="UserLoginCheck()" value="Login" class="return-customer-btn">
 
                                 <p class="mb-10">
                                     <strong>
@@ -37,9 +37,8 @@
                     <div class="well">
                         <div class="new-customer" ng-show="newuseryes==false">
                             <h3>NEW CUSTOMER</h3>
-                            <p class="mtb-10"><strong>Register</strong></p>
                             <p>You can register a new account at checkout on your first order.</p>
-                            <a class="customer-btn" ng-click="showdiv()">continue</a>
+                            <a class="customer-btn" ng-click="showdiv()">Register Me...</a>
                         </div>
                         <div class="new-customer" ng-show="newuseryes==true">
                             <h3>NEW CUSTOMER</h3>
@@ -47,37 +46,37 @@
                             <p>You can register a new account at checkout on your first order.</p>
                             <form action="#">
                                 <div class="form-group">
-                                    <label class="control-label">Enter your First Name</label>
-                                    <input type="text" ng-model="user.Name" placeholder="Enter your email address here..." class="form-control">
+                                    <label class="control-label">First Name*</label>
+                                    <input type="text" ng-model="loginDetail.FirstName" placeholder="Enter your First Name here..." class="form-control">
                                     <span ng-show="shownamemandatory==true" style="color:red">Please Insert Name</span>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">Enter your Phone Number</label>
-                                    <input type="text" ng-model="user.Name" placeholder="Enter your email address here..." class="form-control">
+                                    <label class="control-label">Phone Number*</label>
+                                    <input type="text" ng-model="loginDetail.PhoneNumber" placeholder="Enter your Phone Number here..." class="form-control">
                                     <span ng-show="showPhoneNumbermandatory==true" style="color:red">Please Insert Phone Number</span>
 
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">Enter your Email Address</label>
-                                    <input type="text" ng-model="user.Name" placeholder="Enter your email address here..." class="form-control">
+                                    <label class="control-label">Email*</label>
+                                    <input type="text" ng-model="loginDetail.email" placeholder="Enter your email address here..." class="form-control">
                                     <span ng-show="showEmailmandatory==true" style="color:red">Please Insert Email</span>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">Enter your Create Password</label>
-                                    <input type="text" ng-model="user.Name" placeholder="Enter your email address here..." class="form-control">
+                                    <label class="control-label">Create Password*</label>
+                                    <input type="text" ng-model="loginDetail.Password" placeholder="Enter your Password here..." class="form-control">
                                     <span ng-show="showPasswordmandatory==true" style="color:red">Please Insert Password</span>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">Enter your Confirm Password</label>
-                                    <input type="text" ng-model="user.Password" placeholder="Password" id="input-password" class="form-control">
+                                    <label class="control-label">Confirm Password*</label>
+                                    <input type="text" ng-model="loginDetail.ConfirmPassword" placeholder="Password" id="input-password" class="form-control">
                                     <span ng-show="showpasswordmismatch==true" style="color:red">Password and confirm Password should be same</span>
                                 </div>
 
                                 <span ng-show="showalreadyregistermsg==true" style="color:red">
-                                    <p>Hello There....</p> you are already Register with us.. Please login..
+                                    <p>Hello There....</p> you are already Register with DM WholeSales.. Please login..
                                 </span>
                                 <p class="lost-password"><a href="forgot-password.html">Forgot password?</a></p>
-                                <input type="submit" ng-click="registerme()" value="Register" class="return-customer-btn">
+                                <input type="button" ng-click="registerme()" value="Register" class="return-customer-btn">
 
 
                             </form>

@@ -1,94 +1,113 @@
 ﻿<div class="" ng-controller="ThankyouController">
-    <div class="middle inner">
+    <div class="breadcrumb-area pt-60 pb-55 pt-sm-30 pb-sm-20">
         <div class="container">
-           
-            <div class="thankyou   white-bg">
-                <a href="" id="submit-button" ng-click="printReceiptDataFromModal('PrintMe')" class="checkout2">Print Slip</a>
-                <img class="checkimg" src="../../ItemImage/thankyou.png" />
+            <div class="breadcrumb">
+                <ul>
+                    <li> <h2>Thanks For Shoping With Us...</h2></li>
+                    <!--<li><a href="index.html">Home</a></li>
+                    <li class="active"><a href="cart.html">Cart</a></li>-->
+                </ul>
+            </div>
+        </div>
+        <!-- Container End -->
+    </div>
+    <div class="cart-main-area pb-80 pb-sm-50">
+        <div class="container">
+            <div class="middle inner">
+                <div class="container">
 
-                <h1>Your Payment was sucessful</h1>
-                <div id="PrintMe">
-                    <div align="center">
-                        <h3>Order Id: {{OrderId}}</h3>
-                        <p>We will not break the traffic rules but attempt to deliver your order as soonest possible.</p>
-                    </div>
-                    <table width="80%" border="1" cellspacing="0" cellpadding="10" align="center" style="border:1px solid #ccc; margin-top:50px;">
-                        <tr>
-                            <td bgcolor="#CCCCCC"><strong>Product</strong></td>
-                            <td bgcolor="#CCCCCC"><strong>Quantity</strong></td>
-                            <td bgcolor="#CCCCCC"><strong>Price</strong></td>
+                    <div class="thankyou   white-bg">
+                        
+                        <div class="col-lg-8 col-md-7">
+                            <div class="buttons-cart">
+                               
+                                <a href="#"  id="submit-button" ng-click="printReceiptDataFromModal('PrintMe')">Print Slip</a>
+                            </div>
+                        </div>
 
-                        </tr>
-                        <tr ng-repeat="item in items | orderBy:'name'">
-                            <td>{{item.name}}</td>
-                            <td>{{item.quantity}}</td>
-                            <td>{{getLinePrice(item.price,item.quantity)|currency:"&#163;"}}</td>
+                        <div id="PrintMe">
+                            <div align="center">
+                                <h3>Order Id: {{OrderId}}</h3>
+                                <p>We will not break the traffic rules but attempt to deliver your order as soonest possible.</p>
+                            </div>
+                            <table width="80%" border="1" cellspacing="0" cellpadding="10" align="center" style="border:1px solid #ccc; margin-top:50px;">
+                                <tr>
+                                    <td bgcolor="#CCCCCC"><strong>Product</strong></td>
+                                    <td bgcolor="#CCCCCC"><strong>Quantity</strong></td>
+                                    <td bgcolor="#CCCCCC"><strong>Price</strong></td>
 
-                        </tr>
-                        <!--<tr>
+                                </tr>
+                                <tr ng-repeat="item in items | orderBy:'name'">
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.quantity}}</td>
+                                    <td>{{getLinePrice(item.price,item.quantity)|currency:"&#163;"}}</td>
+
+                                </tr>
+                                <!--<tr>
                 <td colspan="2">Cast Subtotal</td>
                 <td></td>
 
             </tr>-->
-                        <tr>
-                            <td>Shipping:</td>
-                            <td>&nbsp;</td>
-                            <td>Estimated 15 days</td>
-                        </tr>
-                        <!--<tr>
+                                <tr>
+                                    <td>Shipping:</td>
+                                    <td>&nbsp;</td>
+                                    <td>Estimated 15 days</td>
+                                </tr>
+                                <!--<tr>
                 <td>Tax:</td>
                 <td>&nbsp;</td>
                 <td>$10</td>
             </tr>-->
-                        <!--<tr>
+                                <!--<tr>
                 <td>Payment Method:</td>
                 <td>&nbsp;</td>
                 <td>Credit Card</td>
             </tr>-->
-                        <tr>
-                            <td><strong>Order Total:</strong></td>
-                            <td>&nbsp;</td>
-                            <td><strong>{{getTotalPrice()|currency:"&#163;"}}</strong></td>
-                        </tr>
-                    </table>
-                    <br>
-                    <table width="80%" border="0" cellspacing="0" cellpadding="10" align="center">
-                        <tr>
-                            <td>
-                                <h2><strong>Customer Details:</strong></h2>
-                                <p>Mobile: {{PhoneNumber}}</p>
-                                <p>Email: {{Email}}</p>
-                            </td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h2><strong>Billing Address:</strong></h2>
-                                <p>{{Name}}</p>
-                                <p>{{Company}}{{InvoiceName}} </p>
-                                <p>{{InvoiceAddessLine2}}</p>
-                                <p>{{InvoiceAddressLine3}}</p>
-                                <p>{{InvoiceAddressLine4}}</p><p>{{InvoicePostCode}}</p>
+                                <tr>
+                                    <td><strong>Order Total:</strong></td>
+                                    <td>&nbsp;</td>
+                                    <td><strong>{{getTotalPrice()|currency:"&#163;"}}</strong></td>
+                                </tr>
+                            </table>
+                            <br>
+                            <table width="80%" border="0" cellspacing="0" cellpadding="10" align="center">
+                                <tr>
+                                    <td>
+                                        <h3><strong>Customer Details:</strong></h3>
+                                        <p>Mobile: {{PhoneNumber}}</p>
+                                        <p>Email: {{Email}}</p>
+                                    </td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h3><strong>Billing Address:</strong></h3>
+                                        <p>{{Name}}</p>
+                                        <p>{{Company}}{{InvoiceName}} </p>
+                                        <p>{{InvoiceAddessLine2}}</p>
+                                        <p>{{InvoiceAddressLine3}}</p>
+                                        <p>{{InvoiceAddressLine4}}</p><p>{{InvoicePostCode}}</p>
 
-                            </td>
-                            <td>
-                                <h2><strong>Shipping  Address:</strong></h2>
-                                <p>{{Name}}</p>
-                                <p>{{HouseNo}} </p>
-                                <p>{{AddressLine2}}</p><p>{{AddressLine3}}</p><p>{{AddressLine4}}</p><p>{{PostCode}}</p>
-                            </td>
-                        </tr>
-                    </table>
+                                    </td>
+                                    <td>
+                                        <h3><strong>Shipping  Address:</strong></h3>
+                                        <p>{{Name}}</p>
+                                        <p>{{HouseNo}} </p>
+                                        <p>{{AddressLine2}}</p><p>{{AddressLine3}}</p><p>{{AddressLine4}}</p><p>{{PostCode}}</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
                 </div>
+
+
+
+
             </div>
 
         </div>
-
-
-
-
     </div>
-
-
 
 </div>

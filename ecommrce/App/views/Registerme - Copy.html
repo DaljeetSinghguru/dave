@@ -1,0 +1,98 @@
+﻿<div class="" ng-controller="RegistermeController">
+    <div class="middle inner">
+        <div class="container">
+            <div class="login white-bg">
+                <h2>Please fill Your Details</h2>
+                <div class="login-user">
+                    <h3>Courier Service</h3>
+                    <p> Delivery Address.</p>
+                    <label>Enter Full Name*</label>
+                    <input type="text" ng-model="loginDetail.FirstName">
+                    <span ng-show="shownamemandatory==true" style="color:red">Please Insert Name</span>
+
+                    <label>House Name / No*</label>
+                    <input type="text" ng-model="loginDetail.House">
+                    <span ng-show="showHousemandatory==true" style="color:red">Please Insert House no.</span>
+
+                    <label>Address Line 2</label>
+                    <input type="text" ng-model="loginDetail.AddressLine2">
+                   
+
+                    <label>Address Line 3*</label>
+                    <input type="text" ng-model="loginDetail.AddressLine3">
+                    <span ng-show="showAddressLine3mandatory==true" style="color:red">Please Insert Address Line </span>
+
+                    <label>Address Line 4</label>
+                    <input type="text" ng-model="loginDetail.AddressLine4">
+                   
+
+                    <label>Post Code*</label>
+                    <input type="text" ng-model="loginDetail.PostCode">
+                    <span ng-show="showPostCodemandatory==true" style="color:red">Please Insert Post Code</span>
+
+                </div>
+                <div class="register-user">
+                    <!--<h3>Invoice</h3>-->
+                    <p>
+                        Invoice Address.<span>
+                            <label>
+                                Same as billing address
+                                <input type="checkbox" ng-click="samebillingaddresscheck(checksamebillingaddress)" ng-model="checksamebillingaddress">
+                            </label>
+                            <!--<input type="checkbox" ng-click="samebillingaddresscheck(checksamebillingaddress)" ng-modal="checksamebillingaddress" value="" />-->
+                        </span>
+                    </p>
+                    <label>Enter Full Name*</label>
+                    <input type="text" ng-model="loginDetail.InvoiceFirstName">
+                    <span ng-show="showInvoicenamemandatory==true" style="color:red">Please Insert Name</span>
+
+                    <label>Company</label>
+                    <input type="text" ng-model="loginDetail.InvoiceCompany">
+                    <label>House Name/No*</label>
+                    <input type="text" ng-model="loginDetail.InvoiceHouse">
+                    <span ng-show="showInvoiceHousemandatory==true" style="color:red">Please Insert House no.</span>
+
+                    <label>Address Line 2</label>
+                    <input type="text" ng-model="loginDetail.InvoiceAddressLine2">
+                    <label>Address Line 3*</label>
+                    <input type="text" ng-model="loginDetail.InvoiceAddressLine3">
+                    <span ng-show="showInvoiceAddressLine3mandatory==true" style="color:red">Please Insert Address</span>
+                    <label>Address Line 4</label>
+                    <input type="text" ng-model="loginDetail.InvoiceAddressLine4">
+                    <label>Post Code*</label>
+                    <input type="text" ng-model="loginDetail.InvoicePostCode">
+                    <span ng-show="showInvoicePostCodemandatory==true" style="color:red">Please Insert Post Code</span>
+
+                </div>
+
+                <div class="login-user">
+                    <h3>Communication</h3>
+                    <p>UK Planet Tools and its agents would occasionally like to contact you with their latest promotions, services and news that we feel may be of interest to you. Please tick the acceptance box to confirm that by providing your email address to us, you expressly consent to receive emails from UK Planet Tools. We may use your email to communicate with you, to send information that you have requested or to send information about our latest news, promotions and special offers.</p>
+
+                    <label>
+                        If you wish to receive UK Planet Tools’ latest promotions, special offers and news please tick this box.
+                        <input type="checkbox" ng-model="loginDetail.wantnews">
+                    </label>
+                </div>
+
+                <div class="login-user">
+                    <h3>Terms & Conditions</h3>
+
+                    <label>
+                        I confirm that I have read and understand the<span>
+                            <a ng-click="showtermscond()">Terms & Conditions</a>
+                        </span>.
+                        <input type="checkbox" ng-model="AcceptTerm">
+                        <span ng-show="showwantnewsmandatory==true" style="color:red">Please Accept Terms & Conditions</span>
+
+                    </label>
+                </div>
+
+            </div>
+            <input type="submit" ng-click="register()" value="Register Me">
+        </div>
+
+    </div>
+</div>
+
+
