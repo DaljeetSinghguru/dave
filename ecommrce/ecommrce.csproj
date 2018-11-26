@@ -67,14 +67,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\Admin\controllers\BrandController.js" />
+    <Content Include="App\Admin\controllers\BlogController.js" />
     <Content Include="App\Admin\controllers\UploadBannerCategoryController.js" />
     <Content Include="App\Admin\controllers\ItemSuggestionAccessoriesController.js" />
     <Content Include="App\Admin\controllers\ItemController.js" />
     <Content Include="App\Admin\Services\BrandMasterService.js" />
+    <Content Include="App\Admin\Services\blogService.js" />
     <Content Include="App\Admin\Services\brandService.js" />
     <Content Include="App\Admin\Services\ItemService.js" />
     <Content Include="App\Admin\Services\SubCategoryMasterService.js" />
     <Content Include="App\Admin\Services\SubCategoryService.js" />
+    <Content Include="App\Admin\views\BlogView.html" />
     <Content Include="App\Admin\views\UploadBannerCategory.html" />
     <Content Include="App\Admin\views\UploadBannerOfCategoryView.html" />
     <Content Include="App\Admin\views\EditCategory.html" />
@@ -85,6 +88,7 @@
     <Content Include="App\Admin\views\ItemSuggestionAccessoriesView.html" />
     <Content Include="App\Admin\views\ItemView.html" />
     <Content Include="App\Admin\views\UploadItemImageView.html" />
+    <Content Include="App\controllers\blogdetailcontroller.js" />
     <Content Include="App\controllers\CategoryLevel2Controller.js" />
     <Content Include="App\controllers\CategoryLevel1Controller.js" />
     <Content Include="App\controllers\CheckLoginController.js" />
@@ -103,7 +107,7 @@
     <Content Include="App\controllers\MyCartController.js" />
     <Content Include="App\controllers\ShopLoginController.js" />
     <Content Include="App\main.js" />
-    <Content Include="App\views\blog-details.html" />
+    <Content Include="App\views\blogdetails.html" />
     <Content Include="App\views\blog.html" />
     <Content Include="App\views\CategoryLevel1.html" />
     <Content Include="App\views\CategoryLevel2.html" />

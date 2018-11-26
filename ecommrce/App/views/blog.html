@@ -1,5 +1,5 @@
 ﻿
-<div class="" ng-controller="BlogController">
+<div class="" ng-controller="BlogsController">
     <!-- Breadcrumb End -->
     <!-- Blog Area Start -->
     <div class="blog-page pb-60" style="margin-top:10px;">
@@ -7,21 +7,20 @@
             <!-- Row End -->
             <div class="row">
                 <!-- Single Blog Start -->
-                <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="col-lg-4 col-md-6 col-sm-6" ng-repeat="blog in BlogData">
                     <div class="single-blog">
                         <div class="blog-img">
-                            <a href="" ng-click="openblog()"><img src="img/blog/1.jpg" alt="blog-image"></a>
+                            <a href="{{MainUrl}}blogdetail/{{blog.BlogId}}" ng-click="openblog(blog.BlogId)"><img src="{{WebsiteDomain}}images/{{blog.ImageUrl}}" alt="blog-image"></a>
                         </div>
                         <div class="blog-content">
-                            <h4 class="blog-title"><a href="" ng-click="openblog()">Lorem ipsum dolor sit amet, consectl adip elit, sed do eiusmod tempor</a></h4>
+                            <h4 class="blog-title"><a href="" ng-click="openblog(blog.BlogId)">{{blog.Header}}</a></h4>
                             <div class="blog-meta">
                                 <ul>
-                                    <li><span>By: </span> <a href="#">Jantrik,</a></li>
-                                    <li><span>On: </span> <a href="#">05 Nov, 2018</a></li>
+                                    <li><span>Written On: </span>{{blog.Date}} </li><!--<a href="#">05 Nov, 2018</a>-->
                                 </ul>
                             </div>
                             <div class="readmore">
-                                <a href="" ng-click="openblog()">Read More.....</a>
+                                <a href="{{MainUrl}}blogdetail/{{blog.BlogId}}" ng-click="openblog(blog.BlogId)">Read More.....</a>
                             </div>
                         </div>
                     </div>

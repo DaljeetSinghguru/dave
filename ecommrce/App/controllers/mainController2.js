@@ -1263,4 +1263,9 @@
             }).
             error(function (data, status, headers, config) {
             });
+
+
+        $scope.openblog = function () {
+            window.location.replace('index.html#/blog');
+        }
     }]);

@@ -1,0 +1,65 @@
+﻿<div ng-controller="BlogController" class="">
+    <h4><strong>Blog View</strong></h4>
+
+
+
+    <div class="clearfix"></div>
+    <div id="dv_OfferLetter" class="ctm_Personal">
+        <div class="row">
+
+
+            <div class="col-md-3">
+                <div class="sec">
+                    <p><strong>Header</strong></p>
+                    <div class="input-sec">
+                        <input type="text" placeholder="Title" class="form-control" ng-model="Blog.Header">
+                        <span ng-show="ItemTitleval==true" style="color:red">Please Write Header.</span>
+                        <small>Header</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="sec">
+                    <p><strong>Upload Image</strong></p>
+                    <div class="input-sec">
+
+                        <div style="margin:10px; text-align:center; font-size:12px; ">{{FileNameUpload}}</div>
+                        <div class="upload-img">
+                            <label class="custom-file-upload cutmCls-Manager cutmCls-Counselor cutmCls-Admission">
+                                <input type='file' ng-model-instant onchange="angular.element(this).scope().imageUpload(event)" />
+                                Choose Image
+                            </label>
+
+                            <span ng-show="ItemBlogval==true" style="color:red">Please Upload Image.</span>
+                        </div>
+                        <!-- <span ng-show="PlsUploadOfferLetter==true" style="color:red">Please Upload Offer Letter.</span>-->
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-12">
+                <div class="sec1">
+                    <b><strong>Blog Content</strong></b>
+
+                    <!--<button ng-click="disabled = !disabled" unselectable>Disable text-angular Toggle</button>-->
+                    <div text-angular="text-angular" name="htmlcontent" ng-model="Blog.Description" ta-disabled='disabled'></div>
+                    <b><strong>Raw HTML in a Text Area</strong></b>
+                    <textarea ng-model="Blog.Description" style="width: 100%"></textarea>
+
+                </div>
+            </div>
+
+        </div>
+        <hr />
+
+        <input type="button" value="{{btntext}}" class="red-btn" ng-click="SaveDetail()" />
+    </div>
+
+    <div kendo-grid="grid"
+         id="KendoGrid"
+         class="link-hover"
+         k-options="GridOptions" k-rebind="screenResolution1" k-on-change="onChange({ selected: selected },data,dataItem,angularDataItem)" k-selectable="true"></div>
+
+</div>
+

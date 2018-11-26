@@ -171,8 +171,8 @@ app.config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'app/views/blog.html',
             contrller: 'blogController'
         })
-        .when('/blogdetail', {
-            templateUrl: 'app/views/blog-details.html',
+        .when('/blogdetail/:id', {
+            templateUrl: 'app/views/blogdetails.html',
             contrller: 'blogController'
         })
         .when('/Privacy', {

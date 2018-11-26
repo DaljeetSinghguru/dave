@@ -40,6 +40,10 @@ app.config(['$routeProvider', '$locationProvider',
                 templateUrl: 'App/Admin/views/ItemView.html',
                 contrller: 'app/controllers/Master/CountryMasterController.js'
             })
+            .when('/Blog', {
+                templateUrl: 'App/Admin/views/BlogView.html',
+                contrller: 'app/controllers/Master/BlogController.js'
+            })
             .when('/SubCategory', {
 
                     templateUrl: 'App/Admin/views/SubCategoryView.html',

@@ -1,0 +1,157 @@
+﻿<style>
+    ul {
+        margin: 0px !important;
+        padding: -1px !important;
+    }
+
+    .descri strong {
+        margin-top: 10px !important;
+        font-weight: 600 !important;
+    }
+
+    .descri p {
+        font-size: 16px !important;
+    }
+
+    .descri li {
+        list-style: square !important;
+    }
+
+    .techinfo th {
+        font-weight: 400 !important;
+    }
+</style>
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- Wrapper Start -->
+    <div class="wrapper" ng-controller="blogdetailcontroller">
+        <!-- Header Area Start -->
+    
+        <!-- Header Area End -->  
+        <!-- Breadcrumb Start -->
+       
+        <!-- Breadcrumb End -->
+        <!-- Blog Area Start -->
+        <div class="blog-area pb-60" style="margin-top:10px;">
+            <div class="container">
+                <div class="row">
+                    <!-- Main Blog Start -->
+                    <div class="col-lg-12">
+                        <!-- Blog Details Start -->
+                        <div class="blog-details">
+                            <div class="blog-img">
+                                <img style="max-width: 1170px;max-height: 630px;min-width: 630px;" src="{{WebsiteDomain}}images/{{ImageUrl}}" alt="blog-image"> <!--(1170 *630)-->
+                            </div>
+                            <div class="blog-content">
+
+                                <h1>{{Header}}</h1>
+                                <div class="blog-meta">
+                                    <ul>
+                                        <li><span>Written On: </span> <a href="#">{{Date}}</a></li>
+                                    </ul>
+                                </div>
+                                <div class="descri" ng-bind-html="Description"></div>
+                                
+                            </div>
+                                <!--  Blog-Share End  -->
+                                <!--  Blog-Pager Start  -->
+                                <!--<div class="blog-pager">
+                                    <ul class="pager">
+                                        <li class="previous"><a href="#"><i class="zmdi zmdi-chevron-left"></i>prev post</a></li>
+                                        <li class="next"><a href="#">Next post<i class="zmdi zmdi-chevron-right"></i></a></li>
+                                    </ul>
+                                </div>-->
+                                <!--  Blog-Pager End  -->
+                        </div>
+                        <!-- Blog Details End -->
+                
+                        <!-- Blog Realated Post Start -->
+                        <!-- Comment Area Start -->
+                        <div class="comment-area recent-post">
+                            <h3 class="sidebar-title">COMMENTS</h3>
+                            <!-- Single Comment Start -->
+                            <div class="single-comment" ng-repeat="comments in BlogCommentData">
+                                <!--<div class="comment-img f-left pr-30">
+                                    <img src="img/blog/user.jpg" alt="blog-comment">
+                                </div>-->
+                                <div class="comment-details fix" >
+                                    <h4>{{comments.loginusername}}</h4>
+                                    <span>{{comments.Date}}</span>
+                                    <p>{{comments.Comment}}</p>
+                                </div>
+                                <!--<a class="reply" href="#">reply</a>-->
+                            </div>
+
+                            <!-- Single Comment End -->
+                        </div>
+                        <!-- Comment Area End -->
+                        <!-- Contact Email Area Start -->
+                        <div class="blog-detail-contact">
+                            <h3>Leave A Comment</h3>
+                            <p class="text-capitalize mb-40">Please Login Before Leave A Comment.</p>
+                            <form id="contact-form" class="contact-form">
+                                <div class="address-wrapper">
+                                <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="address-fname">
+                                                <input type="text" name="name" placeholder="Name" ng-model="blogdata.name">
+                                                <span ng-show="shownamemandatory==true" style="color:red">Please enter a valid Name</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="address-email">
+                                                <input type="email" name="email" placeholder="Email" ng-model="blogdata.email">
+                                                <span ng-show="showemailmandatory==true" style="color:red">Please enter valid email</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="address-web">
+                                                <input type="text" name="website" placeholder="Website" ng-model="blogdata.website">
+                                                <span ng-show="showwebsitemandatory==true" style="color:red">Please enter valid website</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="address-subject">
+                                                <input type="text" name="subject" placeholder="Subject" ng-model="blogdata.subject">
+                                                <span ng-show="showsubjectmandatory==true" style="color:red">Please Insert subject</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="address-textarea">
+
+                                                <textarea name="message" placeholder="Type your Comments" ng-model="blogdata.Comment"></textarea>
+                                                <span ng-show="showmessagemandatory==true" style="color:red">Please Insert Message</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="form-message ml-15"></p>
+                                <div class="col-xs-12 footer-content mail-content">
+                                    <div class="send-email pull-right">
+                                        <input type="button" value="Send" class="submit" ng-click="sendcomment(blogdata)">
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Contact Email Area End -->
+                    </div>
+                    <!-- Main Blog End -->
+                    <!-- Sidebar Main Blog Start -->
+                  
+                    <!-- Sidebar Main Blog End -->
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Blog Area End -->
+        <!-- Brand Logo Start -->
+     
+        <!-- Brand Logo End -->
+
+    
+        <!-- Footer End -->
+    </div>
+    <!-- Wrapper End -->
+   

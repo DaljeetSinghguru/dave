@@ -128,6 +128,8 @@
                                             <li ng-show="showloginbutton==false"><a href="{{MainUrl}}myaccount" ng-click="myaccount()">MY ACCOUNT</a></li>
                                             <hr />
                                             <li ng-show="showloginbutton==false"><a href="" ng-click="logOut()">LOGOUT</a></li>
+                                            <hr />
+                                            <li><a href="{{MainUrl}}blog" ng-click="openblog()">Blogs</a></li>
                                         </ul>
                                     </li>
                                     <!--<li><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>-->
@@ -414,8 +416,9 @@
                                 <div class="footer-content">
                                     <ul class="footer-list">
                                         <!--<li><a href=""  ng-click="loginme()">Your Account</a></li>
-                                        <li><a href=""  ng-click="loginme()">Your Orders</a></li>
-                                        <li><a href=""  ng-click="loginme()">Shipping</a></li>-->
+                                            <li><a href=""  ng-click="loginme()">Your Orders</a></li>
+                                            <li><a href=""  ng-click="loginme()">Shipping</a></li>-->
+                                        <li><a href="{{MainUrl}}blog" ng-click="openblog()">Blogs</a></li>
                                         <li><a href="{{MainUrl}}Login" ng-click="loginme()">Login</a></li>
                                     </ul>
                                 </div>
@@ -511,6 +514,7 @@
     <script src="App/controllers/ItemListByBrandController.js"></script>
     <script src="App/controllers/ItemListBySerachText.js"></script>
     <script src="App/controllers/MyAccountController.js"></script>
+    <script src="App/controllers/blogdetailcontroller.js"></script>
     <!-- mobile menu js  -->
     <script src="js/jquery.meanmenu.min.js"></script>
     <!-- scroll-up js -->
