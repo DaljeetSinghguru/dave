@@ -10,7 +10,7 @@
         $scope.showmessagemandatory = false;
 
         $http({
-            method: 'GET', url: $scope.Url + 'Blog/GetSingleBlogData?Id=4'// +blogId+''
+            method: 'GET', url: $scope.Url + 'Blog/GetSingleBlogData?Id='+blogId+''
         }).
             success(function (data, status, headers, config) {
                 debugger
@@ -23,7 +23,7 @@
             error(function (data, status, headers, config) {
             });
         $http({
-            method: 'GET', url: $scope.Url + 'Blog/getcommentdetailuserwise?blogId=4'// +blogId+''
+            method: 'GET', url: $scope.Url + 'Blog/getcommentdetailuserwise?blogId='+blogId+''
         }).
             success(function (data, status, headers, config) {
                 debugger

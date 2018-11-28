@@ -15,7 +15,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Password</label>
-                                    <input type="text" ng-model="user.Password" placeholder="Password" id="input-password" class="form-control">
+                                    <input type="password" ng-model="user.Password" placeholder="Password" id="input-password" class="form-control">
                                 </div>
                                 <p class="lost-password"><a href="forgot-password.html">Forgot password?</a></p>
                                 <input type="button" ng-click="UserLoginCheck()" value="Login" class="return-customer-btn">
@@ -63,12 +63,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Create Password*</label>
-                                    <input type="text" ng-model="loginDetail.Password" placeholder="Enter your Password here..." class="form-control">
+                                    <input type="password" ng-model="loginDetail.Password" placeholder="Enter your Password here..." class="form-control">
                                     <span ng-show="showPasswordmandatory==true" style="color:red">Please Insert Password</span>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Confirm Password*</label>
-                                    <input type="text" ng-model="loginDetail.ConfirmPassword" placeholder="Password" id="input-password" class="form-control">
+                                    <input type="password" ng-model="loginDetail.ConfirmPassword" placeholder="Password" id="input-password" class="form-control">
                                     <span ng-show="showpasswordmismatch==true" style="color:red">Password and confirm Password should be same</span>
                                 </div>
 

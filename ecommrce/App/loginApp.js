@@ -159,7 +159,7 @@ app.config(['$routeProvider', function ($routeProvider) {
             contrller: 'loginController'
         })
         .when('/ItemListSearchText/:id', {
-            templateUrl: 'app/views/ItemListByBrand.html',
+            templateUrl: 'app/views/ItemListBySearchText.html',
             contrller: 'loginController'
         })
 
