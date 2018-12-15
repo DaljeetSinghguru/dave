@@ -3,17 +3,17 @@
 
         debugger
         $window.scrollTo(0, 0);
-        var StockCode =   $route.current.params.id;
+        var StockCode = $route.current.params.id;
         var paramValue = $route.current.$$route.paramExample;
         //$scope.WebsiteDomain = ViewVariablesService.GetWebsiteDomain();
         $scope.WebsiteDomain = "http://api.davemuslayah.com/";
         $scope.cartName = "DAVE";
         var myPassword = "MAKV123456789312";
-
+        $scope.quantity = "1";
         $scope.ifdataimage2 = false;
         $scope.ifdataimage4 = false;
         $scope.ifdataimage3 = false;
-    $http({
+        $http({
             method: 'GET', url: $scope.Url + 'Category/GetItemByCategory?CategoryId=163'
         }).
             success(function (data, status, headers, config) {
@@ -26,61 +26,75 @@
             }).
             error(function (data, status, headers, config) {
             });
+        $scope.BrandList = ViewVariablesService.GetBrandData();
+        $http({
+            method: 'GET', url: $scope.Url + 'Brand/GetBrand'
+        }).
+            success(function (data, status, headers, config) {
+                debugger
+                $scope.BrandList = data;
+                ViewVariablesService.SetBrandData(data);
+
+            }).
+            error(function (data, status, headers, config) {
+            });
 
         ///get item by sku
         $scope.SingleItemDataInDetail = {};
         $http({
-            method: 'GET', url: $scope.Url + 'Category/GetItemDetailByStockCode?ItemStockCode=' + StockCode 
+            method: 'GET', url: $scope.Url + 'Category/GetItemDetailByStockCode?ItemStockCode=' + StockCode
         }).
             success(function (data, status, headers, config) {
                 debugger
-        $scope.SingleItemDataInDetail = data[0];
-        $scope.Description = $sce.trustAsHtml($scope.SingleItemDataInDetail.Description);
-        $scope.ItemStockCode = $scope.SingleItemDataInDetail.ItemStockCode;
-        //pass this category id to database and get all item present in category and display in browser
-        $scope.categoryid = $scope.SingleItemDataInDetail.CategoryId;
-        if ($scope.SingleItemDataInDetail.ItemImage3) {
-            $scope.ifdataimage4 = true;
-        }
-        if ($scope.SingleItemDataInDetail.ItemImage2) {
-            $scope.ifdataimage3 = true;
-        }
-        if ($scope.SingleItemDataInDetail.ItemImage1) {
-            $scope.ifdataimage2 = true;
-        }
+                $scope.SingleItemDataInDetail = data[0];
+                $scope.Description = $sce.trustAsHtml($scope.SingleItemDataInDetail.Description);
+                $scope.ItemStockCode = $scope.SingleItemDataInDetail.ItemStockCode;
+                //pass this category id to database and get all item present in category and display in browser
+                $scope.categoryid = $scope.SingleItemDataInDetail.CategoryId;
+                if ($scope.SingleItemDataInDetail.ItemImage3) {
+                    $scope.ifdataimage4 = true;
+                }
+                if ($scope.SingleItemDataInDetail.ItemImage2) {
+                    $scope.ifdataimage3 = true;
+                }
+                if ($scope.SingleItemDataInDetail.ItemImage1) {
+                    $scope.ifdataimage2 = true;
+                }
 
 
-        $http({
-            method: 'GET', url: $scope.Url + 'Category/GetRelatedItems?ItemStockCode=' + $scope.ItemStockCode + '&categoryid=' + $scope.categoryid + ''
-        }).
-            success(function (data, status, headers, config) {
+                $http({
+                    method: 'GET', url: $scope.Url + 'Category/GetRelatedItems?ItemStockCode=' + $scope.ItemStockCode + '&categoryid=' + $scope.categoryid + ''
+                }).
+                    success(function (data, status, headers, config) {
 
-                debugger
-                $scope.ifsmiliarexist = false;
-                if (data.length > 0) { $scope.ifsmiliarexist = true; }
-                $scope.relateditemdata = data;
-                //ViewVariablesService.SetDatasendToItemListPage(data);
-                //if ($location.path() == '/ItemList') {
-                //    $route.reload();
-                //}
-                //else {
-                //    $location.path('ItemList');
-                //}
+                        debugger
+                        $scope.ifsmiliarexist = false;
+                        if (data.length > 0) { $scope.ifsmiliarexist = true; }
+                        $scope.relateditemdata = data;
+                        //ViewVariablesService.SetDatasendToItemListPage(data);
+                        //if ($location.path() == '/ItemList') {
+                        //    $route.reload();
+                        //}
+                        //else {
+                        //    $location.path('ItemList');
+                        //}
+                        setTimeout(function () {
+                            $scope.loadbrand();
+                        }, 1000);
+
+                    }).
+                    error(function (data, status, headers, config) {
+                    });
 
 
             }).
             error(function (data, status, headers, config) {
             });
 
-            
-            }).
-            error(function (data, status, headers, config) {
-            });
 
 
+        // $scope.SingleItemDataInDetail = ViewVariablesService.GetSingleItemData();
 
-       // $scope.SingleItemDataInDetail = ViewVariablesService.GetSingleItemData();
-        
         //$scope.html = '<ul><li>render me please</li></ul>';
         //$scope.trustedHtml = $sce.trustAsHtml($scope.html);
         //$scope.Description = $scope.SingleItemDataInDetail.Description;
@@ -266,7 +280,7 @@
         debugger
         $scope.ifsmiliarexist = false;
 
-        
+
         $scope.addItemToCart = function (sku, name, ItemImage, price, quantity, IsStockPresent, ItemType, ItemId) {
 
 
@@ -351,13 +365,13 @@
 
             ViewVariablesService.SetSingleItemData($scope.SingleItemData);
 
-          
+
             var path = "/ItemDetail/" + ItemData.ItemStockCode;
             $location.path(path);
 
         }
         $scope.activeMenu = '1';
-       
+
         $scope.showimage4thumb = function () {
             $scope.activeMenu = '4';
         }
@@ -384,21 +398,9 @@
         }
 
 
-//////////////////////////////////////////////////////////
-        $scope.BrandList = ViewVariablesService.GetBrandData();
-        $http({
-            method: 'GET', url: $scope.Url + 'Brand/GetBrand'
-        }).
-            success(function (data, status, headers, config) {
-                debugger
-                $scope.BrandList = data;
-                ViewVariablesService.SetBrandData(data);
+        //////////////////////////////////////////////////////////
 
-            }).
-            error(function (data, status, headers, config) {
-            });
 
-       
         $scope.BrandClick = function (brandData) {
             debugger
             //$http({
@@ -473,7 +475,7 @@
             /*----------------------------
             4. NivoSlider Activation
             -----------------------------*/
-           $('#slider').nivoSlider({
+            $('#slider').nivoSlider({
                 effect: 'random',
                 animSpeed: 300,
                 pauseTime: 3000,
@@ -668,13 +670,13 @@
                 autoplayTimeout: 1000,
                 navigation: false,
                 margin: 10,
-               
+
                 dots: false,
                 loop: true,
                 responsive: {
                     0: {
                         items: 1,
-                       // autoplay: true
+                        // autoplay: true
                     },
                     480: {
                         items: 3
@@ -918,7 +920,5 @@
 
         }
 
-        setTimeout(function () {
-            $scope.loadbrand();
-        }, 3500);
+       
     }])

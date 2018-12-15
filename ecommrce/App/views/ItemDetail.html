@@ -24,11 +24,10 @@
     <div class="breadcrumb-area ptb-60 ptb-sm-30">
         <div class="container">
             <div class="breadcrumb">
-                <!--<ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li class="active"><a href="product.html">{{SingleItemDataInDetail.Title}} </a></li>
-                </ul>-->
+                <ul>
+                   
+                    <li class="active" style="font-weight:800">{{SingleItemDataInDetail.Title}}</li>
+                </ul>
             </div>
         </div>
       
@@ -114,7 +113,7 @@
 
                         <div class="box-quantity">
                             <form action="#">
-                                <input class="number" id="numeric" ng-model="quantity" type="number" min="1" value="1">
+                                <input class="number" id="numeric" ng-model="quantity"  type="number" min="1" value="1">
                                 <a class="add-cart" href="" ng-click="addtobasket(SingleItemDataInDetail)">add to cart</a>
                             </form>
                         </div>
@@ -203,7 +202,7 @@
                 <!-- Realted Product Activation Start -->
                 <div class="new-upsell-pro owl-carousel">
                     <!-- Single Product Start -->
-                    <div class="single-product" ng-repeat="data in relateditemdata">
+                    <div class="single-product" ng-repeat="data in relateditemdata" style="width:25%;float:left;">
                         <!-- Product Image Start -->
                         <div class="pro-img">
                             <a href="" ng-click="ShowItemDetail(data)">

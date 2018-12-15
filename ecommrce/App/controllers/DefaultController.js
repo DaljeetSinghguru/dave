@@ -55,9 +55,12 @@
 
                     $scope.ItemListDetails = data;
                     ViewVariablesService.SetDatasendToItemListPage(data);
-               //     $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
-    localStorage["ItemListdata"] = angular.toJson(data);
+                  //     $window.sessionStorage.setItem('ItemListdata', angular.toJson(data));
+                    localStorage["ItemListdata"] = angular.toJson(data);
                     $location.path('ItemList');
+
+
+
 
                 }).
                 error(function (data, status, headers, config) {
@@ -107,42 +110,65 @@
                 debugger
                 $scope.topProductshowonfront = data;
 
+
+
+
+
+                $http({
+                    method: 'GET', url: $scope.Url + 'Category/Category_Get570'
+                }).
+                    success(function (data, status, headers, config) {
+
+                        $scope.topProductshowonfront570 = data;
+
+
+
+                        $http({
+                            method: 'GET', url: $scope.Url + 'Category/Category_Get870'
+                        }).
+                            success(function (data, status, headers, config) {
+
+                                $scope.topProductshowonfront870 = data;
+
+
+                                setTimeout(function () {
+                                    $scope.loadbrand();
+                                }, 1500);
+                            }).
+                            error(function (data, status, headers, config) {
+                            });
+
+
+
+                    }).
+                    error(function (data, status, headers, config) {
+                    });
+
+                $http({
+                    method: 'GET', url: $scope.Url + 'Category/GetHotSaleItem'
+                }).
+                    success(function (data, status, headers, config) {
+
+                        $scope.topHotSaleItem = data;
+
+
+                    }).
+                    error(function (data, status, headers, config) {
+                    });
+
+
+
+
+
+            
+
+
             }).
             error(function (data, status, headers, config) {
             });
 
-        $http({
-            method: 'GET', url: $scope.Url + 'Category/Category_Get570'
-        }).
-            success(function (data, status, headers, config) {
-
-                $scope.topProductshowonfront570 = data;
-
-            }).
-            error(function (data, status, headers, config) {
-            });
-        $http({
-            method: 'GET', url: $scope.Url + 'Category/Category_Get870'
-        }).
-            success(function (data, status, headers, config) {
-
-                $scope.topProductshowonfront870 = data;
-
-            }).
-            error(function (data, status, headers, config) {
-            });
-        $http({
-            method: 'GET', url: $scope.Url + 'Category/GetHotSaleItem'
-        }).
-            success(function (data, status, headers, config) {
-
-                $scope.topHotSaleItem = data;
-
-
-            }).
-            error(function (data, status, headers, config) {
-            });
-
+      
+     
 
         $scope.CategoryClick = function (categorydata) {
 
@@ -766,7 +792,5 @@
 
         }
 
-        setTimeout(function () {
-            $scope.loadbrand();
-        }, 3500);
+     
     }]);
