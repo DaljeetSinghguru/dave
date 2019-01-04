@@ -202,7 +202,7 @@
                 <!-- Realted Product Activation Start -->
                 <div class="new-upsell-pro owl-carousel">
                     <!-- Single Product Start -->
-                    <div class="single-product" ng-repeat="data in relateditemdata" style="width:25%;float:left;">
+                    <div class="single-product" ng-repeat="data in relateditemdata">
                         <!-- Product Image Start -->
                         <div class="pro-img">
                             <a href="" ng-click="ShowItemDetail(data)">
@@ -284,7 +284,7 @@
             <div class="brand-banner owl-carousel">
 
                 <div class="single-brand" ng-repeat="brand in BrandList">
-                    <a href="" ng-click="BrandClick(brand)"><img class="img" src="{{WebsiteDomain}}images/{{brand.filename}}" alt="{{brand.BrandName}}"></a>
+                    <a href="{{MainUrl}}ItemListBrand/{{brand.BrandId}}" ng-click="BrandClick(brand)"><img class="img" src="{{WebsiteDomain}}images/{{brand.filename}}" alt="{{brand.BrandName}}"></a>
                 </div>
 
             </div>
