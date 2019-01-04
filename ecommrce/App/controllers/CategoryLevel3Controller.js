@@ -8,7 +8,7 @@
         $window.scrollTo(0, 0);
         var myPassword = "MAKV123456789312";
         var CategoryIdparame = $route.current.params.id;
-        $scope.WebsiteDomain = "http://api.davemuslayah.com/";
+        $scope.WebsiteDomain = "http://api.davemuslayah.net/";
 
         $scope.Url = ViewVariablesService.GetBaseAddress();
         // $scope.WebsiteDomain = ViewVariablesService.GetWebsiteDomain();
